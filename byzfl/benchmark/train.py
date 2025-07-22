@@ -206,7 +206,9 @@ def start_training(params):
     if training_algorithm_name not in ["DSGD", "FedAvg"]:
         raise ValueError(f"Training algorithm {training_algorithm_name} not supported, supported algorithms are 'DSGD' and 'FedAvg'")
     
-
+    if training_algorithm_name == "FedAvg" and attack_name == "LabelFlipping":
+        raise ValueError("FedAvg does not support Label Flipping attack.")
+    
     if training_algorithm_name == "FedAvg":
 
         training_algorithm_parameters = params_manager.get_training_algorithm_parameters()
