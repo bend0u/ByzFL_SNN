@@ -3077,3 +3077,27 @@ Training 119 done
 [ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 3081.1/4244.0 MiB | Total time: 694.7s
 
 Training 120 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 2 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.4843 | Test Acc: 0.4962 | VRAM (Alloc/Reserved): 1015.8/4162.0 MiB | Time: 177.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.6598 | Test Acc: 0.6688 | VRAM (Alloc/Reserved): 1016.9/4278.0 MiB | Time: 254.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.5927 | Test Acc: 0.5992 | VRAM (Alloc/Reserved): 1015.6/4394.0 MiB | Time: 343.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.6060 | Test Acc: 0.6213 | VRAM (Alloc/Reserved): 1017.9/4394.0 MiB | Time: 437.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.7077 | Test Acc: 0.7105 | VRAM (Alloc/Reserved): 1014.6/4394.0 MiB | Time: 519.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.7453 | Test Acc: 0.7590 | VRAM (Alloc/Reserved): 1019.8/4394.0 MiB | Time: 603.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.7985 | Test Acc: 0.8098 | VRAM (Alloc/Reserved): 1016.1/4394.0 MiB | Time: 687.1s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.7636 | Test Acc: 0.7693 | VRAM (Alloc/Reserved): 1018.7/4394.0 MiB | Time: 769.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.8056 | Test Acc: 0.8169 | VRAM (Alloc/Reserved): 1017.4/4394.0 MiB | Time: 855.9s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 3209.5/4394.0 MiB | Total time: 935.5s
+
+Training 121 done

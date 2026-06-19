@@ -668,3 +668,41 @@ RuntimeError: Expected all tensors to be on the same device, but found at least 
 
 [ERROR] Training failed for config: attack=Gaussian, aggregator=MultiKrum, f=2. Error: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument tensors in method wrapper_CUDA_cat)
 Training 32 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 2 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 139.0/186.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1133 | Test Acc: 0.1175 | VRAM (Alloc/Reserved): 151.4/294.0 MiB | Time: 10.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.9253 | Test Acc: 0.9347 | VRAM (Alloc/Reserved): 605.3/2966.0 MiB | Time: 162.9s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9625 | Test Acc: 0.9667 | VRAM (Alloc/Reserved): 604.4/2968.0 MiB | Time: 298.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9732 | Test Acc: 0.9760 | VRAM (Alloc/Reserved): 604.5/2968.0 MiB | Time: 451.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9769 | Test Acc: 0.9805 | VRAM (Alloc/Reserved): 605.5/2968.0 MiB | Time: 594.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9806 | Test Acc: 0.9827 | VRAM (Alloc/Reserved): 604.3/2968.0 MiB | Time: 746.5s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9818 | Test Acc: 0.9846 | VRAM (Alloc/Reserved): 603.9/2968.0 MiB | Time: 899.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9836 | Test Acc: 0.9850 | VRAM (Alloc/Reserved): 604.8/2968.0 MiB | Time: 1046.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9830 | Test Acc: 0.9857 | VRAM (Alloc/Reserved): 606.1/2968.0 MiB | Time: 1189.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9848 | Test Acc: 0.9863 | VRAM (Alloc/Reserved): 604.1/2968.0 MiB | Time: 1342.0s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 2037.8/2968.0 MiB | Total time: 1483.0s
+
+Training 33 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 2 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 139.0/186.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1133 | Test Acc: 0.1175 | VRAM (Alloc/Reserved): 151.4/294.0 MiB | Time: 10.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.9228 | Test Acc: 0.9302 | VRAM (Alloc/Reserved): 611.2/2948.0 MiB | Time: 122.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9585 | Test Acc: 0.9632 | VRAM (Alloc/Reserved): 610.2/2948.0 MiB | Time: 241.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9692 | Test Acc: 0.9738 | VRAM (Alloc/Reserved): 611.1/2950.0 MiB | Time: 361.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9746 | Test Acc: 0.9782 | VRAM (Alloc/Reserved): 606.9/2950.0 MiB | Time: 470.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9769 | Test Acc: 0.9807 | VRAM (Alloc/Reserved): 610.8/2950.0 MiB | Time: 584.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9790 | Test Acc: 0.9827 | VRAM (Alloc/Reserved): 610.2/2950.0 MiB | Time: 696.4s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9805 | Test Acc: 0.9833 | VRAM (Alloc/Reserved): 611.2/2950.0 MiB | Time: 814.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9828 | Test Acc: 0.9848 | VRAM (Alloc/Reserved): 612.5/2950.0 MiB | Time: 921.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9831 | Test Acc: 0.9850 | VRAM (Alloc/Reserved): 611.0/2950.0 MiB | Time: 1029.5s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 1958.6/2950.0 MiB | Total time: 1131.1s
+
+Training 34 done
