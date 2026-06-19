@@ -1,4 +1,5 @@
 import numpy as np
+import torch
 
 from byzfl.utils.misc import check_vectors_type, random_tool
 from byzfl.aggregators import Average, Clipping
@@ -1114,6 +1115,8 @@ class Gaussian:
         _, honest_vectors = check_vectors_type(honest_vectors)
         random = random_tool(honest_vectors)
         shape = honest_vectors.shape[1]
+        if isinstance(honest_vectors, torch.Tensor):
+            return random.normal(loc=self.mu, scale=self.sigma, size=shape, device=honest_vectors.device)
         return random.normal(loc=self.mu, scale=self.sigma, size=shape)
 
 

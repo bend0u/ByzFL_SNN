@@ -111,5 +111,5 @@ def subtract(vector1, vector2):
 	return torch.subtract(vector1, vector2)
 
 #Sample size elements from a Gaussian distribution of mean loc and standard deviation scale. 
-def normal(loc=0, scale=1, size=1):
-	return torch.randn(size) * scale + loc
+def normal(loc=0, scale=1, size=1, device=None):
+	return torch.randn(size, device=device) * scale + loc
