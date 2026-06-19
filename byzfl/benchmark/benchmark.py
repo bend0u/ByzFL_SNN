@@ -5,6 +5,7 @@ import copy
 
 from byzfl.benchmark.train import start_training
 from byzfl.benchmark.evaluate_results import find_best_hyperparameters
+from byzfl.benchmark.managers import ParamsManager, get_snn_suffix
 
 default_config = {
     "benchmark_config": {
@@ -121,8 +122,7 @@ def generate_all_combinations_aux(list_dict, orig_dict, aux_dict, rest_list):
     if len(aux_dict) < len(orig_dict):
         key = list(orig_dict)[len(aux_dict)]
         if isinstance(orig_dict[key], list):
-            if not orig_dict[key] or (key in rest_list and 
-                not isinstance(orig_dict[key][0], list)):
+            if not orig_dict[key] or key in rest_list:
                 aux_dict[key] = orig_dict[key]
                 generate_all_combinations_aux(list_dict, 
                                               orig_dict, 
@@ -220,10 +220,19 @@ def run_training(params):
     params : dict
         A dictionary containing all necessary parameters for the training job.
     """
-    start_training(params)
-    with counter.get_lock():
-        print(f"Training {counter.value} done")
-        counter.value += 1
+    try:
+        start_training(params)
+    except Exception as e:
+        import traceback
+        attack_name = params.get("attack", {}).get("name", "Unknown") if isinstance(params.get("attack"), dict) else "Unknown"
+        agg_name = params.get("aggregator", {}).get("name", "Unknown") if isinstance(params.get("aggregator"), dict) else "Unknown"
+        f_val = params.get("benchmark_config", {}).get("f", "Unknown")
+        print(f"\n[ERROR] Training failed for config: attack={attack_name}, aggregator={agg_name}, f={f_val}. Error: {e}")
+        traceback.print_exc()
+    finally:
+        with counter.get_lock():
+            print(f"Training {counter.value} done")
+            counter.value += 1
 
 def eliminate_experiments_done(dict_list):
     """
@@ -246,38 +255,61 @@ def eliminate_experiments_done(dict_list):
     if not os.path.isdir(directory):
         return dict_list
 
-    folders = [
-        name for name in os.listdir(directory)
-        if os.path.isdir(os.path.join(directory, name))
-    ]
-
-    # If there are no subfolders, no experiments are completed yet
-    if not folders:
-        return dict_list
-
     new_dict_list = []
     for setting in dict_list:
+        clean = (
+            setting.get("clean_directory_structure", False) or
+            setting.get("evaluation_and_results", {}).get("clean_directory_structure", False) or
+            setting.get("benchmark_config", {}).get("clean_directory_structure", False)
+        )
 
         pre_aggregation_names = [
             agg['name'] for agg in setting["pre_aggregators"]
         ]
-        folder_name = (
-            f"{setting['model']['dataset_name']}_"
-            f"{setting['model']['name']}_"
-            f"n_{setting['benchmark_config']['nb_workers']}_"
-            f"f_{setting['benchmark_config']['f']}_"
-            f"d_{setting['benchmark_config']['tolerated_f']}_"
-            f"{setting['benchmark_config']['data_distribution']['name']}_"
-            f"{setting['benchmark_config']['data_distribution']['distribution_parameter']}_"
-            f"{setting['aggregator']['name']}_"
-            f"{'_'.join(pre_aggregation_names)}_"
-            f"{setting['attack']['name']}_"
-            f"lr_{setting['model']['learning_rate']}_"
-            f"mom_{setting['honest_clients']['momentum']}_"
-            f"wd_{setting['honest_clients']['weight_decay']}"
-        )
+        
+        pm = ParamsManager(setting)
+        
+        if clean:
+            encoding = pm.get_encoding_type()
+            enc_name = "direct" if encoding == "constant" else encoding
+            parent_dir = f"{setting['model']['dataset_name']}_{enc_name}"
+            
+            preaggs_aggregator = '_'.join(pre_aggregation_names + [setting['aggregator']['name']])
+            
+            dist_name = setting['benchmark_config']['data_distribution']['name']
+            dist_param = setting['benchmark_config']['data_distribution']['distribution_parameter']
+            if dist_name in ["iid", "extreme_niid"]:
+                dist_part = dist_name
+            else:
+                dist_part = f"{dist_name}_{dist_param}"
 
-        if folder_name in folders:
+            folder_name = (
+                f"{setting['attack']['name']}_"
+                f"{preaggs_aggregator}_"
+                f"f_{setting['benchmark_config']['f']}_"
+                f"{dist_part}"
+            )
+            target_folder_path = os.path.join(directory, parent_dir, folder_name)
+        else:
+            folder_name = (
+                f"{setting['model']['dataset_name']}_"
+                f"{setting['model']['name']}_"
+                f"n_{setting['benchmark_config']['nb_workers']}_"
+                f"f_{setting['benchmark_config']['f']}_"
+                f"d_{setting['benchmark_config']['tolerated_f']}_"
+                f"{setting['benchmark_config']['data_distribution']['name']}_"
+                f"{setting['benchmark_config']['data_distribution']['distribution_parameter']}_"
+                f"{setting['aggregator']['name']}_"
+                f"{'_'.join(pre_aggregation_names)}_"
+                f"{setting['attack']['name']}_"
+                f"lr_{setting['model']['learning_rate']}_"
+                f"mom_{setting['honest_clients']['momentum']}_"
+                f"wd_{setting['honest_clients']['weight_decay']}"
+            )
+            folder_name += get_snn_suffix(pm)
+            target_folder_path = os.path.join(directory, folder_name)
+
+        if os.path.isdir(target_folder_path):
             # Check if a particular seed combination is already done
             training_seed = setting["benchmark_config"]["training_seed"]
             data_distribution_seed = setting["benchmark_config"]["data_distribution_seed"]
@@ -286,7 +318,11 @@ def eliminate_experiments_done(dict_list):
                 f"train_time_tr_seed_{training_seed}"
                 f"_dd_seed_{data_distribution_seed}.txt"
             )
-            if file_name not in os.listdir(os.path.join(directory, folder_name)):
+            try:
+                files_in_folder = os.listdir(target_folder_path)
+            except Exception:
+                files_in_folder = []
+            if file_name not in files_in_folder:
                 new_dict_list.append(setting)
         else:
             new_dict_list.append(setting)
@@ -505,14 +541,18 @@ def ensure_optional_config_parameters(data):
     return data
 
 
-def run_benchmark(nb_jobs=1):
+def run_benchmark(config_file="config.json", nb_jobs=1):
     """
     Run benchmark experiments in parallel, based on configurations defined
-    in 'config.json'.
+    in the specified config file.
     """
-    # Attempt to load config.json or create one if not found
+    # Support backward compatibility when run_benchmark was called as run_benchmark(nb_jobs)
+    if isinstance(config_file, int):
+        nb_jobs = config_file
+        config_file = "config.json"
+    # Attempt to load the configuration or create one if not found
     try:
-        with open('config.json', 'r') as file:
+        with open(config_file, 'r') as file:
             data = json.load(file)
         
         data = ensure_optional_config_parameters(data)
@@ -520,13 +560,14 @@ def run_benchmark(nb_jobs=1):
             print("WARNING: NO VALIDATION DATASET USED FOR HYPERPARAMETER EXPLORATION (Learning Rate, Momentum, Weight Decay)")
 
     except FileNotFoundError:
-        print("'config.json' not found. Creating a default one...")
-
-        with open('config.json', 'w') as f:
-            json.dump(default_config, f, indent=4)
-
-        print("'config.json' created successfully.")
-        print("Please configure the experiment you want to run and re-run.")
+        if config_file == "config.json":
+            print("'config.json' not found. Creating a default one...")
+            with open('config.json', 'w') as f:
+                json.dump(default_config, f, indent=4)
+            print("'config.json' created successfully.")
+            print("Please configure the experiment you want to run and re-run.")
+        else:
+            print(f"Error: configuration file '{config_file}' not found.")
 
         return
 
@@ -569,17 +610,19 @@ def run_benchmark(nb_jobs=1):
     print(f"Total trainings to do: {len(dict_list)}")
     print(f"Running {nb_jobs} trainings in parallel...")
 
-    counter = Value('i', 0)
-    with Pool(initializer=init_pool_processes, initargs=(counter,), processes=nb_jobs) as pool:
-        pool.map(run_training, dict_list)
+    import multiprocessing
+    ctx = multiprocessing.get_context("spawn")
+    counter = ctx.Value('i', 0)
+    with ctx.Pool(initializer=init_pool_processes, initargs=(counter,), processes=nb_jobs, maxtasksperchild=1) as pool:
+        pool.map(run_training, dict_list, chunksize=1)
 
     print("All trainings finished.")
 
     if float(data["benchmark_config"]["size_train_set"]) == 1.0:
         print("No hyperparameter exploration done.")
     else:
-        print("Selecting Best Hyperparameters...")
-
-        find_best_hyperparameters(results_directory)
-
-        print("Done")
+        try:
+            find_best_hyperparameters(results_directory)
+            print("Done")
+        except Exception as e:
+            print(f"Warning: Best hyperparameter selection skipped or failed: {e}")

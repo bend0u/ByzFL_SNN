@@ -1,0 +1,76 @@
+==========================================================
+SNN WEEKEND EXPERIMENTS SUMMARY
+==========================================================
+Test mode: False
+Steps: 500
+
+Config ID  | Encoding  | Dist           | f  | Attack                         | Pre-Agg  | Aggregator       | Accuracy | Objective/Description
+--------------------------------------------------------------------------------------------------------------------------------------------
+1          | rate      | iid            | 0  | NoAttack                       | None     | Average          | 0.9847   | Maximum baseline ceiling for both encodings.
+2          | constant  | iid            | 0  | NoAttack                       | None     | Average          | 0.9751   | Maximum baseline ceiling for both encodings.
+3          | rate      | dirichlet_niid | 0  | NoAttack                       | None     | Average          | 0.9839   | Clean impact of organic label skew on SNN updates.
+4          | constant  | dirichlet_niid | 0  | NoAttack                       | None     | Average          | 0.9746   | Clean impact of organic label skew on SNN updates.
+5          | rate      | iid            | 0  | NoAttack                       | None     | CenteredClipping | 0.9854   | Measures if Centered Clipping alters clean SNN convergence.
+6          | constant  | iid            | 0  | NoAttack                       | None     | CenteredClipping | 0.9750   | Measures if Centered Clipping alters clean SNN convergence.
+7          | rate      | dirichlet_niid | 0  | NoAttack                       | None     | CenteredClipping | 0.9842   | Tax of Centered Clipping under Non-IID conditions.
+8          | constant  | dirichlet_niid | 0  | NoAttack                       | None     | CenteredClipping | 0.9746   | Tax of Centered Clipping under Non-IID conditions.
+9          | rate      | dirichlet_niid | 0  | NoAttack                       | None     | Median           | 0.9795   | Standard coordinate trimming tax on raw skew.
+10         | constant  | dirichlet_niid | 0  | NoAttack                       | None     | Median           | 0.9686   | Standard coordinate trimming tax on raw skew.
+11         | rate      | dirichlet_niid | 0  | NoAttack                       | None     | MultiKrum        | 0.9840   | Standard distance-based tax on raw skew.
+12         | constant  | dirichlet_niid | 0  | NoAttack                       | None     | MultiKrum        | 0.9750   | Standard distance-based tax on raw skew.
+13         | rate      | iid            | 2  | SignFlipping                   | None     | Average          | 0.9828   | Unprotected system vulnerability under mild attack.
+14         | constant  | iid            | 2  | SignFlipping                   | None     | Average          | 0.9719   | Unprotected system vulnerability under mild attack.
+15         | rate      | dirichlet_niid | 2  | SignFlipping                   | None     | Average          | 0.9824   | Compounding destruction of attack + label skew.
+16         | constant  | dirichlet_niid | 2  | SignFlipping                   | None     | Average          | 0.9715   | Compounding destruction of attack + label skew.
+17         | rate      | iid            | 5  | SignFlipping                   | None     | Average          | 0.9802   | Absolute baseline system breakdown point (~31% malicious).
+18         | constant  | iid            | 5  | SignFlipping                   | None     | Average          | 0.9656   | Absolute baseline system breakdown point (~31% malicious).
+19         | rate      | dirichlet_niid | 5  | SignFlipping                   | None     | Average          | 0.9810   | Total network collapse baseline.
+20         | constant  | dirichlet_niid | 5  | SignFlipping                   | None     | Average          | 0.9650   | Total network collapse baseline.
+21         | rate      | iid            | 5  | SignFlipping                   | None     | Median           | 0.9744   | Can coordinate-wise Median cleanly filter inverted signs?
+22         | constant  | iid            | 5  | SignFlipping                   | None     | Median           | 0.9619   | Can coordinate-wise Median cleanly filter inverted signs?
+23         | rate      | dirichlet_niid | 5  | SignFlipping                   | None     | Median           | 0.4973   | Does Non-IID layout shield sign flippers from Median?
+24         | constant  | dirichlet_niid | 5  | SignFlipping                   | None     | Median           | 0.4990   | Does Non-IID layout shield sign flippers from Median?
+25         | rate      | iid            | 5  | SignFlipping                   | None     | CenteredClipping | 0.9802   | Can Centered Clipping track and drop inverted magnitudes?
+26         | constant  | iid            | 5  | SignFlipping                   | None     | CenteredClipping | 0.9648   | Can Centered Clipping track and drop inverted magnitudes?
+27         | rate      | dirichlet_niid | 5  | SignFlipping                   | None     | CenteredClipping | 0.9810   | Critical SOTA test: Centered Clipping vs SignFlipping on skewed data.
+28         | constant  | dirichlet_niid | 5  | SignFlipping                   | None     | CenteredClipping | 0.9647   | Critical SOTA test: Centered Clipping vs SignFlipping on skewed data.
+29         | rate      | iid            | 5  | SignFlipping                   | None     | MultiKrum        | 0.9766   | Can distance geometry instantly decouple inverted vectors?
+30         | constant  | iid            | 5  | SignFlipping                   | None     | MultiKrum        | 0.9592   | Can distance geometry instantly decouple inverted vectors?
+31         | rate      | dirichlet_niid | 5  | SignFlipping                   | None     | MultiKrum        | 0.8707   | Does Krum drop unique honest nodes over explicit sign-flippers?
+32         | constant  | dirichlet_niid | 5  | SignFlipping                   | None     | MultiKrum        | 0.8521   | Does Krum drop unique honest nodes over explicit sign-flippers?
+33         | rate      | iid            | 5  | SignFlipping                   | Clipping | TrMean           | 0.9694   | Frontline pipeline protection vs aggressive scale shifts.
+34         | constant  | iid            | 5  | SignFlipping                   | Clipping | TrMean           | 0.9614   | Frontline pipeline protection vs aggressive scale shifts.
+35         | rate      | dirichlet_niid | 5  | SignFlipping                   | Clipping | TrMean           | 0.5098   | Evaluates if static clipping helps Trimmed Mean under skew.
+36         | constant  | dirichlet_niid | 5  | SignFlipping                   | Clipping | TrMean           | 0.5438   | Evaluates if static clipping helps Trimmed Mean under skew.
+37         | rate      | iid            | 2  | Optimal_ALittleIsEnough        | None     | Average          | 0.0980   | Does continuous optimization drag effortlessly pull down SNNs?
+38         | constant  | iid            | 2  | Optimal_ALittleIsEnough        | None     | Average          | 0.0980   | Does continuous optimization drag effortlessly pull down SNNs?
+39         | rate      | dirichlet_niid | 2  | Optimal_ALittleIsEnough        | None     | Average          | 0.0980   | Does ALIE successfully mask itself inside natural client variance?
+40         | constant  | dirichlet_niid | 2  | Optimal_ALittleIsEnough        | None     | Average          | 0.0980   | Does ALIE successfully mask itself inside natural client variance?
+41         | rate      | iid            | 5  | Optimal_ALittleIsEnough        | None     | Median           | 0.9836   | The Median Trap: Does ALIE safely cluster inside the SNN median?
+42         | constant  | iid            | 5  | Optimal_ALittleIsEnough        | None     | Median           | 0.9743   | The Median Trap: Does ALIE safely cluster inside the SNN median?
+43         | rate      | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | None     | Median           | 0.6905   | Does data skew worsen the Median Trap for SNNs?
+44         | constant  | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | None     | Median           | 0.7442   | Does data skew worsen the Median Trap for SNNs?
+45         | rate      | iid            | 5  | Optimal_ALittleIsEnough        | None     | CenteredClipping | 0.0980   | Can Centered Clipping's iterative momentum catch the subtle ALIE shift?
+46         | constant  | iid            | 5  | Optimal_ALittleIsEnough        | None     | CenteredClipping | 0.0980   | Can Centered Clipping's iterative momentum catch the subtle ALIE shift?
+47         | rate      | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | None     | CenteredClipping | 0.0980   | High-value test: Does Centered Clipping drop or absorb ALIE drift?
+48         | constant  | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | None     | CenteredClipping | 0.0980   | High-value test: Does Centered Clipping drop or absorb ALIE drift?
+49         | rate      | iid            | 5  | Optimal_ALittleIsEnough        | None     | MultiKrum        | 0.9845   | The Stagnation Cliff: Does ALIE freeze Krum selection loops?
+50         | constant  | iid            | 5  | Optimal_ALittleIsEnough        | None     | MultiKrum        | 0.9750   | The Stagnation Cliff: Does ALIE freeze Krum selection loops?
+51         | rate      | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | None     | MultiKrum        | 0.9805   | Does Krum freeze faster when data distributions are heavily skewed?
+52         | constant  | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | None     | MultiKrum        | 0.9688   | Does Krum freeze faster when data distributions are heavily skewed?
+53         | rate      | iid            | 5  | Optimal_ALittleIsEnough        | NNM      | TrMean           | 0.9839   | Can Nearest Neighbor Mixing wash away the stealthy ALIE group?
+54         | constant  | iid            | 5  | Optimal_ALittleIsEnough        | NNM      | TrMean           | 0.9756   | Can Nearest Neighbor Mixing wash away the stealthy ALIE group?
+55         | rate      | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | NNM      | TrMean           | 0.9826   | Hybrid pipeline protection performance vs stealth.
+56         | constant  | dirichlet_niid | 5  | Optimal_ALittleIsEnough        | NNM      | TrMean           | 0.9723   | Hybrid pipeline protection performance vs stealth.
+57         | rate      | iid            | 5  | Optimal_InnerProductManipulation | None     | Average          | 0.0980   | Baseline directional optimization drag on SNN parameters.
+58         | constant  | iid            | 5  | Optimal_InnerProductManipulation | None     | Average          | 0.0980   | Baseline directional optimization drag on SNN parameters.
+59         | rate      | dirichlet_niid | 5  | Optimal_InnerProductManipulation | None     | Average          | 0.0980   | Does directional drag break the network faster under heavy skew?
+60         | constant  | dirichlet_niid | 5  | Optimal_InnerProductManipulation | None     | Average          | 0.0980   | Does directional drag break the network faster under heavy skew?
+61         | rate      | iid            | 5  | Optimal_InnerProductManipulation | None     | Median           | 0.9736   | Can coordinate tracking stop unified directional pushbacks?
+62         | constant  | iid            | 5  | Optimal_InnerProductManipulation | None     | Median           | 0.9617   | Can coordinate tracking stop unified directional pushbacks?
+63         | rate      | dirichlet_niid | 5  | Optimal_InnerProductManipulation | None     | Median           | 0.3960   | Accuracy drop measurement: tracking the exact percentage bled.
+64         | constant  | dirichlet_niid | 5  | Optimal_InnerProductManipulation | None     | Median           | 0.1705   | Accuracy drop measurement: tracking the exact percentage bled.
+65         | rate      | iid            | 5  | Optimal_InnerProductManipulation | None     | CenteredClipping | 0.0980   | Does Centered Clipping correctly identify a structurally reversed gradient?
+66         | constant  | iid            | 5  | Optimal_InnerProductManipulation | None     | CenteredClipping | 0.0980   | Does Centered Clipping correctly identify a structurally reversed gradient?
+67         | rate      | dirichlet_niid | 5  | Optimal_InnerProductManipulation | NNM      | TrMean           | 0.9705   | SOTA defensive pipeline vs deliberate gradient vector reversal.
+68         | constant  | dirichlet_niid | 5  | Optimal_InnerProductManipulation | NNM      | TrMean           | 0.9491   | SOTA defensive pipeline vs deliberate gradient vector reversal.

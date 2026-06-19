@@ -1,0 +1,85 @@
+{
+    "benchmark_config": {
+        "device": "cuda",
+        "training_seed": 42,
+        "nb_training_seeds": 1,
+        "nb_workers": 20,
+        "nb_honest_clients": 16,
+        "f": 4,
+        "tolerated_f": 4,
+        "set_honest_clients_as_clients": false,
+        "size_train_set": 0.8,
+        "data_distribution_seed": 42,
+        "nb_data_distribution_seeds": 1,
+        "data_distribution": {
+            "name": "gamma_similarity_niid",
+            "distribution_parameter": 0.33
+        },
+        "training_algorithm": {
+            "name": "DSGD",
+            "parameters": {}
+        },
+        "nb_steps": 10
+    },
+    "model": {
+        "name": "convnet_snn",
+        "is_snn": true,
+        "dataset_name": "mnist",
+        "nb_labels": 10,
+        "loss": "ce_rate_loss",
+        "accuracy_name": "accuracy_rate",
+        "loss_params": {},
+        "model_params": {
+            "beta": 0.95,
+            "surrogate_gradient": "atan",
+            "threshold": 1.0,
+            "learn_threshold": false
+        },
+        "encoding": {
+            "type": "constant",
+            "time_steps": 25,
+            "encoding_params": {}
+        },
+        "learning_rate": 0.05,
+        "learning_rate_decay": 1.0,
+        "milestones": []
+    },
+    "aggregator": {
+        "name": "TrMean",
+        "parameters": {
+            "f": 4
+        }
+    },
+    "pre_aggregators": [
+        {
+            "name": "NNM",
+            "parameters": {
+                "f": 4
+            }
+        },
+        {
+            "name": "ARC",
+            "parameters": {
+                "f": 4
+            }
+        }
+    ],
+    "honest_clients": {
+        "momentum": 0.9,
+        "weight_decay": 0.0001,
+        "batch_size": 128
+    },
+    "attack": {
+        "name": "SignFlipping",
+        "parameters": {}
+    },
+    "evaluation_and_results": {
+        "evaluation_delta": 5,
+        "batch_size_evaluation": 128,
+        "evaluate_on_test": true,
+        "store_per_client_metrics": true,
+        "store_models": false,
+        "data_folder": "./data",
+        "results_directory": "./test_verify_results"
+    }
+}

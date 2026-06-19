@@ -1,0 +1,8 @@
+nohup: ignoring input
+==========================================================
+STARTING OPTIMIZED SINGLE N-MNIST SNN RUN ON GPU 1 (TS=15)
+==========================================================
+Total trainings to do: 1
+Running 1 trainings in parallel...
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 7 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

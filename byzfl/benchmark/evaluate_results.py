@@ -7,6 +7,8 @@ from numpy import genfromtxt
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from byzfl.benchmark.managers import ParamsManager, get_snn_suffix
+
 
 def custom_dict_to_str(dictionary):
     """
@@ -26,6 +28,102 @@ def ensure_list(value):
     return value
 
 
+def get_dist_param_val(dist_name, dist_parameter):
+    """
+    Helper function to return None if dist_name is iid or extreme_niid.
+    """
+    name = custom_dict_to_str(dist_name)
+    if name in ["iid", "extreme_niid"]:
+        return None
+    return dist_parameter
+
+
+def get_accuracy_file_name(dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                           dist_name, dist_param_val, agg_name, pre_agg_names, 
+                           attack_name, lr, momentum, wd, snn_suffix):
+    """
+    Helper function to build directory names uniformly.
+    """
+    return (
+        f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_"
+        f"d_{nb_decl}_{custom_dict_to_str(dist_name)}_"
+        f"{dist_param_val}_{custom_dict_to_str(agg_name)}_"
+        f"{pre_agg_names}_{custom_dict_to_str(attack_name)}_"
+        f"lr_{lr}_mom_{momentum}_wd_{wd}"
+        f"{snn_suffix}"
+    )
+
+
+def get_path_and_filename(path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                          data_dist_name, dist_param_val, agg_name, pre_agg_names, attack_name, 
+                          lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                          file_type, pm=None):
+    if clean:
+        encoding = pm.get_encoding_type() if pm else "constant"
+        enc_name = "direct" if encoding == "constant" else encoding
+        parent_dir = f"{dataset_name}_{enc_name}"
+        
+        pre_agg_names_list = pre_agg_names.split("_") if pre_agg_names else []
+        preaggs_aggregator = '_'.join(pre_agg_names_list + [agg_name])
+        
+        d_name = custom_dict_to_str(data_dist_name)
+        if d_name in ["iid", "extreme_niid"] or dist_param_val is None:
+            dist_part = d_name
+        else:
+            dist_part = f"{d_name}_{dist_param_val}"
+
+        folder_name = (
+            f"{custom_dict_to_str(attack_name)}_"
+            f"{preaggs_aggregator}_"
+            f"f_{nb_byzantine}_"
+            f"{dist_part}"
+        )
+        folder_path = os.path.join(path_to_results, parent_dir, folder_name)
+        filename = f"{file_type}.txt"
+        return os.path.join(folder_path, filename)
+    else:
+        file_name = get_accuracy_file_name(
+            dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+            data_dist_name, dist_param_val, agg_name, pre_agg_names, 
+            attack_name, lr, momentum, wd, snn_suffix
+        )
+        filename = f"{file_type}_tr_seed_{run + training_seed}_dd_seed_{run_dd + data_distribution_seed}.txt"
+        return os.path.join(path_to_results, file_name, filename)
+
+
+def get_config_file_path(path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                         data_dist_name, dist_param_val, agg_name, pre_agg_names, attack_name, 
+                         lr, momentum, wd, snn_suffix, pm=None):
+    if clean:
+        encoding = pm.get_encoding_type() if pm else "constant"
+        enc_name = "direct" if encoding == "constant" else encoding
+        parent_dir = f"{dataset_name}_{enc_name}"
+        
+        pre_agg_names_list = pre_agg_names.split("_") if pre_agg_names else []
+        preaggs_aggregator = '_'.join(pre_agg_names_list + [agg_name])
+        
+        d_name = custom_dict_to_str(data_dist_name)
+        if d_name in ["iid", "extreme_niid"] or dist_param_val is None:
+            dist_part = d_name
+        else:
+            dist_part = f"{d_name}_{dist_part}" if 'dist_part' in locals() else f"{d_name}_{dist_param_val}"
+
+        folder_name = (
+            f"{custom_dict_to_str(attack_name)}_"
+            f"{preaggs_aggregator}_"
+            f"f_{nb_byzantine}_"
+            f"{dist_part}"
+        )
+        return os.path.join(path_to_results, parent_dir, folder_name, "config.json")
+    else:
+        file_name = get_accuracy_file_name(
+            dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+            data_dist_name, dist_param_val, agg_name, pre_agg_names, 
+            attack_name, lr, momentum, wd, snn_suffix
+        )
+        return os.path.join(path_to_results, file_name, "config.json")
+
+
 def find_best_hyperparameters(path_to_results):
     """
     Find the best hyperparameters (learning rate, momentum, weight decay) 
@@ -42,6 +140,14 @@ def find_best_hyperparameters(path_to_results):
     except Exception as e:
         print(f"ERROR reading config.json: {e}")
         return
+    
+    pm = ParamsManager(data)
+    snn_suffix = get_snn_suffix(pm)
+    clean = (
+        data.get("clean_directory_structure", False) or
+        data.get("evaluation_and_results", {}).get("clean_directory_structure", False) or
+        data.get("benchmark_config", {}).get("clean_directory_structure", False)
+    )
     
     path_hyperparameters = path_to_results + "/best_hyperparameters"
 
@@ -115,6 +221,7 @@ def find_best_hyperparameters(path_to_results):
                 for data_dist in data_distributions:
                     distribution_parameter_list = ensure_list(data_dist["distribution_parameter"])
                     for distribution_parameter in distribution_parameter_list:
+                        dist_param_val = get_dist_param_val(data_dist['name'], distribution_parameter)
                         for pre_agg in pre_aggregators:
                             # Build a single name from all pre-aggregators
                             pre_agg_names_list = [p["name"] for p in pre_agg]
@@ -149,18 +256,11 @@ def find_best_hyperparameters(path_to_results):
                                             for i, attack in enumerate(attacks):
                                                 for run_dd in range(nb_data_distribution_seeds):
                                                     for run in range(nb_training_seeds):
-                                                        file_name = (
-                                                            f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_"
-                                                            f"d_{nb_decl}_{custom_dict_to_str(data_dist['name'])}_"
-                                                            f"{distribution_parameter}_{custom_dict_to_str(agg['name'])}_"
-                                                            f"{pre_agg_names}_{custom_dict_to_str(attack['name'])}_"
-                                                            f"lr_{lr}_mom_{momentum}_wd_{wd}"
-                                                        )
-                                                        acc_path = os.path.join(
-                                                            path_to_results,
-                                                            file_name,
-                                                            f"val_accuracy_tr_seed_{run + training_seed}"
-                                                            f"_dd_seed_{run_dd + data_distribution_seed}.txt"
+                                                        acc_path = get_path_and_filename(
+                                                            path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                                            data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                                            attack['name'], lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                                                            "val_accuracy", pm
                                                         )
                                                         tab_acc[i, run_dd, run] = genfromtxt(acc_path, delimiter=',')
 
@@ -211,7 +311,7 @@ def find_best_hyperparameters(path_to_results):
                                 file_name_hparams = (
                                     f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_"
                                     f"d_{nb_decl}_{custom_dict_to_str(data_dist['name'])}_"
-                                    f"{distribution_parameter}_{pre_agg_names}_{agg['name']}.txt"
+                                    f"{dist_param_val}_{pre_agg_names}_{agg['name']}.txt"
                                 )
                                 np.savetxt(
                                     os.path.join(hyper_parameters_folder, file_name_hparams),
@@ -223,7 +323,7 @@ def find_best_hyperparameters(path_to_results):
                                     file_name_steps = (
                                         f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_"
                                         f"d_{nb_decl}_{custom_dict_to_str(data_dist['name'])}_"
-                                        f"{distribution_parameter}_{pre_agg_names}_{agg['name']}_"
+                                        f"{dist_param_val}_{pre_agg_names}_{agg['name']}_"
                                         f"{custom_dict_to_str(attack['name'])}.txt"
                                     )
                                     step_val = np.array([real_steps[i, j]])
@@ -241,6 +341,14 @@ def test_accuracy_curve(path_to_results, path_to_plot, colors=colors, tab_sign=t
         except Exception as e:
             print(f"ERROR reading config.json: {e}")
             return
+        
+        pm = ParamsManager(data)
+        snn_suffix = get_snn_suffix(pm)
+        clean = (
+            data.get("clean_directory_structure", False) or
+            data.get("evaluation_and_results", {}).get("clean_directory_structure", False) or
+            data.get("benchmark_config", {}).get("clean_directory_structure", False)
+        )
         
         try:
             os.makedirs(path_to_plot, exist_ok=True)
@@ -317,9 +425,9 @@ def test_accuracy_curve(path_to_results, path_to_plot, colors=colors, tab_sign=t
                         nb_nodes = nb_honest + nb_byzantine
                     
                     for data_dist in data_distributions:
-                        dist_parameter_list = data_dist["distribution_parameter"]
-                        dist_parameter_list = ensure_list(dist_parameter_list)
+                        dist_parameter_list = ensure_list(data_dist["distribution_parameter"])
                         for dist_parameter in dist_parameter_list:
+                            dist_param_val = get_dist_param_val(data_dist['name'], dist_parameter)
                             for pre_agg in pre_aggregators:
                                 pre_agg_list_names = [one_pre_agg['name'] for one_pre_agg in pre_agg]
                                 pre_agg_names = "_".join(pre_agg_list_names)
@@ -327,7 +435,7 @@ def test_accuracy_curve(path_to_results, path_to_plot, colors=colors, tab_sign=t
 
                                     hyper_file_name = (
                                     f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_parameter}_{pre_agg_names}_{agg['name']}.txt"
+                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_param_val}_{pre_agg_names}_{agg['name']}.txt"
                                     )
 
 
@@ -353,18 +461,11 @@ def test_accuracy_curve(path_to_results, path_to_plot, colors=colors, tab_sign=t
                                     for i, attack in enumerate(attacks):
                                         for run_dd in range(nb_data_distribution_seeds):
                                             for run in range(nb_training_seeds):
-                                                file_name = (
-                                                    f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_"
-                                                    f"d_{nb_decl}_{custom_dict_to_str(data_dist['name'])}_"
-                                                    f"{dist_parameter}_{custom_dict_to_str(agg['name'])}_"
-                                                    f"{pre_agg_names}_{custom_dict_to_str(attack['name'])}_"
-                                                    f"lr_{lr}_mom_{momentum}_wd_{wd}"
-                                                )
-                                                acc_path = os.path.join(
-                                                    path_to_results,
-                                                    file_name,
-                                                    f"test_accuracy_tr_seed_{run + training_seed}"
-                                                    f"_dd_seed_{run_dd + data_distribution_seed}.txt"
+                                                acc_path = get_path_and_filename(
+                                                    path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                                    data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                                    attack['name'], lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                                                    "test_accuracy", pm
                                                 )
                                                 tab_acc[i, run_dd, run] = genfromtxt(acc_path, delimiter=',')
 
@@ -395,7 +496,7 @@ def test_accuracy_curve(path_to_results, path_to_plot, colors=colors, tab_sign=t
 
                                     plot_name = (
                                         f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                        f"{custom_dict_to_str(data_dist['name'])}_{dist_parameter}_"
+                                        f"{custom_dict_to_str(data_dist['name'])}_{dist_param_val}_"
                                         f"{custom_dict_to_str(agg['name'])}_{pre_agg_names}_lr_{lr}_mom_{momentum}_wd_{wd}"
                                     )
                                     
@@ -417,6 +518,14 @@ def loss_heatmap(path_to_results, path_to_plot):
         print(f"ERROR reading config.json: {e}")
         return
     
+    pm = ParamsManager(data)
+    snn_suffix = get_snn_suffix(pm)
+    clean = (
+        data.get("clean_directory_structure", False) or
+        data.get("evaluation_and_results", {}).get("clean_directory_structure", False) or
+        data.get("benchmark_config", {}).get("clean_directory_structure", False)
+    )
+
     try:
         os.makedirs(path_to_plot, exist_ok=True)
     except OSError as error:
@@ -508,10 +617,11 @@ def loss_heatmap(path_to_results, path_to_plot):
                                 nb_nodes = nb_honest + nb_byzantine
 
                             for x, dist_param in enumerate(distribution_parameter_list):
+                                dist_param_val = get_dist_param_val(data_dist['name'], dist_param)
 
                                 hyper_file_name = (
                                     f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_param}_{pre_agg_names}_{agg['name']}.txt"
+                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_param_val}_{pre_agg_names}_{agg['name']}.txt"
                                 )
 
                                 
@@ -531,20 +641,20 @@ def loss_heatmap(path_to_results, path_to_plot):
                                 lowest_loss = 0
                                 for attack in attacks:
 
-                                    config_file_name = (
-                                        f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                        f"{custom_dict_to_str(data_dist['name'])}_{dist_param}_"
-                                        f"{custom_dict_to_str(agg['name'])}_{pre_agg_names}_"
-                                        f"{custom_dict_to_str(attack['name'])}_lr_{lr}_mom_{momentum}_wd_{wd}"
+                                    config_file_path = get_config_file_path(
+                                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                        data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                        attack['name'], lr, momentum, wd, snn_suffix, pm
                                     )
 
                                     try:
-                                        with open(path_to_results+ "/" + config_file_name +'/config.json', 'r') as file:
-                                            data = json.load(file)
+                                        with open(config_file_path, 'r') as file:
+                                            sub_data = json.load(file)
                                     except Exception as e:
                                         print("ERROR: "+ str(e))
+                                        sub_data = data
 
-                                    nb_steps = data["benchmark_config"]["nb_steps"]
+                                    nb_steps = sub_data["benchmark_config"]["nb_steps"]
 
                                     losses = np.zeros(
                                         (
@@ -554,14 +664,27 @@ def loss_heatmap(path_to_results, path_to_plot):
                                         )
                                     )
 
-                                    for run_dd in range(nb_data_distribution_seeds):
-                                        for run in range(nb_training_seeds):
-                                            losses[run_dd][run] = genfromtxt(
-                                                f"{path_to_results}/{config_file_name}/"
-                                                f"train_loss_tr_seed_{run + training_seed}_"
-                                                f"dd_seed_{run_dd + data_distribution_seed}.txt",
-                                                delimiter=','
-                                            )
+                                    if clean:
+                                        loss_path = get_path_and_filename(
+                                            path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                            data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                            attack['name'], lr, momentum, wd, snn_suffix, 0, training_seed, 0, data_distribution_seed, 
+                                            "train_loss", pm
+                                        )
+                                        val = genfromtxt(loss_path, delimiter=',')
+                                        for run_dd in range(nb_data_distribution_seeds):
+                                            for run in range(nb_training_seeds):
+                                                losses[run_dd][run] = val
+                                    else:
+                                        for run_dd in range(nb_data_distribution_seeds):
+                                            for run in range(nb_training_seeds):
+                                                loss_path = get_path_and_filename(
+                                                    path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                                    data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                                    attack['name'], lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                                                    "train_loss", pm
+                                                )
+                                                losses[run_dd][run] = genfromtxt(loss_path, delimiter=',')
 
                                     losses = losses.reshape(
                                         nb_data_distribution_seeds * nb_training_seeds,
@@ -623,6 +746,14 @@ def test_heatmap(path_to_results, path_to_plot):
     except Exception as e:
         print(f"ERROR reading config.json: {e}")
         return
+    
+    pm = ParamsManager(data)
+    snn_suffix = get_snn_suffix(pm)
+    clean = (
+        data.get("clean_directory_structure", False) or
+        data.get("evaluation_and_results", {}).get("clean_directory_structure", False) or
+        data.get("benchmark_config", {}).get("clean_directory_structure", False)
+    )
     
     try:
         os.makedirs(path_to_plot, exist_ok=True)
@@ -715,10 +846,11 @@ def test_heatmap(path_to_results, path_to_plot):
                                 nb_nodes = nb_honest + nb_byzantine
 
                             for x, dist_param in enumerate(distribution_parameter_list):
+                                dist_param_val = get_dist_param_val(data_dist['name'], dist_param)
 
                                 hyper_file_name = (
                                     f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_param}_{pre_agg_names}_{agg['name']}.txt"
+                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_param_val}_{pre_agg_names}_{agg['name']}.txt"
                                 )
 
                                 full_path = os.path.join(path_to_hyperparameters, "hyperparameters", hyper_file_name)
@@ -737,20 +869,20 @@ def test_heatmap(path_to_results, path_to_plot):
                                 worst_accuracy = np.inf
                                 for attack in attacks:
 
-                                    config_file_name = (
-                                        f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                        f"{custom_dict_to_str(data_dist['name'])}_{dist_param}_"
-                                        f"{custom_dict_to_str(agg['name'])}_{pre_agg_names}_"
-                                        f"{custom_dict_to_str(attack['name'])}_lr_{lr}_mom_{momentum}_wd_{wd}"
+                                    config_file_path = get_config_file_path(
+                                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                        data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                        attack['name'], lr, momentum, wd, snn_suffix, pm
                                     )
 
                                     try:
-                                        with open(path_to_results+ "/" + config_file_name +'/config.json', 'r') as file:
-                                            data = json.load(file)
+                                        with open(config_file_path, 'r') as file:
+                                            sub_data = json.load(file)
                                     except Exception as e:
                                         print("ERROR: "+ str(e))
+                                        sub_data = data
 
-                                    nb_steps = data["benchmark_config"]["nb_steps"]
+                                    nb_steps = sub_data["benchmark_config"]["nb_steps"]
                                     nb_accuracies = int(1+math.ceil(nb_steps/evaluation_delta))
 
                                     tab_acc = np.zeros(
@@ -761,14 +893,27 @@ def test_heatmap(path_to_results, path_to_plot):
                                         )
                                     )
 
-                                    for run_dd in range(nb_data_distribution_seeds):
-                                        for run in range(nb_training_seeds):
-                                            tab_acc[run_dd][run] = genfromtxt(
-                                                f"{path_to_results}/{config_file_name}/"
-                                                f"test_accuracy_tr_seed_{run + training_seed}_"
-                                                f"dd_seed_{run_dd + data_distribution_seed}.txt",
-                                                delimiter=','
-                                            )
+                                    if clean:
+                                        acc_path = get_path_and_filename(
+                                            path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                            data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                            attack['name'], lr, momentum, wd, snn_suffix, 0, training_seed, 0, data_distribution_seed, 
+                                            "test_accuracy", pm
+                                        )
+                                        val = genfromtxt(acc_path, delimiter=',')
+                                        for run_dd in range(nb_data_distribution_seeds):
+                                            for run in range(nb_training_seeds):
+                                                tab_acc[run_dd][run] = val
+                                    else:
+                                        for run_dd in range(nb_data_distribution_seeds):
+                                            for run in range(nb_training_seeds):
+                                                acc_path = get_path_and_filename(
+                                                    path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                                    data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                                    attack['name'], lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                                                    "test_accuracy", pm
+                                                )
+                                                tab_acc[run_dd][run] = genfromtxt(acc_path, delimiter=',')
 
                                     tab_acc = tab_acc.reshape(
                                         nb_data_distribution_seeds * nb_training_seeds,
@@ -828,6 +973,14 @@ def aggregated_test_heatmap(path_to_results, path_to_plot):
             data = json.load(file)
     except Exception as e:
         print("ERROR: "+ str(e))
+
+    pm = ParamsManager(data)
+    snn_suffix = get_snn_suffix(pm)
+    clean = (
+        data.get("clean_directory_structure", False) or
+        data.get("evaluation_and_results", {}).get("clean_directory_structure", False) or
+        data.get("benchmark_config", {}).get("clean_directory_structure", False)
+    )
 
     try:
         os.makedirs(path_to_plot, exist_ok=True)
@@ -921,11 +1074,12 @@ def aggregated_test_heatmap(path_to_results, path_to_plot):
                                 nb_nodes = nb_honest + nb_byzantine
 
                             for x, dist_param in enumerate(distribution_parameter_list):
+                                dist_param_val = get_dist_param_val(data_dist['name'], dist_param)
 
                                 hyper_file_name = (
                                     f"{dataset_name}_"
                                     f"{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_param}_"
+                                    f"{custom_dict_to_str(data_dist['name'])}_{dist_param_val}_"
                                     f"{pre_agg_names}_{agg['name']}.txt"
                                 )
 
@@ -945,24 +1099,20 @@ def aggregated_test_heatmap(path_to_results, path_to_plot):
                                 
                                 worst_accuracy = np.inf
                                 for attack in attacks:
-                                    config_file_name = (
-                                        f"{dataset_name}_"
-                                        f"{model_name}_n_{nb_nodes}_f_{nb_byzantine}_d_{nb_decl}_"
-                                        f"{custom_dict_to_str(data_dist['name'])}_{dist_param}_"
-                                        f"{custom_dict_to_str(agg['name'])}_{pre_agg_names}_"
-                                        f"{custom_dict_to_str(attack['name'])}_"
-                                        f"lr_{lr}_"
-                                        f"mom_{momentum}_"
-                                        f"wd_{wd}"
+                                    config_file_path = get_config_file_path(
+                                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                        data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                        attack['name'], lr, momentum, wd, snn_suffix, pm
                                     )
 
                                     try:
-                                        with open(path_to_results+ "/" + config_file_name +'/config.json', 'r') as file:
-                                            data = json.load(file)
+                                        with open(config_file_path, 'r') as file:
+                                            sub_data = json.load(file)
                                     except Exception as e:
                                         print("ERROR: "+ str(e))
+                                        sub_data = data
 
-                                    nb_steps = data["benchmark_config"]["nb_steps"]
+                                    nb_steps = sub_data["benchmark_config"]["nb_steps"]
                                     nb_accuracies = int(1+math.ceil(nb_steps/evaluation_delta))
 
                                     tab_acc = np.zeros(
@@ -973,14 +1123,27 @@ def aggregated_test_heatmap(path_to_results, path_to_plot):
                                         )
                                     )
 
-                                    for run_dd in range(nb_data_distribution_seeds):
-                                        for run in range(nb_training_seeds):
-                                            tab_acc[run_dd][run] = genfromtxt(
-                                                f"{path_to_results}/{config_file_name}/"
-                                                f"test_accuracy_tr_seed_{run + training_seed}_"
-                                                f"dd_seed_{run_dd + data_distribution_seed}.txt",
-                                                delimiter=','
-                                            )
+                                    if clean:
+                                        acc_path = get_path_and_filename(
+                                            path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                            data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                            attack['name'], lr, momentum, wd, snn_suffix, 0, training_seed, 0, data_distribution_seed, 
+                                            "test_accuracy", pm
+                                        )
+                                        val = genfromtxt(acc_path, delimiter=',')
+                                        for run_dd in range(nb_data_distribution_seeds):
+                                            for run in range(nb_training_seeds):
+                                                tab_acc[run_dd][run] = val
+                                    else:
+                                        for run_dd in range(nb_data_distribution_seeds):
+                                            for run in range(nb_training_seeds):
+                                                acc_path = get_path_and_filename(
+                                                    path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                                                    data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
+                                                    attack['name'], lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                                                    "test_accuracy", pm
+                                                )
+                                                tab_acc[run_dd][run] = genfromtxt(acc_path, delimiter=',')
 
                                     tab_acc = tab_acc.reshape(
                                         nb_data_distribution_seeds * nb_training_seeds,

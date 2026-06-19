@@ -1,6 +1,9 @@
 import torch
+import snntorch.functional as sf
 
 from byzfl.fed_framework import ModelBaseInterface, RobustAggregator
+import snntorch.functional as sf
+
 
 class Server(ModelBaseInterface):
     
@@ -22,7 +25,19 @@ class Server(ModelBaseInterface):
             "milestones": params["milestones"],
             "learning_rate_decay": params["learning_rate_decay"],
             "isServer": True,
+            "model_params": params.get("model_params", {}),
         })
+        accuracy_name = params.get("accuracy_name", None)
+        if accuracy_name is not None:
+            if hasattr(sf, accuracy_name):
+                self.accuracy_fn = getattr(sf, accuracy_name)
+            else:
+                raise ValueError(
+                    f"Accuracy function '{accuracy_name}' not found in snntorch.functional. "
+                    f"Please choose a valid one (e.g. 'accuracy_rate', 'accuracy_temporal')"
+                )
+        else:
+            self.accuracy_fn = None
         self.robust_aggregator = RobustAggregator(params["aggregator_info"], params["pre_agg_list"])
         self.test_loader = params["test_loader"]
         self.validation_loader = params.get("validation_loader")
@@ -110,12 +125,20 @@ class Server(ModelBaseInterface):
         """
         total = 0
         correct = 0
-        for inputs, targets in data_loader:
-            inputs, targets = inputs.to(self.device), targets.to(self.device)
-            outputs = self.model(inputs)
-            _, predicted = torch.max(outputs.data, 1)
-            total += targets.size(0)
-            correct += (predicted == targets).sum().item()
+        with torch.no_grad():
+            for inputs, targets in data_loader:
+                inputs, targets = inputs.to(self.device), targets.to(self.device)
+                outputs = self.model(inputs)
+                is_snn = isinstance(outputs, tuple)
+                if is_snn:
+                    fn = self.accuracy_fn if self.accuracy_fn is not None else sf.accuracy_rate
+                    acc = fn(outputs[0], targets)
+                    correct += int(round(acc * targets.size(0)))
+                    total += targets.size(0)
+                else:
+                    _, predicted = torch.max(outputs.data, 1)
+                    total += targets.size(0)
+                    correct += (predicted == targets).sum().item()
         return correct / total
 
     def compute_validation_accuracy(self):

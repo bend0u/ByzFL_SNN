@@ -15,9 +15,11 @@ class ModelBaseInterface(object):
         model_name = params["model_name"]
         self.device = params["device"]
 
-        model = getattr(models, model_name)()
+        model_params = params.get("model_params", {})
+        model = getattr(models, model_name)(**model_params) # This is done to have the possibility of adding parameters for SNN, but it also work for other models 
 
-        if self.device == "cuda" and torch.cuda.device_count() > 1:
+        is_snn = "snn" in model_name.lower()
+        if self.device == "cuda" and torch.cuda.device_count() > 1 and not is_snn:
             self.model = torch.nn.DataParallel(model)
         else:
             self.model = model

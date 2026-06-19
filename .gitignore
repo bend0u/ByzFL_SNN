@@ -1,5 +1,16 @@
 .DS_Store
-build
-dist
+build/
+dist/
 byzfl.egg*
 setup.py
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Datasets (Ignore because 'data' is 3.7 GB)
+data/

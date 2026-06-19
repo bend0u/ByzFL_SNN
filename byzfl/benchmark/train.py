@@ -1,37 +1,13 @@
 import time
 
 import numpy as np
+import torch
 from torch import Tensor
-from torch.utils.data import DataLoader, random_split
-from torchvision import datasets, transforms
 
 from byzfl import Client, Server, ByzantineClient, DataDistributor
 from byzfl.utils.misc import set_random_seed
-from byzfl.benchmark.managers import ParamsManager, FileManager
-
-transforms_hflip = transforms.Compose([transforms.RandomHorizontalFlip(), transforms.ToTensor()])
-transforms_mnist = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
-transforms_cifar_train = transforms.Compose([
-        transforms.RandomCrop(32, padding=4),
-        transforms.RandomHorizontalFlip(),
-        transforms.ToTensor(),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-])
-transforms_cifar_test = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-])
-
-#Supported datasets
-dict_datasets = {
-    "mnist":        ("MNIST", transforms_mnist, transforms_mnist),
-    "fashionmnist": ("FashionMNIST", transforms_hflip, transforms_hflip),
-    "emnist":       ("EMNIST", transforms_mnist, transforms_mnist),
-    "cifar10":      ("CIFAR10", transforms_cifar_train, transforms_cifar_test),
-    "cifar100":     ("CIFAR100", transforms_cifar_train, transforms_cifar_test),
-    "imagenet":     ("ImageNet", transforms_hflip, transforms_hflip)
-}
-
+from byzfl.benchmark.managers import ParamsManager, FileManager, get_snn_suffix
+from byzfl.benchmark.data import load_and_split_data
 
 def start_training(params):
     params_manager = ParamsManager(params)
@@ -59,6 +35,9 @@ def start_training(params):
         "learning_rate": params_manager.get_learning_rate(),
         "momentum": params_manager.get_honest_clients_momentum(),
         "weight_decay": params_manager.get_honest_clients_weight_decay(),
+        "snn_suffix": get_snn_suffix(params_manager),
+        "clean_directory_structure": params.get("evaluation_and_results", {}).get("clean_directory_structure", False),
+        "encoding_type": params_manager.get_encoding_type(),
     })
 
     file_manager.save_config_dict(params_manager.get_data())
@@ -73,51 +52,26 @@ def start_training(params):
 
     dd_seed = params_manager.get_data_distribution_seed()
     training_seed = params_manager.get_training_seed()
+    clean = params.get("evaluation_and_results", {}).get("clean_directory_structure", False)
+    if clean:
+        val_acc_filename = "val_accuracy.txt"
+        test_acc_filename = "test_accuracy.txt"
+        train_loss_filename = "train_loss.txt"
+        train_time_filename = "train_time.txt"
+    else:
+        val_acc_filename = f"val_accuracy_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt"
+        test_acc_filename = f"test_accuracy_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt"
+        train_loss_filename = f"train_loss_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt"
+        train_time_filename = f"train_time_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt"
     set_random_seed(dd_seed)
 
-    # Data Preparation
-    key_dataset_name = params_manager.get_dataset_name()
-    dataset_name = dict_datasets[key_dataset_name][0]
-    dataset = getattr(datasets, dataset_name)(
-            root = params_manager.get_data_folder(), 
-            train = True, 
-            download = True,
-            transform = None
-    )
-    dataset.targets = Tensor(dataset.targets).long()
+    # Data Preparation and Splitting
+    train_dataset, val_loader, test_loader = load_and_split_data(params_manager)
 
-    train_size = int(params_manager.get_size_train_set() * len(dataset))
-    val_size = len(dataset) - train_size
-
-    # Split Train set into Train and Validation
-    train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
-
-    # Apply transformations to each dataset
-    train_dataset.dataset.transform = dict_datasets[key_dataset_name][1]
-    val_dataset.dataset.transform = dict_datasets[key_dataset_name][2]
-
-    # Prepare Validation and Test data
-    if len(val_dataset) > 0:
-        val_loader = DataLoader(
-            val_dataset, 
-            batch_size=params_manager.get_batch_size_evaluation(), 
-            shuffle=False
-        )
-    else:
-        val_loader = None
-    
-    test_dataset = getattr(datasets, dataset_name)(
-                root = params_manager.get_data_folder(),
-                train=False, 
-                download=True,
-                transform=dict_datasets[key_dataset_name][2]
-    )
-
-    test_loader = DataLoader(
-        test_dataset, 
-        batch_size=params_manager.get_batch_size_evaluation(), 
-        shuffle=False
-    )
+    print(f"\n[ByzFL-SNN] [Training Start] Model: {params_manager.get_model_name()} | Dataset: {params_manager.get_dataset_name()}")
+    print(f"[ByzFL-SNN]   Clients: {nb_honest_clients} honest, {nb_byz_clients} byzantine | Algorithm: {params_manager.get_training_algorithm_name()}")
+    print(f"[ByzFL-SNN]   Learning Rate: {params_manager.get_learning_rate()} | Steps: {nb_training_steps} | Device: {params_manager.get_device()}")
+    print(f"[ByzFL-SNN]   Validation samples: {len(val_loader.dataset) if val_loader else 0} | Test samples: {len(test_loader.dataset) if test_loader else 0}")
 
     # Distribute data among clients using non-IID Dirichlet distribution
     data_distributor = DataDistributor({
@@ -133,10 +87,13 @@ def start_training(params):
     honest_clients = [
         Client({
             "model_name": params_manager.get_model_name(),
+            "model_params": params_manager.get_model_params(),
             "device": params_manager.get_device(),
             "optimizer_name": params_manager.get_optimizer_name(),
             "learning_rate": params_manager.get_learning_rate(),
             "loss_name": params_manager.get_loss_name(),
+            "loss_params": params_manager.get_loss_params(),
+            "accuracy_name": params_manager.get_accuracy_name(),
             "weight_decay": params_manager.get_honest_clients_weight_decay(),
             "milestones": params_manager.get_milestones(),
             "learning_rate_decay": params_manager.get_learning_rate_decay(),
@@ -151,9 +108,11 @@ def start_training(params):
     # Server Setup, Use SGD Optimizer
     server = Server({
         "model_name": params_manager.get_model_name(),
+        "model_params": params_manager.get_model_params(),
         "device": params_manager.get_device(),
         "validation_loader": val_loader,
         "test_loader": test_loader,
+        "accuracy_name": params_manager.get_accuracy_name(),
         "optimizer_name": params_manager.get_optimizer_name(),
         "learning_rate": params_manager.get_learning_rate(),
         "weight_decay": params_manager.get_honest_clients_weight_decay(),
@@ -217,33 +176,37 @@ def start_training(params):
         local_steps_per_client = training_algorithm_parameters["local_steps_per_client"]
         nb_clients_to_sample = int(nb_honest_clients * proportion_selected_clients)
 
+    init_allocated = torch.cuda.memory_allocated(device=params_manager.get_device()) / (1024**2)
+    init_reserved = torch.cuda.memory_reserved(device=params_manager.get_device()) / (1024**2)
+    print(f"[ByzFL-SNN] Initial VRAM (Alloc/Reserved): {init_allocated:.1f}/{init_reserved:.1f} MiB")
+
     # Training Loop
     for training_step in range(nb_training_steps):
 
         # Evaluate Global Model Every Evaluation Delta Steps
         if training_step % evaluation_delta == 0:
+            val_info = ""
+            test_info = ""
 
             if val_loader is not None:
-
                 val_acc = server.compute_validation_accuracy()
-
                 val_accuracy_list = np.append(val_accuracy_list, val_acc)
-
-                file_manager.write_array_in_file(
-                    val_accuracy_list, 
-                    "val_accuracy_tr_seed_" + str(training_seed) 
-                    + "_dd_seed_" + str(dd_seed) +".txt"
-                )
+                file_manager.write_array_in_file(val_accuracy_list, val_acc_filename)
+                val_info = f" | Val Acc: {val_acc:.4f}"
 
             if evaluate_on_test:
                 test_acc = server.compute_test_accuracy()
                 test_accuracy_list = np.append(test_accuracy_list, test_acc)
+                file_manager.write_array_in_file(test_accuracy_list, test_acc_filename)
+                test_info = f" | Test Acc: {test_acc:.4f}"
 
-                file_manager.write_array_in_file(
-                    test_accuracy_list, 
-                    "test_accuracy_tr_seed_" + str(training_seed) 
-                    + "_dd_seed_" + str(dd_seed) +".txt"
-                )
+            allocated = torch.cuda.memory_allocated(device=server.device) / (1024**2)
+            reserved = torch.cuda.memory_reserved(device=server.device) / (1024**2)
+            vram_info = f" | VRAM (Alloc/Reserved): {allocated:.1f}/{reserved:.1f} MiB"
+
+            elapsed = time.time() - start_time
+            print(f"[ByzFL-SNN]   [Step {training_step}/{nb_training_steps}] ({training_step/nb_training_steps*100:.1f}%)"
+                  f"{val_info}{test_info}{vram_info} | Time: {elapsed:.1f}s")
 
             if store_models:
                 file_manager.save_state_dict(
@@ -319,11 +282,7 @@ def start_training(params):
     
     end_time = time.time()
 
-    file_manager.write_array_in_file(
-        train_loss_list, 
-        "train_loss_tr_seed_" + str(training_seed) 
-        + "_dd_seed_" + str(dd_seed) +".txt"
-    )
+    file_manager.write_array_in_file(train_loss_list, train_loss_filename)
 
     if val_loader is not None:
     
@@ -331,21 +290,13 @@ def start_training(params):
 
         val_accuracy_list = np.append(val_accuracy_list, val_acc)
 
-        file_manager.write_array_in_file(
-            val_accuracy_list, 
-            "val_accuracy_tr_seed_" + str(training_seed) 
-            + "_dd_seed_" + str(dd_seed) +".txt"
-        )
+        file_manager.write_array_in_file(val_accuracy_list, val_acc_filename)
 
     if evaluate_on_test:
         test_acc = server.compute_test_accuracy()
         test_accuracy_list = np.append(test_accuracy_list, test_acc)
 
-        file_manager.write_array_in_file(
-            test_accuracy_list, 
-            "test_accuracy_tr_seed_" + str(training_seed) 
-            + "_dd_seed_" + str(dd_seed) +".txt"
-        )
+        file_manager.write_array_in_file(test_accuracy_list, test_acc_filename)
 
     if store_per_client_metrics:
 
@@ -377,8 +328,21 @@ def start_training(params):
     
     execution_time = end_time - start_time
 
-    file_manager.write_array_in_file(
-        np.array(execution_time),
-        "train_time_tr_seed_" + str(training_seed) 
-        + "_dd_seed_" + str(dd_seed) +".txt"
-    )
+    file_manager.write_array_in_file(np.array(execution_time), train_time_filename)
+    
+    peak_allocated = torch.cuda.max_memory_allocated(device=server.device) / (1024**2)
+    peak_reserved = torch.cuda.max_memory_reserved(device=server.device) / (1024**2)
+    print(f"[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): {peak_allocated:.1f}/{peak_reserved:.1f} MiB | Total time: {execution_time:.1f}s\n")
+
+    # Clean up variables to free memory
+    import gc
+    del server
+    del honest_clients
+    del byz_client
+    del train_dataset
+    del val_loader
+    del test_loader
+    if 'client_dataloaders' in locals():
+        del client_dataloaders
+    gc.collect()
+    torch.cuda.empty_cache()

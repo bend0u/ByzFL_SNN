@@ -1,0 +1,756 @@
+nohup: ignoring input
+Starting Sweep execution for Rate Encoding (CenteredClipping vs Krum)...
+
+--- Running Config: snn_mnist_sweep_cc_f0_rate.json ---
+Total trainings to do: 2
+Running 1 trainings in parallel...
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 12.1s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.4052 | Test Acc: 0.4113 | Time: 42.6s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.6717 | Test Acc: 0.6841 | Time: 71.1s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7899 | Test Acc: 0.8030 | Time: 101.3s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8163 | Test Acc: 0.8247 | Time: 129.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8326 | Test Acc: 0.8412 | Time: 156.9s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.8436 | Test Acc: 0.8498 | Time: 186.0s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.8478 | Test Acc: 0.8548 | Time: 214.5s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.9233 | Test Acc: 0.9283 | Time: 246.8s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.9302 | Test Acc: 0.9358 | Time: 275.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9403 | Test Acc: 0.9478 | Time: 306.2s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9478 | Test Acc: 0.9541 | Time: 336.7s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9524 | Test Acc: 0.9582 | Time: 365.3s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9542 | Test Acc: 0.9615 | Time: 394.1s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9575 | Test Acc: 0.9642 | Time: 422.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9595 | Test Acc: 0.9664 | Time: 451.4s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9621 | Test Acc: 0.9680 | Time: 490.7s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9638 | Test Acc: 0.9696 | Time: 520.4s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9655 | Test Acc: 0.9722 | Time: 551.4s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9658 | Test Acc: 0.9721 | Time: 580.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9667 | Test Acc: 0.9733 | Time: 609.3s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9687 | Test Acc: 0.9754 | Time: 638.6s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9704 | Test Acc: 0.9755 | Time: 667.5s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9718 | Test Acc: 0.9774 | Time: 696.7s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9712 | Test Acc: 0.9771 | Time: 725.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9710 | Test Acc: 0.9782 | Time: 754.9s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9730 | Test Acc: 0.9784 | Time: 784.1s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9755 | Test Acc: 0.9797 | Time: 813.0s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9756 | Test Acc: 0.9801 | Time: 845.1s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9745 | Test Acc: 0.9800 | Time: 873.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9743 | Test Acc: 0.9796 | Time: 902.9s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9758 | Test Acc: 0.9810 | Time: 937.5s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9757 | Test Acc: 0.9806 | Time: 972.5s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9762 | Test Acc: 0.9808 | Time: 1003.4s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9755 | Test Acc: 0.9813 | Time: 1034.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9770 | Test Acc: 0.9808 | Time: 1063.1s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9772 | Test Acc: 0.9820 | Time: 1091.7s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9773 | Test Acc: 0.9821 | Time: 1128.7s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9788 | Test Acc: 0.9825 | Time: 1159.6s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9776 | Test Acc: 0.9823 | Time: 1191.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9764 | Test Acc: 0.9831 | Time: 1220.8s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9798 | Test Acc: 0.9833 | Time: 1249.7s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.9788 | Test Acc: 0.9824 | Time: 1278.8s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.9787 | Test Acc: 0.9840 | Time: 1307.8s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.9790 | Test Acc: 0.9842 | Time: 1336.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9805 | Test Acc: 0.9843 | Time: 1365.6s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.9799 | Test Acc: 0.9836 | Time: 1394.3s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.9797 | Test Acc: 0.9835 | Time: 1423.4s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.9806 | Test Acc: 0.9854 | Time: 1452.2s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.9812 | Test Acc: 0.9852 | Time: 1481.3s
+[ByzFL-SNN] [Training Complete] Total time: 1499.0s
+
+Training 0 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.5s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.4037 | Test Acc: 0.4169 | Time: 40.9s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.6822 | Test Acc: 0.6929 | Time: 69.7s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7951 | Test Acc: 0.8030 | Time: 102.8s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8198 | Test Acc: 0.8291 | Time: 132.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8342 | Test Acc: 0.8412 | Time: 161.1s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.8433 | Test Acc: 0.8498 | Time: 190.1s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.8490 | Test Acc: 0.8543 | Time: 219.3s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.8552 | Test Acc: 0.8588 | Time: 248.5s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.9182 | Test Acc: 0.9267 | Time: 277.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9336 | Test Acc: 0.9406 | Time: 307.8s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9426 | Test Acc: 0.9512 | Time: 336.8s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9513 | Test Acc: 0.9568 | Time: 367.3s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9527 | Test Acc: 0.9588 | Time: 396.4s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9558 | Test Acc: 0.9609 | Time: 425.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9607 | Test Acc: 0.9665 | Time: 454.7s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9609 | Test Acc: 0.9667 | Time: 483.8s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9648 | Test Acc: 0.9690 | Time: 512.9s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9657 | Test Acc: 0.9699 | Time: 541.9s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9665 | Test Acc: 0.9710 | Time: 571.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9680 | Test Acc: 0.9729 | Time: 600.1s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9703 | Test Acc: 0.9736 | Time: 629.1s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9704 | Test Acc: 0.9739 | Time: 658.2s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9717 | Test Acc: 0.9761 | Time: 687.3s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9725 | Test Acc: 0.9764 | Time: 716.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9733 | Test Acc: 0.9771 | Time: 745.5s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9722 | Test Acc: 0.9770 | Time: 774.7s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9745 | Test Acc: 0.9781 | Time: 803.8s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9758 | Test Acc: 0.9784 | Time: 832.8s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9748 | Test Acc: 0.9792 | Time: 861.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9756 | Test Acc: 0.9795 | Time: 890.9s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9756 | Test Acc: 0.9797 | Time: 920.0s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9776 | Test Acc: 0.9795 | Time: 949.1s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9774 | Test Acc: 0.9790 | Time: 978.1s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9772 | Test Acc: 0.9809 | Time: 1007.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9776 | Test Acc: 0.9823 | Time: 1036.2s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9779 | Test Acc: 0.9810 | Time: 1065.2s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9784 | Test Acc: 0.9811 | Time: 1094.3s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9780 | Test Acc: 0.9822 | Time: 1123.3s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9787 | Test Acc: 0.9823 | Time: 1152.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9795 | Test Acc: 0.9823 | Time: 1181.6s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9799 | Test Acc: 0.9834 | Time: 1210.6s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.9796 | Test Acc: 0.9828 | Time: 1239.7s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.9796 | Test Acc: 0.9837 | Time: 1268.8s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.9795 | Test Acc: 0.9837 | Time: 1302.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9804 | Test Acc: 0.9834 | Time: 1330.6s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.9802 | Test Acc: 0.9838 | Time: 1359.0s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.9801 | Test Acc: 0.9828 | Time: 1387.4s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.9808 | Test Acc: 0.9837 | Time: 1415.8s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.9818 | Test Acc: 0.9846 | Time: 1444.3s
+[ByzFL-SNN] [Training Complete] Total time: 1461.5s
+
+Training 1 done
+All trainings finished.
+Warning: Best hyperparameter selection skipped or failed: ./snn_benchmark_results_11/mnist_convnet_snn_n_16_f_0_d_0_iid_None_CenteredClipping__NoAttack_lr_0.05_mom_0.9_wd_0.0001_ts_25_enc_rate_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/val_accuracy_tr_seed_42_dd_seed_42.txt not found.
+
+--- Running Config: snn_mnist_sweep_cc_attacks_rate.json ---
+Total trainings to do: 20
+Running 1 trainings in parallel...
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 12.4s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.3723 | Test Acc: 0.3772 | Time: 43.1s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.6291 | Test Acc: 0.6448 | Time: 72.1s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7122 | Test Acc: 0.7214 | Time: 100.6s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8021 | Test Acc: 0.8121 | Time: 129.2s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8212 | Test Acc: 0.8310 | Time: 157.6s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.8329 | Test Acc: 0.8399 | Time: 186.2s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.8402 | Test Acc: 0.8475 | Time: 214.8s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.8466 | Test Acc: 0.8509 | Time: 243.2s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.8688 | Test Acc: 0.8736 | Time: 271.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9143 | Test Acc: 0.9200 | Time: 300.0s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9197 | Test Acc: 0.9245 | Time: 328.7s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9406 | Test Acc: 0.9481 | Time: 357.0s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9461 | Test Acc: 0.9532 | Time: 385.6s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9493 | Test Acc: 0.9552 | Time: 414.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9509 | Test Acc: 0.9594 | Time: 442.5s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9538 | Test Acc: 0.9616 | Time: 471.1s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9555 | Test Acc: 0.9618 | Time: 499.4s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9585 | Test Acc: 0.9654 | Time: 527.9s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9593 | Test Acc: 0.9652 | Time: 556.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9607 | Test Acc: 0.9678 | Time: 584.9s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9636 | Test Acc: 0.9690 | Time: 614.6s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9643 | Test Acc: 0.9691 | Time: 642.7s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9675 | Test Acc: 0.9721 | Time: 671.3s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9663 | Test Acc: 0.9723 | Time: 699.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9677 | Test Acc: 0.9740 | Time: 728.1s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9685 | Test Acc: 0.9737 | Time: 756.6s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9701 | Test Acc: 0.9754 | Time: 784.7s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9697 | Test Acc: 0.9765 | Time: 813.2s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9709 | Test Acc: 0.9761 | Time: 841.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9713 | Test Acc: 0.9760 | Time: 869.8s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9703 | Test Acc: 0.9767 | Time: 898.2s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9725 | Test Acc: 0.9778 | Time: 926.5s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9731 | Test Acc: 0.9774 | Time: 955.0s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9726 | Test Acc: 0.9784 | Time: 983.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9738 | Test Acc: 0.9785 | Time: 1011.8s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9732 | Test Acc: 0.9789 | Time: 1040.0s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9741 | Test Acc: 0.9785 | Time: 1068.5s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9755 | Test Acc: 0.9792 | Time: 1097.0s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9741 | Test Acc: 0.9793 | Time: 1125.1s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9750 | Test Acc: 0.9789 | Time: 1153.6s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9758 | Test Acc: 0.9805 | Time: 1181.8s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.9760 | Test Acc: 0.9809 | Time: 1210.2s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.9760 | Test Acc: 0.9799 | Time: 1238.7s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.9763 | Test Acc: 0.9807 | Time: 1266.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9780 | Test Acc: 0.9809 | Time: 1295.5s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.9765 | Test Acc: 0.9807 | Time: 1323.7s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.9774 | Test Acc: 0.9805 | Time: 1352.3s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.9773 | Test Acc: 0.9818 | Time: 1380.5s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.9779 | Test Acc: 0.9815 | Time: 1409.0s
+[ByzFL-SNN] [Training Complete] Total time: 1426.3s
+
+Training 0 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.1s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 40.0s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 68.9s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 97.4s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 126.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 154.9s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 183.7s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 212.5s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 241.2s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 270.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 298.6s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 327.5s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 356.1s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 384.9s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 413.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 442.4s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 471.2s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 499.9s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 528.8s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 557.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 586.2s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 615.1s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 643.7s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 672.5s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 701.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 729.9s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 758.7s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 787.3s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 816.2s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 844.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 875.5s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 904.6s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 933.2s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 962.1s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 990.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1019.8s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1048.5s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1077.5s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1106.5s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1138.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1167.8s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1196.3s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1225.1s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1254.0s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1282.5s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1311.3s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1339.9s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1368.7s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1397.3s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1426.2s
+[ByzFL-SNN] [Training Complete] Total time: 1443.9s
+
+Training 1 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.2s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 40.1s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 69.0s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 97.7s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 126.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 155.2s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 184.2s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 215.2s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 243.9s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 273.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 301.8s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 330.8s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 359.6s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 388.7s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 417.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 446.4s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 475.4s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 504.1s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 533.1s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 562.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 590.8s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 619.8s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 648.6s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 677.7s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 706.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 735.5s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 764.6s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 793.4s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 822.4s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 851.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 880.1s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 909.2s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 938.0s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 967.0s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 995.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1024.9s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1053.8s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1082.9s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1112.0s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1140.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1169.8s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1198.7s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1227.7s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1256.8s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1285.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1314.7s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1343.4s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1377.1s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1405.7s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1434.7s
+[ByzFL-SNN] [Training Complete] Total time: 1453.5s
+
+Training 2 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.2s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.4296 | Test Acc: 0.4325 | Time: 39.9s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.6509 | Test Acc: 0.6645 | Time: 68.6s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7745 | Test Acc: 0.7852 | Time: 96.9s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8069 | Test Acc: 0.8180 | Time: 125.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8233 | Test Acc: 0.8305 | Time: 154.0s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.8824 | Test Acc: 0.8861 | Time: 182.6s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.9092 | Test Acc: 0.9174 | Time: 211.3s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.8982 | Test Acc: 0.9000 | Time: 239.7s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.9223 | Test Acc: 0.9289 | Time: 268.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9400 | Test Acc: 0.9439 | Time: 296.8s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9448 | Test Acc: 0.9520 | Time: 325.4s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9497 | Test Acc: 0.9560 | Time: 353.8s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9502 | Test Acc: 0.9568 | Time: 382.7s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9550 | Test Acc: 0.9585 | Time: 411.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9577 | Test Acc: 0.9621 | Time: 439.8s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9609 | Test Acc: 0.9664 | Time: 468.5s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9622 | Test Acc: 0.9682 | Time: 496.9s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9653 | Test Acc: 0.9693 | Time: 525.6s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9670 | Test Acc: 0.9717 | Time: 554.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9686 | Test Acc: 0.9718 | Time: 582.8s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9697 | Test Acc: 0.9734 | Time: 611.5s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9712 | Test Acc: 0.9755 | Time: 639.9s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9715 | Test Acc: 0.9763 | Time: 669.6s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9708 | Test Acc: 0.9759 | Time: 697.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9712 | Test Acc: 0.9761 | Time: 726.5s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9727 | Test Acc: 0.9770 | Time: 761.0s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9736 | Test Acc: 0.9782 | Time: 789.4s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9747 | Test Acc: 0.9782 | Time: 818.1s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9751 | Test Acc: 0.9799 | Time: 846.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9754 | Test Acc: 0.9791 | Time: 875.1s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9755 | Test Acc: 0.9785 | Time: 909.1s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9744 | Test Acc: 0.9788 | Time: 937.3s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9771 | Test Acc: 0.9805 | Time: 965.9s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9768 | Test Acc: 0.9800 | Time: 994.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9763 | Test Acc: 0.9810 | Time: 1022.8s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9783 | Test Acc: 0.9817 | Time: 1052.0s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9778 | Test Acc: 0.9807 | Time: 1084.8s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9775 | Test Acc: 0.9812 | Time: 1113.5s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9773 | Test Acc: 0.9818 | Time: 1141.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9788 | Test Acc: 0.9805 | Time: 1170.6s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9775 | Test Acc: 0.9819 | Time: 1199.0s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.9783 | Test Acc: 0.9821 | Time: 1227.7s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.9796 | Test Acc: 0.9832 | Time: 1256.4s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.9809 | Test Acc: 0.9831 | Time: 1284.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9806 | Test Acc: 0.9831 | Time: 1313.6s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.9808 | Test Acc: 0.9834 | Time: 1341.9s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.9801 | Test Acc: 0.9839 | Time: 1370.6s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.9808 | Test Acc: 0.9837 | Time: 1399.0s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.9808 | Test Acc: 0.9842 | Time: 1427.8s
+[ByzFL-SNN] [Training Complete] Total time: 1445.2s
+
+Training 3 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.3s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.3691 | Test Acc: 0.3735 | Time: 40.0s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.6735 | Test Acc: 0.6826 | Time: 68.7s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7923 | Test Acc: 0.8039 | Time: 97.0s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8184 | Test Acc: 0.8257 | Time: 126.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8324 | Test Acc: 0.8379 | Time: 154.9s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.8424 | Test Acc: 0.8484 | Time: 183.5s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.8493 | Test Acc: 0.8556 | Time: 212.2s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.9190 | Test Acc: 0.9244 | Time: 243.7s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.9241 | Test Acc: 0.9292 | Time: 272.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9396 | Test Acc: 0.9483 | Time: 300.4s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9467 | Test Acc: 0.9532 | Time: 328.9s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9513 | Test Acc: 0.9582 | Time: 364.4s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9547 | Test Acc: 0.9626 | Time: 393.1s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9583 | Test Acc: 0.9640 | Time: 421.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9612 | Test Acc: 0.9667 | Time: 450.1s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9621 | Test Acc: 0.9682 | Time: 478.8s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9634 | Test Acc: 0.9681 | Time: 507.2s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9651 | Test Acc: 0.9725 | Time: 535.8s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9644 | Test Acc: 0.9721 | Time: 564.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9666 | Test Acc: 0.9725 | Time: 593.0s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9690 | Test Acc: 0.9756 | Time: 621.7s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9693 | Test Acc: 0.9745 | Time: 650.1s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9727 | Test Acc: 0.9768 | Time: 678.9s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9717 | Test Acc: 0.9775 | Time: 707.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9714 | Test Acc: 0.9778 | Time: 736.1s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9726 | Test Acc: 0.9774 | Time: 764.8s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9731 | Test Acc: 0.9790 | Time: 793.3s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9745 | Test Acc: 0.9804 | Time: 822.0s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9747 | Test Acc: 0.9803 | Time: 850.5s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9751 | Test Acc: 0.9794 | Time: 879.3s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9757 | Test Acc: 0.9799 | Time: 908.0s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9766 | Test Acc: 0.9804 | Time: 936.5s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9763 | Test Acc: 0.9817 | Time: 965.2s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9757 | Test Acc: 0.9811 | Time: 993.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9772 | Test Acc: 0.9804 | Time: 1022.3s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9770 | Test Acc: 0.9822 | Time: 1050.8s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9781 | Test Acc: 0.9811 | Time: 1079.6s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9794 | Test Acc: 0.9825 | Time: 1108.7s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9775 | Test Acc: 0.9818 | Time: 1137.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9775 | Test Acc: 0.9821 | Time: 1165.9s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9794 | Test Acc: 0.9829 | Time: 1194.5s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.9788 | Test Acc: 0.9836 | Time: 1223.2s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.9788 | Test Acc: 0.9826 | Time: 1251.9s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.9786 | Test Acc: 0.9835 | Time: 1280.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9807 | Test Acc: 0.9833 | Time: 1309.2s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.9806 | Test Acc: 0.9844 | Time: 1337.6s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.9815 | Test Acc: 0.9835 | Time: 1366.4s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.9798 | Test Acc: 0.9841 | Time: 1394.8s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.9796 | Test Acc: 0.9850 | Time: 1423.5s
+[ByzFL-SNN] [Training Complete] Total time: 1441.1s
+
+Training 4 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.3s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.3804 | Test Acc: 0.3820 | Time: 40.0s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.6600 | Test Acc: 0.6709 | Time: 68.8s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7632 | Test Acc: 0.7737 | Time: 97.5s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8057 | Test Acc: 0.8155 | Time: 126.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8224 | Test Acc: 0.8305 | Time: 155.1s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.8328 | Test Acc: 0.8401 | Time: 184.0s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.8398 | Test Acc: 0.8467 | Time: 212.9s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.8462 | Test Acc: 0.8502 | Time: 241.7s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.8578 | Test Acc: 0.8665 | Time: 270.3s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9237 | Test Acc: 0.9321 | Time: 299.1s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9309 | Test Acc: 0.9416 | Time: 327.9s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9393 | Test Acc: 0.9480 | Time: 356.8s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9453 | Test Acc: 0.9525 | Time: 385.6s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9487 | Test Acc: 0.9549 | Time: 414.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9507 | Test Acc: 0.9598 | Time: 443.1s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9525 | Test Acc: 0.9593 | Time: 471.8s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9563 | Test Acc: 0.9637 | Time: 500.4s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9582 | Test Acc: 0.9640 | Time: 529.1s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9599 | Test Acc: 0.9655 | Time: 561.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9621 | Test Acc: 0.9680 | Time: 589.5s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9641 | Test Acc: 0.9689 | Time: 617.9s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9642 | Test Acc: 0.9694 | Time: 646.4s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9650 | Test Acc: 0.9702 | Time: 674.7s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9670 | Test Acc: 0.9719 | Time: 703.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9673 | Test Acc: 0.9726 | Time: 731.6s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9685 | Test Acc: 0.9739 | Time: 759.9s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9695 | Test Acc: 0.9741 | Time: 788.5s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9700 | Test Acc: 0.9741 | Time: 816.8s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9696 | Test Acc: 0.9749 | Time: 845.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9710 | Test Acc: 0.9770 | Time: 873.7s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9713 | Test Acc: 0.9766 | Time: 902.4s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9722 | Test Acc: 0.9774 | Time: 931.0s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9728 | Test Acc: 0.9776 | Time: 959.8s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9735 | Test Acc: 0.9790 | Time: 988.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9725 | Test Acc: 0.9790 | Time: 1017.2s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9736 | Test Acc: 0.9784 | Time: 1045.8s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9755 | Test Acc: 0.9789 | Time: 1074.3s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9759 | Test Acc: 0.9794 | Time: 1102.7s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9754 | Test Acc: 0.9791 | Time: 1131.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9758 | Test Acc: 0.9790 | Time: 1159.6s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9758 | Test Acc: 0.9798 | Time: 1188.1s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.9765 | Test Acc: 0.9789 | Time: 1216.6s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.9768 | Test Acc: 0.9803 | Time: 1246.2s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.9767 | Test Acc: 0.9813 | Time: 1274.5s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9778 | Test Acc: 0.9805 | Time: 1302.9s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.9778 | Test Acc: 0.9821 | Time: 1331.4s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.9772 | Test Acc: 0.9806 | Time: 1360.3s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.9775 | Test Acc: 0.9805 | Time: 1388.8s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.9788 | Test Acc: 0.9828 | Time: 1417.2s
+[ByzFL-SNN] [Training Complete] Total time: 1434.4s
+
+Training 5 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.2s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 40.0s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 68.8s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 97.5s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 126.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 155.4s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 184.4s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 213.2s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 242.3s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 271.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 299.8s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 328.6s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 357.3s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 386.0s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 415.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 444.4s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 473.3s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 502.1s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 530.9s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 559.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 588.5s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 617.2s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 646.1s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 676.2s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 705.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 739.5s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 769.5s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 798.7s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 827.9s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 857.2s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 886.4s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 916.4s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 945.8s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 975.0s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1004.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1033.3s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1062.7s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1092.2s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1121.3s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1150.5s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1179.7s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1208.9s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1238.1s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1267.3s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1296.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1325.9s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1355.8s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1388.6s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1417.4s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1446.3s
+[ByzFL-SNN] [Training Complete] Total time: 1463.8s
+
+Training 6 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.2s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 44.8s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 74.2s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 103.5s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 132.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 162.0s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 191.2s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 220.5s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 249.9s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 279.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 308.9s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 339.1s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 368.4s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 398.2s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 427.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 460.3s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 489.1s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 517.9s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 546.8s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 577.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 606.5s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 635.8s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 665.2s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 694.6s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 724.0s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 753.4s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 782.7s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 812.0s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 841.3s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 870.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 900.0s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 929.4s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 958.9s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 988.2s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1017.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1046.8s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1076.3s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1106.9s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1136.1s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1165.5s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1194.8s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1224.0s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1253.3s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1282.6s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1311.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1341.1s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1370.5s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1400.0s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1429.4s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | Time: 1458.9s
+[ByzFL-SNN] [Training Complete] Total time: 1479.9s
+
+Training 7 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.2s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.4270 | Test Acc: 0.4334 | Time: 46.0s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.6581 | Test Acc: 0.6707 | Time: 79.1s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7671 | Test Acc: 0.7787 | Time: 108.2s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8013 | Test Acc: 0.8114 | Time: 137.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8264 | Test Acc: 0.8306 | Time: 166.3s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.8380 | Test Acc: 0.8427 | Time: 195.4s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.9018 | Test Acc: 0.9056 | Time: 224.3s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.9058 | Test Acc: 0.9102 | Time: 253.4s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.9112 | Test Acc: 0.9166 | Time: 282.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9383 | Test Acc: 0.9421 | Time: 311.3s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9431 | Test Acc: 0.9505 | Time: 340.5s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9487 | Test Acc: 0.9542 | Time: 369.4s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9536 | Test Acc: 0.9593 | Time: 398.5s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9557 | Test Acc: 0.9609 | Time: 428.1s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9607 | Test Acc: 0.9655 | Time: 457.0s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9623 | Test Acc: 0.9669 | Time: 491.9s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9620 | Test Acc: 0.9681 | Time: 520.4s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9653 | Test Acc: 0.9689 | Time: 548.9s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9663 | Test Acc: 0.9708 | Time: 577.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9654 | Test Acc: 0.9715 | Time: 605.7s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9673 | Test Acc: 0.9701 | Time: 634.1s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9684 | Test Acc: 0.9714 | Time: 662.6s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9717 | Test Acc: 0.9747 | Time: 691.1s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9712 | Test Acc: 0.9754 | Time: 719.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9732 | Test Acc: 0.9767 | Time: 748.1s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9714 | Test Acc: 0.9752 | Time: 776.7s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9718 | Test Acc: 0.9764 | Time: 805.1s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9735 | Test Acc: 0.9782 | Time: 833.5s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9738 | Test Acc: 0.9777 | Time: 862.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9749 | Test Acc: 0.9767 | Time: 890.5s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9762 | Test Acc: 0.9795 | Time: 918.9s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9757 | Test Acc: 0.9795 | Time: 947.4s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9756 | Test Acc: 0.9808 | Time: 975.8s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9767 | Test Acc: 0.9794 | Time: 1009.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9776 | Test Acc: 0.9799 | Time: 1038.1s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9778 | Test Acc: 0.9815 | Time: 1067.1s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9777 | Test Acc: 0.9812 | Time: 1096.0s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9784 | Test Acc: 0.9811 | Time: 1124.9s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9787 | Test Acc: 0.9822 | Time: 1155.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9792 | Test Acc: 0.9822 | Time: 1184.0s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9789 | Test Acc: 0.9823 | Time: 1212.4s
+[ByzFL-SNN]   [Step 420/500] (84.0%) | Val Acc: 0.9784 | Test Acc: 0.9828 | Time: 1240.9s
+[ByzFL-SNN]   [Step 430/500] (86.0%) | Val Acc: 0.9783 | Test Acc: 0.9833 | Time: 1269.4s
+[ByzFL-SNN]   [Step 440/500] (88.0%) | Val Acc: 0.9799 | Test Acc: 0.9813 | Time: 1297.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9780 | Test Acc: 0.9824 | Time: 1326.3s
+[ByzFL-SNN]   [Step 460/500] (92.0%) | Val Acc: 0.9799 | Test Acc: 0.9837 | Time: 1354.9s
+[ByzFL-SNN]   [Step 470/500] (94.0%) | Val Acc: 0.9789 | Test Acc: 0.9820 | Time: 1384.2s
+[ByzFL-SNN]   [Step 480/500] (96.0%) | Val Acc: 0.9792 | Test Acc: 0.9821 | Time: 1412.7s
+[ByzFL-SNN]   [Step 490/500] (98.0%) | Val Acc: 0.9792 | Test Acc: 0.9821 | Time: 1443.9s
+[ByzFL-SNN] [Training Complete] Total time: 1461.5s
+
+Training 8 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0983 | Test Acc: 0.0954 | Time: 11.4s
+[ByzFL-SNN]   [Step 10/500] (2.0%) | Val Acc: 0.3690 | Test Acc: 0.3689 | Time: 40.5s
+[ByzFL-SNN]   [Step 20/500] (4.0%) | Val Acc: 0.7038 | Test Acc: 0.7140 | Time: 69.5s
+[ByzFL-SNN]   [Step 30/500] (6.0%) | Val Acc: 0.7581 | Test Acc: 0.7732 | Time: 98.6s
+[ByzFL-SNN]   [Step 40/500] (8.0%) | Val Acc: 0.8768 | Test Acc: 0.8920 | Time: 127.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.9009 | Test Acc: 0.9131 | Time: 156.8s
+[ByzFL-SNN]   [Step 60/500] (12.0%) | Val Acc: 0.9200 | Test Acc: 0.9306 | Time: 185.7s
+[ByzFL-SNN]   [Step 70/500] (14.0%) | Val Acc: 0.9281 | Test Acc: 0.9380 | Time: 214.7s
+[ByzFL-SNN]   [Step 80/500] (16.0%) | Val Acc: 0.9327 | Test Acc: 0.9422 | Time: 243.7s
+[ByzFL-SNN]   [Step 90/500] (18.0%) | Val Acc: 0.9388 | Test Acc: 0.9446 | Time: 274.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9483 | Test Acc: 0.9531 | Time: 303.5s
+[ByzFL-SNN]   [Step 110/500] (22.0%) | Val Acc: 0.9506 | Test Acc: 0.9566 | Time: 332.7s
+[ByzFL-SNN]   [Step 120/500] (24.0%) | Val Acc: 0.9509 | Test Acc: 0.9570 | Time: 361.7s
+[ByzFL-SNN]   [Step 130/500] (26.0%) | Val Acc: 0.9570 | Test Acc: 0.9636 | Time: 390.8s
+[ByzFL-SNN]   [Step 140/500] (28.0%) | Val Acc: 0.9611 | Test Acc: 0.9648 | Time: 419.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9602 | Test Acc: 0.9670 | Time: 448.9s
+[ByzFL-SNN]   [Step 160/500] (32.0%) | Val Acc: 0.9646 | Test Acc: 0.9700 | Time: 477.8s
+[ByzFL-SNN]   [Step 170/500] (34.0%) | Val Acc: 0.9650 | Test Acc: 0.9719 | Time: 506.8s
+[ByzFL-SNN]   [Step 180/500] (36.0%) | Val Acc: 0.9659 | Test Acc: 0.9707 | Time: 535.8s
+[ByzFL-SNN]   [Step 190/500] (38.0%) | Val Acc: 0.9671 | Test Acc: 0.9718 | Time: 564.8s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9695 | Test Acc: 0.9727 | Time: 596.3s
+[ByzFL-SNN]   [Step 210/500] (42.0%) | Val Acc: 0.9710 | Test Acc: 0.9747 | Time: 624.8s
+[ByzFL-SNN]   [Step 220/500] (44.0%) | Val Acc: 0.9712 | Test Acc: 0.9761 | Time: 653.4s
+[ByzFL-SNN]   [Step 230/500] (46.0%) | Val Acc: 0.9708 | Test Acc: 0.9764 | Time: 681.8s
+[ByzFL-SNN]   [Step 240/500] (48.0%) | Val Acc: 0.9730 | Test Acc: 0.9771 | Time: 710.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9719 | Test Acc: 0.9760 | Time: 738.8s
+[ByzFL-SNN]   [Step 260/500] (52.0%) | Val Acc: 0.9732 | Test Acc: 0.9763 | Time: 767.4s
+[ByzFL-SNN]   [Step 270/500] (54.0%) | Val Acc: 0.9732 | Test Acc: 0.9778 | Time: 795.9s
+[ByzFL-SNN]   [Step 280/500] (56.0%) | Val Acc: 0.9738 | Test Acc: 0.9796 | Time: 824.4s
+[ByzFL-SNN]   [Step 290/500] (58.0%) | Val Acc: 0.9736 | Test Acc: 0.9786 | Time: 852.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9739 | Test Acc: 0.9783 | Time: 881.4s
+[ByzFL-SNN]   [Step 310/500] (62.0%) | Val Acc: 0.9759 | Test Acc: 0.9793 | Time: 910.4s
+[ByzFL-SNN]   [Step 320/500] (64.0%) | Val Acc: 0.9766 | Test Acc: 0.9795 | Time: 938.9s
+[ByzFL-SNN]   [Step 330/500] (66.0%) | Val Acc: 0.9768 | Test Acc: 0.9810 | Time: 967.4s
+[ByzFL-SNN]   [Step 340/500] (68.0%) | Val Acc: 0.9765 | Test Acc: 0.9810 | Time: 995.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9758 | Test Acc: 0.9803 | Time: 1029.6s
+[ByzFL-SNN]   [Step 360/500] (72.0%) | Val Acc: 0.9770 | Test Acc: 0.9822 | Time: 1058.6s
+[ByzFL-SNN]   [Step 370/500] (74.0%) | Val Acc: 0.9769 | Test Acc: 0.9806 | Time: 1087.9s
+[ByzFL-SNN]   [Step 380/500] (76.0%) | Val Acc: 0.9784 | Test Acc: 0.9822 | Time: 1117.0s
+[ByzFL-SNN]   [Step 390/500] (78.0%) | Val Acc: 0.9785 | Test Acc: 0.9820 | Time: 1146.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9782 | Test Acc: 0.9827 | Time: 1175.3s
+[ByzFL-SNN]   [Step 410/500] (82.0%) | Val Acc: 0.9792 | Test Acc: 0.9827 | Time: 1204.3s
+Error executing run_benchmark: [Errno 28] No space left on device
+multiprocessing.pool.RemoteTraceback: 
+"""
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (multiprocessing.pool.RemoteTraceback: 
+"""
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/benchmark.py", line 223, in run_training
+    start_training(params)
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/train.py", line 190, in start_training
+    file_manager.write_array_in_file(val_accuracy_list, val_acc_filename)
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/managers.py", line 115, in write_array_in_file
+    np.savetxt(file_path, [array], fmt="%.4f", delimiter=",")
+  File "/localhome/bendouro/ByzFL_snn/byzfl/venv/lib/python3.12/site-packages/numpy/lib/npyio.py", line 1635, in savetxt
+    fh.close()
+OSError: [Errno 28] No space left on device
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/localhome/bendouro/ByzFL_snn/byzfl/run_mnist_byzantine_sweep_cc_krum_rate.py", line 317, in main
+    run_benchmark(fn, nb_jobs=1)
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/benchmark.py", line 602, in run_benchmark
+    pool.map(run_training, dict_list)
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/localhome/bendouro/ByzFL_snn/byzfl/run_mnist_byzantine_sweep_cc_krum_rate.py", line 332, in <module>
+    main()
+  File "/localhome/bendouro/ByzFL_snn/byzfl/run_mnist_byzantine_sweep_cc_krum_rate.py", line 320, in main
+    traceback.print_exc()
+  File "/usr/lib/python3.12/traceback.py", line 180, in print_exc
+    print_exception(sys.exception(), limit=limit, file=file, chain=chain)
+  File "/usr/lib/python3.12/traceback.py", line 125, in print_exception
+    te.print(file=file, chain=chain)
+  File "/usr/lib/python3.12/traceback.py", line 1050, in print
+    print(line, file=file, end="")
+OSError: [Errno 28] No space left on device

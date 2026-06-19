@@ -6,6 +6,42 @@ import numpy as np
 import torch
 
 
+def get_snn_suffix(params_manager):
+    """
+    Builds a unique directory suffix based on SNN configurations.
+    """
+    if not params_manager.is_snn():
+        return ""
+    
+    parts = []
+    time_steps = params_manager.get_time_steps()
+    if time_steps is not None:
+        parts.append(f"ts_{time_steps}")
+        
+    encoding = params_manager.get_encoding_type()
+    if encoding is not None:
+        parts.append(f"enc_{encoding}")
+        
+    model_params = params_manager.get_model_params()
+    for k, v in sorted(model_params.items()):
+        if not isinstance(v, (dict, list)):
+            parts.append(f"{k}_{v}")
+            
+    return f"_{'_'.join(parts)}" if parts else ""
+
+
+
+def retry_on_error(func, *args, max_retries=12, delay=5, **kwargs):
+    import time
+    for attempt in range(max_retries):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(f"[FileManager Retry] Failed to execute file operation on attempt {attempt + 1}/{max_retries}. Error: {e}. Retrying in {delay}s...")
+            time.sleep(delay)
+    return func(*args, **kwargs)
+
+
 class FileManager:
     """
     Description
@@ -14,25 +50,56 @@ class FileManager:
     """
 
     def __init__(self, params=None):
-        self.files_path = (
-            f"{params['result_path']}/"
-            f"{params['dataset_name']}_{params['model_name']}_"
-            f"n_{params['nb_workers']}_"
-            f"f_{params['nb_byz']}_"
-            f"d_{params['declared_nb_byz']}_"
-            f"{params['data_distribution_name']}_"
-            f"{params['distribution_parameter']}_"
-            f"{params['aggregation_name']}_"
-            f"{'_'.join(params['pre_aggregation_names'])}_"
-            f"{params['attack_name']}_"
-            f"lr_{params['learning_rate']}_"
-            f"mom_{params['momentum']}_"
-            f"wd_{params['weight_decay']}/"
-        )
-        os.makedirs(self.files_path, exist_ok=True)
+        clean = params.get("clean_directory_structure", False)
+        self.clean = clean
+        if clean:
+            encoding = params.get("encoding_type", "constant")
+            enc_name = "direct" if encoding == "constant" else encoding
+            parent_dir = f"{params['dataset_name']}_{enc_name}"
+            
+            pre_aggs = params.get("pre_aggregation_names", [])
+            agg = params.get("aggregation_name", "Average")
+            preaggs_aggregator = '_'.join(pre_aggs + [agg])
+            
+            dist_param = params.get("distribution_parameter")
+            dist_name = params.get("data_distribution_name", "iid")
+            if dist_param is not None:
+                dist_part = f"{dist_name}_{dist_param}"
+            else:
+                dist_part = dist_name
 
-        with open(os.path.join(self.files_path, "day.txt"), "w") as file:
-            file.write(datetime.date.today().strftime("%d_%m_%y"))
+            folder_name = (
+                f"{params['attack_name']}_"
+                f"{preaggs_aggregator}_"
+                f"f_{params['nb_byz']}_"
+                f"{dist_part}"
+            )
+            self.files_path = f"{params['result_path']}/{parent_dir}/{folder_name}/"
+        else:
+            snn_suffix = params.get("snn_suffix", "")
+            self.files_path = (
+                f"{params['result_path']}/"
+                f"{params['dataset_name']}_{params['model_name']}_"
+                f"n_{params['nb_workers']}_"
+                f"f_{params['nb_byz']}_"
+                f"d_{params['declared_nb_byz']}_"
+                f"{params['data_distribution_name']}_"
+                f"{params['distribution_parameter']}_"
+                f"{params['aggregation_name']}_"
+                f"{'_'.join(params['pre_aggregation_names'])}_"
+                f"{params['attack_name']}_"
+                f"lr_{params['learning_rate']}_"
+                f"mom_{params['momentum']}_"
+                f"wd_{params['weight_decay']}"
+                f"{snn_suffix}/"
+            )
+        
+        def init_dirs():
+            os.makedirs(self.files_path, exist_ok=True)
+            with open(os.path.join(self.files_path, "day.txt"), "w") as file:
+                file.write(datetime.date.today().strftime("%d_%m_%y"))
+
+        retry_on_error(init_dirs)
 
     def set_experiment_path(self, path):
         """
@@ -51,52 +118,68 @@ class FileManager:
         Save a configuration dictionary as a JSON file.
         """
         config_path = os.path.join(self.files_path, "config.json")
-        with open(config_path, "w") as json_file:
-            json.dump(dict_to_save, json_file, indent=4, separators=(",", ": "))
+        def do_write():
+            with open(config_path, "w") as json_file:
+                json.dump(dict_to_save, json_file, indent=4, separators=(",", ": "))
+        retry_on_error(do_write)
 
     def write_array_in_file(self, array, file_name):
         """
         Write a single array to a file.
         """
         file_path = os.path.join(self.files_path, file_name)
-        np.savetxt(file_path, [array], fmt="%.4f", delimiter=",")
+        def do_write():
+            np.savetxt(file_path, [array], fmt="%.4f", delimiter=",")
+        retry_on_error(do_write)
 
     def save_state_dict(self, state_dict, training_seed, data_dist_seed, step):
         """
         Save a model's state dictionary under a directory structured by seed values.
         """
-        model_dir = os.path.join(
-            self.files_path, f"models_tr_seed_{training_seed}_dd_seed_{data_dist_seed}"
-        )
-        os.makedirs(model_dir, exist_ok=True)
-
-        file_path = os.path.join(model_dir, f"model_step_{step}.pth")
-        torch.save(state_dict, file_path)
+        if self.clean:
+            model_dir = os.path.join(self.files_path, "models")
+        else:
+            model_dir = os.path.join(
+                self.files_path, f"models_tr_seed_{training_seed}_dd_seed_{data_dist_seed}"
+            )
+        def do_write():
+            os.makedirs(model_dir, exist_ok=True)
+            file_path = os.path.join(model_dir, f"model_step_{step}.pth")
+            torch.save(state_dict, file_path)
+        retry_on_error(do_write)
 
     def save_loss(self, loss_array, training_seed, data_dist_seed, client_id):
         """
         Save a loss array for a specific client and seed values.
         """
-        loss_dir = os.path.join(
-            self.files_path, f"train_loss_tr_seed_{training_seed}_dd_seed_{data_dist_seed}"
-        )
-        os.makedirs(loss_dir, exist_ok=True)
-
-        file_path = os.path.join(loss_dir, f"loss_client_{client_id}.txt")
-        np.savetxt(file_path, loss_array, fmt="%.6f", delimiter=",")
+        if self.clean:
+            loss_dir = os.path.join(self.files_path, "train_loss_per_client")
+        else:
+            loss_dir = os.path.join(
+                self.files_path, f"train_loss_tr_seed_{training_seed}_dd_seed_{data_dist_seed}"
+            )
+        def do_write():
+            os.makedirs(loss_dir, exist_ok=True)
+            file_path = os.path.join(loss_dir, f"loss_client_{client_id}.txt")
+            np.savetxt(file_path, loss_array, fmt="%.6f", delimiter=",")
+        retry_on_error(do_write)
 
     def save_accuracy(self, acc_array, training_seed, data_dist_seed, client_id):
         """
         Save an accuracy array for a specific client and seed values.
         """
-        acc_dir = os.path.join(
-            self.files_path,
-            f"train_accuracy_tr_seed_{training_seed}_dd_seed_{data_dist_seed}"
-        )
-        os.makedirs(acc_dir, exist_ok=True)
-
-        file_path = os.path.join(acc_dir, f"accuracy_client_{client_id}.txt")
-        np.savetxt(file_path, acc_array, fmt="%.4f", delimiter=",")
+        if self.clean:
+            acc_dir = os.path.join(self.files_path, "train_accuracy_per_client")
+        else:
+            acc_dir = os.path.join(
+                self.files_path,
+                f"train_accuracy_tr_seed_{training_seed}_dd_seed_{data_dist_seed}"
+            )
+        def do_write():
+            os.makedirs(acc_dir, exist_ok=True)
+            file_path = os.path.join(acc_dir, f"accuracy_client_{client_id}.txt")
+            np.savetxt(file_path, acc_array, fmt="%.4f", delimiter=",")
+        retry_on_error(do_write)
 
 
 
@@ -111,6 +194,7 @@ class ParamsManager(object):
 
     def __init__(self, params):
         self.data = params
+        self._validate_snn_params()
 
     def _parameter_to_use(self, default, read):
         if read is None:
@@ -151,9 +235,18 @@ class ParamsManager(object):
             },
             "model": {
                 "name": self.get_model_name(),
+                "is_snn": self.is_snn(),
                 "dataset_name": self.get_dataset_name(),
                 "nb_labels": self.get_nb_labels(),
                 "loss": self.get_loss_name(),
+                "accuracy_name": self.get_accuracy_name(),
+                "loss_params": self.get_loss_params(),
+                "model_params": self.get_model_params(),
+                "encoding": {
+                    "type": self.get_encoding_type(),
+                    "time_steps": self.get_time_steps(),
+                    "encoding_params": self.get_encoding_params()
+                } if self.is_snn() else None,
                 "learning_rate": self.get_learning_rate(),
                 "learning_rate_decay": self.get_learning_rate_decay(),
                 "milestones": self.get_milestones()
@@ -317,10 +410,19 @@ class ParamsManager(object):
         return self._parameter_to_use(default, read)
 
     def get_loss_name(self):
-        default = "NLLLoss"
         path = ["model", "loss"]
         read = self._read_object(path)
-        return self._parameter_to_use(default, read)
+        if read is not None:
+            return read
+            
+        if self.is_snn():
+            enc_type = self.get_encoding_type().lower()
+            if enc_type == "latency":
+                return "ce_temporal_loss"
+            else:
+                return "ce_rate_loss"
+                
+        return "NLLLoss"
     
     def get_optimizer_name(self):
         default = "SGD"
@@ -463,3 +565,87 @@ class ParamsManager(object):
         path = ["evaluation_and_results", "results_directory"]
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
+
+    # ----------------------------------------------------------------------
+    #  SNN Properties
+    # ----------------------------------------------------------------------
+
+    def is_snn(self):
+        """Check if model is a Spiking Neural Network."""
+        val = self._read_object(["model", "is_snn"])
+        if val is not None:
+            return bool(val)
+        model_name = self.get_model_name()
+        return "snn" in model_name.lower()
+
+    def get_encoding_type(self):
+        """Get SNN encoding type (constant, rate, latency)."""
+        val = self._read_object(["model", "encoding", "type"])
+        if val is not None:
+            return val
+        val = self._read_object(["model", "encoding_type"])
+        return self._parameter_to_use("constant", val)
+
+    def get_time_steps(self):
+        """Get SNN time steps."""
+        val = self._read_object(["model", "encoding", "time_steps"])
+        if val is not None:
+            return val
+        val = self._read_object(["model", "time_steps"])
+        return self._parameter_to_use(25, val)
+
+
+
+    def get_encoding_params(self):
+        """Get SNN encoding params."""
+        val = self._read_object(["model", "encoding", "encoding_params"])
+        if val is not None:
+            return val
+        val = self._read_object(["model", "encoding_params"])
+        return self._parameter_to_use({}, val)
+
+    def get_model_params(self):
+        """Get SNN custom model params."""
+        val = self._read_object(["model", "model_params"])
+        return self._parameter_to_use({}, val)
+
+    def get_loss_params(self):
+        """Get SNN custom loss params."""
+        val = self._read_object(["model", "loss_params"])
+        return self._parameter_to_use({}, val)
+
+    def get_accuracy_name(self):
+        """Get SNN accuracy metric name."""
+        path = ["model", "accuracy_name"]
+        read = self._read_object(path)
+        if read is not None:
+            return read
+            
+        if self.is_snn():
+            enc_type = self.get_encoding_type().lower()
+            if enc_type == "latency":
+                return "accuracy_temporal"
+            else:
+                return "accuracy_rate"
+                
+        return None
+
+    def _validate_snn_params(self):
+        """Warn user if SNN parameters (encoding, loss, accuracy) are mismatched.
+        TODO: Voir si c'est pertinent avec Geovani"""
+        if not self.is_snn():
+            return
+            
+        enc_type = self.get_encoding_type().lower()
+        loss_name = self.get_loss_name()
+        acc_name = self.get_accuracy_name()
+        
+        warnings = []
+        if enc_type == "latency":
+            if "temporal" not in loss_name.lower():
+                warnings.append(f"Mismatch: encoding is '{enc_type}' but loss is '{loss_name}'. Expected a temporal loss (e.g. ce_temporal_loss).")
+            if acc_name != "accuracy_temporal":
+                warnings.append(f"Mismatch: encoding is '{enc_type}' but accuracy is '{acc_name}'. Expected accuracy_temporal.")
+                
+        for warn in warnings:
+            print(f"WARNING: [SNN Config Validation] {warn}")

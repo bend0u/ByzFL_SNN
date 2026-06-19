@@ -1,0 +1,12 @@
+==================================================
+Honest Clients Federated Sweep Summary (1872 Steps)
+==================================================
+
+Honest Clients: 1
+  - Final Average Loss: 1.4732
+  - Final Test Accuracy: 0.9894
+----------------------------------------
+Honest Clients: 16
+  - Final Average Loss: 1.4861
+  - Final Test Accuracy: 0.9890
+----------------------------------------

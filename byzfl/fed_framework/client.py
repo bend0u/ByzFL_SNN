@@ -3,6 +3,8 @@ import numpy as np
 
 from byzfl.fed_framework import ModelBaseInterface
 from byzfl.utils.conversion import flatten_dict
+from byzfl.utils.snn_loss import SNN_LOSS_REGISTRY, create_snn_loss
+import snntorch.functional as sf
 
 class Client(ModelBaseInterface):
 
@@ -33,9 +35,28 @@ class Client(ModelBaseInterface):
             "learning_rate_decay": params.get("learning_rate_decay", None),
             "optimizer_name": params.get("optimizer_name", None),
             "optimizer_params": params.get("optimizer_params", {}),
+            "model_params": params.get("model_params", {}),
         })
 
-        self.criterion = getattr(torch.nn, params["loss_name"])()
+        loss_name = params["loss_name"]
+        loss_params = params.get("loss_params", {})
+        #We check if the loss function is one for SNN and if so we use it. Else, we search the loss function in pytorch
+        if loss_name in SNN_LOSS_REGISTRY:
+            self.criterion = create_snn_loss(loss_name, **loss_params)
+        else:
+            self.criterion = getattr(torch.nn, loss_name)()
+
+        accuracy_name = params.get("accuracy_name", None)
+        if accuracy_name is not None:
+            if hasattr(sf, accuracy_name):
+                self.accuracy_fn = getattr(sf, accuracy_name)
+            else:
+                raise ValueError(
+                    f"Accuracy function '{accuracy_name}' not found in snntorch.functional. "
+                    f"Please choose a valid one (e.g. 'accuracy_rate', 'accuracy_temporal')"
+                )
+        else:
+            self.accuracy_fn = None
         self.gradient_LF = 0
         self.labelflipping = params["LabelFlipping"]
         self.nb_labels = params["nb_labels"]
@@ -130,10 +151,15 @@ class Client(ModelBaseInterface):
 
         if train_acc:
             # Compute and store train accuracy
-            _, predicted = torch.max(outputs.data, 1)
-            total = targets.size(0)
-            correct = (predicted == targets).sum().item()
-            acc = correct / total
+            is_snn = isinstance(outputs, tuple)
+            if is_snn:
+                fn = self.accuracy_fn if self.accuracy_fn is not None else sf.accuracy_rate
+                acc = fn(outputs[0], targets)
+            else:
+                _, predicted = torch.max(outputs.data, 1)
+                total = targets.size(0)
+                correct = (predicted == targets).sum().item()
+                acc = correct / total
             self.train_acc_list.append(acc)
 
         return loss_value

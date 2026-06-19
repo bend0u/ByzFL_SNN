@@ -4,6 +4,7 @@ import json
 
 import numpy as np
 import pytest
+import torch
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from byzfl import run_benchmark
@@ -15,7 +16,7 @@ class TestBenchmark:
         try:
             default_config = {
                 "benchmark_config": {
-                    "device": "cuda",
+                    "device": "cuda" if torch.cuda.is_available() else "cpu",
                     "training_seed": 0,
                     "nb_training_seeds": 1,
                     "nb_honest_clients": 10,

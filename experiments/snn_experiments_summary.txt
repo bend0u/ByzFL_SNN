@@ -1,0 +1,262 @@
+==================================================
+SNN Federated Learning Experiment Sweep Summary
+==================================================
+
+Experiment: Exp 1.1a: Constant + CE Rate Loss (Batch Size = 64)
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: ce_rate_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 1.5575
+  - Final Test Accuracy: 0.9242
+--------------------------------------------------
+
+Experiment: Exp 1.1b: Constant + CE Rate Loss (Batch Size = 128 - Baseline)
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: ce_rate_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 1.5940
+  - Final Test Accuracy: 0.9085
+--------------------------------------------------
+
+Experiment: Exp 1.1c: Constant + CE Rate Loss (Batch Size = 256)
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: ce_rate_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 1.6380
+  - Final Test Accuracy: 0.8797
+--------------------------------------------------
+
+Experiment: Exp 1.1d: Constant + CE Rate Loss (Time Steps = 10)
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 10
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: ce_rate_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 1.6885
+  - Final Test Accuracy: 0.8707
+--------------------------------------------------
+
+Experiment: Exp 1.1e: Constant + CE Rate Loss (Time Steps = 50)
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 50
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: ce_rate_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 1.5542
+  - Final Test Accuracy: 0.9219
+--------------------------------------------------
+
+Experiment: Exp 1.2: Constant + CE Count Loss
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: ce_count_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 13.3971
+  - Final Test Accuracy: 0.0980
+--------------------------------------------------
+
+Experiment: Exp 1.3: Constant + MSE Count Loss
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: mse_count_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 0.1962
+  - Final Test Accuracy: 0.9502
+--------------------------------------------------
+
+Experiment: Exp 1.4: Constant + CE Max Mem Loss
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: ce_max_membrane_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 0.2492
+  - Final Test Accuracy: 0.8575
+--------------------------------------------------
+
+Experiment: Exp 1.5: Constant + MSE Mem Loss
+Group: Group 1: Constant Current Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: constant
+  - Loss Name: mse_membrane_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 0.0621
+  - Final Test Accuracy: 0.7866
+--------------------------------------------------
+
+Experiment: Exp 2.1: Poisson Rate + CE Rate Loss
+Group: Group 2: Poisson Rate Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: rate
+  - Loss Name: ce_rate_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 1.5945
+  - Final Test Accuracy: 0.9047
+--------------------------------------------------
+
+Experiment: Exp 2.2: Poisson Rate + CE Count Loss
+Group: Group 2: Poisson Rate Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: rate
+  - Loss Name: ce_count_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 9.3767
+  - Final Test Accuracy: 0.2104
+--------------------------------------------------
+
+Experiment: Exp 2.3: Poisson Rate + CE Max Mem Loss
+Group: Group 2: Poisson Rate Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: rate
+  - Loss Name: ce_max_membrane_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 0.2434
+  - Final Test Accuracy: 0.8860
+--------------------------------------------------
+
+Experiment: Exp 3.1: Latency + CE Temporal Loss
+Group: Group 3: Latency Temporal Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: latency
+  - Encoding Params: {'tau': 2.0, 'threshold': 0.01}
+  - Loss Name: ce_temporal_loss
+  - Accuracy Name: accuracy_temporal
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 1.8218
+  - Final Test Accuracy: 0.4086
+--------------------------------------------------
+
+Experiment: Exp 3.2: Latency + MSE Temporal Loss
+Group: Group 3: Latency Temporal Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: latency
+  - Encoding Params: {'tau': 2.0, 'threshold': 0.01}
+  - Loss Name: mse_temporal_loss
+  - Accuracy Name: accuracy_temporal
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 0.1686
+  - Final Test Accuracy: 0.1223
+--------------------------------------------------
+
+Experiment: Exp 3.3: Latency + CE Rate Loss (Mismatch)
+Group: Group 3: Latency Temporal Coding
+Configuration:
+  - Dataset: mnist
+  - Time Steps: 25
+  - Hidden Layer Dim: 512
+  - Beta (Decay): 0.95
+  - Data Encoding: latency
+  - Encoding Params: {'tau': 2.0, 'threshold': 0.01}
+  - Loss Name: ce_rate_loss
+  - Accuracy Name: accuracy_rate
+  - Learning Rate: 0.05
+  - Epochs: 5
+Results:
+  - Final Avg Loss: 2.3026
+  - Final Test Accuracy: 0.0980
+--------------------------------------------------
+
