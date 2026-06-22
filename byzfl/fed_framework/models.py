@@ -853,4 +853,41 @@ class nmnist_snn(nn.Module):
         return torch.stack(spk_rec), torch.stack(mem_rec)
 
 
-        
+class convnet_cnn(nn.Module):
+    """
+    Standard non-spiking Convolutional Neural Network matching the convnet_snn architecture.
+    Does not use LIF neurons or time steps.
+    """
+    def __init__(self, in_channels=1, input_height=28, input_width=28, output_dim=10, **kwargs):
+        super().__init__()
+
+        # Layer 1: Conv (in_channels -> 32 filters, 5x5 kernel) -> MaxPool (2x2)
+        self.conv1 = nn.Conv2d(in_channels, 32, kernel_size=5)
+        self.pool1 = nn.MaxPool2d(2)
+
+        # Layer 2: Conv (32 -> 64 filters, 5x5 kernel) -> MaxPool (2x2)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=5)
+        self.pool2 = nn.MaxPool2d(2)
+
+        # Calculate flattened feature count dynamically using dummy run
+        with torch.no_grad():
+            dummy = torch.zeros(1, in_channels, input_height, input_width)
+            dummy_out = self.pool1(self.conv1(dummy))
+            dummy_out = self.pool2(self.conv2(dummy_out))
+            flat_features = dummy_out.numel()
+
+        # Fully connected layers matching paper (1000, output_dim classes)
+        self.fc1 = nn.Linear(flat_features, 1000)
+        self.fc2 = nn.Linear(1000, output_dim)
+
+    def forward(self, x):
+        # Shape of x: (batch_size, in_channels, H, W)
+        x = F.relu(self.conv1(x))
+        x = self.pool1(x)
+        x = F.relu(self.conv2(x))
+        x = self.pool2(x)
+        x = x.view(x.size(0), -1)
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+

@@ -541,7 +541,7 @@ def ensure_optional_config_parameters(data):
     return data
 
 
-def run_benchmark(config_file="config.json", nb_jobs=1):
+def run_benchmark(config_file="config.json", nb_jobs=1, distribute_gpus=False):
     """
     Run benchmark experiments in parallel, based on configurations defined
     in the specified config file.
@@ -607,6 +607,18 @@ def run_benchmark(config_file="config.json", nb_jobs=1):
     # Remove already completed experiments
     dict_list = eliminate_experiments_done(dict_list)
 
+    # Distribute tasks across available GPUs if requested and target device is "cuda"
+    device_setting = data["benchmark_config"].get("device", "cuda")
+    if distribute_gpus and device_setting == "cuda":
+        import torch
+        if torch.cuda.is_available():
+            num_gpus = torch.cuda.device_count()
+            if num_gpus > 1:
+                print(f"Distributing tasks across {num_gpus} GPUs...")
+                for idx, setting in enumerate(dict_list):
+                    gpu_id = idx % num_gpus
+                    setting["benchmark_config"]["device"] = f"cuda:{gpu_id}"
+
     print(f"Total trainings to do: {len(dict_list)}")
     print(f"Running {nb_jobs} trainings in parallel...")
 
@@ -622,6 +634,10 @@ def run_benchmark(config_file="config.json", nb_jobs=1):
         print("No hyperparameter exploration done.")
     else:
         try:
+            find_best_hyperparameters(results_directory)
+            print("Done")
+        except Exception as e:
+            print(f"Warning: Best hyperparameter selection skipped or failed: {e}")
             find_best_hyperparameters(results_directory)
             print("Done")
         except Exception as e:
