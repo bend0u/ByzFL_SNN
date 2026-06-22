@@ -10,7 +10,9 @@
             0,
             2,
             4,
-            6
+            6,
+            8,
+            10
         ],
         "size_train_set": 0.8,
         "data_distribution_seed": 42,
@@ -102,13 +104,6 @@
         {
             "name": "Optimal_ALittleIsEnough",
             "parameters": {}
-        },
-        {
-            "name": "Gaussian",
-            "parameters": {
-                "mu": 0.0,
-                "sigma": 1.0
-            }
         }
     ],
     "evaluation_and_results": {

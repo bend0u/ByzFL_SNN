@@ -12,7 +12,7 @@ def run_sweep(config_path):
     
     # Define directories
     results_dir = config_path.replace(".json", "").replace("snn_complete_", "snn_complete_results_")
-    plots_dir = results_dir.replace("results", "plots")
+    plots_dir = results_dir.replace("results", "plots_extended")
     
     # Generate heatmap plots
     print(f"Generating heatmaps for {config_path}...")

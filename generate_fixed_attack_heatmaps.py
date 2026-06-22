@@ -3,16 +3,16 @@ from byzfl.benchmark.evaluate_results import test_heatmap, loss_heatmap, aggrega
 
 def main():
     experiments = [
-        ("cnn_complete_results", "cnn_complete_plots"),
-        ("snn_complete_results_direct", "snn_complete_plots_direct"),
-        ("snn_complete_results_nmnist", "snn_complete_plots_nmnist")
+        ("cnn_complete_results", "cnn_complete_plots_extended"),
+        ("snn_complete_results_direct", "snn_complete_plots_direct_extended"),
+        ("snn_complete_results_nmnist", "snn_complete_plots_nmnist_extended"),
+        ("snn_complete_results_rate", "snn_complete_plots_rate_extended")
     ]
     
     attacks = [
         "Optimal_ALittleIsEnough", 
         "Optimal_InnerProductManipulation", 
-        "SignFlipping", 
-        "Gaussian"
+        "SignFlipping"
     ]
     
     for results_dir, plots_dir in experiments:
