@@ -8,7 +8,7 @@ def run_sweep(config_path):
     print(f"=======================================================")
     
     # Run the sweep with nb_jobs = 2
-    run_benchmark(config_path, nb_jobs=4, distribute_gpus = True)
+    run_benchmark(config_path, nb_jobs=6, distribute_gpus = True)
     
     # Define directories
     results_dir = config_path.replace(".json", "").replace("snn_complete_", "snn_complete_results_")

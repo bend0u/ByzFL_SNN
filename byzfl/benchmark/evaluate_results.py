@@ -504,7 +504,7 @@ def test_accuracy_curve(path_to_results, path_to_plot, colors=colors, tab_sign=t
                                     plt.close()
 
 
-def loss_heatmap(path_to_results, path_to_plot):
+def loss_heatmap(path_to_results, path_to_plot, target_attack=None):
     """
     Creates a heatmap where the axis are the number of 
     byzantine nodes and the distribution parameter.
@@ -577,6 +577,8 @@ def loss_heatmap(path_to_results, path_to_plot):
         pre_aggregators = [pre_aggregators]
 
     attacks = ensure_list(attacks)
+    if target_attack is not None:
+        attacks = [att for att in attacks if att["name"] == target_attack]
     lr_list = ensure_list(lr_list)
     momentum_list = ensure_list(momentum_list)
     wd_list = ensure_list(wd_list)
@@ -705,8 +707,9 @@ def loss_heatmap(path_to_results, path_to_plot):
                         else:
                             end_file_name = f"tolerated_f_{nb_decl}.pdf"
 
+                        file_prefix = f"train_loss_{target_attack}_" if target_attack else "train_loss_"
                         file_name = (
-                            f"train_loss_{dataset_name}_"
+                            f"{file_prefix}{dataset_name}_"
                             f"{model_name}_"
                             f"{custom_dict_to_str(data_dist['name'])}_"
                             f"{pre_agg_names}_"
@@ -726,6 +729,8 @@ def loss_heatmap(path_to_results, path_to_plot):
                             print(f"Error creating directory: {error}")
 
                         sns.heatmap(heat_map_table, xticklabels=row_names, yticklabels=column_names, cmap=sns.cm.rocket_r, annot=True)
+                        if target_attack:
+                            plt.title(f"Attack: {target_attack}")
                         plt.xlabel("Number of Byzantine clients")
                         plt.ylabel("Data heterogeneity level")
                         plt.tight_layout()
@@ -733,7 +738,7 @@ def loss_heatmap(path_to_results, path_to_plot):
                         plt.close()
 
 
-def test_heatmap(path_to_results, path_to_plot):
+def test_heatmap(path_to_results, path_to_plot, target_attack=None):
     """
     Creates a heatmap where the axis are the number of 
     byzantine nodes and the distribution parameter.
@@ -806,6 +811,8 @@ def test_heatmap(path_to_results, path_to_plot):
         pre_aggregators = [pre_aggregators]
 
     attacks = ensure_list(attacks)
+    if target_attack is not None:
+        attacks = [att for att in attacks if att["name"] == target_attack]
     lr_list = ensure_list(lr_list)
     momentum_list = ensure_list(momentum_list)
     wd_list = ensure_list(wd_list)
@@ -934,8 +941,9 @@ def test_heatmap(path_to_results, path_to_plot):
                         else:
                             end_file_name = f"tolerated_f_{nb_decl}.pdf"
 
+                        file_prefix = f"test_{target_attack}_" if target_attack else "test_"
                         file_name = (
-                            f"test_{dataset_name}_"
+                            f"{file_prefix}{dataset_name}_"
                             f"{model_name}_"
                             f"{custom_dict_to_str(data_dist['name'])}_"
                             f"{pre_agg_names}_"
@@ -955,6 +963,8 @@ def test_heatmap(path_to_results, path_to_plot):
                             print(f"Error creating directory: {error}")
 
                         sns.heatmap(heat_map_table, xticklabels=row_names, yticklabels=column_names, annot=True)
+                        if target_attack:
+                            plt.title(f"Attack: {target_attack}")
                         plt.xlabel("Number of Byzantine clients")
                         plt.ylabel("Data heterogeneity level")
                         plt.tight_layout()
@@ -962,7 +972,7 @@ def test_heatmap(path_to_results, path_to_plot):
                         plt.close()
 
 
-def aggregated_test_heatmap(path_to_results, path_to_plot):
+def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None):
     """
     Heatmap with the aggregated info of all aggregators, 
     for every region in the heatmap, it shows the aggregation 
@@ -1033,6 +1043,8 @@ def aggregated_test_heatmap(path_to_results, path_to_plot):
         pre_aggregators = [pre_aggregators]
 
     attacks = ensure_list(attacks)
+    if target_attack is not None:
+        attacks = [att for att in attacks if att["name"] == target_attack]
     lr_list = ensure_list(lr_list)
     momentum_list = ensure_list(momentum_list)
     wd_list = ensure_list(wd_list)
@@ -1166,8 +1178,9 @@ def aggregated_test_heatmap(path_to_results, path_to_plot):
                     else:
                         end_file_name = f"tolerated_f_{nb_decl}.pdf"
 
+                    file_prefix = f"best_test_{target_attack}_" if target_attack else "best_test_"
                     file_name = (
-                        f"best_test_{dataset_name}_"
+                        f"{file_prefix}{dataset_name}_"
                         f"{model_name}_"
                         f"{custom_dict_to_str(data_dist['name'])}_"
                         f"{pre_agg_names}_"
@@ -1181,6 +1194,8 @@ def aggregated_test_heatmap(path_to_results, path_to_plot):
 
                     heat_map_table = np.max(heat_map_cube, axis=0)
                     sns.heatmap(heat_map_table, xticklabels=row_names, yticklabels=column_names, annot=True)
+                    if target_attack:
+                        plt.title(f"Attack: {target_attack}")
                     plt.xlabel("Number of Byzantine clients")
                     plt.ylabel("Data heterogeneity level")
                     plt.tight_layout()
