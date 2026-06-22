@@ -20,34 +20,29 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 250,
+        "nb_steps": 500,
         "set_honest_clients_as_clients": false
     },
     "model": {
-        "name": "nmnist_snn",
+        "name": "convnet_snn",
         "is_snn": true,
-        "dataset_name": "nmnist",
+        "dataset_name": "mnist",
         "nb_labels": 10,
-        "loss": "mse_count_loss",
-        "loss_params": {
-            "correct_rate": 0.8,
-            "incorrect_rate": 0.2
-        },
+        "loss": "ce_rate_loss",
         "accuracy_name": "accuracy_rate",
         "optimizer_name": "SGD",
         "encoding": {
             "type": "constant",
-            "time_steps": [
-                10
-            ]
+            "time_steps": 25
         },
-        "learning_rate": 0.02,
+        "learning_rate": 0.05,
         "learning_rate_decay": 1.0,
         "milestones": [],
         "model_params": {
             "beta": 0.95,
+            "surrogate_gradient": "atan",
             "threshold": 1.0,
-            "surrogate_gradient": "atan"
+            "learn_threshold": false
         }
     },
     "aggregator": [
@@ -69,9 +64,9 @@
         }
     ],
     "evaluation_and_results": {
-        "evaluation_delta": 50,
-        "batch_size_evaluation": 512,
-        "evaluate_on_test": false,
+        "evaluation_delta": 10,
+        "batch_size_evaluation": 128,
+        "evaluate_on_test": true,
         "store_per_client_metrics": true,
         "store_models": false,
         "data_folder": "./data",
