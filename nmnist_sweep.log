@@ -1277,3 +1277,363 @@ Training 51 done
 [ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4176.4/5270.0 MiB | Total time: 1079.5s
 
 Training 52 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 33.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.6667 | Test Acc: 0.6829 | VRAM (Alloc/Reserved): 1016.9/5300.0 MiB | Time: 183.8s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8374 | Test Acc: 0.8424 | VRAM (Alloc/Reserved): 1018.1/5302.0 MiB | Time: 281.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8888 | Test Acc: 0.8947 | VRAM (Alloc/Reserved): 1019.5/5302.0 MiB | Time: 379.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9163 | Test Acc: 0.9226 | VRAM (Alloc/Reserved): 1018.5/5302.0 MiB | Time: 476.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9287 | Test Acc: 0.9354 | VRAM (Alloc/Reserved): 1018.3/5302.0 MiB | Time: 571.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9385 | Test Acc: 0.9434 | VRAM (Alloc/Reserved): 1020.2/5302.0 MiB | Time: 674.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9449 | Test Acc: 0.9465 | VRAM (Alloc/Reserved): 1018.1/5302.0 MiB | Time: 776.1s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9494 | Test Acc: 0.9522 | VRAM (Alloc/Reserved): 1017.2/5302.0 MiB | Time: 875.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9534 | Test Acc: 0.9555 | VRAM (Alloc/Reserved): 1013.9/5302.0 MiB | Time: 977.1s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4176.8/5302.0 MiB | Total time: 1069.0s
+
+Training 53 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 33.1s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.6705 | Test Acc: 0.6835 | VRAM (Alloc/Reserved): 1017.9/5206.0 MiB | Time: 153.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8420 | Test Acc: 0.8500 | VRAM (Alloc/Reserved): 1017.1/5206.0 MiB | Time: 213.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8833 | Test Acc: 0.8864 | VRAM (Alloc/Reserved): 1018.5/5206.0 MiB | Time: 273.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9083 | Test Acc: 0.9135 | VRAM (Alloc/Reserved): 1017.8/5206.0 MiB | Time: 334.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9289 | Test Acc: 0.9339 | VRAM (Alloc/Reserved): 1019.0/5206.0 MiB | Time: 396.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9372 | Test Acc: 0.9418 | VRAM (Alloc/Reserved): 1018.7/5206.0 MiB | Time: 458.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9389 | Test Acc: 0.9421 | VRAM (Alloc/Reserved): 1016.1/5206.0 MiB | Time: 521.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9439 | Test Acc: 0.9478 | VRAM (Alloc/Reserved): 1019.6/5206.0 MiB | Time: 583.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9460 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 1015.7/5206.0 MiB | Time: 648.1s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 3997.3/5206.0 MiB | Total time: 703.7s
+
+Training 54 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.6866 | Test Acc: 0.7008 | VRAM (Alloc/Reserved): 1014.3/5304.0 MiB | Time: 179.9s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.7934 | Test Acc: 0.7991 | VRAM (Alloc/Reserved): 1014.2/5304.0 MiB | Time: 271.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8297 | Test Acc: 0.8323 | VRAM (Alloc/Reserved): 1020.3/5304.0 MiB | Time: 363.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.8498 | Test Acc: 0.8504 | VRAM (Alloc/Reserved): 1021.5/5304.0 MiB | Time: 459.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.8673 | Test Acc: 0.8730 | VRAM (Alloc/Reserved): 1018.6/5304.0 MiB | Time: 557.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.8922 | Test Acc: 0.9002 | VRAM (Alloc/Reserved): 1016.8/5304.0 MiB | Time: 650.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9001 | Test Acc: 0.9085 | VRAM (Alloc/Reserved): 1017.1/5304.0 MiB | Time: 750.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9121 | Test Acc: 0.9177 | VRAM (Alloc/Reserved): 1015.6/5304.0 MiB | Time: 845.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9187 | Test Acc: 0.9254 | VRAM (Alloc/Reserved): 1017.2/5304.0 MiB | Time: 943.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4179.1/5304.0 MiB | Total time: 1032.7s
+
+Training 55 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 31.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.6920 | Test Acc: 0.7086 | VRAM (Alloc/Reserved): 1015.7/5302.0 MiB | Time: 183.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8480 | Test Acc: 0.8514 | VRAM (Alloc/Reserved): 1016.3/5302.0 MiB | Time: 281.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9028 | Test Acc: 0.9091 | VRAM (Alloc/Reserved): 1014.4/5302.0 MiB | Time: 379.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9278 | Test Acc: 0.9330 | VRAM (Alloc/Reserved): 1018.9/5302.0 MiB | Time: 474.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9383 | Test Acc: 0.9433 | VRAM (Alloc/Reserved): 1017.3/5302.0 MiB | Time: 577.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9471 | Test Acc: 0.9508 | VRAM (Alloc/Reserved): 1018.6/5302.0 MiB | Time: 734.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9531 | Test Acc: 0.9549 | VRAM (Alloc/Reserved): 1016.2/5302.0 MiB | Time: 827.5s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9552 | Test Acc: 0.9579 | VRAM (Alloc/Reserved): 1020.9/5302.0 MiB | Time: 929.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9591 | Test Acc: 0.9614 | VRAM (Alloc/Reserved): 1018.6/5302.0 MiB | Time: 1024.4s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4177.4/5302.0 MiB | Total time: 1114.7s
+
+Training 56 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.7s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.5715 | Test Acc: 0.5818 | VRAM (Alloc/Reserved): 1025.5/5240.0 MiB | Time: 153.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.7989 | Test Acc: 0.8054 | VRAM (Alloc/Reserved): 1022.9/5240.0 MiB | Time: 217.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8083 | Test Acc: 0.8125 | VRAM (Alloc/Reserved): 1025.8/5240.0 MiB | Time: 281.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.8720 | Test Acc: 0.8761 | VRAM (Alloc/Reserved): 1023.9/5240.0 MiB | Time: 344.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.8917 | Test Acc: 0.8984 | VRAM (Alloc/Reserved): 1026.6/5240.0 MiB | Time: 408.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9044 | Test Acc: 0.9115 | VRAM (Alloc/Reserved): 1025.6/5240.0 MiB | Time: 469.4s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9113 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 1024.9/5240.0 MiB | Time: 536.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9154 | Test Acc: 0.9193 | VRAM (Alloc/Reserved): 1025.9/5240.0 MiB | Time: 597.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9244 | Test Acc: 0.9281 | VRAM (Alloc/Reserved): 1025.6/5240.0 MiB | Time: 656.3s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4004.6/5240.0 MiB | Total time: 721.2s
+
+Training 57 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.4013 | Test Acc: 0.4086 | VRAM (Alloc/Reserved): 1029.9/5270.0 MiB | Time: 184.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.7006 | Test Acc: 0.7110 | VRAM (Alloc/Reserved): 1033.8/5270.0 MiB | Time: 275.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.7927 | Test Acc: 0.7961 | VRAM (Alloc/Reserved): 1030.3/5270.0 MiB | Time: 363.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.8360 | Test Acc: 0.8385 | VRAM (Alloc/Reserved): 1032.7/5270.0 MiB | Time: 453.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.8588 | Test Acc: 0.8641 | VRAM (Alloc/Reserved): 1030.6/5436.0 MiB | Time: 544.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.8809 | Test Acc: 0.8868 | VRAM (Alloc/Reserved): 1029.9/5436.0 MiB | Time: 632.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.8972 | Test Acc: 0.9004 | VRAM (Alloc/Reserved): 1028.2/5436.0 MiB | Time: 722.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9048 | Test Acc: 0.9087 | VRAM (Alloc/Reserved): 1034.3/5436.0 MiB | Time: 816.1s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9141 | Test Acc: 0.9177 | VRAM (Alloc/Reserved): 1033.1/5436.0 MiB | Time: 910.0s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4189.8/5436.0 MiB | Total time: 994.1s
+
+Training 58 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.4044 | Test Acc: 0.4131 | VRAM (Alloc/Reserved): 1029.7/5302.0 MiB | Time: 180.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.7371 | Test Acc: 0.7450 | VRAM (Alloc/Reserved): 1030.4/5302.0 MiB | Time: 278.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8149 | Test Acc: 0.8208 | VRAM (Alloc/Reserved): 1033.5/5302.0 MiB | Time: 383.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.8634 | Test Acc: 0.8689 | VRAM (Alloc/Reserved): 1031.4/5302.0 MiB | Time: 476.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.8857 | Test Acc: 0.8919 | VRAM (Alloc/Reserved): 1033.5/5302.0 MiB | Time: 573.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9063 | Test Acc: 0.9115 | VRAM (Alloc/Reserved): 1031.4/5302.0 MiB | Time: 664.4s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9167 | Test Acc: 0.9240 | VRAM (Alloc/Reserved): 1030.2/5302.0 MiB | Time: 756.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9232 | Test Acc: 0.9289 | VRAM (Alloc/Reserved): 1032.8/5302.0 MiB | Time: 849.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9323 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 1034.1/5302.0 MiB | Time: 943.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4191.3/5304.0 MiB | Total time: 1030.8s
+
+Training 59 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.2360 | Test Acc: 0.2374 | VRAM (Alloc/Reserved): 1017.8/5222.0 MiB | Time: 150.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.2023 | Test Acc: 0.2102 | VRAM (Alloc/Reserved): 1017.3/5222.0 MiB | Time: 205.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.2177 | Test Acc: 0.2233 | VRAM (Alloc/Reserved): 1016.2/5222.0 MiB | Time: 264.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.3407 | Test Acc: 0.3436 | VRAM (Alloc/Reserved): 1017.0/5222.0 MiB | Time: 325.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.3575 | Test Acc: 0.3667 | VRAM (Alloc/Reserved): 1018.8/5222.0 MiB | Time: 390.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.5615 | Test Acc: 0.5774 | VRAM (Alloc/Reserved): 1020.8/5222.0 MiB | Time: 451.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.6288 | Test Acc: 0.6366 | VRAM (Alloc/Reserved): 1017.4/5222.0 MiB | Time: 524.5s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.5689 | Test Acc: 0.5812 | VRAM (Alloc/Reserved): 1016.4/5222.0 MiB | Time: 589.5s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.5618 | Test Acc: 0.5703 | VRAM (Alloc/Reserved): 1015.2/5388.0 MiB | Time: 651.9s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 3997.8/5388.0 MiB | Total time: 719.1s
+
+Training 60 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 31.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.3136 | Test Acc: 0.3302 | VRAM (Alloc/Reserved): 1014.3/5304.0 MiB | Time: 190.9s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.5035 | Test Acc: 0.5215 | VRAM (Alloc/Reserved): 1014.2/5304.0 MiB | Time: 282.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.4896 | Test Acc: 0.4997 | VRAM (Alloc/Reserved): 1020.3/5304.0 MiB | Time: 389.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.5583 | Test Acc: 0.5733 | VRAM (Alloc/Reserved): 1021.5/5304.0 MiB | Time: 485.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.6317 | Test Acc: 0.6362 | VRAM (Alloc/Reserved): 1018.6/5304.0 MiB | Time: 579.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.6332 | Test Acc: 0.6416 | VRAM (Alloc/Reserved): 1016.8/5304.0 MiB | Time: 672.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.7224 | Test Acc: 0.7293 | VRAM (Alloc/Reserved): 1017.1/5304.0 MiB | Time: 772.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.7689 | Test Acc: 0.7712 | VRAM (Alloc/Reserved): 1015.6/5304.0 MiB | Time: 867.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.7774 | Test Acc: 0.7830 | VRAM (Alloc/Reserved): 1017.2/5304.0 MiB | Time: 962.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4179.1/5304.0 MiB | Total time: 1050.0s
+
+Training 61 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.4737 | Test Acc: 0.4839 | VRAM (Alloc/Reserved): 1017.8/5304.0 MiB | Time: 195.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.7478 | Test Acc: 0.7606 | VRAM (Alloc/Reserved): 1018.1/5304.0 MiB | Time: 294.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.7899 | Test Acc: 0.7950 | VRAM (Alloc/Reserved): 1015.4/5304.0 MiB | Time: 393.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.8758 | Test Acc: 0.8816 | VRAM (Alloc/Reserved): 1017.6/5304.0 MiB | Time: 492.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9037 | Test Acc: 0.9112 | VRAM (Alloc/Reserved): 1015.4/5304.0 MiB | Time: 590.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9127 | Test Acc: 0.9201 | VRAM (Alloc/Reserved): 1016.5/5304.0 MiB | Time: 691.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9277 | Test Acc: 0.9339 | VRAM (Alloc/Reserved): 1016.4/5304.0 MiB | Time: 794.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9363 | Test Acc: 0.9410 | VRAM (Alloc/Reserved): 1014.9/5304.0 MiB | Time: 898.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9427 | Test Acc: 0.9457 | VRAM (Alloc/Reserved): 1018.0/5304.0 MiB | Time: 1000.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4174.8/5304.0 MiB | Total time: 1100.4s
+
+Training 62 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 33.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.2846 | Test Acc: 0.2925 | VRAM (Alloc/Reserved): 1017.3/5240.0 MiB | Time: 150.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.3745 | Test Acc: 0.3848 | VRAM (Alloc/Reserved): 1016.2/5240.0 MiB | Time: 218.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.4269 | Test Acc: 0.4369 | VRAM (Alloc/Reserved): 1017.8/5240.0 MiB | Time: 276.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.4485 | Test Acc: 0.4579 | VRAM (Alloc/Reserved): 1018.3/5240.0 MiB | Time: 341.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.5267 | Test Acc: 0.5363 | VRAM (Alloc/Reserved): 1016.9/5240.0 MiB | Time: 401.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.5822 | Test Acc: 0.5928 | VRAM (Alloc/Reserved): 1014.1/5240.0 MiB | Time: 464.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.6162 | Test Acc: 0.6259 | VRAM (Alloc/Reserved): 1020.4/5240.0 MiB | Time: 524.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.6540 | Test Acc: 0.6610 | VRAM (Alloc/Reserved): 1019.8/5240.0 MiB | Time: 582.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.6924 | Test Acc: 0.6953 | VRAM (Alloc/Reserved): 1019.0/5240.0 MiB | Time: 644.4s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 3997.0/5240.0 MiB | Total time: 699.1s
+
+Training 63 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 32.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.2953 | Test Acc: 0.3038 | VRAM (Alloc/Reserved): 1016.2/5270.0 MiB | Time: 182.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.5415 | Test Acc: 0.5560 | VRAM (Alloc/Reserved): 1017.1/5270.0 MiB | Time: 279.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.5142 | Test Acc: 0.5301 | VRAM (Alloc/Reserved): 1018.0/5270.0 MiB | Time: 379.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.5836 | Test Acc: 0.5937 | VRAM (Alloc/Reserved): 1019.9/5270.0 MiB | Time: 492.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.6378 | Test Acc: 0.6413 | VRAM (Alloc/Reserved): 1016.9/5270.0 MiB | Time: 592.5s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.7489 | Test Acc: 0.7571 | VRAM (Alloc/Reserved): 1017.6/5270.0 MiB | Time: 690.4s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.7949 | Test Acc: 0.7988 | VRAM (Alloc/Reserved): 1018.0/5270.0 MiB | Time: 789.1s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.7589 | Test Acc: 0.7687 | VRAM (Alloc/Reserved): 1018.1/5270.0 MiB | Time: 886.3s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.8462 | Test Acc: 0.8472 | VRAM (Alloc/Reserved): 1015.4/5270.0 MiB | Time: 989.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4176.4/5270.0 MiB | Total time: 1082.1s
+
+Training 64 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 33.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.4903 | Test Acc: 0.5031 | VRAM (Alloc/Reserved): 1017.2/5304.0 MiB | Time: 186.9s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.7738 | Test Acc: 0.7816 | VRAM (Alloc/Reserved): 1021.1/5304.0 MiB | Time: 293.1s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8535 | Test Acc: 0.8590 | VRAM (Alloc/Reserved): 1016.8/5304.0 MiB | Time: 397.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.8825 | Test Acc: 0.8894 | VRAM (Alloc/Reserved): 1013.8/5304.0 MiB | Time: 499.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9098 | Test Acc: 0.9181 | VRAM (Alloc/Reserved): 1017.6/5304.0 MiB | Time: 614.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9165 | Test Acc: 0.9216 | VRAM (Alloc/Reserved): 1021.7/5304.0 MiB | Time: 719.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9274 | Test Acc: 0.9342 | VRAM (Alloc/Reserved): 1019.2/5304.0 MiB | Time: 820.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9362 | Test Acc: 0.9416 | VRAM (Alloc/Reserved): 1017.4/5304.0 MiB | Time: 919.7s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9412 | Test Acc: 0.9443 | VRAM (Alloc/Reserved): 1019.5/5304.0 MiB | Time: 1021.0s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4177.1/5304.0 MiB | Total time: 1113.0s
+
+Training 65 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 33.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.1695 | Test Acc: 0.1709 | VRAM (Alloc/Reserved): 1020.4/5222.0 MiB | Time: 155.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.2557 | Test Acc: 0.2670 | VRAM (Alloc/Reserved): 1014.3/5222.0 MiB | Time: 219.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.2374 | Test Acc: 0.2518 | VRAM (Alloc/Reserved): 1017.9/5222.0 MiB | Time: 276.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.3118 | Test Acc: 0.3274 | VRAM (Alloc/Reserved): 1018.6/5222.0 MiB | Time: 334.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.3021 | Test Acc: 0.3094 | VRAM (Alloc/Reserved): 1020.3/5222.0 MiB | Time: 393.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.4528 | Test Acc: 0.4659 | VRAM (Alloc/Reserved): 1016.1/5222.0 MiB | Time: 450.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.3838 | Test Acc: 0.3981 | VRAM (Alloc/Reserved): 1014.2/5222.0 MiB | Time: 506.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.3725 | Test Acc: 0.3826 | VRAM (Alloc/Reserved): 1019.6/5222.0 MiB | Time: 564.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.4363 | Test Acc: 0.4442 | VRAM (Alloc/Reserved): 1016.2/5222.0 MiB | Time: 624.5s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 3998.6/5222.0 MiB | Total time: 677.2s
+
+Training 66 done
+
+[ByzFL-SNN] N-MNIST Cache Location: ./data/nmnist_cache_ts_15
+[ByzFL-SNN]   Found existing disk cache.
+[ByzFL-SNN]   Cached files: Train: 60000/60000 | Test: 10000/10000
+[ByzFL-SNN]   Train dataset fully cached! Will load directly from memory/disk (Instant).
+
+[ByzFL-SNN] [Training Start] Model: nmnist_snn | Dataset: nmnist
+[ByzFL-SNN]   Clients: 16 honest, 10 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.02 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 217.1/226.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.0964 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 303.5/1018.0 MiB | Time: 33.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.3007 | Test Acc: 0.3124 | VRAM (Alloc/Reserved): 1014.3/5304.0 MiB | Time: 188.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.3111 | Test Acc: 0.3154 | VRAM (Alloc/Reserved): 1014.2/5304.0 MiB | Time: 282.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.3726 | Test Acc: 0.3753 | VRAM (Alloc/Reserved): 1020.3/5304.0 MiB | Time: 380.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.2992 | Test Acc: 0.3089 | VRAM (Alloc/Reserved): 1021.5/5304.0 MiB | Time: 480.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.3851 | Test Acc: 0.3859 | VRAM (Alloc/Reserved): 1018.6/5304.0 MiB | Time: 574.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.3881 | Test Acc: 0.4006 | VRAM (Alloc/Reserved): 1016.8/5304.0 MiB | Time: 677.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.4921 | Test Acc: 0.5049 | VRAM (Alloc/Reserved): 1017.1/5304.0 MiB | Time: 777.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.4739 | Test Acc: 0.4851 | VRAM (Alloc/Reserved): 1015.6/5304.0 MiB | Time: 880.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.5006 | Test Acc: 0.5067 | VRAM (Alloc/Reserved): 1017.2/5304.0 MiB | Time: 978.0s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 4179.1/5304.0 MiB | Total time: 1076.3s
+
+Training 67 done
