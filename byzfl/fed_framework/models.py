@@ -755,6 +755,89 @@ class convnet_snn(nn.Module):
         return torch.stack(spk_rec), torch.stack(mem_rec)
 
 
+class cnn_mnist_snn(nn.Module):
+    """
+    Spiking CNN matching the cnn_mnist architecture.
+
+    Description:
+    ------------
+    A spiking convolutional neural network with 2 convolutional layers (20 and 50 filters)
+    and 2 fully connected layers (500, num_classes) matching the cnn_mnist setup.
+    LIF neurons are used for all spiking layers.
+
+    The model returns a tuple ``(spk_rec, mem_rec)`` containing the
+    spike records and membrane potential records of the output layer,
+    each of shape ``(time_steps, batch_size, output_dim)``.
+    """
+    def __init__(self, in_channels=1, input_height=28, input_width=28, output_dim=10,
+                 beta=0.95, surrogate_gradient="atan", threshold=1.0, learn_threshold=False, **kwargs):
+        super().__init__()
+
+        spike_grad = getattr(surrogate, surrogate_gradient)()
+
+        # Layer 1: Conv (in_channels -> 20 filters, 5x5 kernel) -> LIF -> MaxPool (2x2)
+        self.conv1 = nn.Conv2d(in_channels, 20, kernel_size=5)
+        self.lif1 = snn.Leaky(beta=beta, spike_grad=spike_grad, threshold=threshold, learn_threshold=learn_threshold)
+        self.pool1 = nn.MaxPool2d(2)
+
+        # Layer 2: Conv (20 -> 50 filters, 5x5 kernel) -> LIF -> MaxPool (2x2)
+        self.conv2 = nn.Conv2d(20, 50, kernel_size=5)
+        self.lif2 = snn.Leaky(beta=beta, spike_grad=spike_grad, threshold=threshold, learn_threshold=learn_threshold)
+        self.pool2 = nn.MaxPool2d(2)
+
+        # Calculate flattened feature count dynamically using dummy run
+        with torch.no_grad():
+            dummy = torch.zeros(1, in_channels, input_height, input_width)
+            dummy_out = self.pool1(self.conv1(dummy))
+            dummy_out = self.pool2(self.conv2(dummy_out))
+            flat_features = dummy_out.numel()
+
+        # Fully connected layers (500, output_dim classes)
+        self.fc1 = nn.Linear(flat_features, 500)
+        self.lif3 = snn.Leaky(beta=beta, spike_grad=spike_grad, threshold=threshold, learn_threshold=learn_threshold)
+
+        self.fc2 = nn.Linear(500, output_dim)
+        self.lif4 = snn.Leaky(beta=beta, spike_grad=spike_grad, threshold=threshold, learn_threshold=learn_threshold)
+
+    def forward(self, x):
+        # Initialize membrane potentials
+        mem1 = self.lif1.init_leaky()
+        mem2 = self.lif2.init_leaky()
+        mem3 = self.lif3.init_leaky()
+        mem4 = self.lif4.init_leaky()
+
+        spk_rec = []
+        mem_rec = []
+
+        time_steps = x.size(1)
+        for step in range(time_steps):
+            x_t = x[:, step] # Shape: (batch_size, channels, H, W)
+
+            # Conv block 1
+            cur1 = self.conv1(x_t)
+            spk1, mem1 = self.lif1(cur1, mem1)
+            spk1_pooled = self.pool1(spk1)
+
+            # Conv block 2
+            cur2 = self.conv2(spk1_pooled)
+            spk2, mem2 = self.lif2(cur2, mem2)
+            spk2_pooled = self.pool2(spk2)
+
+            # FC 1
+            spk2_flat = spk2_pooled.reshape(spk2_pooled.size(0), -1)
+            cur3 = self.fc1(spk2_flat)
+            spk3, mem3 = self.lif3(cur3, mem3)
+
+            # FC 2 (Output Layer)
+            cur4 = self.fc2(spk3)
+            spk4, mem4 = self.lif4(cur4, mem4)
+
+            spk_rec.append(spk4)
+            mem_rec.append(mem4)
+
+        return torch.stack(spk_rec), torch.stack(mem_rec)
+
+
 class nmnist_snn(nn.Module):
     """
     N-MNIST Convolutional Spiking Neural Network.
