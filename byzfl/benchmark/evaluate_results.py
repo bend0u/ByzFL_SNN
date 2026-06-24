@@ -124,6 +124,131 @@ def get_config_file_path(path_to_results, clean, dataset_name, model_name, nb_no
         return os.path.join(path_to_results, file_name, "config.json")
 
 
+def get_accuracy_at_best_step(path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+                              dist_name, dist_param_val, agg_name, pre_agg_names, attack_name,
+                              lr, momentum, wd, snn_suffix, pm,
+                              nb_data_distribution_seeds, nb_training_seeds,
+                              training_seed, data_distribution_seed, evaluation_delta):
+    """
+    Load test accuracies across all seeds, average them, and return the accuracy at the step 
+    maximizing validation (loaded from pre-computed 'better_step'). Falls back to the maximum 
+    test accuracy if the 'better_step' file is not found.
+    """
+    # 1. Resolve nb_accuracies from config file
+    config_file_path = get_config_file_path(
+        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+        dist_name, dist_param_val, agg_name, pre_agg_names, 
+        attack_name, lr, momentum, wd, snn_suffix, pm
+    )
+    
+    nb_steps = 100
+    try:
+        with open(config_file_path, 'r') as file:
+            sub_data = json.load(file)
+            nb_steps = sub_data["benchmark_config"]["nb_steps"]
+    except Exception:
+        try:
+            with open(os.path.join(path_to_results, 'config.json'), 'r') as file:
+                main_data = json.load(file)
+                nb_steps = main_data["benchmark_config"]["nb_steps"]
+        except Exception:
+            pass
+
+    nb_accuracies = int(1 + math.ceil(nb_steps / evaluation_delta))
+
+    # 2. Load test accuracies
+    tab_acc = np.zeros((nb_data_distribution_seeds, nb_training_seeds, nb_accuracies))
+    
+    try:
+        if clean:
+            acc_path = get_path_and_filename(
+                path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                dist_name, dist_param_val, agg_name, pre_agg_names, 
+                attack_name, lr, momentum, wd, snn_suffix, 0, training_seed, 0, data_distribution_seed, 
+                "test_accuracy", pm
+            )
+            val = genfromtxt(acc_path, delimiter=',')
+            for run_dd in range(nb_data_distribution_seeds):
+                for run in range(nb_training_seeds):
+                    tab_acc[run_dd][run] = val
+        else:
+            for run_dd in range(nb_data_distribution_seeds):
+                for run in range(nb_training_seeds):
+                    acc_path = get_path_and_filename(
+                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                        dist_name, dist_param_val, agg_name, pre_agg_names, 
+                        attack_name, lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                        "test_accuracy", pm
+                    )
+                    tab_acc[run_dd][run] = genfromtxt(acc_path, delimiter=',')
+    except Exception as e:
+        print(f"Warning: could not load accuracy files for f={nb_byzantine}, param={dist_param_val}. Details: {e}")
+        return 0.0
+
+    tab_acc = tab_acc.reshape(nb_data_distribution_seeds * nb_training_seeds, nb_accuracies)
+    tab_acc = tab_acc.mean(axis=0)
+
+    # 3. Load best step from 'better_step' folder
+    best_idx = None
+    path_to_hyperparameters = os.path.join(path_to_results, "best_hyperparameters")
+    step_file_name = (
+        f"{dataset_name}_{model_name}_n_{nb_nodes}_f_{nb_byzantine}_"
+        f"d_{nb_decl}_{custom_dict_to_str(dist_name)}_"
+        f"{dist_param_val}_{pre_agg_names}_{agg_name}_"
+        f"{custom_dict_to_str(attack_name)}.txt"
+    )
+    step_path = os.path.join(path_to_hyperparameters, "better_step", step_file_name)
+    
+    if os.path.exists(step_path):
+        try:
+            step_val = float(np.loadtxt(step_path))
+            best_idx = int(round(step_val / evaluation_delta))
+        except Exception as e:
+            print(f"Error reading step path {step_path}: {e}")
+            
+    # Fallback 1: If 'better_step' is missing (e.g. hyperparameter search was not run),
+    # dynamically load the validation accuracy files and locate the step where validation is maximized.
+    if best_idx is None:
+        try:
+            tab_val = np.zeros((nb_data_distribution_seeds, nb_training_seeds, nb_accuracies))
+            if clean:
+                val_path = get_path_and_filename(
+                    path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                    dist_name, dist_param_val, agg_name, pre_agg_names, 
+                    attack_name, lr, momentum, wd, snn_suffix, 0, training_seed, 0, data_distribution_seed, 
+                    "val_accuracy", pm
+                )
+                val_v = genfromtxt(val_path, delimiter=',')
+                for run_dd in range(nb_data_distribution_seeds):
+                    for run in range(nb_training_seeds):
+                        tab_val[run_dd][run] = val_v
+            else:
+                for run_dd in range(nb_data_distribution_seeds):
+                    for run in range(nb_training_seeds):
+                        val_path = get_path_and_filename(
+                            path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
+                            dist_name, dist_param_val, agg_name, pre_agg_names, 
+                            attack_name, lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
+                            "val_accuracy", pm
+                        )
+                        tab_val[run_dd][run] = genfromtxt(val_path, delimiter=',')
+            
+            tab_val = tab_val.reshape(nb_data_distribution_seeds * nb_training_seeds, nb_accuracies)
+            tab_val = tab_val.mean(axis=0)
+            best_idx = np.argmax(tab_val)
+        except Exception:
+            # If loading validation files fails, leave best_idx as None to trigger Fallback 2.
+            pass
+
+    # If we successfully determined the best step index (from better_step or validation curves)
+    if best_idx is not None:
+        best_idx = min(max(0, best_idx), len(tab_acc) - 1)
+        return tab_acc[best_idx]
+            
+    # Fallback 2: If both better_step and validation files are missing, default to the peak average test accuracy
+    return np.max(tab_acc)
+
+
 def find_best_hyperparameters(path_to_results):
     """
     Find the best hyperparameters (learning rate, momentum, weight decay) 
@@ -876,60 +1001,13 @@ def test_heatmap(path_to_results, path_to_plot, target_attack=None):
                                 worst_accuracy = np.inf
                                 for attack in attacks:
 
-                                    config_file_path = get_config_file_path(
-                                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
-                                        data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
-                                        attack['name'], lr, momentum, wd, snn_suffix, pm
+                                    accuracy = get_accuracy_at_best_step(
+                                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+                                        data_dist['name'], dist_param_val, agg['name'], pre_agg_names, attack['name'],
+                                        lr, momentum, wd, snn_suffix, pm,
+                                        nb_data_distribution_seeds, nb_training_seeds,
+                                        training_seed, data_distribution_seed, evaluation_delta
                                     )
-
-                                    try:
-                                        with open(config_file_path, 'r') as file:
-                                            sub_data = json.load(file)
-                                    except Exception as e:
-                                        print("ERROR: "+ str(e))
-                                        sub_data = data
-
-                                    nb_steps = sub_data["benchmark_config"]["nb_steps"]
-                                    nb_accuracies = int(1+math.ceil(nb_steps/evaluation_delta))
-
-                                    tab_acc = np.zeros(
-                                        (
-                                            nb_data_distribution_seeds,
-                                            nb_training_seeds,
-                                            nb_accuracies
-                                        )
-                                    )
-
-                                    if clean:
-                                        acc_path = get_path_and_filename(
-                                            path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
-                                            data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
-                                            attack['name'], lr, momentum, wd, snn_suffix, 0, training_seed, 0, data_distribution_seed, 
-                                            "test_accuracy", pm
-                                        )
-                                        val = genfromtxt(acc_path, delimiter=',')
-                                        for run_dd in range(nb_data_distribution_seeds):
-                                            for run in range(nb_training_seeds):
-                                                tab_acc[run_dd][run] = val
-                                    else:
-                                        for run_dd in range(nb_data_distribution_seeds):
-                                            for run in range(nb_training_seeds):
-                                                acc_path = get_path_and_filename(
-                                                    path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
-                                                    data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
-                                                    attack['name'], lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
-                                                    "test_accuracy", pm
-                                                )
-                                                tab_acc[run_dd][run] = genfromtxt(acc_path, delimiter=',')
-
-                                    tab_acc = tab_acc.reshape(
-                                        nb_data_distribution_seeds * nb_training_seeds,
-                                        nb_accuracies
-                                    )
-
-                                    tab_acc = tab_acc.mean(axis=0)
-
-                                    accuracy = np.max(tab_acc)
 
                                     if accuracy < worst_accuracy:
                                         worst_accuracy = accuracy
@@ -1111,59 +1189,13 @@ def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None):
                                 
                                 worst_accuracy = np.inf
                                 for attack in attacks:
-                                    config_file_path = get_config_file_path(
-                                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
-                                        data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
-                                        attack['name'], lr, momentum, wd, snn_suffix, pm
+                                    accuracy = get_accuracy_at_best_step(
+                                        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+                                        data_dist['name'], dist_param_val, agg['name'], pre_agg_names, attack['name'],
+                                        lr, momentum, wd, snn_suffix, pm,
+                                        nb_data_distribution_seeds, nb_training_seeds,
+                                        training_seed, data_distribution_seed, evaluation_delta
                                     )
-
-                                    try:
-                                        with open(config_file_path, 'r') as file:
-                                            sub_data = json.load(file)
-                                    except Exception as e:
-                                        print("ERROR: "+ str(e))
-                                        sub_data = data
-
-                                    nb_steps = sub_data["benchmark_config"]["nb_steps"]
-                                    nb_accuracies = int(1+math.ceil(nb_steps/evaluation_delta))
-
-                                    tab_acc = np.zeros(
-                                        (
-                                            nb_data_distribution_seeds,
-                                            nb_training_seeds,
-                                            nb_accuracies
-                                        )
-                                    )
-
-                                    if clean:
-                                        acc_path = get_path_and_filename(
-                                            path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
-                                            data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
-                                            attack['name'], lr, momentum, wd, snn_suffix, 0, training_seed, 0, data_distribution_seed, 
-                                            "test_accuracy", pm
-                                        )
-                                        val = genfromtxt(acc_path, delimiter=',')
-                                        for run_dd in range(nb_data_distribution_seeds):
-                                            for run in range(nb_training_seeds):
-                                                tab_acc[run_dd][run] = val
-                                    else:
-                                        for run_dd in range(nb_data_distribution_seeds):
-                                            for run in range(nb_training_seeds):
-                                                acc_path = get_path_and_filename(
-                                                    path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
-                                                    data_dist['name'], dist_param_val, agg['name'], pre_agg_names, 
-                                                    attack['name'], lr, momentum, wd, snn_suffix, run, training_seed, run_dd, data_distribution_seed, 
-                                                    "test_accuracy", pm
-                                                )
-                                                tab_acc[run_dd][run] = genfromtxt(acc_path, delimiter=',')
-
-                                    tab_acc = tab_acc.reshape(
-                                        nb_data_distribution_seeds * nb_training_seeds,
-                                        nb_accuracies
-                                    )
-                                    
-                                    tab_acc = tab_acc.mean(axis=0)
-                                    accuracy = np.max(tab_acc)
 
                                     if accuracy < worst_accuracy:
                                         worst_accuracy = accuracy
