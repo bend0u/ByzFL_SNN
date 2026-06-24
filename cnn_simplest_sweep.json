@@ -30,7 +30,7 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 1000
+        "nb_steps": 500
     },
     "model": {
         "name": "cnn_mnist",
