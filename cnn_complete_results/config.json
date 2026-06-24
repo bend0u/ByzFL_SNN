@@ -7,10 +7,12 @@
             16
         ],
         "f": [
+            0,
             2,
             4,
             6,
-            8
+            8,
+            10
         ],
         "size_train_set": 0.8,
         "data_distribution_seed": 42,

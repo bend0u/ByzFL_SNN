@@ -1,0 +1,792 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.22)  23 JUN 2026 13:22
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/7430/Desktop/SummerIntheLab/ByzFL_SNN/comparison_plots_f8.tex
+(c:/Users/7430/Desktop/SummerIntheLab/ByzFL_SNN/comparison_plots_f8.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-05-26>
+(C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen150
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2026-05-17 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2026-05-17 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2026-05-17 v1.4h Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen153
+\captionmargin=\dimen154
+\caption@leftmargin=\dimen155
+\caption@rightmargin=\dimen156
+\caption@width=\dimen157
+\caption@indent=\dimen158
+\caption@parindent=\dimen159
+\caption@hangindent=\dimen160
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count284
+\c@continuedfloat=\count285
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count286
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count287
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count288
+\Gm@cntv=\count289
+\c@Gm@tempcnt=\count290
+\Gm@bindingoffset=\dimen161
+\Gm@wd@mp=\dimen162
+\Gm@odd@mp=\dimen163
+\Gm@even@mp=\dimen164
+\Gm@layoutwidth=\dimen165
+\Gm@layoutheight=\dimen166
+\Gm@layouthoffset=\dimen167
+\Gm@layoutvoffset=\dimen168
+\Gm@dimlist=\toks18
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2026-04-24 v7.01q Hypertext links for LaTeX
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count291
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count292
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen169
+\Hy@linkcounter=\count293
+\Hy@pagecounter=\count294
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2026-04-24 v7.01q Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count295
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2026-04-24 v7.01q Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4199.
+Package hyperref Info: Link nesting OFF on input line 4204.
+Package hyperref Info: Hyper index ON on input line 4207.
+Package hyperref Info: Plain pages OFF on input line 4214.
+Package hyperref Info: Backreferencing OFF on input line 4219.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4466.
+\c@Hy@tempcnt=\count296
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4805.
+\XeTeXLinkMargin=\dimen170
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count297
+\Field@Width=\dimen171
+\Fld@charsize=\dimen172
+Package hyperref Info: Hyper figures OFF on input line 6091.
+Package hyperref Info: Link nesting OFF on input line 6096.
+Package hyperref Info: Hyper index ON on input line 6099.
+Package hyperref Info: backreferencing OFF on input line 6106.
+Package hyperref Info: Link coloring OFF on input line 6111.
+Package hyperref Info: Link coloring with OCG OFF on input line 6116.
+Package hyperref Info: PDF/A mode OFF on input line 6121.
+\Hy@abspage=\count298
+\c@Item=\count299
+\c@Hfootnote=\count300
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2026-04-24 v7.01q Hyperref driver for pdfTeX
+\Fld@listcount=\count301
+\c@bookmark@seq@number=\count302
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip51
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/grffile\grffile.sty
+Package: grffile 2019/11/11 v2.1 Extended file name support for graphics (legacy)
+Package grffile Info: This package is an empty stub for compatibility on input line 40.
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count303
+) (comparison_plots_f8.aux)
+\openout1 = `comparison_plots_f8.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count304
+\scratchdimen=\dimen173
+\scratchbox=\box53
+\nofMPsegments=\count305
+\nofMParguments=\count306
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen174
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
+\everyMPtoPDFconversion=\toks20
+) (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(57.81621pt, 481.87546pt, 57.81621pt)
+* v-part:(T,H,B)=(57.81621pt, 729.41443pt, 57.81621pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=481.87546pt
+* \textheight=729.41443pt
+* \oddsidemargin=-14.45378pt
+* \evensidemargin=-14.45378pt
+* \topmargin=-51.45378pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2026-05-17 v1.3f Standard LaTeX Color (DPC)
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (C:\Users\7430\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+Package hyperref Info: Link coloring ON on input line 24.
+ (comparison_plots_f8.out) (comparison_plots_f8.out)
+\@outlinefile=\write3
+\openout3 = `comparison_plots_f8.out'.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 27.
+ (comparison_plots_f8.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+)
+\tf@toc=\write4
+\openout4 = `comparison_plots_f8.toc'.
+
+ [1
+
+{C:/Users/7430/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (10.13661pt too wide) in paragraph at lines 35--36
+[]\OT1/cmr/bx/n/10 SNN Rate\OT1/cmr/m/n/10 : Spik-ing Neu-ral Net-work with Rate en-cod-ing on MNIST (`snn[]complete[]plots[]rate[]extended[]f8`) 
+ []
+
+
+Overfull \hbox (31.9769pt too wide) in paragraph at lines 36--37
+[]\OT1/cmr/bx/n/10 SNN Di-rect\OT1/cmr/m/n/10 : Spik-ing Neu-ral Net-work with Di-rect en-cod-ing on MNIST (`snn[]complete[]plots[]direct[]extended[]f8`) 
+ []
+
+
+Overfull \hbox (29.34488pt too wide) in paragraph at lines 37--38
+[]\OT1/cmr/bx/n/10 SNN NM-NIST\OT1/cmr/m/n/10 : Spik-ing Neu-ral Net-work on neu-ro-mor-phic NM-NIST (`snn[]complete[]plots[]nmnist[]extended[]f8`) 
+ []
+
+[2]
+<cnn_complete_plots_extended_f8/best_test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=150, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/best_test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/best_test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/best_test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 53.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=151, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 59.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=152, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 67.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/best_test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=153, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/best_test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/best_test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/best_test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 73.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [3 <./cnn_complete_plots_extended_f8/best_test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/best_test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/best_test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=322, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 87.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=323, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 93.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=324, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 101.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=325, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 107.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [4
+
+ <./cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=493, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 121.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=494, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 127.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=495, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 135.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=496, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 141.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [5
+
+ <./cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=664, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 155.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=665, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 161.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=666, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 169.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=667, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 175.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [6
+
+ <./cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=836, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 189.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=837, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 195.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=838, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 203.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=839, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 209.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [7
+
+ <./cnn_complete_plots_extended_f8/test_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1007, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 227.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1008, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 233.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1009, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 241.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/best_test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1010, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/best_test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/best_test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/best_test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 247.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [8
+
+ <./cnn_complete_plots_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/best_test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/best_test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1213, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 261.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1214, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 267.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1215, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 275.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1216, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 281.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [9
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1419, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 295.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1420, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 301.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1421, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 309.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1422, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 315.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [10
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1625, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 329.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1626, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 335.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1627, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 343.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1628, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 349.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [11
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1832, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 363.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1833, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 369.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1834, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 377.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=1835, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 383.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [12
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_ALittleIsEnough_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_ALittleIsEnough_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2038, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 401.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2039, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 407.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2040, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 415.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/best_test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2041, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/best_test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/best_test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/best_test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 421.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [13
+
+ <./cnn_complete_plots_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/best_test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/best_test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2251, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 435.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2252, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 441.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2253, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 449.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2254, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 455.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [14
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2463, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 469.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2464, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 475.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2465, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 483.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2466, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 489.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [15
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2674, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 503.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2675, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 509.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2676, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 517.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2677, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 523.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [16
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2886, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 537.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2887, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 543.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2888, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 551.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=2889, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 557.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [17
+
+ <./cnn_complete_plots_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_Optimal_InnerProductManipulation_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_Optimal_InnerProductManipulation_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/best_test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3096, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/best_test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/best_test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/best_test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 575.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3097, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 581.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3098, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 589.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/best_test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3099, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/best_test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/best_test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/best_test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 595.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [18
+
+ <./cnn_complete_plots_extended_f8/best_test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/best_test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/best_test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3293, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 609.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3294, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 615.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3295, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 623.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3296, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 629.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [19
+
+ <./cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3489, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 643.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3490, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 649.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3491, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 657.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3492, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 663.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [20
+
+ <./cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3684, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 677.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3685, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 683.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3686, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 691.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3687, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 697.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [21
+
+ <./cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_16_tolerated_f_equal_real.pdf>]
+<cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3881, 462.52798pt x 346.89601pt>
+File: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 711.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3882, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 717.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3883, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 725.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+<snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf, id=3884, 462.52798pt x 346.89601pt>
+File: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf Graphic file (type pdf)
+<use snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>
+Package pdftex.def Info: snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf  used on input line 731.
+(pdftex.def)             Requested size: 236.12161pt x 177.09459pt.
+ [22
+
+ <./cnn_complete_plots_extended_f8/test_SignFlipping_mnist_convnet_cnn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_rate_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_direct_extended_f8/test_SignFlipping_mnist_convnet_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf> <./snn_complete_plots_nmnist_extended_f8/test_SignFlipping_nmnist_nmnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_16_tolerated_f_equal_real.pdf>] (comparison_plots_f8.aux)
+ ***********
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-05-26>
+ ***********
+Package rerunfilecheck Info: File `comparison_plots_f8.out' has not changed.
+(rerunfilecheck)             Checksum: D5764A85189997D667528213A5C733B7;3972.
+ ) 
+Here is how much of TeX's memory you used:
+ 11115 strings out of 467509
+ 269971 string characters out of 5409266
+ 599688 words of memory out of 5000000
+ 40192 multiletter control sequences out of 15000+600000
+ 631067 words of font info for 51 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 74i,8n,79p,509b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/7430/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on comparison_plots_f8.pdf (22 pages, 1667466 bytes).
+PDF statistics:
+ 4133 PDF objects out of 4296 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 601 words of extra memory for PDF output out of 10000 (max. 10000000)
+

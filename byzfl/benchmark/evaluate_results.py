@@ -124,17 +124,17 @@ def get_config_file_path(path_to_results, clean, dataset_name, model_name, nb_no
         return os.path.join(path_to_results, file_name, "config.json")
 
 
-def get_accuracy_at_best_step(path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+def _load_avg_test_accuracies(path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
                               dist_name, dist_param_val, agg_name, pre_agg_names, attack_name,
                               lr, momentum, wd, snn_suffix, pm,
                               nb_data_distribution_seeds, nb_training_seeds,
                               training_seed, data_distribution_seed, evaluation_delta):
     """
-    Load test accuracies across all seeds, average them, and return the accuracy at the step 
-    maximizing validation (loaded from pre-computed 'better_step'). Falls back to the maximum 
-    test accuracy if the 'better_step' file is not found.
+    Load test accuracies across all seeds and return the averaged accuracy curve.
+    Returns (tab_acc, nb_accuracies) where tab_acc has shape (nb_accuracies,),
+    or (None, 0) if loading fails.
     """
-    # 1. Resolve nb_accuracies from config file
+    # Resolve nb_accuracies from config file
     config_file_path = get_config_file_path(
         path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl, 
         dist_name, dist_param_val, agg_name, pre_agg_names, 
@@ -156,7 +156,7 @@ def get_accuracy_at_best_step(path_to_results, clean, dataset_name, model_name, 
 
     nb_accuracies = int(1 + math.ceil(nb_steps / evaluation_delta))
 
-    # 2. Load test accuracies
+    # Load test accuracies
     tab_acc = np.zeros((nb_data_distribution_seeds, nb_training_seeds, nb_accuracies))
     
     try:
@@ -183,12 +183,34 @@ def get_accuracy_at_best_step(path_to_results, clean, dataset_name, model_name, 
                     tab_acc[run_dd][run] = genfromtxt(acc_path, delimiter=',')
     except Exception as e:
         print(f"Warning: could not load accuracy files for f={nb_byzantine}, param={dist_param_val}. Details: {e}")
-        return 0.0
+        return None, nb_accuracies
 
     tab_acc = tab_acc.reshape(nb_data_distribution_seeds * nb_training_seeds, nb_accuracies)
     tab_acc = tab_acc.mean(axis=0)
+    return tab_acc, nb_accuracies
 
-    # 3. Load best step from 'better_step' folder
+
+def get_accuracy_at_best_step(path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+                              dist_name, dist_param_val, agg_name, pre_agg_names, attack_name,
+                              lr, momentum, wd, snn_suffix, pm,
+                              nb_data_distribution_seeds, nb_training_seeds,
+                              training_seed, data_distribution_seed, evaluation_delta):
+    """
+    Load test accuracies across all seeds, average them, and return the accuracy at the step 
+    maximizing validation (loaded from pre-computed 'better_step'). Falls back to the maximum 
+    test accuracy if the 'better_step' file is not found.
+    """
+    tab_acc, nb_accuracies = _load_avg_test_accuracies(
+        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+        dist_name, dist_param_val, agg_name, pre_agg_names, attack_name,
+        lr, momentum, wd, snn_suffix, pm,
+        nb_data_distribution_seeds, nb_training_seeds,
+        training_seed, data_distribution_seed, evaluation_delta
+    )
+    if tab_acc is None:
+        return 0.0
+
+    # Load best step from 'better_step' folder
     best_idx = None
     path_to_hyperparameters = os.path.join(path_to_results, "best_hyperparameters")
     step_file_name = (
@@ -246,6 +268,27 @@ def get_accuracy_at_best_step(path_to_results, clean, dataset_name, model_name, 
         return tab_acc[best_idx]
             
     # Fallback 2: If both better_step and validation files are missing, default to the peak average test accuracy
+    return np.max(tab_acc)
+
+
+def get_max_test_accuracy(path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+                          dist_name, dist_param_val, agg_name, pre_agg_names, attack_name,
+                          lr, momentum, wd, snn_suffix, pm,
+                          nb_data_distribution_seeds, nb_training_seeds,
+                          training_seed, data_distribution_seed, evaluation_delta):
+    """
+    Load test accuracies across all seeds, average them, and return the maximum 
+    test accuracy across all steps.
+    """
+    tab_acc, _ = _load_avg_test_accuracies(
+        path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
+        dist_name, dist_param_val, agg_name, pre_agg_names, attack_name,
+        lr, momentum, wd, snn_suffix, pm,
+        nb_data_distribution_seeds, nb_training_seeds,
+        training_seed, data_distribution_seed, evaluation_delta
+    )
+    if tab_acc is None:
+        return 0.0
     return np.max(tab_acc)
 
 
@@ -863,7 +906,7 @@ def loss_heatmap(path_to_results, path_to_plot, target_attack=None):
                         plt.close()
 
 
-def test_heatmap(path_to_results, path_to_plot, target_attack=None):
+def test_heatmap(path_to_results, path_to_plot, target_attack=None, metric="best_step"):
     """
     Creates a heatmap where the axis are the number of 
     byzantine nodes and the distribution parameter.
@@ -1001,7 +1044,8 @@ def test_heatmap(path_to_results, path_to_plot, target_attack=None):
                                 worst_accuracy = np.inf
                                 for attack in attacks:
 
-                                    accuracy = get_accuracy_at_best_step(
+                                    acc_fn = get_max_test_accuracy if metric == "max_test" else get_accuracy_at_best_step
+                                    accuracy = acc_fn(
                                         path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
                                         data_dist['name'], dist_param_val, agg['name'], pre_agg_names, attack['name'],
                                         lr, momentum, wd, snn_suffix, pm,
@@ -1019,7 +1063,8 @@ def test_heatmap(path_to_results, path_to_plot, target_attack=None):
                         else:
                             end_file_name = f"tolerated_f_{nb_decl}.pdf"
 
-                        file_prefix = f"test_{target_attack}_" if target_attack else "test_"
+                        metric_prefix = "max_" if metric == "max_test" else ""
+                        file_prefix = f"{metric_prefix}test_{target_attack}_" if target_attack else f"{metric_prefix}test_"
                         file_name = (
                             f"{file_prefix}{dataset_name}_"
                             f"{model_name}_"
@@ -1040,7 +1085,7 @@ def test_heatmap(path_to_results, path_to_plot, target_attack=None):
                         except OSError as error:
                             print(f"Error creating directory: {error}")
 
-                        sns.heatmap(heat_map_table, xticklabels=row_names, yticklabels=column_names, annot=True)
+                        sns.heatmap(heat_map_table, xticklabels=row_names, yticklabels=column_names, annot=True, vmin=0.0, vmax=1.0)
                         if target_attack:
                             plt.title(f"Attack: {target_attack}")
                         plt.xlabel("Number of Byzantine clients")
@@ -1050,7 +1095,7 @@ def test_heatmap(path_to_results, path_to_plot, target_attack=None):
                         plt.close()
 
 
-def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None):
+def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None, metric="best_step"):
     """
     Heatmap with the aggregated info of all aggregators, 
     for every region in the heatmap, it shows the aggregation 
@@ -1189,7 +1234,8 @@ def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None):
                                 
                                 worst_accuracy = np.inf
                                 for attack in attacks:
-                                    accuracy = get_accuracy_at_best_step(
+                                    acc_fn = get_max_test_accuracy if metric == "max_test" else get_accuracy_at_best_step
+                                    accuracy = acc_fn(
                                         path_to_results, clean, dataset_name, model_name, nb_nodes, nb_byzantine, nb_decl,
                                         data_dist['name'], dist_param_val, agg['name'], pre_agg_names, attack['name'],
                                         lr, momentum, wd, snn_suffix, pm,
@@ -1210,7 +1256,8 @@ def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None):
                     else:
                         end_file_name = f"tolerated_f_{nb_decl}.pdf"
 
-                    file_prefix = f"best_test_{target_attack}_" if target_attack else "best_test_"
+                    metric_prefix = "max_" if metric == "max_test" else ""
+                    file_prefix = f"{metric_prefix}best_test_{target_attack}_" if target_attack else f"{metric_prefix}best_test_"
                     file_name = (
                         f"{file_prefix}{dataset_name}_"
                         f"{model_name}_"
@@ -1225,7 +1272,7 @@ def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None):
                     column_names.reverse()
 
                     heat_map_table = np.max(heat_map_cube, axis=0)
-                    sns.heatmap(heat_map_table, xticklabels=row_names, yticklabels=column_names, annot=True)
+                    sns.heatmap(heat_map_table, xticklabels=row_names, yticklabels=column_names, annot=True, vmin=0.0, vmax=1.0)
                     if target_attack:
                         plt.title(f"Attack: {target_attack}")
                     plt.xlabel("Number of Byzantine clients")
