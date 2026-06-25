@@ -19,7 +19,7 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 500
+        "nb_steps": 1500
     },
     "model": {
         "name": "cnn_mnist_snn",
