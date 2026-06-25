@@ -92,6 +92,10 @@
         {
             "name": "Optimal_ALittleIsEnough",
             "parameters": {}
+        },
+        {
+            "name": "Optimal_ALittleIsEnough_neg10",
+            "parameters": {}
         }
     ],
     "evaluation_and_results": {
