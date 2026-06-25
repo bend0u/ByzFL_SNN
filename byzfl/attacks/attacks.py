@@ -835,6 +835,23 @@ class Optimal_ALittleIsEnough_neg10(Optimal_ALittleIsEnough):
         super().__init__(agg=agg, pre_agg_list=pre_agg_list, f=f, evals=evals, start=start, delta=delta, ratio=ratio)
 
 
+class Optimal_ALittleIsEnough_pos1(Optimal_ALittleIsEnough):
+    """
+    Subclass of Optimal_ALittleIsEnough that forces delta = 1.0 by default.
+    """
+    def __init__(self, agg=Average(), pre_agg_list=[Clipping()], f=1, evals=20, start=0.0, delta=1.0, ratio=0.8):
+        super().__init__(agg=agg, pre_agg_list=pre_agg_list, f=f, evals=evals, start=start, delta=delta, ratio=ratio)
+
+
+class Optimal_ALittleIsEnough_neg1(Optimal_ALittleIsEnough):
+    """
+    Subclass of Optimal_ALittleIsEnough that forces delta = -1.0 by default.
+    """
+    def __init__(self, agg=Average(), pre_agg_list=[Clipping()], f=1, evals=20, start=0.0, delta=-1.0, ratio=0.8):
+        super().__init__(agg=agg, pre_agg_list=pre_agg_list, f=f, evals=evals, start=start, delta=delta, ratio=ratio)
+
+
+
 class Mimic:
     
     r"""

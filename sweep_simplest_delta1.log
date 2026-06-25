@@ -1,0 +1,7 @@
+nohup: ignoring input
+
+=======================================================
+Running CNN Simplest Sweep (500 steps, 10 honest clients, 2 GPUs)
+=======================================================
+Total trainings to do: 128
+Running 4 trainings in parallel...
