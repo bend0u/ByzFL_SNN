@@ -7,7 +7,7 @@ def run_all_sweeps():
     print("\n=======================================================")
     print("Running CNN Simplest Sweep (500 steps, 10 honest clients, 2 GPUs)")
     print("=======================================================")
-    run_benchmark("cnn_simplest_sweep.json", nb_jobs=8, distribute_gpus=True)
+    run_benchmark("cnn_simplest_sweep.json", nb_jobs=4, distribute_gpus=True)
     
     # Generate CNN heatmaps
     print("\nGenerating heatmaps for CNN Simplest Sweep...")
