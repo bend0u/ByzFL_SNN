@@ -1,9 +1,0 @@
-nohup: ignoring input
-/localhome/bendouro/ByzFL_SNN/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:628: UserWarning: Can't initialize NVML
-  warnings.warn("Can't initialize NVML")
-
-=======================================================
-Running CNN Simplest Sweep (500 steps, 10 honest clients, 2 GPUs)
-=======================================================
-Total trainings to do: 0
-Running 4 trainings in parallel...
