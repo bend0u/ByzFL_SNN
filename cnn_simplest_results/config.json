@@ -101,10 +101,6 @@
         {
             "name": "Optimal_ALittleIsEnough_pos1",
             "parameters": {}
-        },
-        {
-            "name": "Optimal_ALittleIsEnough_neg1",
-            "parameters": {}
         }
     ],
     "evaluation_and_results": {

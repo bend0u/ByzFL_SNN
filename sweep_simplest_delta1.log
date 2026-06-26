@@ -4814,3 +4814,89 @@ Training 98 done
 Training 99 done
 /localhome/bendouro/ByzFL_SNN/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:628: UserWarning: Can't initialize NVML
   warnings.warn("Can't initialize NVML")
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1852 | Test Acc: 0.1865 | VRAM (Alloc/Reserved): 46.8/152.0 MiB | Time: 13.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8924 | Test Acc: 0.8926 | VRAM (Alloc/Reserved): 242.2/1172.0 MiB | Time: 190.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9541 | Test Acc: 0.9614 | VRAM (Alloc/Reserved): 240.2/1172.0 MiB | Time: 368.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9647 | Test Acc: 0.9698 | VRAM (Alloc/Reserved): 243.9/1172.0 MiB | Time: 544.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9708 | Test Acc: 0.9755 | VRAM (Alloc/Reserved): 241.0/1172.0 MiB | Time: 718.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9750 | Test Acc: 0.9788 | VRAM (Alloc/Reserved): 242.2/1172.0 MiB | Time: 896.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9752 | Test Acc: 0.9796 | VRAM (Alloc/Reserved): 240.6/1172.0 MiB | Time: 1072.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9764 | Test Acc: 0.9779 | VRAM (Alloc/Reserved): 243.9/1172.0 MiB | Time: 1247.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9793 | Test Acc: 0.9855 | VRAM (Alloc/Reserved): 242.9/1172.0 MiB | Time: 1420.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9778 | Test Acc: 0.9816 | VRAM (Alloc/Reserved): 243.2/1172.0 MiB | Time: 1594.1s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 799.5/1172.0 MiB | Total time: 1754.2s
+
+Training 100 done
+/localhome/bendouro/ByzFL_SNN/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:628: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1852 | Test Acc: 0.1865 | VRAM (Alloc/Reserved): 46.8/152.0 MiB | Time: 14.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 238.9/1174.0 MiB | Time: 199.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 237.1/1174.0 MiB | Time: 388.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 239.8/1174.0 MiB | Time: 580.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 238.8/1174.0 MiB | Time: 774.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 241.0/1174.0 MiB | Time: 969.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 239.8/1174.0 MiB | Time: 1162.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 237.9/1174.0 MiB | Time: 1356.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 236.5/1174.0 MiB | Time: 1550.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 236.0/1174.0 MiB | Time: 1742.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 796.1/1174.0 MiB | Total time: 1919.7s
+
+Training 101 done
+/localhome/bendouro/ByzFL_SNN/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:628: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1852 | Test Acc: 0.1865 | VRAM (Alloc/Reserved): 46.8/152.0 MiB | Time: 14.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8452 | Test Acc: 0.8513 | VRAM (Alloc/Reserved): 244.1/1174.0 MiB | Time: 203.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9350 | Test Acc: 0.9445 | VRAM (Alloc/Reserved): 242.6/1174.0 MiB | Time: 389.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9537 | Test Acc: 0.9612 | VRAM (Alloc/Reserved): 242.9/1174.0 MiB | Time: 577.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9630 | Test Acc: 0.9665 | VRAM (Alloc/Reserved): 245.1/1174.0 MiB | Time: 762.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9674 | Test Acc: 0.9743 | VRAM (Alloc/Reserved): 243.1/1174.0 MiB | Time: 949.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9712 | Test Acc: 0.9759 | VRAM (Alloc/Reserved): 238.9/1174.0 MiB | Time: 1137.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9740 | Test Acc: 0.9787 | VRAM (Alloc/Reserved): 244.6/1174.0 MiB | Time: 1324.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9752 | Test Acc: 0.9792 | VRAM (Alloc/Reserved): 245.8/1174.0 MiB | Time: 1512.7s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9757 | Test Acc: 0.9807 | VRAM (Alloc/Reserved): 239.9/1174.0 MiB | Time: 1699.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 800.6/1174.0 MiB | Total time: 1875.1s
+
+Training 102 done
+/localhome/bendouro/ByzFL_SNN/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:628: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1852 | Test Acc: 0.1865 | VRAM (Alloc/Reserved): 46.8/152.0 MiB | Time: 14.7s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.2581 | Test Acc: 0.2623 | VRAM (Alloc/Reserved): 242.2/1172.0 MiB | Time: 200.8s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.2573 | Test Acc: 0.2560 | VRAM (Alloc/Reserved): 240.2/1172.0 MiB | Time: 387.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.2044 | Test Acc: 0.2076 | VRAM (Alloc/Reserved): 243.9/1172.0 MiB | Time: 575.8s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.1957 | Test Acc: 0.2102 | VRAM (Alloc/Reserved): 241.0/1172.0 MiB | Time: 762.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.2364 | Test Acc: 0.2431 | VRAM (Alloc/Reserved): 242.2/1172.0 MiB | Time: 948.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.2049 | Test Acc: 0.2073 | VRAM (Alloc/Reserved): 240.6/1172.0 MiB | Time: 1133.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.2058 | Test Acc: 0.2136 | VRAM (Alloc/Reserved): 243.9/1172.0 MiB | Time: 1321.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.1472 | Test Acc: 0.1476 | VRAM (Alloc/Reserved): 242.9/1172.0 MiB | Time: 1511.3s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.1819 | Test Acc: 0.1846 | VRAM (Alloc/Reserved): 243.2/1172.0 MiB | Time: 1699.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 799.5/1172.0 MiB | Total time: 1876.5s
+
+Training 103 done
+/localhome/bendouro/ByzFL_SNN/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:628: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 7 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
