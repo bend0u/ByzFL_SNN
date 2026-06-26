@@ -17,7 +17,7 @@
     urlcolor=cyan,
 }
 
-\title{ALIE Byzantine Attack Comparison:\\Different Delta Values (CNN Simplest Sweep)}
+\title{ALIE Byzantine Attack Comparison: CNN vs. SNN\\Different Delta Values (Simplest Sweeps)}
 \author{ByzFL SNN Benchmark}
 \date{\today}
 
@@ -29,7 +29,7 @@
 \newpage
 
 \section{Introduction}
-This document presents comparison grids (2x2 subfigures) of the MNIST CNN model under the Optimal A Little Is Enough (ALIE) Byzantine attack. We compare four different step size ($\delta$) parameters:
+This document presents comparison grids (2x2 subfigures) comparing the Convolutional Neural Network (CNN) and Spiking Neural Network (SNN) models under the Optimal A Little Is Enough (ALIE) Byzantine attack. We compare four different step size ($\delta$) parameters:
 \begin{itemize}
     \item \textbf{ALIE $\delta=10$} (Default positive large step size)
     \item \textbf{ALIE $\delta=1$} (Positive small step size)
@@ -44,20 +44,21 @@ Each comparison illustrates the test accuracy under varying numbers of Byzantine
 \section{ALIE Attack: Best Aggregator Choice}
 This section compares performance under ALIE using the dynamically selected best overall aggregator.
 
+\subsection{Convolutional Neural Network (CNN)}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/best_test_Optimal_ALittleIsEnough_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=10$}
-        \label{fig:alie_10_best}
+        \label{fig:alie_10_best_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/best_test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=1$}
-        \label{fig:alie_pos1_best}
+        \label{fig:alie_pos1_best_cnn}
     \end{subfigure}
     
     \vspace{0.3cm}
@@ -66,17 +67,55 @@ This section compares performance under ALIE using the dynamically selected best
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-1$}
-        \label{fig:alie_neg1_best}
+        \label{fig:alie_neg1_best_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/best_test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-10$}
-        \label{fig:alie_neg10_best}
+        \label{fig:alie_neg10_best_cnn}
     \end{subfigure}
-    \caption{Accuracy comparison under ALIE attacks using the best overall aggregator selection.}
-    \label{fig:best_overall}
+    \caption{CNN accuracy comparison under ALIE attacks using the best overall aggregator selection.}
+    \label{fig:best_overall_cnn}
+\end{figure}
+
+\clearpage
+
+\subsection{Spiking Neural Network (SNN)}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/best_test_Optimal_ALittleIsEnough_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=10$}
+        \label{fig:alie_10_best_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/best_test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=1$}
+        \label{fig:alie_pos1_best_snn}
+    \end{subfigure}
+    
+    \vspace{0.3cm}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-1$}
+        \label{fig:alie_neg1_best_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/best_test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-10$}
+        \label{fig:alie_neg10_best_snn}
+    \end{subfigure}
+    \caption{SNN accuracy comparison under ALIE attacks using the best overall aggregator selection.}
+    \label{fig:best_overall_snn}
 \end{figure}
 
 \clearpage
@@ -84,20 +123,21 @@ This section compares performance under ALIE using the dynamically selected best
 \section{ALIE Attack: Centered Clipping}
 This section compares performance under ALIE using Centered Clipping.
 
+\subsection{Convolutional Neural Network (CNN)}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=10$}
-        \label{fig:alie_10_cc}
+        \label{fig:alie_10_cc_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=1$}
-        \label{fig:alie_pos1_cc}
+        \label{fig:alie_pos1_cc_cnn}
     \end{subfigure}
     
     \vspace{0.3cm}
@@ -106,17 +146,55 @@ This section compares performance under ALIE using Centered Clipping.
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-1$}
-        \label{fig:alie_neg1_cc}
+        \label{fig:alie_neg1_cc_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-10$}
-        \label{fig:alie_neg10_cc}
+        \label{fig:alie_neg10_cc_cnn}
     \end{subfigure}
-    \caption{Accuracy comparison under ALIE attacks using Centered Clipping.}
-    \label{fig:cc_comparison}
+    \caption{CNN accuracy comparison under ALIE attacks using Centered Clipping.}
+    \label{fig:cc_comparison_cnn}
+\end{figure}
+
+\clearpage
+
+\subsection{Spiking Neural Network (SNN)}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=10$}
+        \label{fig:alie_10_cc_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=1$}
+        \label{fig:alie_pos1_cc_snn}
+    \end{subfigure}
+    
+    \vspace{0.3cm}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-1$}
+        \label{fig:alie_neg1_cc_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-10$}
+        \label{fig:alie_neg10_cc_snn}
+    \end{subfigure}
+    \caption{SNN accuracy comparison under ALIE attacks using Centered Clipping.}
+    \label{fig:cc_comparison_snn}
 \end{figure}
 
 \clearpage
@@ -124,20 +202,21 @@ This section compares performance under ALIE using Centered Clipping.
 \section{ALIE Attack: Geometric Median}
 This section compares performance under ALIE using Geometric Median.
 
+\subsection{Convolutional Neural Network (CNN)}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=10$}
-        \label{fig:alie_10_gm}
+        \label{fig:alie_10_gm_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=1$}
-        \label{fig:alie_pos1_gm}
+        \label{fig:alie_pos1_gm_cnn}
     \end{subfigure}
     
     \vspace{0.3cm}
@@ -146,17 +225,55 @@ This section compares performance under ALIE using Geometric Median.
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-1$}
-        \label{fig:alie_neg1_gm}
+        \label{fig:alie_neg1_gm_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-10$}
-        \label{fig:alie_neg10_gm}
+        \label{fig:alie_neg10_gm_cnn}
     \end{subfigure}
-    \caption{Accuracy comparison under ALIE attacks using Geometric Median.}
-    \label{fig:gm_comparison}
+    \caption{CNN accuracy comparison under ALIE attacks using Geometric Median.}
+    \label{fig:gm_comparison_cnn}
+\end{figure}
+
+\clearpage
+
+\subsection{Spiking Neural Network (SNN)}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=10$}
+        \label{fig:alie_10_gm_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=1$}
+        \label{fig:alie_pos1_gm_snn}
+    \end{subfigure}
+    
+    \vspace{0.3cm}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-1$}
+        \label{fig:alie_neg1_gm_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-10$}
+        \label{fig:alie_neg10_gm_snn}
+    \end{subfigure}
+    \caption{SNN accuracy comparison under ALIE attacks using Geometric Median.}
+    \label{fig:gm_comparison_snn}
 \end{figure}
 
 \clearpage
@@ -164,20 +281,21 @@ This section compares performance under ALIE using Geometric Median.
 \section{ALIE Attack: Multi-Krum}
 This section compares performance under ALIE using Multi-Krum.
 
+\subsection{Convolutional Neural Network (CNN)}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=10$}
-        \label{fig:alie_10_mk}
+        \label{fig:alie_10_mk_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=1$}
-        \label{fig:alie_pos1_mk}
+        \label{fig:alie_pos1_mk_cnn}
     \end{subfigure}
     
     \vspace{0.3cm}
@@ -186,17 +304,55 @@ This section compares performance under ALIE using Multi-Krum.
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-1$}
-        \label{fig:alie_neg1_mk}
+        \label{fig:alie_neg1_mk_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-10$}
-        \label{fig:alie_neg10_mk}
+        \label{fig:alie_neg10_mk_cnn}
     \end{subfigure}
-    \caption{Accuracy comparison under ALIE attacks using Multi-Krum.}
-    \label{fig:mk_comparison}
+    \caption{CNN accuracy comparison under ALIE attacks using Multi-Krum.}
+    \label{fig:mk_comparison_cnn}
+\end{figure}
+
+\clearpage
+
+\subsection{Spiking Neural Network (SNN)}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=10$}
+        \label{fig:alie_10_mk_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=1$}
+        \label{fig:alie_pos1_mk_snn}
+    \end{subfigure}
+    
+    \vspace{0.3cm}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-1$}
+        \label{fig:alie_neg1_mk_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-10$}
+        \label{fig:alie_neg10_mk_snn}
+    \end{subfigure}
+    \caption{SNN accuracy comparison under ALIE attacks using Multi-Krum.}
+    \label{fig:mk_comparison_snn}
 \end{figure}
 
 \clearpage
@@ -204,20 +360,21 @@ This section compares performance under ALIE using Multi-Krum.
 \section{ALIE Attack: Trimmed Mean}
 This section compares performance under ALIE using Trimmed Mean.
 
+\subsection{Convolutional Neural Network (CNN)}
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=10$}
-        \label{fig:alie_10_tm}
+        \label{fig:alie_10_tm_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=1$}
-        \label{fig:alie_pos1_tm}
+        \label{fig:alie_pos1_tm_cnn}
     \end{subfigure}
     
     \vspace{0.3cm}
@@ -226,17 +383,55 @@ This section compares performance under ALIE using Trimmed Mean.
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-1$}
-        \label{fig:alie_neg1_tm}
+        \label{fig:alie_neg1_tm_cnn}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{cnn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{ALIE $\delta=-10$}
-        \label{fig:alie_neg10_tm}
+        \label{fig:alie_neg10_tm_cnn}
     \end{subfigure}
-    \caption{Accuracy comparison under ALIE attacks using Trimmed Mean.}
-    \label{fig:tm_comparison}
+    \caption{CNN accuracy comparison under ALIE attacks using Trimmed Mean.}
+    \label{fig:tm_comparison_cnn}
+\end{figure}
+
+\clearpage
+
+\subsection{Spiking Neural Network (SNN)}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=10$}
+        \label{fig:alie_10_tm_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_pos1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=1$}
+        \label{fig:alie_pos1_tm_snn}
+    \end{subfigure}
+    
+    \vspace{0.3cm}
+    
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-1$}
+        \label{fig:alie_neg1_tm_snn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{snn_simplest_plots/test_Optimal_ALittleIsEnough_neg10_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{ALIE $\delta=-10$}
+        \label{fig:alie_neg10_tm_snn}
+    \end{subfigure}
+    \caption{SNN accuracy comparison under ALIE attacks using Trimmed Mean.}
+    \label{fig:tm_comparison_snn}
 \end{figure}
 
 \end{document}
