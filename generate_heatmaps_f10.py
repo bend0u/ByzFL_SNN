@@ -7,7 +7,7 @@ from byzfl.benchmark.evaluate_results import test_heatmap, loss_heatmap, aggrega
 # The ORIGINAL config values that CNN and SNN direct had before the user modified them
 # for the new multi-seed alpha=0 experiments. These match the nmnist/rate configs.
 ORIGINAL_OVERRIDES = {
-    "cnn_complete_results": {
+    "results/cnn/complete": {
         "benchmark_config": {
             "nb_training_seeds": 1,
             "f": [0, 2, 4, 6, 8, 10],
@@ -30,7 +30,7 @@ ORIGINAL_OVERRIDES = {
             {"name": "Optimal_ALittleIsEnough", "parameters": {}}
         ]
     },
-    "snn_complete_results_direct": {
+    "results/snn/complete_direct": {
         "benchmark_config": {
             "nb_training_seeds": 1,
             "f": [0, 2, 4, 6, 8, 10],
@@ -57,10 +57,10 @@ ORIGINAL_OVERRIDES = {
 
 def main():
     experiments = [
-        ("cnn_complete_results", "cnn_complete_plots_extended_f10"),
-        ("snn_complete_results_direct", "snn_complete_plots_direct_extended_f10"),
-        ("snn_complete_results_nmnist", "snn_complete_plots_nmnist_extended_f10"),
-        ("snn_complete_results_rate", "snn_complete_plots_rate_extended_f10")
+        ("results/cnn/complete", "plots/cnn/complete_extended_f10"),
+        ("results/snn/complete_direct", "plots/snn/complete_direct_extended_f10"),
+        ("results/snn/complete_nmnist", "plots/snn/complete_nmnist_extended_f10"),
+        ("results/snn/complete_rate", "plots/snn/complete_rate_extended_f10")
     ]
     
     attacks = [

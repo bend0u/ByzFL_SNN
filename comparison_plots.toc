@@ -1,6 +1,0 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {section}{\numberline {2}Best Overall (Worst-Case Across All Attacks)}{3}{section.2}%
-\contentsline {section}{\numberline {3}Fixed Attack: Gaussian Noise}{4}{section.3}%
-\contentsline {section}{\numberline {4}Fixed Attack: Optimal A Little Is Enough (ALIE)}{5}{section.4}%
-\contentsline {section}{\numberline {5}Fixed Attack: Optimal Inner Product Manipulation (IPM)}{6}{section.5}%
-\contentsline {section}{\numberline {6}Fixed Attack: Sign Flipping}{7}{section.6}%

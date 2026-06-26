@@ -43,8 +43,8 @@ def make_config_list(nb_steps, eval_delta):
     
     # Attack modes: Default ALIE (delta = 10) vs Corrected ALIE (delta = -10)
     modes = [
-        ("default_alie", 10.0, "./arc_mnist_results_default_alie"),
-        ("corrected_alie", -10.0, "./arc_mnist_results_corrected_alie")
+        ("default_alie", 10.0, "./results/cnn/arc_paper_default_alie"),
+        ("corrected_alie", -10.0, "./results/cnn/arc_paper_corrected_alie")
     ]
     
     # Aggregators to sweep
@@ -160,8 +160,8 @@ def generate_report(nb_steps):
     print("=" * 80)
     
     modes = [
-        ("Default ALIE (delta = 10.0)", "./arc_mnist_results_default_alie"),
-        ("Corrected ALIE (delta = -10.0)", "./arc_mnist_results_corrected_alie")
+        ("Default ALIE (delta = 10.0)", "./results/cnn/arc_paper_default_alie"),
+        ("Corrected ALIE (delta = -10.0)", "./results/cnn/arc_paper_corrected_alie")
     ]
     
     f_values = [1, 2, 3, 4, 5]

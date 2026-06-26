@@ -7,12 +7,12 @@ def run_all_sweeps():
     print("\n=======================================================")
     print("Running CNN Simplest Sweep (500 steps, 10 honest clients, 2 GPUs)")
     print("=======================================================")
-    run_benchmark("cnn_simplest_sweep.json", nb_jobs=8, distribute_gpus=False)
+    run_benchmark("configs/cnn_simplest_sweep.json", nb_jobs=8, distribute_gpus=False)
     
     # Generate CNN heatmaps
     print("\nGenerating heatmaps for CNN Simplest Sweep...")
-    cnn_results_dir = "./cnn_simplest_results"
-    cnn_plots_dir = "./cnn_simplest_plots"
+    cnn_results_dir = "./results/cnn/simplest"
+    cnn_plots_dir = "./plots/cnn/simplest"
     os.makedirs(cnn_plots_dir, exist_ok=True)
     try:
         test_heatmap(cnn_results_dir, cnn_plots_dir)
@@ -26,12 +26,12 @@ def run_all_sweeps():
     print("\n=======================================================")
     print("Running SNN Simplest Sweep (500 steps, 10 honest clients, 2 GPUs)")
     print("=======================================================")
-    run_benchmark("snn_simplest_sweep.json", nb_jobs=8, distribute_gpus=False)
+    run_benchmark("configs/snn_simplest_sweep.json", nb_jobs=8, distribute_gpus=False)
     
     # Generate SNN heatmaps
     print("\nGenerating heatmaps for SNN Simplest Sweep...")
-    snn_results_dir = "./snn_simplest_results"
-    snn_plots_dir = "./snn_simplest_plots"
+    snn_results_dir = "./results/snn/simplest"
+    snn_plots_dir = "./plots/snn/simplest"
     os.makedirs(snn_plots_dir, exist_ok=True)
     try:
         test_heatmap(snn_results_dir, snn_plots_dir)

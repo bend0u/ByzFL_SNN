@@ -1,6 +1,0 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {section}{\numberline {2}ALIE Attack: Best Aggregator Choice}{3}{section.2}%
-\contentsline {section}{\numberline {3}ALIE Attack: Centered Clipping}{4}{section.3}%
-\contentsline {section}{\numberline {4}ALIE Attack: Geometric Median}{5}{section.4}%
-\contentsline {section}{\numberline {5}ALIE Attack: Multi-Krum}{6}{section.5}%
-\contentsline {section}{\numberline {6}ALIE Attack: Trimmed Mean}{7}{section.6}%

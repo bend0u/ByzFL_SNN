@@ -1,0 +1,99 @@
+nohup: ignoring input
+
+=======================================================
+Running SNN Benchmark Sweep: snn_complete_rate.json
+=======================================================
+Distributing tasks across 2 GPUs...
+Total trainings to do: 31
+Running 4 trainings in parallel...
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 6 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 139.0/186.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1003 | Test Acc: 0.0974 | VRAM (Alloc/Reserved): 151.4/294.0 MiB | Time: 13.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.2657 | Test Acc: 0.2687 | VRAM (Alloc/Reserved): 613.2/3292.0 MiB | Time: 193.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.5637 | Test Acc: 0.5637 | VRAM (Alloc/Reserved): 608.2/3292.0 MiB | Time: 363.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.5485 | Test Acc: 0.5608 | VRAM (Alloc/Reserved): 605.4/3292.0 MiB | Time: 532.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.6486 | Test Acc: 0.6531 | VRAM (Alloc/Reserved): 608.9/3292.0 MiB | Time: 704.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.5623 | Test Acc: 0.5662 | VRAM (Alloc/Reserved): 609.4/3292.0 MiB | Time: 874.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.6003 | Test Acc: 0.6033 | VRAM (Alloc/Reserved): 609.2/3292.0 MiB | Time: 1045.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.5665 | Test Acc: 0.5708 | VRAM (Alloc/Reserved): 609.0/3292.0 MiB | Time: 1215.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.5797 | Test Acc: 0.5786 | VRAM (Alloc/Reserved): 608.8/3292.0 MiB | Time: 1385.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.6735 | Test Acc: 0.6773 | VRAM (Alloc/Reserved): 609.3/3292.0 MiB | Time: 1557.3s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 2258.1/3292.0 MiB | Total time: 1712.3s
+
+Training 0 done
+Traceback (most recent call last):
+  File "/localhome/bendouro/ByzFL_SNN/byzfl/benchmark/benchmark.py", line 224, in run_training
+    start_training(params)
+  File "/localhome/bendouro/ByzFL_SNN/byzfl/benchmark/train.py", line 240, in start_training
+    byz_vector = byz_client.apply_attack(attack_input)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localhome/bendouro/ByzFL_SNN/byzfl/fed_framework/byzantine_client.py", line 194, in apply_attack
+    byz_vector = self.attack(honest_vectors)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localhome/bendouro/ByzFL_SNN/byzfl/attacks/attacks.py", line 453, in __call__
+    best_tau, largest_distance, delta, remaining_evals = self._expansion_phase(honest_vectors, avg_honest_vector)
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localhome/bendouro/ByzFL_SNN/byzfl/attacks/attacks.py", line 398, in _expansion_phase
+    best_y = self._evaluate(honest_vectors, avg_honest_vector, best_x)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localhome/bendouro/ByzFL_SNN/byzfl/attacks/attacks.py", line 384, in _evaluate
+    vectors = pre_agg(vectors)
+              ^^^^^^^^^^^^^^^^
+  File "/localhome/bendouro/ByzFL_SNN/byzfl/aggregators/preaggregators.py", line 119, in __call__
+    return tools.mean(vectors[indices], axis = 1)
+                      ~~~~~~~^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.43 GiB. GPU 0 has a total capacity of 10.90 GiB of which 1.06 GiB is free. Process 3893070 has 1.29 GiB memory in use. Process 3992381 has 3.40 GiB memory in use. Process 3992383 has 3.40 GiB memory in use. Including non-PyTorch memory, this process has 1.75 GiB memory in use. Of the allocated memory 791.28 MiB is allocated by PyTorch, and 806.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 6 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 139.0/186.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1003 | Test Acc: 0.0974 | VRAM (Alloc/Reserved): 151.4/294.0 MiB | Time: 20.9s
+
+[ERROR] Training failed for config: attack=Optimal_InnerProductManipulation, aggregator=GeometricMedian, f=6. Error: CUDA out of memory. Tried to allocate 1.43 GiB. GPU 0 has a total capacity of 10.90 GiB of which 1.06 GiB is free. Process 3893070 has 1.29 GiB memory in use. Process 3992381 has 3.40 GiB memory in use. Process 3992383 has 3.40 GiB memory in use. Including non-PyTorch memory, this process has 1.75 GiB memory in use. Of the allocated memory 791.28 MiB is allocated by PyTorch, and 806.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Training 1 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 6 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 139.0/186.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1003 | Test Acc: 0.0974 | VRAM (Alloc/Reserved): 151.4/294.0 MiB | Time: 13.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8317 | Test Acc: 0.8374 | VRAM (Alloc/Reserved): 606.6/3292.0 MiB | Time: 193.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9421 | Test Acc: 0.9488 | VRAM (Alloc/Reserved): 608.9/3292.0 MiB | Time: 395.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9602 | Test Acc: 0.9667 | VRAM (Alloc/Reserved): 609.6/3292.0 MiB | Time: 605.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9683 | Test Acc: 0.9738 | VRAM (Alloc/Reserved): 609.2/3292.0 MiB | Time: 822.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9733 | Test Acc: 0.9768 | VRAM (Alloc/Reserved): 609.4/3292.0 MiB | Time: 1036.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9747 | Test Acc: 0.9798 | VRAM (Alloc/Reserved): 609.0/3292.0 MiB | Time: 1249.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9767 | Test Acc: 0.9805 | VRAM (Alloc/Reserved): 607.2/3292.0 MiB | Time: 1467.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9779 | Test Acc: 0.9823 | VRAM (Alloc/Reserved): 612.0/3292.0 MiB | Time: 1679.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9798 | Test Acc: 0.9835 | VRAM (Alloc/Reserved): 608.1/3292.0 MiB | Time: 1899.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 2259.1/3292.0 MiB | Total time: 2099.9s
+
+Training 2 done
+
+[ByzFL-SNN] [Training Start] Model: convnet_snn | Dataset: mnist
+[ByzFL-SNN]   Clients: 16 honest, 6 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 139.0/186.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1003 | Test Acc: 0.0974 | VRAM (Alloc/Reserved): 151.4/294.0 MiB | Time: 14.1s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7682 | Test Acc: 0.7714 | VRAM (Alloc/Reserved): 608.8/3292.0 MiB | Time: 273.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9062 | Test Acc: 0.9139 | VRAM (Alloc/Reserved): 610.6/3292.0 MiB | Time: 537.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9483 | Test Acc: 0.9536 | VRAM (Alloc/Reserved): 607.9/3292.0 MiB | Time: 804.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9603 | Test Acc: 0.9646 | VRAM (Alloc/Reserved): 611.6/3292.0 MiB | Time: 1071.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9673 | Test Acc: 0.9706 | VRAM (Alloc/Reserved): 607.5/3292.0 MiB | Time: 1340.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9708 | Test Acc: 0.9741 | VRAM (Alloc/Reserved): 610.4/3292.0 MiB | Time: 1607.4s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9724 | Test Acc: 0.9775 | VRAM (Alloc/Reserved): 608.2/3292.0 MiB | Time: 1845.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9746 | Test Acc: 0.9790 | VRAM (Alloc/Reserved): 608.6/3292.0 MiB | Time: 2107.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9766 | Test Acc: 0.9818 | VRAM (Alloc/Reserved): 610.0/3292.0 MiB | Time: 2370.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 2360.3/3292.0 MiB | Total time: 2613.5s
+
+Training 3 done
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 7 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

@@ -2,17 +2,13 @@ import os
 from byzfl import run_benchmark
 from byzfl.benchmark.evaluate_results import test_heatmap, loss_heatmap, aggregated_test_heatmap
 
-def run_sweep(config_path):
+def run_sweep(config_path, results_dir, plots_dir):
     print(f"\n=======================================================")
     print(f"Running SNN Benchmark Sweep: {config_path}")
     print(f"=======================================================")
     
-    # Run the sweep with nb_jobs = 1
+    # Run the sweep
     run_benchmark(config_path, nb_jobs=2)
-    
-    # Define directories
-    results_dir = config_path.replace(".json", "").replace("snn_complete_", "snn_complete_results_")
-    plots_dir = results_dir.replace("results", "plots")
     
     # Generate heatmap plots
     print(f"Generating heatmaps for {config_path}...")
@@ -23,5 +19,5 @@ def run_sweep(config_path):
     print(f"Plots successfully saved in: {plots_dir}")
 
 if __name__ == "__main__":
-    run_sweep("snn_complete_direct.json")
-    run_sweep("snn_complete_rate.json")
+    run_sweep("configs/snn_complete_direct.json", "./results/snn/complete_direct", "./plots/snn/complete_direct")
+    run_sweep("configs/snn_complete_rate.json", "./results/snn/complete_rate", "./plots/snn/complete_rate")

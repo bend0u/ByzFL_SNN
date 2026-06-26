@@ -5,10 +5,10 @@ from byzfl.benchmark.evaluate_results import test_heatmap, loss_heatmap, aggrega
 
 def main():
     experiments = [
-        ("cnn_complete_results", "cnn_complete_plots_extended_f8"),
-        ("snn_complete_results_direct", "snn_complete_plots_direct_extended_f8"),
-        ("snn_complete_results_nmnist", "snn_complete_plots_nmnist_extended_f8"),
-        ("snn_complete_results_rate", "snn_complete_plots_rate_extended_f8")
+        ("results/cnn/complete", "plots/cnn/complete_extended_f8"),
+        ("results/snn/complete_direct", "plots/snn/complete_direct_extended_f8"),
+        ("results/snn/complete_nmnist", "plots/snn/complete_nmnist_extended_f8"),
+        ("results/snn/complete_rate", "plots/snn/complete_rate_extended_f8")
     ]
     
     attacks = [
