@@ -6,7 +6,7 @@ def run_cnn_weekend_sweep():
     print("\n=======================================================")
     print("Running CNN Weekend Sweep (5 seeds, 10 honest, 0-5 Byzantine, 16 jobs, GPUs distributed)")
     print("=======================================================")
-    run_benchmark("configs/cnn_weekend_sweep.json", nb_jobs=8, distribute_gpus=True)
+    run_benchmark("configs/cnn_weekend_sweep.json", nb_jobs=16, distribute_gpus=True)
     
     # Generate CNN heatmaps
     print("\nGenerating heatmaps for CNN Weekend Sweep...")
