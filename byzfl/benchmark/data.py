@@ -37,8 +37,8 @@ class TemporalEncodingTransform:
             img_clamped = torch.clamp(img, 0.0, 1.0)
             return spikegen.latency(img_clamped, num_steps=self.time_steps, **self.encoding_params)
             
-        else:  # 'constant' coding: replicate input image across time steps
-            return img.unsqueeze(0).repeat(self.time_steps, *([1] * img.ndim))
+        else:  # 'constant' coding: do not repeat on CPU (will lazy expand on GPU)
+            return img
 
 
 # =====================================================================
@@ -217,6 +217,12 @@ def load_nmnist_dataset(data_folder, params_manager):
     train_ds = TonicDatasetWrapper(cached_raw_train, time_steps)
     test_ds = TonicDatasetWrapper(cached_raw_test, time_steps)
     return train_ds, test_ds
+
+
+
+
+
+
 
 
 def load_and_split_data(params_manager):

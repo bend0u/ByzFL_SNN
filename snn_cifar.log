@@ -1,0 +1,7 @@
+nohup: ignoring input
+
+=======================================================
+Running SNN CIFAR-10 Baseline Sweep (500 steps, f=0)
+=======================================================
+Total trainings to do: 1
+Running 1 trainings in parallel...

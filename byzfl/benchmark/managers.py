@@ -649,3 +649,7 @@ class ParamsManager(object):
                 
         for warn in warnings:
             print(f"WARNING: [SNN Config Validation] {warn}")
+
+    def get_shared_dataset_cache(self):
+        """Get shared dataset cache containing pre-loaded shared memory tensors."""
+        return self.data.get("shared_dataset_cache", None)

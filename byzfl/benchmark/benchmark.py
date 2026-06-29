@@ -584,6 +584,8 @@ def run_benchmark(config_file="config.json", nb_jobs=1, distribute_gpus=False):
     restriction_list = ["pre_aggregators", "milestones"]
     dict_list = generate_all_combinations(data, restriction_list)
 
+
+
     # Ensure that the key parameters are present in the dictionaries
     # even if they are not in the config file
     dict_list = ensure_key_parameters(dict_list)

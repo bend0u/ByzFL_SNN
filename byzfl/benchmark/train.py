@@ -83,11 +83,16 @@ def start_training(params):
     })
     client_dataloaders = data_distributor.split_data()
 
+    # Prepare model parameters (including time_steps for SNNs)
+    model_params = params_manager.get_model_params().copy()
+    if params_manager.is_snn():
+        model_params["time_steps"] = params_manager.get_time_steps()
+
     # Initialize Honest Clients
     honest_clients = [
         Client({
             "model_name": params_manager.get_model_name(),
-            "model_params": params_manager.get_model_params(),
+            "model_params": model_params,
             "device": params_manager.get_device(),
             "optimizer_name": params_manager.get_optimizer_name(),
             "learning_rate": params_manager.get_learning_rate(),
@@ -108,7 +113,7 @@ def start_training(params):
     # Server Setup, Use SGD Optimizer
     server = Server({
         "model_name": params_manager.get_model_name(),
-        "model_params": params_manager.get_model_params(),
+        "model_params": model_params,
         "device": params_manager.get_device(),
         "validation_loader": val_loader,
         "test_loader": test_loader,
