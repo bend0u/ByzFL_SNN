@@ -6,7 +6,7 @@ def run_tri_beta_sweep():
     print("\n=======================================================")
     print("Running SNN Tri Beta Sweep (7 betas, 5 seeds, f=0, GPUs distributed)")
     print("=======================================================")
-    run_benchmark("configs/snn_tri_beta_sweep.json", nb_jobs=7, distribute_gpus=True)
+    run_benchmark("configs/snn_tri_beta_sweep.json", nb_jobs=5, distribute_gpus=False)
     
     # Generate heatmaps
     print("\nGenerating heatmaps for Tri Beta Sweep...")
