@@ -88,9 +88,8 @@ def generate_plots(results_dir, plots_dir):
                 print(f"Warning: could not read {f}: {e}")
                 
         if all_curves:
-            all_curves = np.array(all_curves)
-            mean_curve = np.mean(all_curves, axis=0)
-            std_curve = np.std(all_curves, axis=0)
+            # Ensure all loaded curves are at least 1D arrays
+            all_curves = [c if (isinstance(c, np.ndarray) and c.ndim > 0) else np.array([c]) for c in all_curves]
             
             # Read config to get step info
             try:
@@ -102,7 +101,22 @@ def generate_plots(results_dir, plots_dir):
             except:
                 evaluation_delta = 50
                 nb_steps = 500
-                
+            
+            target_len = 1 + (nb_steps // evaluation_delta)
+            
+            # If at least one seed has finished, filter out incomplete seeds
+            finished_curves = [c for c in all_curves if len(c) >= target_len]
+            if finished_curves:
+                all_curves = finished_curves
+            
+            # Find the minimum length among remaining curves
+            min_len = min(len(c) for c in all_curves)
+            all_curves = [c[:min_len] for c in all_curves]
+            
+            all_curves = np.array(all_curves)
+            mean_curve = np.mean(all_curves, axis=0)
+            std_curve = np.std(all_curves, axis=0)
+            
             steps = np.arange(0, nb_steps + evaluation_delta, evaluation_delta)
             
             # Ensure step count aligns with data
