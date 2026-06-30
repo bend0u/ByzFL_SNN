@@ -1,0 +1,25 @@
+import os
+from byzfl import run_benchmark
+from byzfl.benchmark.evaluate_results import test_heatmap, loss_heatmap, aggregated_test_heatmap
+
+def run_tri_beta_sweep():
+    print("\n=======================================================")
+    print("Running SNN Tri Beta Sweep (7 betas, 5 seeds, f=0, GPUs distributed)")
+    print("=======================================================")
+    run_benchmark("configs/snn_tri_beta_sweep.json", nb_jobs=7, distribute_gpus=True)
+    
+    # Generate heatmaps
+    print("\nGenerating heatmaps for Tri Beta Sweep...")
+    results_dir = "./results/snn/tri_beta_sweep"
+    plots_dir = "./plots/snn/tri_beta_sweep"
+    os.makedirs(plots_dir, exist_ok=True)
+    try:
+        test_heatmap(results_dir, plots_dir)
+        loss_heatmap(results_dir, plots_dir)
+        aggregated_test_heatmap(results_dir, plots_dir)
+        print(f"--> Plots successfully saved in: {plots_dir}")
+    except Exception as e:
+        print(f"--> Error generating heatmaps: {e}")
+
+if __name__ == "__main__":
+    run_tri_beta_sweep()

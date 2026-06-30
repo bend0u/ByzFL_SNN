@@ -24,7 +24,11 @@ def get_snn_suffix(params_manager):
         
     model_params = params_manager.get_model_params()
     for k, v in sorted(model_params.items()):
-        if not isinstance(v, (dict, list)):
+        if isinstance(v, dict):
+            for sub_k, sub_v in sorted(v.items()):
+                if not isinstance(sub_v, (dict, list)):
+                    parts.append(f"{sub_k}_{sub_v}")
+        elif not isinstance(v, list):
             parts.append(f"{k}_{v}")
             
     return f"_{'_'.join(parts)}" if parts else ""

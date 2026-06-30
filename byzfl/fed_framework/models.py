@@ -4,6 +4,9 @@ import torch.nn.functional as F
 import snntorch as snn
 from snntorch import surrogate
 
+from .surrogates import get_spike_grad
+
+
 """
 Models Module
 =============
@@ -511,7 +514,7 @@ class fc_snn(nn.Module):
         self.time_steps = kwargs.get("time_steps", 25)
 
         # Dynamically resolve surrogate gradient from snntorch
-        spike_grad = getattr(surrogate, surrogate_gradient)()
+        spike_grad = get_spike_grad(surrogate_gradient, kwargs.get("surrogate_params", {}))
 
         # Network layers
         self.fc1 = nn.Linear(input_dim, hidden_dim)
@@ -596,7 +599,7 @@ class lenet_snn(nn.Module):
         super().__init__()
         self.time_steps = kwargs.get("time_steps", 25)
 
-        spike_grad = getattr(surrogate, surrogate_gradient)()
+        spike_grad = get_spike_grad(surrogate_gradient, kwargs.get("surrogate_params", {}))
 
         # Layer 1: Conv -> LIF -> MaxPool
         self.conv1 = nn.Conv2d(in_channels, 6, kernel_size=5)
@@ -710,7 +713,7 @@ class convnet_snn(nn.Module):
         super().__init__()
         self.time_steps = kwargs.get("time_steps", 25)
 
-        spike_grad = getattr(surrogate, surrogate_gradient)()
+        spike_grad = get_spike_grad(surrogate_gradient, kwargs.get("surrogate_params", {}))
 
         # Layer 1: Conv (in_channels -> 32 filters, 5x5 kernel) -> LIF -> MaxPool (2x2)
         self.conv1 = nn.Conv2d(in_channels, 32, kernel_size=5)
@@ -796,7 +799,7 @@ class cnn_mnist_snn(nn.Module):
         super().__init__()
         self.time_steps = kwargs.get("time_steps", 25)
 
-        spike_grad = getattr(surrogate, surrogate_gradient)()
+        spike_grad = get_spike_grad(surrogate_gradient, kwargs.get("surrogate_params", {}))
 
         # Layer 1: Conv (in_channels -> 20 filters, 5x5 kernel) -> LIF -> MaxPool (2x2)
         self.conv1 = nn.Conv2d(in_channels, 20, kernel_size=5)
@@ -897,7 +900,7 @@ class nmnist_snn(nn.Module):
         super().__init__()
         self.time_steps = kwargs.get("time_steps", 25)
 
-        spike_grad = getattr(surrogate, surrogate_gradient)()
+        spike_grad = get_spike_grad(surrogate_gradient, kwargs.get("surrogate_params", {}))
 
         # Layer 1: Conv (in_channels -> 32 filters, 5x5 kernel) -> LIF -> MaxPool (2x2)
         self.conv1 = nn.Conv2d(in_channels, 32, kernel_size=5)
@@ -1013,7 +1016,7 @@ class cnn_cifar_snn(nn.Module):
         super().__init__()
         self.time_steps = kwargs.get("time_steps", 25)
 
-        spike_grad = getattr(surrogate, surrogate_gradient)()
+        spike_grad = get_spike_grad(surrogate_gradient, kwargs.get("surrogate_params", {}))
 
         self.conv1 = nn.Conv2d(in_channels, 20, kernel_size=5, padding=2)
         self.lif1 = snn.Leaky(beta=beta, spike_grad=spike_grad, threshold=threshold, learn_threshold=learn_threshold)

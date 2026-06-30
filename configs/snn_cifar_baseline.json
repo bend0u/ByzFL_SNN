@@ -24,7 +24,7 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 4000
+        "nb_steps": 8000
     },
     "model": {
         "name": "cnn_cifar_snn",
