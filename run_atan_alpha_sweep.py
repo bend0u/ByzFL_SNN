@@ -8,18 +8,15 @@ def run_atan_alpha_sweep():
     print("=======================================================")
     run_benchmark("configs/snn_atan_alpha_sweep.json", nb_jobs=9, distribute_gpus=True)
     
-    # Generate heatmaps
-    print("\nGenerating heatmaps for Atan Alpha Sweep...")
+    # Generate convergence plots
+    print("\nGenerating baseline convergence plots for Atan Alpha Sweep...")
     results_dir = "./results/snn/atan_alpha_sweep"
     plots_dir = "./plots/snn/atan_alpha_sweep"
-    os.makedirs(plots_dir, exist_ok=True)
     try:
-        test_heatmap(results_dir, plots_dir)
-        loss_heatmap(results_dir, plots_dir)
-        aggregated_test_heatmap(results_dir, plots_dir)
-        print(f"--> Plots successfully saved in: {plots_dir}")
+        from plot_snn_baseline_convergence import generate_plots
+        generate_plots(results_dir, plots_dir)
     except Exception as e:
-        print(f"--> Error generating heatmaps: {e}")
+        print(f"--> Error generating plots: {e}")
 
 if __name__ == "__main__":
     run_atan_alpha_sweep()

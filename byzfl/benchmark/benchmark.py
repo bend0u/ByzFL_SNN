@@ -640,7 +640,3 @@ def run_benchmark(config_file="config.json", nb_jobs=1, distribute_gpus=False):
             print("Done")
         except Exception as e:
             print(f"Warning: Best hyperparameter selection skipped or failed: {e}")
-            find_best_hyperparameters(results_directory)
-            print("Done")
-        except Exception as e:
-            print(f"Warning: Best hyperparameter selection skipped or failed: {e}")

@@ -1,0 +1,8 @@
+nohup: ignoring input
+
+=======================================================
+Running SNN Atan Alpha Sweep (9 alphas, 5 seeds, f=0, GPUs distributed)
+=======================================================
+Distributing tasks across 2 GPUs...
+Total trainings to do: 45
+Running 9 trainings in parallel...

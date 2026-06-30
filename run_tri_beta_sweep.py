@@ -8,18 +8,15 @@ def run_tri_beta_sweep():
     print("=======================================================")
     run_benchmark("configs/snn_tri_beta_sweep.json", nb_jobs=5, distribute_gpus=False)
     
-    # Generate heatmaps
-    print("\nGenerating heatmaps for Tri Beta Sweep...")
+    # Generate convergence plots
+    print("\nGenerating baseline convergence plots for Tri Beta Sweep...")
     results_dir = "./results/snn/tri_beta_sweep"
     plots_dir = "./plots/snn/tri_beta_sweep"
-    os.makedirs(plots_dir, exist_ok=True)
     try:
-        test_heatmap(results_dir, plots_dir)
-        loss_heatmap(results_dir, plots_dir)
-        aggregated_test_heatmap(results_dir, plots_dir)
-        print(f"--> Plots successfully saved in: {plots_dir}")
+        from plot_snn_baseline_convergence import generate_plots
+        generate_plots(results_dir, plots_dir)
     except Exception as e:
-        print(f"--> Error generating heatmaps: {e}")
+        print(f"--> Error generating plots: {e}")
 
 if __name__ == "__main__":
     run_tri_beta_sweep()

@@ -36,7 +36,7 @@
         "optimizer_name": "SGD",
         "encoding": {
             "type": "constant",
-            "time_steps": 10
+            "time_steps": 25
         },
         "learning_rate": 0.05,
         "learning_rate_decay": 1.0,
