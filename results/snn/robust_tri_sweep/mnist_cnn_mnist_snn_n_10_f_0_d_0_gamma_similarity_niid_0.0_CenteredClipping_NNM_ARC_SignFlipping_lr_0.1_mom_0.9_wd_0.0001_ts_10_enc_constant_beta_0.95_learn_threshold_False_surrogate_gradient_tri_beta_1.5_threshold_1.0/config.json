@@ -1,7 +1,7 @@
 {
     "benchmark_config": {
         "device": "cuda",
-        "training_seed": 43,
+        "training_seed": 46,
         "nb_training_seeds": 5,
         "nb_workers": 10,
         "nb_honest_clients": 10,
