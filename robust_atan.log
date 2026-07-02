@@ -1,7 +1,0 @@
-nohup: ignoring input
-=======================================================
-Starting Robust Sweep using configs/snn_robust_atan_sweep.json distributed across both GPUs with 8 jobs
-=======================================================
-Distributing tasks across 2 GPUs...
-Total trainings to do: 1600
-Running 8 trainings in parallel...

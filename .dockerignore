@@ -1,0 +1,28 @@
+# Exclude virtual environments
+venv/
+.venv/
+env/
+
+# Exclude local data and results (very heavy!)
+data/
+results/
+plots/
+logs/
+
+# Exclude source control and IDE settings
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Exclude caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Exclude temporary files and local logs
+*.log
+*.png
+*.pdf
+scratch/

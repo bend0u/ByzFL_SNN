@@ -24,13 +24,30 @@ def main():
         
     print(f"=======================================================")
     if distribute:
-        print(f"Starting Robust Sweep using {config_file} distributed across both GPUs with {nb_jobs} jobs")
-        os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+        print(f"Starting Robust Sweep using {config_file} distributed across all available GPUs with {nb_jobs} jobs")
+        # Do not overwrite CUDA_VISIBLE_DEVICES if already set by Kubernetes/Docker
+        if "CUDA_VISIBLE_DEVICES" not in os.environ:
+            # Fallback for local run to see all GPUs if not specified
+            pass
     else:
         print(f"Starting Robust Sweep using {config_file} on GPU {gpu_idx} with {nb_jobs} jobs")
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu_idx
-    print(f"=======================================================")
-    
+    # Pre-download dataset sequentially to avoid race conditions in parallel jobs
+    try:
+        import json
+        with open(config_file, "r") as f:
+            cfg = json.load(f)
+        dataset_name = cfg.get("model", {}).get("dataset_name", "mnist").lower()
+        data_folder = cfg.get("evaluation_and_results", {}).get("data_folder", "./data")
+        if dataset_name == "mnist":
+            print("Pre-downloading MNIST dataset sequentially to avoid parallel race conditions...")
+            from torchvision import datasets
+            datasets.MNIST(root=data_folder, train=True, download=True)
+            datasets.MNIST(root=data_folder, train=False, download=True)
+            print("MNIST dataset is ready!")
+    except Exception as e:
+        print(f"Warning: could not pre-download dataset: {e}")
+
     # Run the benchmark
     run_benchmark(config_file, nb_jobs=nb_jobs, distribute_gpus=distribute)
     
