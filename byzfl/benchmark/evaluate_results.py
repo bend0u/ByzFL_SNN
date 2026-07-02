@@ -1146,6 +1146,8 @@ def test_heatmap(path_to_results, path_to_plot, target_attack=None, metric="best
                         plt.ylabel("Data heterogeneity level")
                         plt.tight_layout()
                         plt.savefig(path_to_plot +"/"+ file_name)
+                        if file_name.endswith('.pdf'):
+                            plt.savefig(path_to_plot +"/"+ file_name.replace('.pdf', '.png'))
                         plt.close()
 
 
@@ -1333,4 +1335,6 @@ def aggregated_test_heatmap(path_to_results, path_to_plot, target_attack=None, m
                     plt.ylabel("Data heterogeneity level")
                     plt.tight_layout()
                     plt.savefig(path_to_plot +"/"+ file_name)
+                    if file_name.endswith('.pdf'):
+                        plt.savefig(path_to_plot +"/"+ file_name.replace('.pdf', '.png'))
                     plt.close()
