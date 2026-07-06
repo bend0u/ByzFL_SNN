@@ -27,12 +27,19 @@ def generate_range_heatmaps(results_dir, plots_dir):
                 varying_param = key
                 param_values = val
                 break
+        attacks_list = config_data.get("attack", [])
+        if isinstance(attacks_list, dict):
+            attacks_list = [attacks_list]
+        attack_names = [None] + [att["name"] for att in attacks_list if isinstance(att, dict) and "name" in att]
 
         if not varying_param:
             print("No varying surrogate parameter list found in config.json. Plotting normally...")
-            test_heatmap(results_dir, plots_dir)
-            loss_heatmap(results_dir, plots_dir)
-            aggregated_test_heatmap(results_dir, plots_dir)
+            for attack_name in attack_names:
+                suffix = f"_{attack_name}" if attack_name else "_merged"
+                print(f"Generating normal plots for attack: {attack_name if attack_name else 'merged'}...")
+                test_heatmap(results_dir, plots_dir, target_attack=attack_name)
+                loss_heatmap(results_dir, plots_dir, target_attack=attack_name)
+                aggregated_test_heatmap(results_dir, plots_dir, target_attack=attack_name)
             return
 
         print(f"Detected varying parameter: '{varying_param}' with values {param_values}")
@@ -51,24 +58,27 @@ def generate_range_heatmaps(results_dir, plots_dir):
             val_plots_dir = os.path.join(plots_dir, f"{varying_param}_{val}")
             os.makedirs(val_plots_dir, exist_ok=True)
             
-            try:
-                test_heatmap(results_dir, val_plots_dir)
-                print(f"--> Saved line plots in {val_plots_dir}")
-            except Exception as e:
-                print(f"--> Error generating test line plots for {val}: {e}")
+            for attack_name in attack_names:
+                attack_label = attack_name if attack_name else "merged"
+                print(f"--> Target Attack: {attack_label}")
+                
+                try:
+                    test_heatmap(results_dir, val_plots_dir, target_attack=attack_name)
+                    print(f"    - Saved line plots")
+                except Exception as e:
+                    print(f"    - Error generating test line plots: {e}")
 
-            try:
-                loss_heatmap(results_dir, val_plots_dir)
-                print(f"--> Saved loss heatmaps in {val_plots_dir}")
-            except Exception as e:
-                print(f"--> Error generating loss heatmaps for {val}: {e}")
+                try:
+                    loss_heatmap(results_dir, val_plots_dir, target_attack=attack_name)
+                    print(f"    - Saved loss heatmaps")
+                except Exception as e:
+                    print(f"    - Error generating loss heatmaps: {e}")
 
-            try:
-                aggregated_test_heatmap(results_dir, val_plots_dir)
-                print(f"--> Saved aggregated test heatmaps in {val_plots_dir}")
-            except Exception as e:
-                print(f"--> Error generating aggregated test heatmaps for {val}: {e}")
-
+                try:
+                    aggregated_test_heatmap(results_dir, val_plots_dir, target_attack=attack_name)
+                    print(f"    - Saved aggregated test heatmaps")
+                except Exception as e:
+                    print(f"    - Error generating aggregated test heatmaps: {e}")
     finally:
         # Restore original config
         if os.path.exists(backup_config_path):

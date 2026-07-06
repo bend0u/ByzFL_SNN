@@ -35,37 +35,16 @@
         "nb_steps": 500
     },
     "model": {
-        "name": "cnn_mnist_snn",
-        "is_snn": true,
+        "name": "cnn_mnist",
+        "is_snn": false,
         "dataset_name": "mnist",
         "nb_labels": 10,
-        "loss": "ce_rate_loss",
-        "accuracy_name": "accuracy_rate",
+        "loss": "NLLLoss",
+        "accuracy_name": null,
         "optimizer_name": "SGD",
-        "encoding": {
-            "type": "constant",
-            "time_steps": 10
-        },
         "learning_rate": 0.10,
         "learning_rate_decay": 1.0,
-        "milestones": [],
-        "model_params": {
-            "beta": 0.95,
-            "surrogate_gradient": "atan",
-            "surrogate_params": {
-                "alpha": [
-                    0.5,
-                    0.75,
-                    1.0,
-                    1.2,
-                    1.4,
-                    1.5,
-                    2.0
-                ]
-            },
-            "threshold": 1.0,
-            "learn_threshold": false
-        }
+        "milestones": []
     },
     "aggregator": [
         {
@@ -124,6 +103,6 @@
         "store_per_client_metrics": true,
         "store_models": false,
         "data_folder": "./data",
-        "results_directory": "./results/snn/robust_new_atan_sweep"
+        "results_directory": "./results/cnn/robust_comparison_sweep"
     }
 }
