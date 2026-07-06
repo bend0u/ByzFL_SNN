@@ -9,14 +9,14 @@ set -e
 mkdir -p results/logs
 
 echo "========================================="
-echo "Starting RCP CNN Robust Sweep on 8 GPUs"
-echo "  - 100 parallel jobs distributed across GPUs"
+echo "Starting RCP CNN Robust Sweep on 4 GPUs"
+echo "  - 50 parallel jobs distributed across GPUs"
 echo "  - Logs saved to results/logs/"
 echo "========================================="
 
 echo "[$(date)] Starting CNN Robust Sweep..."
 python run_cnn_robust_sweeps.py \
   --config configs/cnn_robust_comparison_sweep.json \
-  --distribute_gpus --nb_jobs 100 \
+  --distribute_gpus --nb_jobs 50 \
   > results/logs/rcp_cnn_sweep.log 2>&1 || echo "CNN Sweep encountered errors"
 echo "[$(date)] CNN Sweep finished."
