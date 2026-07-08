@@ -609,6 +609,10 @@ def run_benchmark(config_file="config.json", nb_jobs=1, distribute_gpus=False):
     # Remove already completed experiments
     dict_list = eliminate_experiments_done(dict_list)
 
+    # Sort dict_list by learning rate to ensure sequential completion of each LR
+    if dict_list and "model" in dict_list[0] and "learning_rate" in dict_list[0]["model"]:
+        dict_list = sorted(dict_list, key=lambda x: x["model"]["learning_rate"])
+
     # Distribute tasks across available GPUs if requested and target device is "cuda"
     device_setting = data["benchmark_config"].get("device", "cuda")
     if distribute_gpus and device_setting == "cuda":
