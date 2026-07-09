@@ -55,11 +55,11 @@
             "surrogate_gradient": "atan",
             "surrogate_params": {
                 "alpha": [
+                    0.5,
+                    0.75,
                     1.0,
-                    1.25,
                     1.5,
-                    2.0,
-                    3.0
+                    2.0
                 ]
             },
             "threshold": 1.0,
@@ -97,6 +97,10 @@
     "attack": [
         {
             "name": "Optimal_ALittleIsEnough_neg1",
+            "parameters": {}
+        },
+        {
+            "name": "SignFlipping",
             "parameters": {}
         }
     ],
