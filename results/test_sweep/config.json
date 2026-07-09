@@ -1,0 +1,60 @@
+{
+    "benchmark_config": {
+        "nb_training_seeds": 1,
+        "nb_data_distribution_seeds": 1,
+        "f": 0,
+        "nb_honest_clients": 2,
+        "data_distribution": {
+            "name": "gamma_similarity_niid",
+            "distribution_parameter": [
+                1.0
+            ]
+        },
+        "size_train_set": 1.0,
+        "training_algorithm": {
+            "name": "DSGD",
+            "parameters": {}
+        },
+        "nb_steps": 2,
+        "set_honest_clients_as_clients": false,
+        "training_seed": 0,
+        "data_distribution_seed": 0
+    },
+    "model": {
+        "name": "cnn_mnist",
+        "dataset_name": "mnist",
+        "nb_labels": 10,
+        "loss": "CrossEntropyLoss",
+        "accuracy_name": null,
+        "optimizer_name": "SGD",
+        "learning_rate": 0.15,
+        "learning_rate_decay": 1.0,
+        "milestones": []
+    },
+    "honest_clients": {
+        "momentum": 0.9,
+        "weight_decay": 0.0001,
+        "batch_size": 16
+    },
+    "attack": [
+        {
+            "name": "SignFlipping",
+            "parameters": {}
+        }
+    ],
+    "aggregator": [
+        {
+            "name": "Average",
+            "parameters": {}
+        }
+    ],
+    "pre_aggregators": [],
+    "evaluation_and_results": {
+        "evaluation_delta": 10,
+        "evaluate_on_test": false,
+        "clean_directory_structure": true,
+        "store_models": false,
+        "store_per_client_metrics": false,
+        "results_directory": "results/test_sweep"
+    }
+}

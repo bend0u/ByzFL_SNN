@@ -5,12 +5,9 @@ Running SNN CIFAR-10 Baseline Sweep (500 steps, f=0)
 =======================================================
 Total trainings to do: 1
 Running 1 trainings in parallel...
-Files already downloaded and verified
-Files already downloaded and verified
-Files already downloaded and verified
-
-[ByzFL-SNN] [Training Start] Model: cnn_cifar_snn | Dataset: cifar10
-[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 7 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+yzantine | Algorithm: DSGD
 [ByzFL-SNN]   Learning Rate: 0.05 | Steps: 8000 | Device: cuda
 [ByzFL-SNN]   Validation samples: 10000 | Test samples: 10000
 [ByzFL-SNN] Initial VRAM (Alloc/Reserved): 186.4/230.0 MiB

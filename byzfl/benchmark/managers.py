@@ -503,6 +503,12 @@ class ParamsManager(object):
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
 
+    def get_honest_clients_gradient_clip_val(self):
+        default = 0.0
+        path = ["honest_clients", "gradient_clip_val"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
     # ----------------------------------------------------------------------
     #  Attack
     # ----------------------------------------------------------------------

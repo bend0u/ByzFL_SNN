@@ -107,6 +107,7 @@ def start_training(params):
             "momentum": params_manager.get_honest_clients_momentum(),
             "nb_labels": params_manager.get_nb_labels(),
             "store_per_client_metrics": params_manager.get_store_per_client_metrics(),
+            "gradient_clip_val": params_manager.get_honest_clients_gradient_clip_val(),
         }) for i in range(nb_honest_clients)
     ]
 
@@ -157,6 +158,19 @@ def start_training(params):
     val_accuracy_list = np.array([])
     test_accuracy_list = np.array([])
     train_loss_list = np.zeros((nb_training_steps))
+
+    trace_var_list = np.zeros((nb_training_steps))
+    norm_var_list = np.zeros((nb_training_steps))
+    mean_grad_norm_list = np.zeros((nb_training_steps))
+    normalized_trace_var_list = np.zeros((nb_training_steps))
+    normalized_norm_var_list = np.zeros((nb_training_steps))
+    
+    max_deviation_list = np.zeros((nb_training_steps))
+    mean_cos_sim_list = np.zeros((nb_training_steps))
+    max_abs_grad_list = np.zeros((nb_training_steps))
+    grad_norm_min_list = np.zeros((nb_training_steps))
+    grad_norm_max_list = np.zeros((nb_training_steps))
+    grad_norm_std_list = np.zeros((nb_training_steps))
 
     start_time = time.time()
 
@@ -234,6 +248,40 @@ def start_training(params):
             # Aggregate Honest Gradients
             honest_gradients = [client.get_flat_gradients_with_momentum() for client in honest_clients]
 
+            # Compute Variance Metrics
+            if len(honest_gradients) > 0:
+                stacked_grads = torch.stack(honest_gradients, dim=0) # Shape: (nb_honest_clients, d)
+                mean_grad = stacked_grads.mean(dim=0)
+                var_grad = stacked_grads.var(dim=0, unbiased=False)
+                
+                trace_var = var_grad.sum().item()
+                norm_var = var_grad.norm().item()
+                mean_grad_sq_norm = mean_grad.square().sum().item()
+                mean_grad_norm = mean_grad_sq_norm ** 0.5
+                
+                trace_var_list[training_step] = trace_var
+                norm_var_list[training_step] = norm_var
+                mean_grad_norm_list[training_step] = mean_grad_norm
+                normalized_trace_var_list[training_step] = trace_var / (mean_grad_sq_norm + 1e-9)
+                normalized_norm_var_list[training_step] = norm_var / (mean_grad_sq_norm + 1e-9)
+
+                # New robustness metrics
+                norms = stacked_grads.norm(dim=1)
+                grad_norm_min_list[training_step] = norms.min().item()
+                grad_norm_max_list[training_step] = norms.max().item()
+                grad_norm_std_list[training_step] = norms.std().item()
+
+                deviations = (stacked_grads - mean_grad).norm(dim=1)
+                max_deviation_list[training_step] = deviations.max().item()
+
+                if mean_grad_norm > 1e-12:
+                    cos_sims = (stacked_grads * mean_grad).sum(dim=1) / (norms * mean_grad_norm + 1e-12)
+                    mean_cos_sim_list[training_step] = cos_sims.mean().item()
+                else:
+                    mean_cos_sim_list[training_step] = 0.0
+
+                max_abs_grad_list[training_step] = stacked_grads.abs().max().item()
+
             # Deal with Label Flipping Attack
             attack_input = (
                 [client.get_flat_flipped_gradients() for client in honest_clients]
@@ -288,6 +336,39 @@ def start_training(params):
     end_time = time.time()
 
     file_manager.write_array_in_file(train_loss_list, train_loss_filename)
+
+    honest_var_trace_filename = f"honest_var_trace_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_var_trace.txt"
+    file_manager.write_array_in_file(trace_var_list, honest_var_trace_filename)
+    
+    honest_var_norm_filename = f"honest_var_norm_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_var_norm.txt"
+    file_manager.write_array_in_file(norm_var_list, honest_var_norm_filename)
+    
+    honest_mean_grad_norm_filename = f"honest_mean_grad_norm_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_mean_grad_norm.txt"
+    file_manager.write_array_in_file(mean_grad_norm_list, honest_mean_grad_norm_filename)
+    
+    honest_normalized_trace_var_filename = f"honest_normalized_trace_var_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_normalized_trace_var.txt"
+    file_manager.write_array_in_file(normalized_trace_var_list, honest_normalized_trace_var_filename)
+    
+    honest_normalized_norm_var_filename = f"honest_normalized_norm_var_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_normalized_norm_var.txt"
+    file_manager.write_array_in_file(normalized_norm_var_list, honest_normalized_norm_var_filename)
+    
+    honest_max_deviation_filename = f"honest_max_deviation_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_max_deviation.txt"
+    file_manager.write_array_in_file(max_deviation_list, honest_max_deviation_filename)
+    
+    honest_mean_cos_sim_filename = f"honest_mean_cos_sim_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_mean_cos_sim.txt"
+    file_manager.write_array_in_file(mean_cos_sim_list, honest_mean_cos_sim_filename)
+    
+    honest_max_abs_grad_filename = f"honest_max_abs_grad_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_max_abs_grad.txt"
+    file_manager.write_array_in_file(max_abs_grad_list, honest_max_abs_grad_filename)
+    
+    honest_grad_norm_min_filename = f"honest_grad_norm_min_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_grad_norm_min.txt"
+    file_manager.write_array_in_file(grad_norm_min_list, honest_grad_norm_min_filename)
+    
+    honest_grad_norm_max_filename = f"honest_grad_norm_max_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_grad_norm_max.txt"
+    file_manager.write_array_in_file(grad_norm_max_list, honest_grad_norm_max_filename)
+    
+    honest_grad_norm_std_filename = f"honest_grad_norm_std_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_grad_norm_std.txt"
+    file_manager.write_array_in_file(grad_norm_std_list, honest_grad_norm_std_filename)
 
     if val_loader is not None:
     

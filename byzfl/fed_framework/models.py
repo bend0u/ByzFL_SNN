@@ -149,6 +149,45 @@ class cnn_mnist(nn.Module):
         return x
 
 
+class cnn_mnist_sigmoid(nn.Module):
+    """Convolutional Neural Network for MNIST with Sigmoid activation."""
+    def __init__(self):
+        super().__init__()
+        self._c1 = nn.Conv2d(1, 20, 5, 1)
+        self._c2 = nn.Conv2d(20, 50, 5, 1)
+        self._f1 = nn.Linear(800, 500)
+        self._f2 = nn.Linear(500, 10)
+
+    def forward(self, x):
+        x = torch.sigmoid(self._c1(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = torch.sigmoid(self._c2(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = torch.sigmoid(self._f1(x.view(-1, 800)))
+        x = F.log_softmax(self._f2(x), dim=1)
+        return x
+
+
+class cnn_mnist_tanh(nn.Module):
+    """Convolutional Neural Network for MNIST with Tanh activation."""
+    def __init__(self):
+        super().__init__()
+        self._c1 = nn.Conv2d(1, 20, 5, 1)
+        self._c2 = nn.Conv2d(20, 50, 5, 1)
+        self._f1 = nn.Linear(800, 500)
+        self._f2 = nn.Linear(500, 10)
+
+    def forward(self, x):
+        x = torch.tanh(self._c1(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = torch.tanh(self._c2(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = torch.tanh(self._f1(x.view(-1, 800)))
+        x = F.log_softmax(self._f2(x), dim=1)
+        return x
+
+
+
 class logreg_mnist(nn.Module):
     """
     Logistic Regression Model for MNIST.

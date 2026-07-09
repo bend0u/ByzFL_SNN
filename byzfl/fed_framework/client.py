@@ -71,6 +71,7 @@ class Client(ModelBaseInterface):
         self.training_dataloader = params["training_dataloader"]
         self.train_iterator = iter(self.training_dataloader)
         self.store_per_client_metrics = params["store_per_client_metrics"]
+        self.gradient_clip_val = params.get("gradient_clip_val", 0.0)
         self.loss_list = list()
         self.train_acc_list = list()
 
@@ -148,6 +149,10 @@ class Client(ModelBaseInterface):
         loss = self.criterion(outputs, targets)
         loss_value = loss.item()
         loss.backward()
+
+        # Apply gradient clipping if configured
+        if self.gradient_clip_val > 0:
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_val)
 
         if train_acc:
             # Compute and store train accuracy
