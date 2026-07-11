@@ -1,0 +1,81 @@
+{
+    "benchmark_config": {
+        "device": "cuda",
+        "training_seed": 42,
+        "nb_training_seeds": 5,
+        "nb_honest_clients": 10,
+        "f": [
+            0
+        ],
+        "size_train_set": 0.8,
+        "data_distribution_seed": 42,
+        "nb_data_distribution_seeds": 1,
+        "data_distribution": [
+            {
+                "name": "gamma_similarity_niid",
+                "distribution_parameter": [
+                    0.33
+                ]
+            }
+        ],
+        "training_algorithm": {
+            "name": "DSGD",
+            "parameters": {}
+        },
+        "nb_steps": 500,
+        "set_honest_clients_as_clients": false
+    },
+    "model": {
+        "name": "cnn_mnist_snn",
+        "is_snn": true,
+        "dataset_name": "mnist",
+        "nb_labels": 10,
+        "loss": "ce_rate_loss",
+        "accuracy_name": "accuracy_rate",
+        "optimizer_name": "SGD",
+        "learning_rate": 0.05,
+        "learning_rate_decay": 1.0,
+        "milestones": [],
+        "encoding": {
+            "type": "constant",
+            "time_steps": 10
+        },
+        "model_params": {
+            "beta": 0.95,
+            "learn_threshold": false,
+            "surrogate_gradient": "atan",
+            "surrogate_params": {
+                "alpha": 1.2
+            },
+            "threshold": 1.0
+        }
+    },
+    "aggregator": [
+        {
+            "name": "Average",
+            "parameters": {}
+        }
+    ],
+    "pre_aggregators": [],
+    "honest_clients": {
+        "momentum": 0.9,
+        "weight_decay": 0.0001,
+        "batch_size": 128
+    },
+    "attack": [
+        {
+            "name": "SignFlipping",
+            "parameters": {}
+        }
+    ],
+    "evaluation_and_results": {
+        "evaluation_delta": 50,
+        "batch_size_evaluation": 128,
+        "evaluate_on_test": true,
+        "clean_directory_structure": false,
+        "store_models": false,
+        "store_per_client_metrics": false,
+        "data_folder": "./data",
+        "results_directory": "results/sparsity_experiment/cnn_mnist_snn"
+    }
+}
