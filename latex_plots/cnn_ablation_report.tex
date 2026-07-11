@@ -1,0 +1,512 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{amsmath}
+
+\geometry{a4paper, margin=0.65in}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\title{CNN Activation \& Gradient Clipping Ablation Report\\CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh}
+\author{ByzFL SNN Benchmark}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+This report compares three CNN configurations to isolate the effect of gradient saturation/clipping on Byzantine robustness:
+\begin{enumerate}
+    \item \textbf{CNN ReLU (No Clip)}: Standard CNN with ReLU activation, no gradient clipping ($LR=0.1$).
+    \item \textbf{CNN ReLU (Grad Clipped)}: Same CNN with ReLU + explicit gradient norm clipping.
+    \item \textbf{CNN Tanh}: Same CNN architecture with Tanh activation (natural gradient saturation).
+\end{enumerate}
+
+\textbf{Note:} CNN Clipped results are currently available only for the ``best aggregator'' heatmaps and the Geometric Median aggregator. Other aggregator sections show CNN ReLU vs CNN Tanh only.
+
+\clearpage
+
+\section{Best Overall Performance (Worst-Case Across Attacks)}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/best_test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:best_overall_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/best_test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:best_overall_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/best_test_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_overall_tanh}
+    \end{subfigure}
+    \caption{Best overall (worst-case across attacks): CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:best_overall_grid}
+\end{figure}
+
+\clearpage
+\section{Best Aggregator under Specific Attacks}
+
+\subsection{Optimal ALIE Attack}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:best_alie_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:best_alie_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_alie_tanh}
+    \end{subfigure}
+    \caption{Best under OptALIE: CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:best_alie_grid}
+\end{figure}
+\clearpage
+\subsection{Sign Flipping Attack}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/best_test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:best_sf_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/best_test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:best_sf_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/best_test_SignFlipping_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_sf_tanh}
+    \end{subfigure}
+    \caption{Best under Sign Flipping: CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:best_sf_grid}
+\end{figure}
+\clearpage
+\subsection{Optimal IPM Attack}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:best_ipm_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:best_ipm_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_ipm_tanh}
+    \end{subfigure}
+    \caption{Best under OptIPM: CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:best_ipm_grid}
+\end{figure}
+\clearpage
+\section{Per-Aggregator Results}
+
+\subsection{Geometric Median (GM) --- All 3 Configs}
+\subsubsection{GM under Worst-Case}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:gm_worst_case_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:gm_worst_case_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_worst_case_tanh}
+    \end{subfigure}
+    \caption{Geometric Median under Worst-Case: CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:gm_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{GM under Optimal ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:gm_alie_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:gm_alie_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_alie_tanh}
+    \end{subfigure}
+    \caption{Geometric Median under Optimal ALIE: CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:gm_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{GM under Sign Flipping}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:gm_sf_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:gm_sf_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_SignFlipping_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_sf_tanh}
+    \end{subfigure}
+    \caption{Geometric Median under Sign Flipping: CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:gm_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{GM under Optimal IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:gm_ipm_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_clipped_heatmaps/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (Grad Clipped)}
+        \label{fig:gm_ipm_clipped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_ipm_tanh}
+    \end{subfigure}
+    \caption{Geometric Median under Optimal IPM: CNN ReLU (No Clip) vs. CNN ReLU (Clipped) vs. CNN Tanh.}
+    \label{fig:gm_ipm_grid}
+\end{figure}
+\clearpage
+
+\subsection{Centered Clipping (CC) --- NoClip vs Tanh}
+\subsubsection{CC under Worst-Case}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:cc_worst_case_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_worst_case_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping under Worst-Case: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:cc_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{CC under Optimal ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:cc_alie_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_alie_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping under Optimal ALIE: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:cc_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{CC under Sign Flipping}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:cc_sf_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_SignFlipping_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_sf_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping under Sign Flipping: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:cc_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{CC under Optimal IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:cc_ipm_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_ipm_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping under Optimal IPM: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:cc_ipm_grid}
+\end{figure}
+\clearpage
+
+\subsection{Multi-Krum (MK) --- NoClip vs Tanh}
+\subsubsection{MK under Worst-Case}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:mk_worst_case_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_worst_case_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum under Worst-Case: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:mk_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{MK under Optimal ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:mk_alie_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_alie_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum under Optimal ALIE: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:mk_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{MK under Sign Flipping}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:mk_sf_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_SignFlipping_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_sf_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum under Sign Flipping: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:mk_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{MK under Optimal IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:mk_ipm_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_ipm_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum under Optimal IPM: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:mk_ipm_grid}
+\end{figure}
+\clearpage
+
+\subsection{Trimmed Mean (TM) --- NoClip vs Tanh}
+\subsubsection{TM under Worst-Case}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:tm_worst_case_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_worst_case_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean under Worst-Case: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:tm_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{TM under Optimal ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:tm_alie_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_alie_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean under Optimal ALIE: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:tm_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{TM under Sign Flipping}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:tm_sf_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_SignFlipping_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_sf_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean under Sign Flipping: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:tm_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{TM under Optimal IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_comparison_sweep/learning_rate_0.1/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU (No Clip)}
+        \label{fig:tm_ipm_noclip}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_tanh_heatmaps/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_ipm_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean under Optimal IPM: CNN ReLU (No Clip) vs. CNN Tanh.}
+    \label{fig:tm_ipm_grid}
+\end{figure}
+\clearpage
+
+\end{document}
