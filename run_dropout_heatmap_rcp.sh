@@ -21,7 +21,7 @@ python run_dropout_experiment.py \
 echo "[$(date)] Dropout Sweep finished."
 
 echo "[$(date)] Generating Heatmap Plots..."
-python plot_cnn_lr_robust_heatmaps.py results/cnn_dense_dropout_93_robustness results/plots/dropout_93_heatmaps \
+python plot_robust_heatmaps.py results/cnn_dense_dropout_93_robustness results/plots/dropout_93_heatmaps \
   >> results/logs/dropout_heatmap.log 2>&1 || echo "Plotting encountered errors"
 echo "[$(date)] Plotting finished. Heatmaps are available in results/plots/dropout_93_heatmaps/"
 
