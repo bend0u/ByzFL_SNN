@@ -186,6 +186,61 @@ class cnn_mnist_tanh(nn.Module):
         x = F.log_softmax(self._f2(x), dim=1)
         return x
 
+class cnn_mnist_tanh_dropout_93(nn.Module):
+    """Convolutional Neural Network for MNIST with Tanh activation and 93% dropout to simulate SNN sparsity."""
+    def __init__(self):
+        super().__init__()
+        self._c1 = nn.Conv2d(1, 20, 5, 1)
+        self._c2 = nn.Conv2d(20, 50, 5, 1)
+        self._f1 = nn.Linear(800, 500)
+        self._f2 = nn.Linear(500, 10)
+        self.dropout = nn.Dropout(0.93)
+
+    def forward(self, x):
+        x = torch.tanh(self._c1(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.dropout(x)
+        x = torch.tanh(self._c2(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.dropout(x)
+        x = x.view(-1, 800)
+        x = torch.tanh(self._f1(x))
+        x = self.dropout(x)
+        x = F.log_softmax(self._f2(x), dim=1)
+        return x
+
+def _create_cnn_mnist_tanh_dropout(prob):
+    class cnn_mnist_tanh_dropout(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self._c1 = nn.Conv2d(1, 20, 5, 1)
+            self._c2 = nn.Conv2d(20, 50, 5, 1)
+            self._f1 = nn.Linear(800, 500)
+            self._f2 = nn.Linear(500, 10)
+            self.dropout = nn.Dropout(prob)
+
+        def forward(self, x):
+            x = torch.tanh(self._c1(x))
+            x = F.max_pool2d(x, 2, 2)
+            x = self.dropout(x)
+            x = torch.tanh(self._c2(x))
+            x = F.max_pool2d(x, 2, 2)
+            x = self.dropout(x)
+            x = x.view(-1, 800)
+            x = torch.tanh(self._f1(x))
+            x = self.dropout(x)
+            x = F.log_softmax(self._f2(x), dim=1)
+            return x
+    return cnn_mnist_tanh_dropout
+
+cnn_mnist_tanh_dropout_0 = _create_cnn_mnist_tanh_dropout(0.0)
+cnn_mnist_tanh_dropout_20 = _create_cnn_mnist_tanh_dropout(0.2)
+cnn_mnist_tanh_dropout_40 = _create_cnn_mnist_tanh_dropout(0.4)
+cnn_mnist_tanh_dropout_60 = _create_cnn_mnist_tanh_dropout(0.6)
+cnn_mnist_tanh_dropout_75 = _create_cnn_mnist_tanh_dropout(0.75)
+cnn_mnist_tanh_dropout_80 = _create_cnn_mnist_tanh_dropout(0.8)
+cnn_mnist_tanh_dropout_85 = _create_cnn_mnist_tanh_dropout(0.85)
+cnn_mnist_tanh_dropout_90 = _create_cnn_mnist_tanh_dropout(0.9)
 
 
 class logreg_mnist(nn.Module):
