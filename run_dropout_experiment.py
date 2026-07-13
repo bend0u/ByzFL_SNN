@@ -11,7 +11,7 @@ def main():
     print("Starting dropout sparsity experiment (CNN Tanh with 40% dropout)...")
     config_path = "configs/robust_dropout_experiment.json"
     try:
-        # 200 jobs total, scaled up to 60 parallel jobs for 4x V100 GPUs
+        # Massive heatmap sweep: scaled up to 60 parallel jobs for 4x GPUs on RunAI
         run_benchmark(config_path, nb_jobs=60, distribute_gpus=True)
         print("Dropout sparsity experiment completed successfully!")
     except Exception as e:

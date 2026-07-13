@@ -8,6 +8,10 @@
         ],
         "f": [
             0,
+            1,
+            2,
+            3,
+            4,
             5
         ],
         "size_train_set": 0.8,
@@ -17,6 +21,7 @@
             {
                 "name": "gamma_similarity_niid",
                 "distribution_parameter": [
+                    0.33,
                     0.66,
                     1.0
                 ]
@@ -29,7 +34,7 @@
         "nb_steps": 500
     },
     "model": {
-        "name": "cnn_mnist_tanh_dropout_40",
+        "name": "cnn_mnist_tanh_dropout_dense_93",
         "is_snn": false,
         "dataset_name": "mnist",
         "nb_labels": 10,
@@ -101,6 +106,6 @@
         "store_per_client_metrics": true,
         "store_models": false,
         "data_folder": "./data",
-        "results_directory": "./results/cnn_dropout_40_experiment"
+        "results_directory": "results/cnn_dense_dropout_93_robustness"
     }
 }
