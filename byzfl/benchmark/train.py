@@ -9,6 +9,91 @@ from byzfl.utils.misc import set_random_seed
 from byzfl.benchmark.managers import ParamsManager, FileManager, get_snn_suffix
 from byzfl.benchmark.data import load_and_split_data
 
+
+# ===================== Sparsity Metric Functions =====================
+
+def compute_hoyer_sparsity(x):
+    """Hoyer sparsity: 0 = uniform, 1 = maximally sparse."""
+    d = x.numel()
+    l1 = x.abs().sum()
+    l2 = x.norm()
+    if l2 < 1e-12:
+        return 0.0
+    sqrt_d = d ** 0.5
+    return ((sqrt_d - l1 / l2) / (sqrt_d - 1)).item()
+
+def compute_gini_index(x):
+    """Gini index: 0 = uniform, ~1 = sparse."""
+    abs_x = x.abs()
+    sorted_x = torch.sort(abs_x.flatten())[0]
+    d = sorted_x.numel()
+    total = sorted_x.sum()
+    if total < 1e-12:
+        return 0.0
+    indices = torch.arange(1, d + 1, device=x.device, dtype=x.dtype)
+    return ((2 * (indices * sorted_x).sum()) / (d * total) - (d + 1) / d).item()
+
+def compute_l1_l2_ratio(x):
+    """Normalized L1/L2 ratio: L1/(L2*sqrt(d)). 1 = uniform, 0 = sparse."""
+    d = x.numel()
+    l1 = x.abs().sum()
+    l2 = x.norm()
+    if l2 < 1e-12:
+        return 0.0
+    return (l1 / (l2 * (d ** 0.5))).item()
+
+def compute_near_zero_fraction(x, threshold):
+    """Fraction of elements with absolute value below threshold."""
+    return (x.abs() < threshold).float().mean().item()
+
+def compute_kurtosis(x):
+    """Excess kurtosis of the gradient distribution."""
+    mean = x.mean()
+    std = x.std()
+    if std < 1e-12:
+        return 0.0
+    return (((x - mean) / std) ** 4).mean().item() - 3.0
+
+def compute_topk_concentration(x, fraction):
+    """Fraction of total L1 norm concentrated in the top-k% largest elements."""
+    abs_x = x.abs().flatten()
+    total = abs_x.sum()
+    if total < 1e-12:
+        return 0.0
+    k = max(1, int(abs_x.numel() * fraction))
+    topk_vals = torch.topk(abs_x, k).values
+    return (topk_vals.sum() / total).item()
+
+def compute_entropy(x, num_bins=100):
+    """Normalized Shannon entropy of |x| distribution (binned). 1 = uniform, 0 = concentrated."""
+    abs_x = x.abs().flatten()
+    if abs_x.max() < 1e-12:
+        return 0.0
+    # Bin the absolute values
+    hist = torch.histc(abs_x, bins=num_bins, min=0, max=abs_x.max().item())
+    probs = hist / hist.sum()
+    probs = probs[probs > 0]  # remove zero bins
+    entropy = -(probs * probs.log()).sum().item()
+    max_entropy = np.log(num_bins)
+    return entropy / max_entropy if max_entropy > 0 else 0.0
+
+def compute_all_sparsity_metrics(gradient):
+    """Compute all sparsity metrics for a single gradient vector."""
+    return {
+        'hoyer': compute_hoyer_sparsity(gradient),
+        'gini': compute_gini_index(gradient),
+        'l1_l2_ratio': compute_l1_l2_ratio(gradient),
+        'near_zero_1e5': compute_near_zero_fraction(gradient, 1e-5),
+        'near_zero_1e3': compute_near_zero_fraction(gradient, 1e-3),
+        'kurtosis': compute_kurtosis(gradient),
+        'top1_concentration': compute_topk_concentration(gradient, 0.01),
+        'top5_concentration': compute_topk_concentration(gradient, 0.05),
+        'top10_concentration': compute_topk_concentration(gradient, 0.10),
+        'entropy': compute_entropy(gradient),
+    }
+
+# =====================================================================
+
 def start_training(params):
     params_manager = ParamsManager(params)
 
@@ -172,6 +257,14 @@ def start_training(params):
     grad_norm_max_list = np.zeros((nb_training_steps))
     grad_norm_std_list = np.zeros((nb_training_steps))
 
+    # Sparsity metric arrays
+    sparsity_metric_names = [
+        'hoyer', 'gini', 'l1_l2_ratio', 'near_zero_1e5', 'near_zero_1e3',
+        'kurtosis', 'top1_concentration', 'top5_concentration', 'top10_concentration', 'entropy'
+    ]
+    sparsity_mean = {name: np.zeros(nb_training_steps) for name in sparsity_metric_names}
+    sparsity_std = {name: np.zeros(nb_training_steps) for name in sparsity_metric_names}
+
     start_time = time.time()
 
     # Send Initial Model to All Clients
@@ -282,6 +375,13 @@ def start_training(params):
 
                 max_abs_grad_list[training_step] = stacked_grads.abs().max().item()
 
+                # Compute sparsity metrics per client
+                all_client_metrics = [compute_all_sparsity_metrics(g) for g in honest_gradients]
+                for metric_name in sparsity_metric_names:
+                    vals = np.array([m[metric_name] for m in all_client_metrics])
+                    sparsity_mean[metric_name][training_step] = vals.mean()
+                    sparsity_std[metric_name][training_step] = vals.std()
+
             # Deal with Label Flipping Attack
             attack_input = (
                 [client.get_flat_flipped_gradients() for client in honest_clients]
@@ -369,6 +469,13 @@ def start_training(params):
     
     honest_grad_norm_std_filename = f"honest_grad_norm_std_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_grad_norm_std.txt"
     file_manager.write_array_in_file(grad_norm_std_list, honest_grad_norm_std_filename)
+
+    # Save sparsity metrics
+    for metric_name in sparsity_metric_names:
+        mean_fn = f"sparsity_{metric_name}_mean_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else f"sparsity_{metric_name}_mean.txt"
+        std_fn = f"sparsity_{metric_name}_std_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else f"sparsity_{metric_name}_std.txt"
+        file_manager.write_array_in_file(sparsity_mean[metric_name], mean_fn)
+        file_manager.write_array_in_file(sparsity_std[metric_name], std_fn)
 
     if val_loader is not None:
     

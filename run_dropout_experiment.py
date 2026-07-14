@@ -9,7 +9,7 @@ def main():
     datasets.MNIST(root='./data', train=False, download=True)
 
     print("Starting Dense Dropout Heatmap Sweep (CNN Tanh with 93% Dense Dropout)...")
-    config_path = "configs/robust_dropout_experiment.json"
+    config_path = "configs/dropout/robust_dropout_experiment.json"
     try:
         # Massive heatmap sweep: scaled up to 60 parallel jobs for 4x GPUs on RunAI
         run_benchmark(config_path, nb_jobs=60, distribute_gpus=True)

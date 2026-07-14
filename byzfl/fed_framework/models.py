@@ -243,6 +243,35 @@ cnn_mnist_tanh_dropout_85 = _create_cnn_mnist_tanh_dropout(0.85)
 cnn_mnist_tanh_dropout_90 = _create_cnn_mnist_tanh_dropout(0.9)
 
 
+def _create_cnn_mnist_tanh_dropout_dense(prob):
+    class cnn_mnist_tanh_dropout_dense(nn.Module):
+        """CNN where dropout is applied ONLY after the flatten layer."""
+        def __init__(self):
+            super().__init__()
+            self._c1 = nn.Conv2d(1, 20, 5, 1)
+            self._c2 = nn.Conv2d(20, 50, 5, 1)
+            self._f1 = nn.Linear(800, 500)
+            self._f2 = nn.Linear(500, 10)
+            self.dropout = nn.Dropout(prob)
+
+        def forward(self, x):
+            x = torch.tanh(self._c1(x))
+            x = F.max_pool2d(x, 2, 2)
+            x = torch.tanh(self._c2(x))
+            x = F.max_pool2d(x, 2, 2)
+            x = x.view(-1, 800)
+            x = self.dropout(x)  # <-- DROPOUT ONLY HERE
+            x = torch.tanh(self._f1(x))
+            x = F.log_softmax(self._f2(x), dim=1)
+            return x
+    return cnn_mnist_tanh_dropout_dense
+
+cnn_mnist_tanh_dropout_dense_60 = _create_cnn_mnist_tanh_dropout_dense(0.60)
+cnn_mnist_tanh_dropout_dense_70 = _create_cnn_mnist_tanh_dropout_dense(0.70)
+cnn_mnist_tanh_dropout_dense_80 = _create_cnn_mnist_tanh_dropout_dense(0.80)
+cnn_mnist_tanh_dropout_dense_93 = _create_cnn_mnist_tanh_dropout_dense(0.93)
+
+
 class logreg_mnist(nn.Module):
     """
     Logistic Regression Model for MNIST.
@@ -308,6 +337,29 @@ class cnn_cifar(nn.Module):
         x = torch.flatten(x, 1)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
+        return self.fc3(x)
+
+class cnn_cifar_tanh(nn.Module):
+    """
+    Convolutional Neural Network for CIFAR with Tanh activations.
+    """
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 20, 5, padding=2)
+        self.conv2 = nn.Conv2d(self.conv1.out_channels, 100, 5, padding=2)
+        self.conv3 = nn.Conv2d(self.conv2.out_channels, 200, 5, padding=2)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.fc1 = nn.Linear(self.conv3.out_channels * 4 * 4, 512)
+        self.fc2 = nn.Linear(self.fc1.out_features, 256)
+        self.fc3 = nn.Linear(self.fc2.out_features, 10)
+
+    def forward(self, x):
+        x = self.pool(F.tanh(self.conv1(x)))
+        x = self.pool(F.tanh(self.conv2(x)))
+        x = self.pool(F.tanh(self.conv3(x)))
+        x = torch.flatten(x, 1)
+        x = F.tanh(self.fc1(x))
+        x = F.tanh(self.fc2(x))
         return self.fc3(x)
 
 
