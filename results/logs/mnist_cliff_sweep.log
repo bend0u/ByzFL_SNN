@@ -1,0 +1,572 @@
+=======================================================
+Starting Robust Sweep using configs/snn_robustness/mnist_cliff_smoketest.json distributed across all available GPUs with 12 jobs
+Pre-downloading MNIST dataset sequentially to avoid parallel race conditions...
+MNIST dataset is ready!
+Distributing tasks across 2 GPUs...
+Total trainings to do: 24
+Running 12 trainings in parallel...
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.6s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.5302 | Test Acc: 0.5358 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 44.6s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8029 | Test Acc: 0.8066 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 79.5s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8346 | Test Acc: 0.8421 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 117.0s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8649 | Test Acc: 0.8762 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 151.8s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8872 | Test Acc: 0.8984 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 187.4s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.9012 | Test Acc: 0.9116 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 223.5s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9099 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 258.8s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9160 | Test Acc: 0.9229 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 295.1s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9235 | Test Acc: 0.9290 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 332.6s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9281 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 368.2s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9308 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 404.4s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 434.1s
+
+Training 0 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.3s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4879 | Test Acc: 0.4930 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 42.8s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8003 | Test Acc: 0.8030 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 79.0s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8352 | Test Acc: 0.8443 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 116.6s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8683 | Test Acc: 0.8785 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 152.2s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8849 | Test Acc: 0.8960 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 188.1s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8976 | Test Acc: 0.9076 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 226.6s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9091 | Test Acc: 0.9159 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 261.7s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9174 | Test Acc: 0.9249 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 298.9s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9220 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 336.6s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9272 | Test Acc: 0.9325 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 372.0s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9313 | Test Acc: 0.9365 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 407.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 436.8s
+
+Training 1 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.3s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.5136 | Test Acc: 0.5277 | VRAM (Alloc/Reserved): 256.5/732.0 MiB | Time: 45.0s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.6703 | Test Acc: 0.6709 | VRAM (Alloc/Reserved): 255.0/784.0 MiB | Time: 83.0s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.6993 | Test Acc: 0.7029 | VRAM (Alloc/Reserved): 253.6/784.0 MiB | Time: 119.9s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.7877 | Test Acc: 0.7844 | VRAM (Alloc/Reserved): 256.8/784.0 MiB | Time: 156.7s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8247 | Test Acc: 0.8289 | VRAM (Alloc/Reserved): 253.5/784.0 MiB | Time: 192.4s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8456 | Test Acc: 0.8524 | VRAM (Alloc/Reserved): 251.8/784.0 MiB | Time: 229.3s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.8621 | Test Acc: 0.8710 | VRAM (Alloc/Reserved): 259.1/784.0 MiB | Time: 265.1s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.8818 | Test Acc: 0.8911 | VRAM (Alloc/Reserved): 250.2/784.0 MiB | Time: 301.4s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.8901 | Test Acc: 0.9001 | VRAM (Alloc/Reserved): 254.1/784.0 MiB | Time: 338.0s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9032 | Test Acc: 0.9106 | VRAM (Alloc/Reserved): 248.6/784.0 MiB | Time: 374.1s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9042 | Test Acc: 0.9120 | VRAM (Alloc/Reserved): 257.1/784.0 MiB | Time: 410.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 486.0/784.0 MiB | Total time: 440.2s
+
+Training 2 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 2 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.1s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4914 | Test Acc: 0.4962 | VRAM (Alloc/Reserved): 253.7/748.0 MiB | Time: 42.3s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8001 | Test Acc: 0.8067 | VRAM (Alloc/Reserved): 256.2/796.0 MiB | Time: 78.6s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8334 | Test Acc: 0.8438 | VRAM (Alloc/Reserved): 251.9/796.0 MiB | Time: 116.2s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8666 | Test Acc: 0.8779 | VRAM (Alloc/Reserved): 254.0/798.0 MiB | Time: 154.0s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8858 | Test Acc: 0.8972 | VRAM (Alloc/Reserved): 255.0/800.0 MiB | Time: 191.1s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8975 | Test Acc: 0.9069 | VRAM (Alloc/Reserved): 253.1/800.0 MiB | Time: 229.3s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9072 | Test Acc: 0.9130 | VRAM (Alloc/Reserved): 250.3/800.0 MiB | Time: 269.1s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9123 | Test Acc: 0.9199 | VRAM (Alloc/Reserved): 255.6/800.0 MiB | Time: 307.4s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9170 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 256.3/800.0 MiB | Time: 344.5s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9204 | Test Acc: 0.9267 | VRAM (Alloc/Reserved): 253.3/800.0 MiB | Time: 384.6s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9236 | Test Acc: 0.9309 | VRAM (Alloc/Reserved): 255.2/800.0 MiB | Time: 422.4s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 498.7/800.0 MiB | Total time: 450.2s
+
+Training 3 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.3s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4901 | Test Acc: 0.4912 | VRAM (Alloc/Reserved): 253.1/732.0 MiB | Time: 46.0s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8010 | Test Acc: 0.8061 | VRAM (Alloc/Reserved): 256.1/762.0 MiB | Time: 84.7s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8348 | Test Acc: 0.8441 | VRAM (Alloc/Reserved): 252.4/762.0 MiB | Time: 122.1s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8665 | Test Acc: 0.8803 | VRAM (Alloc/Reserved): 254.6/762.0 MiB | Time: 160.8s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8855 | Test Acc: 0.8968 | VRAM (Alloc/Reserved): 253.6/762.0 MiB | Time: 198.0s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8964 | Test Acc: 0.9074 | VRAM (Alloc/Reserved): 252.2/762.0 MiB | Time: 233.6s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9076 | Test Acc: 0.9144 | VRAM (Alloc/Reserved): 255.3/762.0 MiB | Time: 272.4s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9137 | Test Acc: 0.9222 | VRAM (Alloc/Reserved): 253.5/762.0 MiB | Time: 311.1s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9186 | Test Acc: 0.9256 | VRAM (Alloc/Reserved): 252.8/762.0 MiB | Time: 348.8s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9239 | Test Acc: 0.9303 | VRAM (Alloc/Reserved): 251.5/764.0 MiB | Time: 386.9s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9268 | Test Acc: 0.9324 | VRAM (Alloc/Reserved): 255.4/764.0 MiB | Time: 424.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 485.2/764.0 MiB | Total time: 451.0s
+
+Training 4 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 2 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.0s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.3362 | Test Acc: 0.3395 | VRAM (Alloc/Reserved): 253.1/748.0 MiB | Time: 44.6s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.5446 | Test Acc: 0.5434 | VRAM (Alloc/Reserved): 256.1/778.0 MiB | Time: 82.6s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.7226 | Test Acc: 0.7248 | VRAM (Alloc/Reserved): 252.4/778.0 MiB | Time: 120.8s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.7098 | Test Acc: 0.7092 | VRAM (Alloc/Reserved): 254.6/778.0 MiB | Time: 160.6s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.7357 | Test Acc: 0.7329 | VRAM (Alloc/Reserved): 253.6/778.0 MiB | Time: 199.3s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.7414 | Test Acc: 0.7423 | VRAM (Alloc/Reserved): 252.2/778.0 MiB | Time: 237.1s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.7569 | Test Acc: 0.7568 | VRAM (Alloc/Reserved): 255.3/778.0 MiB | Time: 273.1s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.7626 | Test Acc: 0.7630 | VRAM (Alloc/Reserved): 253.5/778.0 MiB | Time: 309.2s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.7766 | Test Acc: 0.7738 | VRAM (Alloc/Reserved): 252.8/778.0 MiB | Time: 346.4s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.7796 | Test Acc: 0.7760 | VRAM (Alloc/Reserved): 251.5/780.0 MiB | Time: 383.8s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.7808 | Test Acc: 0.7780 | VRAM (Alloc/Reserved): 255.4/780.0 MiB | Time: 421.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 499.4/780.0 MiB | Total time: 448.4s
+
+Training 5 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.9s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.5070 | Test Acc: 0.5149 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 43.2s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8019 | Test Acc: 0.8075 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 81.2s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8407 | Test Acc: 0.8460 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 119.0s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8615 | Test Acc: 0.8731 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 155.9s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8889 | Test Acc: 0.8996 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 192.5s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.9033 | Test Acc: 0.9119 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 233.2s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9088 | Test Acc: 0.9151 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 274.2s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9170 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 310.2s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9217 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 348.3s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9283 | Test Acc: 0.9320 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 385.7s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9296 | Test Acc: 0.9364 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 420.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 452.1s
+
+Training 6 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.9s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.5278 | Test Acc: 0.5349 | VRAM (Alloc/Reserved): 256.4/694.0 MiB | Time: 47.4s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.7990 | Test Acc: 0.8026 | VRAM (Alloc/Reserved): 253.4/724.0 MiB | Time: 84.1s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8401 | Test Acc: 0.8470 | VRAM (Alloc/Reserved): 251.7/724.0 MiB | Time: 119.0s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8658 | Test Acc: 0.8780 | VRAM (Alloc/Reserved): 248.9/742.0 MiB | Time: 155.0s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8869 | Test Acc: 0.8955 | VRAM (Alloc/Reserved): 252.3/742.0 MiB | Time: 191.8s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.9025 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 251.9/742.0 MiB | Time: 231.6s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9102 | Test Acc: 0.9172 | VRAM (Alloc/Reserved): 249.6/742.0 MiB | Time: 271.3s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9186 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 307.3s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9224 | Test Acc: 0.9303 | VRAM (Alloc/Reserved): 255.9/742.0 MiB | Time: 345.4s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9278 | Test Acc: 0.9317 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 382.9s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9313 | Test Acc: 0.9371 | VRAM (Alloc/Reserved): 254.6/744.0 MiB | Time: 420.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.5/744.0 MiB | Total time: 450.6s
+
+Training 7 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.6s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.5089 | Test Acc: 0.5233 | VRAM (Alloc/Reserved): 258.4/732.0 MiB | Time: 45.6s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.6833 | Test Acc: 0.6919 | VRAM (Alloc/Reserved): 255.1/762.0 MiB | Time: 84.3s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.7978 | Test Acc: 0.8008 | VRAM (Alloc/Reserved): 250.7/762.0 MiB | Time: 120.5s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8396 | Test Acc: 0.8441 | VRAM (Alloc/Reserved): 253.6/762.0 MiB | Time: 158.6s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8691 | Test Acc: 0.8798 | VRAM (Alloc/Reserved): 252.1/762.0 MiB | Time: 197.2s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8876 | Test Acc: 0.8970 | VRAM (Alloc/Reserved): 252.1/762.0 MiB | Time: 238.3s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.8949 | Test Acc: 0.9027 | VRAM (Alloc/Reserved): 255.8/762.0 MiB | Time: 277.1s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9059 | Test Acc: 0.9134 | VRAM (Alloc/Reserved): 253.0/764.0 MiB | Time: 316.0s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9102 | Test Acc: 0.9177 | VRAM (Alloc/Reserved): 253.9/784.0 MiB | Time: 352.0s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9137 | Test Acc: 0.9223 | VRAM (Alloc/Reserved): 252.6/784.0 MiB | Time: 388.7s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9204 | Test Acc: 0.9255 | VRAM (Alloc/Reserved): 254.8/784.0 MiB | Time: 426.1s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 486.6/784.0 MiB | Total time: 458.9s
+
+Training 8 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.0s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4793 | Test Acc: 0.4811 | VRAM (Alloc/Reserved): 261.9/752.0 MiB | Time: 48.8s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.6506 | Test Acc: 0.6529 | VRAM (Alloc/Reserved): 254.8/782.0 MiB | Time: 89.3s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.6923 | Test Acc: 0.6994 | VRAM (Alloc/Reserved): 255.7/782.0 MiB | Time: 126.5s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.6954 | Test Acc: 0.7038 | VRAM (Alloc/Reserved): 253.3/784.0 MiB | Time: 163.9s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.7893 | Test Acc: 0.7957 | VRAM (Alloc/Reserved): 255.4/784.0 MiB | Time: 203.3s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.7672 | Test Acc: 0.7701 | VRAM (Alloc/Reserved): 257.5/784.0 MiB | Time: 244.2s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.7702 | Test Acc: 0.7698 | VRAM (Alloc/Reserved): 252.3/784.0 MiB | Time: 281.9s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.7887 | Test Acc: 0.7890 | VRAM (Alloc/Reserved): 254.5/784.0 MiB | Time: 317.2s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.7960 | Test Acc: 0.8013 | VRAM (Alloc/Reserved): 253.1/784.0 MiB | Time: 353.8s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.8088 | Test Acc: 0.8134 | VRAM (Alloc/Reserved): 253.4/784.0 MiB | Time: 391.6s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.8137 | Test Acc: 0.8230 | VRAM (Alloc/Reserved): 251.4/784.0 MiB | Time: 427.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 488.8/784.0 MiB | Total time: 459.5s
+
+Training 9 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 2 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.8s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4935 | Test Acc: 0.5067 | VRAM (Alloc/Reserved): 251.6/748.0 MiB | Time: 46.4s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.5641 | Test Acc: 0.5707 | VRAM (Alloc/Reserved): 252.6/780.0 MiB | Time: 85.8s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.7087 | Test Acc: 0.7058 | VRAM (Alloc/Reserved): 256.5/780.0 MiB | Time: 124.3s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.7708 | Test Acc: 0.7750 | VRAM (Alloc/Reserved): 253.7/780.0 MiB | Time: 161.5s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8068 | Test Acc: 0.8108 | VRAM (Alloc/Reserved): 253.3/780.0 MiB | Time: 202.0s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8364 | Test Acc: 0.8440 | VRAM (Alloc/Reserved): 256.6/800.0 MiB | Time: 244.8s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.8528 | Test Acc: 0.8618 | VRAM (Alloc/Reserved): 255.0/800.0 MiB | Time: 283.4s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.8720 | Test Acc: 0.8779 | VRAM (Alloc/Reserved): 254.5/800.0 MiB | Time: 320.6s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.8840 | Test Acc: 0.8930 | VRAM (Alloc/Reserved): 255.0/800.0 MiB | Time: 356.9s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.8896 | Test Acc: 0.8959 | VRAM (Alloc/Reserved): 251.7/800.0 MiB | Time: 395.2s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.8995 | Test Acc: 0.9052 | VRAM (Alloc/Reserved): 255.5/800.0 MiB | Time: 430.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 497.4/800.0 MiB | Total time: 462.5s
+
+Training 10 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 2 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.0s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.3101 | Test Acc: 0.3213 | VRAM (Alloc/Reserved): 253.1/748.0 MiB | Time: 47.6s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.4617 | Test Acc: 0.4594 | VRAM (Alloc/Reserved): 256.1/778.0 MiB | Time: 86.8s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.5963 | Test Acc: 0.6083 | VRAM (Alloc/Reserved): 252.4/778.0 MiB | Time: 125.8s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.6258 | Test Acc: 0.6359 | VRAM (Alloc/Reserved): 254.6/778.0 MiB | Time: 163.3s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.6388 | Test Acc: 0.6413 | VRAM (Alloc/Reserved): 253.6/778.0 MiB | Time: 201.0s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.6874 | Test Acc: 0.6918 | VRAM (Alloc/Reserved): 252.2/778.0 MiB | Time: 240.8s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.6776 | Test Acc: 0.6843 | VRAM (Alloc/Reserved): 255.3/778.0 MiB | Time: 280.0s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.6713 | Test Acc: 0.6716 | VRAM (Alloc/Reserved): 253.5/778.0 MiB | Time: 317.5s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.6691 | Test Acc: 0.6694 | VRAM (Alloc/Reserved): 252.8/778.0 MiB | Time: 355.1s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.6590 | Test Acc: 0.6634 | VRAM (Alloc/Reserved): 251.5/780.0 MiB | Time: 391.9s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.7165 | Test Acc: 0.7205 | VRAM (Alloc/Reserved): 255.4/780.0 MiB | Time: 430.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 499.4/780.0 MiB | Total time: 463.3s
+
+Training 11 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.8s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4916 | Test Acc: 0.4940 | VRAM (Alloc/Reserved): 252.5/790.0 MiB | Time: 28.9s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8023 | Test Acc: 0.8066 | VRAM (Alloc/Reserved): 250.6/820.0 MiB | Time: 65.9s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8353 | Test Acc: 0.8430 | VRAM (Alloc/Reserved): 254.4/820.0 MiB | Time: 101.3s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8669 | Test Acc: 0.8776 | VRAM (Alloc/Reserved): 254.8/824.0 MiB | Time: 139.2s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8843 | Test Acc: 0.8974 | VRAM (Alloc/Reserved): 255.6/824.0 MiB | Time: 174.8s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8954 | Test Acc: 0.9071 | VRAM (Alloc/Reserved): 251.9/824.0 MiB | Time: 211.3s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9044 | Test Acc: 0.9136 | VRAM (Alloc/Reserved): 258.0/824.0 MiB | Time: 247.6s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9093 | Test Acc: 0.9148 | VRAM (Alloc/Reserved): 252.8/824.0 MiB | Time: 283.0s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9154 | Test Acc: 0.9227 | VRAM (Alloc/Reserved): 251.9/824.0 MiB | Time: 319.1s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9183 | Test Acc: 0.9261 | VRAM (Alloc/Reserved): 253.4/824.0 MiB | Time: 355.6s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9223 | Test Acc: 0.9286 | VRAM (Alloc/Reserved): 256.9/824.0 MiB | Time: 392.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 519.1/824.0 MiB | Total time: 423.0s
+
+Training 12 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.3s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.3662 | Test Acc: 0.3756 | VRAM (Alloc/Reserved): 252.5/790.0 MiB | Time: 35.1s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.2897 | Test Acc: 0.2948 | VRAM (Alloc/Reserved): 250.6/820.0 MiB | Time: 72.6s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.4639 | Test Acc: 0.4718 | VRAM (Alloc/Reserved): 254.4/820.0 MiB | Time: 112.1s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.5245 | Test Acc: 0.5308 | VRAM (Alloc/Reserved): 254.8/824.0 MiB | Time: 150.0s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.5468 | Test Acc: 0.5566 | VRAM (Alloc/Reserved): 255.6/824.0 MiB | Time: 189.2s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.5628 | Test Acc: 0.5771 | VRAM (Alloc/Reserved): 251.9/824.0 MiB | Time: 226.6s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.6361 | Test Acc: 0.6443 | VRAM (Alloc/Reserved): 258.0/824.0 MiB | Time: 263.1s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.5473 | Test Acc: 0.5533 | VRAM (Alloc/Reserved): 252.8/824.0 MiB | Time: 301.8s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.5742 | Test Acc: 0.5781 | VRAM (Alloc/Reserved): 251.9/824.0 MiB | Time: 338.3s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.5773 | Test Acc: 0.5859 | VRAM (Alloc/Reserved): 253.4/824.0 MiB | Time: 375.9s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.6120 | Test Acc: 0.6230 | VRAM (Alloc/Reserved): 256.9/824.0 MiB | Time: 413.0s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 519.1/824.0 MiB | Total time: 440.8s
+
+Training 13 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.0s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.1062 | Test Acc: 0.1063 | VRAM (Alloc/Reserved): 249.8/814.0 MiB | Time: 41.6s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.2840 | Test Acc: 0.2849 | VRAM (Alloc/Reserved): 252.7/844.0 MiB | Time: 79.9s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.2055 | Test Acc: 0.2083 | VRAM (Alloc/Reserved): 251.7/844.0 MiB | Time: 117.6s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.2668 | Test Acc: 0.2722 | VRAM (Alloc/Reserved): 255.3/844.0 MiB | Time: 153.1s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.3560 | Test Acc: 0.3645 | VRAM (Alloc/Reserved): 255.2/844.0 MiB | Time: 189.6s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.3839 | Test Acc: 0.3954 | VRAM (Alloc/Reserved): 254.1/844.0 MiB | Time: 228.4s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.3909 | Test Acc: 0.4009 | VRAM (Alloc/Reserved): 258.0/846.0 MiB | Time: 264.2s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.2776 | Test Acc: 0.2796 | VRAM (Alloc/Reserved): 255.8/846.0 MiB | Time: 299.5s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.3889 | Test Acc: 0.3998 | VRAM (Alloc/Reserved): 255.6/846.0 MiB | Time: 336.1s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.3880 | Test Acc: 0.3961 | VRAM (Alloc/Reserved): 253.3/846.0 MiB | Time: 371.4s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.3920 | Test Acc: 0.4004 | VRAM (Alloc/Reserved): 255.1/846.0 MiB | Time: 409.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 539.5/846.0 MiB | Total time: 433.3s
+
+Training 14 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.0s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4904 | Test Acc: 0.4948 | VRAM (Alloc/Reserved): 249.8/814.0 MiB | Time: 41.0s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8011 | Test Acc: 0.8072 | VRAM (Alloc/Reserved): 252.7/844.0 MiB | Time: 76.6s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8357 | Test Acc: 0.8425 | VRAM (Alloc/Reserved): 251.7/844.0 MiB | Time: 113.3s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8656 | Test Acc: 0.8768 | VRAM (Alloc/Reserved): 255.3/844.0 MiB | Time: 149.3s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8834 | Test Acc: 0.8964 | VRAM (Alloc/Reserved): 255.2/844.0 MiB | Time: 186.8s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8944 | Test Acc: 0.9064 | VRAM (Alloc/Reserved): 254.1/844.0 MiB | Time: 223.1s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9050 | Test Acc: 0.9121 | VRAM (Alloc/Reserved): 258.0/846.0 MiB | Time: 261.7s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9078 | Test Acc: 0.9172 | VRAM (Alloc/Reserved): 255.8/846.0 MiB | Time: 300.7s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9130 | Test Acc: 0.9214 | VRAM (Alloc/Reserved): 255.6/846.0 MiB | Time: 338.4s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9164 | Test Acc: 0.9241 | VRAM (Alloc/Reserved): 253.3/846.0 MiB | Time: 374.2s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9196 | Test Acc: 0.9273 | VRAM (Alloc/Reserved): 255.1/846.0 MiB | Time: 411.0s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 539.5/846.0 MiB | Total time: 438.5s
+
+Training 15 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.2s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.1085 | Test Acc: 0.1063 | VRAM (Alloc/Reserved): 255.1/814.0 MiB | Time: 42.1s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.2021 | Test Acc: 0.2036 | VRAM (Alloc/Reserved): 254.7/844.0 MiB | Time: 77.9s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.3279 | Test Acc: 0.3272 | VRAM (Alloc/Reserved): 251.1/844.0 MiB | Time: 116.4s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.4067 | Test Acc: 0.4127 | VRAM (Alloc/Reserved): 256.9/848.0 MiB | Time: 152.6s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.4642 | Test Acc: 0.4630 | VRAM (Alloc/Reserved): 252.2/848.0 MiB | Time: 189.4s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.5233 | Test Acc: 0.5226 | VRAM (Alloc/Reserved): 256.2/848.0 MiB | Time: 227.2s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.5256 | Test Acc: 0.5273 | VRAM (Alloc/Reserved): 256.1/848.0 MiB | Time: 263.7s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.5574 | Test Acc: 0.5502 | VRAM (Alloc/Reserved): 253.8/848.0 MiB | Time: 302.2s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.6061 | Test Acc: 0.6011 | VRAM (Alloc/Reserved): 250.8/848.0 MiB | Time: 339.1s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.5666 | Test Acc: 0.5663 | VRAM (Alloc/Reserved): 255.9/848.0 MiB | Time: 377.0s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.6428 | Test Acc: 0.6454 | VRAM (Alloc/Reserved): 249.3/848.0 MiB | Time: 414.9s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 537.6/848.0 MiB | Total time: 445.1s
+
+Training 16 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.2s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.3339 | Test Acc: 0.3396 | VRAM (Alloc/Reserved): 253.7/790.0 MiB | Time: 45.8s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.4151 | Test Acc: 0.4179 | VRAM (Alloc/Reserved): 253.5/820.0 MiB | Time: 85.1s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.6348 | Test Acc: 0.6329 | VRAM (Alloc/Reserved): 254.6/820.0 MiB | Time: 123.2s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.6960 | Test Acc: 0.6932 | VRAM (Alloc/Reserved): 246.8/820.0 MiB | Time: 160.8s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.7331 | Test Acc: 0.7331 | VRAM (Alloc/Reserved): 254.5/820.0 MiB | Time: 200.7s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.7641 | Test Acc: 0.7645 | VRAM (Alloc/Reserved): 253.1/820.0 MiB | Time: 238.5s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.7618 | Test Acc: 0.7580 | VRAM (Alloc/Reserved): 255.0/820.0 MiB | Time: 277.2s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.7792 | Test Acc: 0.7784 | VRAM (Alloc/Reserved): 257.0/820.0 MiB | Time: 314.3s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.7971 | Test Acc: 0.7958 | VRAM (Alloc/Reserved): 256.0/820.0 MiB | Time: 353.9s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.7904 | Test Acc: 0.7924 | VRAM (Alloc/Reserved): 257.0/822.0 MiB | Time: 390.6s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.8005 | Test Acc: 0.7997 | VRAM (Alloc/Reserved): 252.4/822.0 MiB | Time: 428.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 518.3/822.0 MiB | Total time: 458.3s
+
+Training 17 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 3 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.2s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.3347 | Test Acc: 0.3280 | VRAM (Alloc/Reserved): 254.8/790.0 MiB | Time: 42.2s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.2659 | Test Acc: 0.2731 | VRAM (Alloc/Reserved): 253.9/820.0 MiB | Time: 78.2s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.4813 | Test Acc: 0.4855 | VRAM (Alloc/Reserved): 252.1/820.0 MiB | Time: 115.3s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.2805 | Test Acc: 0.2781 | VRAM (Alloc/Reserved): 254.3/820.0 MiB | Time: 152.7s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.4671 | Test Acc: 0.4730 | VRAM (Alloc/Reserved): 258.4/820.0 MiB | Time: 190.5s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.4832 | Test Acc: 0.4894 | VRAM (Alloc/Reserved): 252.0/820.0 MiB | Time: 227.3s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.5169 | Test Acc: 0.5223 | VRAM (Alloc/Reserved): 254.3/822.0 MiB | Time: 264.7s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.4968 | Test Acc: 0.4978 | VRAM (Alloc/Reserved): 253.1/822.0 MiB | Time: 302.4s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.4599 | Test Acc: 0.4713 | VRAM (Alloc/Reserved): 253.9/822.0 MiB | Time: 340.5s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.5225 | Test Acc: 0.5321 | VRAM (Alloc/Reserved): 252.2/822.0 MiB | Time: 377.0s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.5134 | Test Acc: 0.5210 | VRAM (Alloc/Reserved): 252.6/822.0 MiB | Time: 414.9s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 520.5/822.0 MiB | Total time: 445.2s
+
+Training 18 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 5 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.7s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.0983 | Test Acc: 0.0978 | VRAM (Alloc/Reserved): 252.7/836.0 MiB | Time: 45.8s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.0988 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 258.9/866.0 MiB | Time: 84.2s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 253.0/866.0 MiB | Time: 122.6s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.0990 | Test Acc: 0.0979 | VRAM (Alloc/Reserved): 251.0/868.0 MiB | Time: 161.6s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 256.5/868.0 MiB | Time: 199.0s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.8/868.0 MiB | Time: 236.4s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 253.7/868.0 MiB | Time: 274.3s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 258.9/868.0 MiB | Time: 311.0s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.8/868.0 MiB | Time: 350.0s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 253.7/868.0 MiB | Time: 388.7s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.4/870.0 MiB | Time: 423.5s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 556.3/870.0 MiB | Total time: 439.1s
+
+Training 19 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 4 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.3s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.1017 | Test Acc: 0.1014 | VRAM (Alloc/Reserved): 254.2/790.0 MiB | Time: 42.6s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.2600 | Test Acc: 0.2640 | VRAM (Alloc/Reserved): 255.0/822.0 MiB | Time: 78.7s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.1337 | Test Acc: 0.1388 | VRAM (Alloc/Reserved): 254.9/846.0 MiB | Time: 116.2s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.1002 | Test Acc: 0.1040 | VRAM (Alloc/Reserved): 255.5/846.0 MiB | Time: 152.3s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.1238 | Test Acc: 0.1266 | VRAM (Alloc/Reserved): 255.4/846.0 MiB | Time: 190.3s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.1852 | Test Acc: 0.1895 | VRAM (Alloc/Reserved): 255.9/846.0 MiB | Time: 228.1s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.1384 | Test Acc: 0.1355 | VRAM (Alloc/Reserved): 255.9/846.0 MiB | Time: 266.0s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.2006 | Test Acc: 0.2090 | VRAM (Alloc/Reserved): 254.8/846.0 MiB | Time: 304.1s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.2609 | Test Acc: 0.2663 | VRAM (Alloc/Reserved): 256.5/846.0 MiB | Time: 342.0s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.2803 | Test Acc: 0.2853 | VRAM (Alloc/Reserved): 255.9/846.0 MiB | Time: 378.7s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.2826 | Test Acc: 0.2873 | VRAM (Alloc/Reserved): 252.2/846.0 MiB | Time: 415.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 537.5/846.0 MiB | Total time: 446.1s
+
+Training 20 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 5 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.7s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.4897 | Test Acc: 0.4914 | VRAM (Alloc/Reserved): 252.7/836.0 MiB | Time: 45.5s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.8032 | Test Acc: 0.8054 | VRAM (Alloc/Reserved): 258.9/866.0 MiB | Time: 81.6s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.8369 | Test Acc: 0.8442 | VRAM (Alloc/Reserved): 253.0/866.0 MiB | Time: 119.8s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.8644 | Test Acc: 0.8750 | VRAM (Alloc/Reserved): 251.0/868.0 MiB | Time: 158.8s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.8847 | Test Acc: 0.8967 | VRAM (Alloc/Reserved): 256.5/868.0 MiB | Time: 197.4s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.8952 | Test Acc: 0.9069 | VRAM (Alloc/Reserved): 252.8/868.0 MiB | Time: 236.2s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.9029 | Test Acc: 0.9090 | VRAM (Alloc/Reserved): 253.7/868.0 MiB | Time: 275.5s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.9053 | Test Acc: 0.9132 | VRAM (Alloc/Reserved): 258.9/868.0 MiB | Time: 315.6s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.9117 | Test Acc: 0.9206 | VRAM (Alloc/Reserved): 252.8/868.0 MiB | Time: 355.9s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.9144 | Test Acc: 0.9228 | VRAM (Alloc/Reserved): 253.7/868.0 MiB | Time: 394.2s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.9183 | Test Acc: 0.9250 | VRAM (Alloc/Reserved): 252.4/870.0 MiB | Time: 426.9s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 556.3/870.0 MiB | Total time: 444.4s
+
+Training 21 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 5 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.0s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.0988 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 256.3/810.0 MiB | Time: 46.2s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.0/840.0 MiB | Time: 84.0s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.0990 | Test Acc: 0.0979 | VRAM (Alloc/Reserved): 257.2/866.0 MiB | Time: 120.9s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 250.6/868.0 MiB | Time: 159.3s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 253.9/868.0 MiB | Time: 196.3s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 250.3/868.0 MiB | Time: 233.7s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.6/868.0 MiB | Time: 270.1s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 257.5/868.0 MiB | Time: 307.2s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.4/868.0 MiB | Time: 345.4s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 255.6/868.0 MiB | Time: 383.4s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 256.8/868.0 MiB | Time: 421.5s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 556.8/868.0 MiB | Total time: 444.5s
+
+Training 22 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 5 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 300 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/300] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.9s
+[ByzFL-SNN]   [Step 25/300] (8.3%) | Val Acc: 0.0985 | Test Acc: 0.0975 | VRAM (Alloc/Reserved): 252.3/836.0 MiB | Time: 44.5s
+[ByzFL-SNN]   [Step 50/300] (16.7%) | Val Acc: 0.0991 | Test Acc: 0.0979 | VRAM (Alloc/Reserved): 251.9/866.0 MiB | Time: 83.2s
+[ByzFL-SNN]   [Step 75/300] (25.0%) | Val Acc: 0.0988 | Test Acc: 0.0979 | VRAM (Alloc/Reserved): 254.5/866.0 MiB | Time: 122.8s
+[ByzFL-SNN]   [Step 100/300] (33.3%) | Val Acc: 0.0990 | Test Acc: 0.0981 | VRAM (Alloc/Reserved): 255.2/866.0 MiB | Time: 161.5s
+[ByzFL-SNN]   [Step 125/300] (41.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 253.1/866.0 MiB | Time: 200.2s
+[ByzFL-SNN]   [Step 150/300] (50.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.2/866.0 MiB | Time: 238.3s
+[ByzFL-SNN]   [Step 175/300] (58.3%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 255.2/866.0 MiB | Time: 276.5s
+[ByzFL-SNN]   [Step 200/300] (66.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 248.6/866.0 MiB | Time: 314.0s
+[ByzFL-SNN]   [Step 225/300] (75.0%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 256.1/866.0 MiB | Time: 354.2s
+[ByzFL-SNN]   [Step 250/300] (83.3%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 256.4/868.0 MiB | Time: 392.1s
+[ByzFL-SNN]   [Step 275/300] (91.7%) | Val Acc: 0.0990 | Test Acc: 0.0980 | VRAM (Alloc/Reserved): 252.2/868.0 MiB | Time: 430.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 554.9/868.0 MiB | Total time: 451.7s
+
+Training 23 done
+All trainings finished.
+Done
+
+Sweep complete. Generating robust heatmaps...
+Generating plots for attack: merged...
+  - Saved test heatmaps
+  - Saved loss heatmaps
+  - Saved aggregated test heatmaps
+Generating plots for attack: SignFlipping...
+  - Saved test heatmaps
+  - Saved loss heatmaps
+  - Saved aggregated test heatmaps
+Done!
