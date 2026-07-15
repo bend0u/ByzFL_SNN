@@ -2,7 +2,7 @@ import os
 import argparse
 import sys
 from byzfl import run_benchmark
-from plot_snn_robust_heatmaps import generate_range_heatmaps
+from plot_robust_heatmaps import plot_all as generate_range_heatmaps
 
 def main():
     parser = argparse.ArgumentParser(description="Run SNN Robust Sweep over Surrogate Ranges")

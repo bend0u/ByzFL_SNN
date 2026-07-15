@@ -14,3 +14,7 @@ env/
 
 # Datasets (Ignore because 'data' is 3.7 GB)
 data/
+
+# Local project notes containing credentials - never commit
+CLAUDE.md
+CLAUDE.md.txt
