@@ -234,6 +234,9 @@ def start_training(params):
     }
     byz_client = ByzantineClient(attack)
 
+    byzantine_removal_step = params_manager.get_byzantine_removal_step()
+    byz_removed = False
+
     set_random_seed(training_seed)
 
     evaluation_delta = params_manager.get_evaluation_delta()
@@ -331,6 +334,14 @@ def start_training(params):
                 )
         
         if training_algorithm_name == "DSGD":
+
+            if (byzantine_removal_step is not None) and (not byz_removed) and (training_step >= byzantine_removal_step):
+                byz_client.f = 0
+                server.robust_aggregator.aggregator.f = 0
+                for pre_agg in server.robust_aggregator.pre_agg_list:
+                    pre_agg.f = 0
+                byz_removed = True
+                print(f"[ByzFL-SNN]   >>> Byzantine attack REMOVED at step {training_step} <<<")
 
             train_loss_per_client = np.zeros((nb_honest_clients))
 

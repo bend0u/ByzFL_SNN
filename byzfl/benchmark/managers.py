@@ -392,6 +392,13 @@ class ParamsManager(object):
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
 
+    def get_byzantine_removal_step(self):
+        """Training step at which Byzantine clients stop being aggregated (irreversibility test). None disables removal."""
+        default = None
+        path = ["benchmark_config", "byzantine_removal_step"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
     # ----------------------------------------------------------------------
     #  Model
     # ----------------------------------------------------------------------
