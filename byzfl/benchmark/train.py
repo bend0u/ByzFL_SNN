@@ -262,6 +262,11 @@ def start_training(params):
     grad_norm_max_list = np.zeros((nb_training_steps))
     grad_norm_std_list = np.zeros((nb_training_steps))
 
+    # EXP2: firing rate (honest clients' local forward pass, SNN only) and
+    # effective gradient norm (server's actual post-attack, post-aggregation update).
+    firing_rate_list = np.full((nb_training_steps), np.nan)
+    effective_grad_norm_list = np.zeros((nb_training_steps))
+
     # Sparsity metric arrays
     sparsity_metric_names = [
         'hoyer', 'gini', 'l1_l2_ratio', 'near_zero_1e5', 'near_zero_1e3',
@@ -354,6 +359,12 @@ def start_training(params):
             # Aggregate Honest Gradients
             honest_gradients = [client.get_flat_gradients_with_momentum() for client in honest_clients]
 
+            # EXP2: mean firing rate across honest clients (SNN only; NaN for non-spiking models)
+            client_firing_rates = [c.get_last_firing_rate() for c in honest_clients]
+            client_firing_rates = [r for r in client_firing_rates if r is not None]
+            if client_firing_rates:
+                firing_rate_list[training_step] = np.mean(client_firing_rates)
+
             # Compute Variance Metrics
             if len(honest_gradients) > 0:
                 stacked_grads = torch.stack(honest_gradients, dim=0) # Shape: (nb_honest_clients, d)
@@ -410,6 +421,7 @@ def start_training(params):
 
             # Update Global Model
             server.update_model_with_gradients(gradients)
+            effective_grad_norm_list[training_step] = server.last_aggregate_grad_norm
 
         elif training_algorithm_name == "FedAvg":
 
@@ -482,6 +494,12 @@ def start_training(params):
     
     honest_grad_norm_std_filename = f"honest_grad_norm_std_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_grad_norm_std.txt"
     file_manager.write_array_in_file(grad_norm_std_list, honest_grad_norm_std_filename)
+
+    honest_firing_rate_filename = f"honest_firing_rate_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "honest_firing_rate.txt"
+    file_manager.write_array_in_file(firing_rate_list, honest_firing_rate_filename)
+
+    effective_grad_norm_filename = f"effective_grad_norm_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "effective_grad_norm.txt"
+    file_manager.write_array_in_file(effective_grad_norm_list, effective_grad_norm_filename)
 
     # Save sparsity metrics
     for metric_name in sparsity_metric_names:

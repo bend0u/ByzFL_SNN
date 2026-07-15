@@ -4,6 +4,7 @@ import numpy as np
 from byzfl.fed_framework import ModelBaseInterface
 from byzfl.utils.conversion import flatten_dict
 from byzfl.utils.snn_loss import SNN_LOSS_REGISTRY, create_snn_loss
+import snntorch as snn
 import snntorch.functional as sf
 
 class Client(ModelBaseInterface):
@@ -75,6 +76,24 @@ class Client(ModelBaseInterface):
         self.loss_list = list()
         self.train_acc_list = list()
 
+        # Firing-rate instrumentation (EXP2): mean spike rate across all LIF
+        # layers on the client's own forward pass, one scalar per compute_gradients() call.
+        # No-op (get_last_firing_rate() returns None) for non-spiking models.
+        self._spike_batch_means = []
+        self._last_firing_rate = None
+        spike_layers = [m for m in self.model.modules() if isinstance(m, snn.Leaky)]
+        for layer in spike_layers:
+            layer.register_forward_hook(self._spike_hook)
+
+    def _spike_hook(self, module, layer_input, layer_output):
+        spikes = layer_output[0]
+        self._spike_batch_means.append(spikes.mean().item())
+
+    def get_last_firing_rate(self):
+        """Mean fraction of neurons spiking, averaged over all LIF layers and
+        timesteps of the most recent forward pass. None for non-spiking models."""
+        return self._last_firing_rate
+
     def _sample_train_batch(self):
         """
         Description
@@ -145,7 +164,11 @@ class Client(ModelBaseInterface):
             The loss value for the current batch.
         """
         self.model.zero_grad()
+        self._spike_batch_means = []
         outputs = self.model(inputs)
+        self._last_firing_rate = (
+            float(np.mean(self._spike_batch_means)) if self._spike_batch_means else None
+        )
         loss = self.criterion(outputs, targets)
         loss_value = loss.item()
         loss.backward()

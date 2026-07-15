@@ -46,6 +46,7 @@ class Server(ModelBaseInterface):
                 raise TypeError(f"'validation_loader' must be a DataLoader, but got {type(params['validation_loader']).__name__}")
 
         self.model.eval()
+        self.last_aggregate_grad_norm = None
 
     def aggregate(self, vectors):
         """
@@ -78,6 +79,7 @@ class Server(ModelBaseInterface):
             A list of gradients to aggregate and apply to the global model.
         """
         aggregate_gradient = self.aggregate(gradients)
+        self.last_aggregate_grad_norm = float(torch.linalg.norm(aggregate_gradient).item())
         self.set_gradients(aggregate_gradient)
         self._step()
     
