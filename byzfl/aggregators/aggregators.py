@@ -1482,3 +1482,248 @@ class SMEA(object):
 
         selected_subset = compute_min_subset(vectors, dimension, n, self.f)
         return vectors[tools.asarray(selected_subset)].mean(axis=0)
+        
+class SignFilteredMedian(object):
+    """
+    Sign-Filtered Median Aggregator (SFMA).
+    
+    This aggregator addresses the extreme variance (Dispersion) of SNN gradients
+    by combining a Directional Consensus Filter (Sign Vote) with a Magnitude Filter (Median).
+    
+    1. Discretization: Casts gradients into +1, -1, or 0 (if |g| < eps).
+    2. Quorum Vote: Determines the winning direction. 
+       - If quorum=True, the winning direction must strictly exceed `f` votes to be trusted.
+    3. Filtered Median: Computes the median *only* using gradients from clients who voted
+       for the winning direction, setting everything else to 0.
+    """
+    def __init__(self, f=0, eps=1e-6, quorum=True):
+        self.f = f
+        self.eps = eps
+        self.quorum = quorum
+
+    def __call__(self, vectors):
+        tools, vectors = check_vectors_type(vectors)
+        
+        # ---------------------------------------------------------
+        # NUMPY IMPLEMENTATION
+        # ---------------------------------------------------------
+        if tools == np:
+            # STEP 1: Discretization (Sign Filtering)
+            # Create boolean masks identifying where gradients are significantly positive or negative.
+            # Shape is (n_clients, n_parameters)
+            V_pos = vectors >= self.eps
+            V_neg = vectors <= -self.eps
+            
+            # STEP 2: Counting the Votes
+            # Sum the boolean masks along the client dimension (axis=0).
+            # This gives the number of positive/negative votes per parameter.
+            count_pos = V_pos.sum(axis=0)
+            count_neg = V_neg.sum(axis=0)
+            count_zero = vectors.shape[0] - count_pos - count_neg
+            
+            # STEP 3: Determining the Winning Direction
+            if self.quorum:
+                # "Blindée" Version: A direction only wins if it beats the opposite direction
+                # AND has strictly more than `f` votes. This prevents Byzantines from taking 
+                # control of sparse parameters where honest clients vote 0.
+                win_pos = (count_pos > self.f) & (count_pos > count_neg)
+                win_neg = (count_neg > self.f) & (count_neg > count_pos)
+            else:
+                # "Naïve" Version: Simple majority wins, ignoring `f`. 
+                # Vulnerable to Byzantines hijacking sparse coordinates.
+                win_pos = (count_pos > count_neg) & (count_pos > count_zero)
+                win_neg = (count_neg > count_pos) & (count_neg > count_zero)
+            
+            # STEP 4: Masking the Losers
+            # We create copies of the gradients where we replace the gradients of the 
+            # "losing" clients with NaN (Not a Number). 
+            # This allows us to exclude them completely from the Median calculation later.
+            vectors_pos = np.where(V_pos, vectors, np.nan)
+            vectors_neg = np.where(V_neg, vectors, np.nan)
+            
+            # STEP 5: Filtered Median Computation
+            # We compute the median across the client dimension (axis=0), completely ignoring NaNs.
+            # So if only 8 clients voted positive, this computes the exact median of those 8 values.
+            with np.errstate(invalid='ignore'):
+                med_pos = np.nanmedian(vectors_pos, axis=0)
+                med_neg = np.nanmedian(vectors_neg, axis=0)
+                
+            # If a parameter had no positive/negative votes at all, nanmedian returns NaN. 
+            # We convert these remaining NaNs back to 0.0.
+            med_pos = np.nan_to_num(med_pos, nan=0.0)
+            med_neg = np.nan_to_num(med_neg, nan=0.0)
+            
+            # STEP 6: Final Output Assembly
+            # We start with an empty gradient vector of 0s.
+            out = np.zeros_like(count_pos, dtype=vectors.dtype)
+            
+            # Where the positive direction won, we write the positive median.
+            out = np.where(win_pos, med_pos, out)
+            # Where the negative direction won, we write the negative median.
+            # Where neither won (e.g. Quorum failed, or Zeros won), it remains 0.
+            out = np.where(win_neg, med_neg, out)
+            
+            return out
+            
+        # ---------------------------------------------------------
+        # PYTORCH IMPLEMENTATION
+        # (Exactly the same logic, but using PyTorch operations)
+        # ---------------------------------------------------------
+        else: 
+            # STEP 1: Discretization
+            V_pos = vectors >= self.eps
+            V_neg = vectors <= -self.eps
+            
+            # STEP 2: Counting the Votes
+            count_pos = V_pos.sum(dim=0)
+            count_neg = V_neg.sum(dim=0)
+            count_zero = vectors.shape[0] - count_pos - count_neg
+            
+            # STEP 3: Determining the Winning Direction
+            if self.quorum:
+                win_pos = (count_pos > self.f) & (count_pos > count_neg)
+                win_neg = (count_neg > self.f) & (count_neg > count_pos)
+            else:
+                win_pos = (count_pos > count_neg) & (count_pos > count_zero)
+                win_neg = (count_neg > count_pos) & (count_neg > count_zero)
+            
+            # STEP 4: Masking the Losers with NaN
+            # In PyTorch, we must explicitly create a NaN tensor of the right type/device
+            nan_tensor = torch.tensor(float('nan'), device=vectors.device, dtype=vectors.dtype)
+            vectors_pos = torch.where(V_pos, vectors, nan_tensor)
+            vectors_neg = torch.where(V_neg, vectors, nan_tensor)
+            
+            # STEP 5: Filtered Median Computation (ignoring NaNs)
+            # torch.nanmedian returns a namedtuple (values, indices), so we extract .values
+            med_pos = torch.nanmedian(vectors_pos, dim=0).values
+            med_neg = torch.nanmedian(vectors_neg, dim=0).values
+            
+            # Convert any resulting NaNs back to 0.0
+            med_pos = torch.nan_to_num(med_pos, nan=0.0)
+            med_neg = torch.nan_to_num(med_neg, nan=0.0)
+            
+            # STEP 6: Final Output Assembly
+            out = torch.zeros_like(count_pos, dtype=vectors.dtype)
+            out = torch.where(win_pos, med_pos, out)
+            out = torch.where(win_neg, med_neg, out)
+            
+            return out
+
+class SignFilteredMedianNoQuorum(SignFilteredMedian):
+    """
+    Version Naïve du SFMA, sans la protection du quorum V > f.
+    Très performante sur données propres, mais hautement vulnérable au "Sparsity Hijacking"
+    par les attaquants Byzantins sur les caractéristiques non-IID.
+    """
+    def __init__(self, f=0, eps=1e-6):
+        # We inherit all logic from SFMA, but we hardcode quorum=False
+        super().__init__(f=f, eps=eps, quorum=False)
+
+class ClippedSignFilteredMedian(object):
+    """
+    Clipped Sign-Filtered Median Aggregator (Clipped SFMA).
+    
+    This is a variant of SFMA that clips the output on each coordinate to a threshold
+    to prevent magnitude hijacking by Byzantine attackers (especially ALIE).
+    """
+    def __init__(self, f=0, eps=1e-6, quorum=True, clip_threshold=1.0):
+        self.f = f
+        self.eps = eps
+        self.quorum = quorum
+        self.clip_threshold = clip_threshold
+
+    def __call__(self, vectors):
+        tools, vectors = check_vectors_type(vectors)
+        
+        # ---------------------------------------------------------
+        # NUMPY IMPLEMENTATION
+        # ---------------------------------------------------------
+        if tools == np:
+            V_pos = vectors >= self.eps
+            V_neg = vectors <= -self.eps
+            
+            count_pos = V_pos.sum(axis=0)
+            count_neg = V_neg.sum(axis=0)
+            count_zero = vectors.shape[0] - count_pos - count_neg
+            
+            if self.quorum:
+                win_pos = (count_pos > self.f) & (count_pos > count_neg)
+                win_neg = (count_neg > self.f) & (count_neg > count_pos)
+            else:
+                win_pos = (count_pos > count_neg) & (count_pos > count_zero)
+                win_neg = (count_neg > count_pos) & (count_neg > count_zero)
+            
+            vectors_pos = np.where(V_pos, vectors, np.nan)
+            vectors_neg = np.where(V_neg, vectors, np.nan)
+            
+            with np.errstate(invalid='ignore'):
+                med_pos = np.nanmedian(vectors_pos, axis=0)
+                med_neg = np.nanmedian(vectors_neg, axis=0)
+                
+            med_pos = np.nan_to_num(med_pos, nan=0.0)
+            med_neg = np.nan_to_num(med_neg, nan=0.0)
+            
+            out = np.zeros_like(count_pos, dtype=vectors.dtype)
+            out = np.where(win_pos, med_pos, out)
+            out = np.where(win_neg, med_neg, out)
+            
+            # --- NEW CLIP BOUND ---
+            out = np.clip(out, -self.clip_threshold, self.clip_threshold)
+            return out
+            
+        # ---------------------------------------------------------
+        # PYTORCH IMPLEMENTATION
+        # ---------------------------------------------------------
+        else: 
+            V_pos = vectors >= self.eps
+            V_neg = vectors <= -self.eps
+            
+            count_pos = V_pos.sum(dim=0)
+            count_neg = V_neg.sum(dim=0)
+            count_zero = vectors.shape[0] - count_pos - count_neg
+            
+            if self.quorum:
+                win_pos = (count_pos > self.f) & (count_pos > count_neg)
+                win_neg = (count_neg > self.f) & (count_neg > count_pos)
+            else:
+                win_pos = (count_pos > count_neg) & (count_pos > count_zero)
+                win_neg = (count_neg > count_pos) & (count_neg > count_zero)
+            
+            nan_tensor = torch.tensor(float('nan'), device=vectors.device, dtype=vectors.dtype)
+            vectors_pos = torch.where(V_pos, vectors, nan_tensor)
+            vectors_neg = torch.where(V_neg, vectors, nan_tensor)
+            
+            med_pos = torch.nanmedian(vectors_pos, dim=0).values
+            med_neg = torch.nanmedian(vectors_neg, dim=0).values
+            
+            med_pos = torch.nan_to_num(med_pos, nan=0.0)
+            med_neg = torch.nan_to_num(med_neg, nan=0.0)
+            
+            out = torch.zeros_like(count_pos, dtype=vectors.dtype)
+            out = torch.where(win_pos, med_pos, out)
+            out = torch.where(win_neg, med_neg, out)
+            
+            # --- NEW CLIP BOUND ---
+            out = torch.clamp(out, min=-self.clip_threshold, max=self.clip_threshold)
+            return out
+
+class ClippedSignFilteredMedian_1(ClippedSignFilteredMedian):
+    def __init__(self, f=0, eps=1e-6, quorum=True):
+        super().__init__(f=f, eps=eps, quorum=quorum, clip_threshold=1.0)
+
+class ClippedSignFilteredMedian_2(ClippedSignFilteredMedian):
+    def __init__(self, f=0, eps=1e-6, quorum=True):
+        super().__init__(f=f, eps=eps, quorum=quorum, clip_threshold=2.0)
+
+class ClippedSignFilteredMedian_4(ClippedSignFilteredMedian):
+    def __init__(self, f=0, eps=1e-6, quorum=True):
+        super().__init__(f=f, eps=eps, quorum=quorum, clip_threshold=4.0)
+
+class ClippedSignFilteredMedian_5(ClippedSignFilteredMedian):
+    def __init__(self, f=0, eps=1e-6, quorum=True):
+        super().__init__(f=f, eps=eps, quorum=quorum, clip_threshold=5.0)
+
+class ClippedSignFilteredMedian_8(ClippedSignFilteredMedian):
+    def __init__(self, f=0, eps=1e-6, quorum=True):
+        super().__init__(f=f, eps=eps, quorum=quorum, clip_threshold=8.0)
+

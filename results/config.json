@@ -1,8 +1,11 @@
 {
     "benchmark_config": {
         "device": "cuda",
-        "training_seed": 42,
-        "nb_training_seeds": 5,
+        "training_seed": [
+            42,
+            43
+        ],
+        "nb_training_seeds": 2,
         "nb_honest_clients": [
             10
         ],
@@ -24,73 +27,77 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 500,
+        "nb_steps": 1000,
         "set_honest_clients_as_clients": false
     },
     "model": [
         {
-            "name": "cnn_mnist_tanh_dropout_dense_60",
-            "is_snn": false,
+            "name": "cnn_mnist_snn",
+            "is_snn": true,
             "dataset_name": "mnist",
             "nb_labels": 10,
-            "loss": "NLLLoss",
-            "accuracy_name": null,
+            "loss": "ce_rate_loss",
+            "accuracy_name": "accuracy_rate",
             "optimizer_name": "SGD",
             "learning_rate": 0.1,
             "learning_rate_decay": 1.0,
-            "milestones": []
-        },
-        {
-            "name": "cnn_mnist_tanh_dropout_dense_70",
-            "is_snn": false,
-            "dataset_name": "mnist",
-            "nb_labels": 10,
-            "loss": "NLLLoss",
-            "accuracy_name": null,
-            "optimizer_name": "SGD",
-            "learning_rate": 0.1,
-            "learning_rate_decay": 1.0,
-            "milestones": []
-        },
-        {
-            "name": "cnn_mnist_tanh_dropout_dense_80",
-            "is_snn": false,
-            "dataset_name": "mnist",
-            "nb_labels": 10,
-            "loss": "NLLLoss",
-            "accuracy_name": null,
-            "optimizer_name": "SGD",
-            "learning_rate": 0.1,
-            "learning_rate_decay": 1.0,
-            "milestones": []
-        },
-        {
-            "name": "cnn_mnist_tanh_dropout_dense_93",
-            "is_snn": false,
-            "dataset_name": "mnist",
-            "nb_labels": 10,
-            "loss": "NLLLoss",
-            "accuracy_name": null,
-            "optimizer_name": "SGD",
-            "learning_rate": 0.1,
-            "learning_rate_decay": 1.0,
-            "milestones": []
+            "milestones": [],
+            "model_params": {
+                "alpha": 1.2,
+                "T": 10,
+                "beta": 0.95,
+                "surrogate": "ATAN"
+            }
         }
     ],
     "aggregator": [
         {
-            "name": "Average",
-            "parameters": {}
+            "name": "ClippedSignFilteredMedian",
+            "parameters": {
+                "f": "f",
+                "eps": 1e-06,
+                "clip_threshold": 1.0
+            }
+        },
+        {
+            "name": "ClippedSignFilteredMedian",
+            "parameters": {
+                "f": "f",
+                "eps": 1e-06,
+                "clip_threshold": 2.0
+            }
+        },
+        {
+            "name": "ClippedSignFilteredMedian",
+            "parameters": {
+                "f": "f",
+                "eps": 1e-06,
+                "clip_threshold": 4.0
+            }
+        },
+        {
+            "name": "ClippedSignFilteredMedian",
+            "parameters": {
+                "f": "f",
+                "eps": 1e-06,
+                "clip_threshold": 5.0
+            }
+        },
+        {
+            "name": "ClippedSignFilteredMedian",
+            "parameters": {
+                "f": "f",
+                "eps": 1e-06,
+                "clip_threshold": 8.0
+            }
         }
     ],
     "pre_aggregators": [
         {
-            "name": "NNM",
-            "parameters": {}
-        },
-        {
-            "name": "ARC",
-            "parameters": {}
+            "name": "Clipping",
+            "parameters": {
+                "c": 10.0
+            }
         }
     ],
     "honest_clients": {
@@ -108,7 +115,7 @@
         "evaluation_delta": 50,
         "batch_size_evaluation": 128,
         "evaluate_on_test": true,
-        "results_dir": "results/cnn_dense_dropout_baseline",
+        "results_dir": "results/snn_sfma_test",
         "results_directory": "./results"
     }
 }

@@ -154,6 +154,8 @@ def start_training(params):
     train_dataset, val_loader, test_loader = load_and_split_data(params_manager)
 
     print(f"\n[ByzFL-SNN] [Training Start] Model: {params_manager.get_model_name()} | Dataset: {params_manager.get_dataset_name()}")
+    print(f"[ByzFL-SNN]   Aggregator: {params_manager.get_aggregator_name()} | Attack: {params_manager.get_attack_name()}")
+    print(f"[ByzFL-SNN]   Distribution: {params_manager.get_name_data_distribution()} (gamma={params_manager.get_parameter_data_distribution()})")
     print(f"[ByzFL-SNN]   Clients: {nb_honest_clients} honest, {nb_byz_clients} byzantine | Algorithm: {params_manager.get_training_algorithm_name()}")
     print(f"[ByzFL-SNN]   Learning Rate: {params_manager.get_learning_rate()} | Steps: {nb_training_steps} | Device: {params_manager.get_device()}")
     print(f"[ByzFL-SNN]   Validation samples: {len(val_loader.dataset) if val_loader else 0} | Test samples: {len(test_loader.dataset) if test_loader else 0}")
