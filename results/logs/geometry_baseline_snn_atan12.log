@@ -1,0 +1,122 @@
+=======================================================
+Starting Robust Sweep using configs/geometry_baseline/snn_atan12.json distributed across all available GPUs with 2 jobs
+Pre-downloading MNIST dataset sequentially to avoid parallel race conditions...
+MNIST dataset is ready!
+Distributing tasks across 2 GPUs...
+Total trainings to do: 4
+Running 2 trainings in parallel...
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: NoAttack
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 4.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8358 | Test Acc: 0.8441 | VRAM (Alloc/Reserved): 253.8/740.0 MiB | Time: 35.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9082 | Test Acc: 0.9147 | VRAM (Alloc/Reserved): 251.2/740.0 MiB | Time: 66.1s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9291 | Test Acc: 0.9327 | VRAM (Alloc/Reserved): 252.6/740.0 MiB | Time: 97.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9384 | Test Acc: 0.9441 | VRAM (Alloc/Reserved): 250.5/742.0 MiB | Time: 128.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9458 | Test Acc: 0.9524 | VRAM (Alloc/Reserved): 253.7/742.0 MiB | Time: 158.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9514 | Test Acc: 0.9573 | VRAM (Alloc/Reserved): 252.6/742.0 MiB | Time: 189.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9567 | Test Acc: 0.9626 | VRAM (Alloc/Reserved): 253.6/742.0 MiB | Time: 219.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9615 | Test Acc: 0.9652 | VRAM (Alloc/Reserved): 250.3/742.0 MiB | Time: 251.7s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9630 | Test Acc: 0.9675 | VRAM (Alloc/Reserved): 253.8/742.0 MiB | Time: 282.4s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.4/742.0 MiB | Total time: 308.8s
+
+Training 0 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: NoAttack
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 4.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8401 | Test Acc: 0.8482 | VRAM (Alloc/Reserved): 250.8/740.0 MiB | Time: 36.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9089 | Test Acc: 0.9153 | VRAM (Alloc/Reserved): 252.3/740.0 MiB | Time: 70.0s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9275 | Test Acc: 0.9324 | VRAM (Alloc/Reserved): 251.1/740.0 MiB | Time: 101.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9400 | Test Acc: 0.9450 | VRAM (Alloc/Reserved): 251.6/740.0 MiB | Time: 131.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9469 | Test Acc: 0.9517 | VRAM (Alloc/Reserved): 252.6/742.0 MiB | Time: 162.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9512 | Test Acc: 0.9583 | VRAM (Alloc/Reserved): 251.0/742.0 MiB | Time: 195.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9569 | Test Acc: 0.9626 | VRAM (Alloc/Reserved): 254.5/742.0 MiB | Time: 226.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9580 | Test Acc: 0.9641 | VRAM (Alloc/Reserved): 257.5/742.0 MiB | Time: 257.7s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9612 | Test Acc: 0.9667 | VRAM (Alloc/Reserved): 251.8/742.0 MiB | Time: 288.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 316.4s
+
+Training 1 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: NoAttack
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 4.7s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8464 | Test Acc: 0.8549 | VRAM (Alloc/Reserved): 254.3/738.0 MiB | Time: 35.8s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9022 | Test Acc: 0.9105 | VRAM (Alloc/Reserved): 253.5/740.0 MiB | Time: 66.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9273 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 253.7/740.0 MiB | Time: 97.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9397 | Test Acc: 0.9454 | VRAM (Alloc/Reserved): 252.1/742.0 MiB | Time: 127.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9465 | Test Acc: 0.9509 | VRAM (Alloc/Reserved): 249.0/742.0 MiB | Time: 159.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9523 | Test Acc: 0.9583 | VRAM (Alloc/Reserved): 249.0/742.0 MiB | Time: 190.5s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9566 | Test Acc: 0.9621 | VRAM (Alloc/Reserved): 250.9/742.0 MiB | Time: 217.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9578 | Test Acc: 0.9642 | VRAM (Alloc/Reserved): 252.5/742.0 MiB | Time: 248.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9623 | Test Acc: 0.9657 | VRAM (Alloc/Reserved): 249.3/742.0 MiB | Time: 279.9s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.8/742.0 MiB | Total time: 307.3s
+
+Training 2 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: NoAttack
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 4.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8330 | Test Acc: 0.8425 | VRAM (Alloc/Reserved): 253.3/740.0 MiB | Time: 36.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9083 | Test Acc: 0.9160 | VRAM (Alloc/Reserved): 252.5/740.0 MiB | Time: 67.1s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9290 | Test Acc: 0.9321 | VRAM (Alloc/Reserved): 254.5/740.0 MiB | Time: 98.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9377 | Test Acc: 0.9436 | VRAM (Alloc/Reserved): 252.6/742.0 MiB | Time: 129.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9458 | Test Acc: 0.9511 | VRAM (Alloc/Reserved): 255.5/742.0 MiB | Time: 160.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9515 | Test Acc: 0.9571 | VRAM (Alloc/Reserved): 252.5/742.0 MiB | Time: 191.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9547 | Test Acc: 0.9618 | VRAM (Alloc/Reserved): 251.5/742.0 MiB | Time: 222.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9596 | Test Acc: 0.9656 | VRAM (Alloc/Reserved): 249.2/742.0 MiB | Time: 253.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9613 | Test Acc: 0.9673 | VRAM (Alloc/Reserved): 253.4/742.0 MiB | Time: 284.1s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.4/742.0 MiB | Total time: 310.7s
+
+Training 3 done
+All trainings finished.
+Warning: Best hyperparameter selection skipped or failed: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/val_accuracy_tr_seed_42_dd_seed_42.txt not found.
+
+Sweep complete. Generating robust heatmaps...
+Generating plots for attack: merged...
+Warning: could not load accuracy files for f=0, param=1.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.66. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.66_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.33. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.33_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+  - Saved test heatmaps
+ERROR: [Errno 2] No such file or directory: './results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/config.json'
+  - Error loss heatmaps: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/train_loss_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=1.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.66. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.66_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.33. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.33_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+  - Saved aggregated test heatmaps
+Generating plots for attack: NoAttack...
+Warning: could not load accuracy files for f=0, param=1.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.66. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.66_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.33. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.33_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+  - Saved test heatmaps
+ERROR: [Errno 2] No such file or directory: './results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/config.json'
+  - Error loss heatmaps: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/train_loss_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=1.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_1.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.66. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.66_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.33. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.33_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+Warning: could not load accuracy files for f=0, param=0.0. Details: ./results/geometry_baseline/snn_atan12/mnist_cnn_mnist_snn_n_10_f_0_d_0_gamma_similarity_niid_0.0_TrMean_NNM_ARC_NoAttack_lr_0.1_mom_0.9_wd_0.0001_ts_10_enc_constant_beta_0.95_learn_threshold_False_surrogate_gradient_atan_threshold_1.0/test_accuracy_tr_seed_42_dd_seed_42.txt not found.
+  - Saved aggregated test heatmaps
+Done!

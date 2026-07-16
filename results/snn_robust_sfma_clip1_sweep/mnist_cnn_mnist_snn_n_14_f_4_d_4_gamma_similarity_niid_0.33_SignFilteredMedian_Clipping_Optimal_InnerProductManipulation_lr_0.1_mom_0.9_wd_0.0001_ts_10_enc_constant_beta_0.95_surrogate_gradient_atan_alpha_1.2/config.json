@@ -1,7 +1,7 @@
 {
     "benchmark_config": {
-        "device": "cuda",
-        "training_seed": 43,
+        "device": "cuda:1",
+        "training_seed": 42,
         "nb_training_seeds": 2,
         "nb_workers": 14,
         "nb_honest_clients": 10,
@@ -75,6 +75,7 @@
         "batch_size_evaluation": 128,
         "evaluate_on_test": true,
         "store_per_client_metrics": true,
+        "store_client_vectors": false,
         "store_models": false,
         "data_folder": "./data",
         "results_directory": "./results/snn_robust_sfma_clip1_sweep"

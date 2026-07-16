@@ -1,0 +1,105 @@
+{
+    "benchmark_config": {
+        "device": "cuda",
+        "training_seed": 42,
+        "nb_training_seeds": 5,
+        "nb_honest_clients": [
+            10
+        ],
+        "f": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+        ],
+        "size_train_set": 0.8,
+        "data_distribution_seed": 42,
+        "nb_data_distribution_seeds": 1,
+        "data_distribution": [
+            {
+                "name": "gamma_similarity_niid",
+                "distribution_parameter": [
+                    0.66
+                ]
+            }
+        ],
+        "training_algorithm": {
+            "name": "DSGD",
+            "parameters": {}
+        },
+        "nb_steps": 5000
+    },
+    "model": {
+        "name": "cnn_cifar",
+        "is_snn": false,
+        "dataset_name": "cifar10",
+        "nb_labels": 10,
+        "loss": "CrossEntropyLoss",
+        "accuracy_name": null,
+        "optimizer_name": "SGD",
+        "learning_rate": 0.1,
+        "learning_rate_decay": 1.0,
+        "milestones": []
+    },
+    "aggregator": [
+        {
+            "name": "GeometricMedian",
+            "parameters": {
+                "nu": 0.1,
+                "T": 3
+            }
+        },
+        {
+            "name": "CenteredClipping",
+            "parameters": {}
+        },
+        {
+            "name": "TrMean",
+            "parameters": {}
+        },
+        {
+            "name": "MultiKrum",
+            "parameters": {}
+        }
+    ],
+    "pre_aggregators": [
+        {
+            "name": "NNM",
+            "parameters": {}
+        },
+        {
+            "name": "ARC",
+            "parameters": {}
+        }
+    ],
+    "honest_clients": {
+        "momentum": 0.9,
+        "weight_decay": 0.0001,
+        "batch_size": 128
+    },
+    "attack": [
+        {
+            "name": "SignFlipping",
+            "parameters": {}
+        },
+        {
+            "name": "Optimal_InnerProductManipulation",
+            "parameters": {}
+        },
+        {
+            "name": "Optimal_ALittleIsEnough_neg1",
+            "parameters": {}
+        }
+    ],
+    "evaluation_and_results": {
+        "evaluation_delta": 50,
+        "batch_size_evaluation": 128,
+        "evaluate_on_test": true,
+        "store_per_client_metrics": true,
+        "store_models": false,
+        "data_folder": "./data",
+        "results_directory": "./results/cifar_sweep_cnn_relu"
+    }
+}

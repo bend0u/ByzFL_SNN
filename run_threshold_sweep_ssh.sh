@@ -37,7 +37,7 @@ for config in "${CONFIGS[@]}"; do
   echo "[$(date)] Starting ${config} -> ${log_file}"
   python run_snn_robust_sweeps.py \
     --config "${config}" \
-    --gpu 0 --nb_jobs "${NB_JOBS}" \
+    --distribute_gpus --nb_jobs "${NB_JOBS}" \
     > "${log_file}" 2>&1 || echo "  ${config} encountered errors, see ${log_file}"
   echo "[$(date)] Finished ${config}"
 done

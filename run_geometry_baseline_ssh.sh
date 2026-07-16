@@ -31,7 +31,7 @@ for config in "${CONFIGS[@]}"; do
   tag=$(basename "${config}" .json)
   log_file="results/logs/geometry_baseline_${tag}.log"
   echo "[$(date)] Starting ${config} -> ${log_file}"
-  python run_snn_robust_sweeps.py \
+  ./venv/bin/python3 run_snn_robust_sweeps.py \
     --config "${config}" \
     --distribute_gpus --nb_jobs "${NB_JOBS}" \
     > "${log_file}" 2>&1 || echo "  ${config} encountered errors, see ${log_file}"

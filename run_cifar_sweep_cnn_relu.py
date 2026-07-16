@@ -8,7 +8,7 @@ def main():
     datasets.CIFAR10(root='./data', train=True, download=True)
     datasets.CIFAR10(root='./data', train=False, download=True)
 
-    config_path = "configs/cifar_sweep_cnn_relu.json"
+    config_path = os.environ.get("CONFIG_PATH", "configs/cifar_sweep_cnn_relu.json")
 
     print("=" * 60)
     print("CIFAR-10 Sweep: CNN (ReLU)")
