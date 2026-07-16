@@ -1,0 +1,1769 @@
+nohup: ignoring input
+=======================================================
+Starting Robust Sweep using configs/snn_robustness/firing_rate_full_sweep.json distributed across all available GPUs with 12 jobs
+Pre-downloading MNIST dataset sequentially to avoid parallel race conditions...
+MNIST dataset is ready!
+Distributing tasks across 2 GPUs...
+Total trainings to do: 288
+Running 12 trainings in parallel...
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.7s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.9s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.8s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.2s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.9s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.2s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 7.1s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.2s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.7s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.7s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4879 | Test Acc: 0.4930 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 49.9s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4906 | Test Acc: 0.4929 | VRAM (Alloc/Reserved): 256.4/694.0 MiB | Time: 47.5s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4878 | Test Acc: 0.4926 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 47.1s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4879 | Test Acc: 0.4930 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 48.8s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4878 | Test Acc: 0.4926 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 48.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4906 | Test Acc: 0.4929 | VRAM (Alloc/Reserved): 252.9/694.0 MiB | Time: 51.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4906 | Test Acc: 0.4929 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 48.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4878 | Test Acc: 0.4926 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 48.8s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4919 | Test Acc: 0.4948 | VRAM (Alloc/Reserved): 254.5/712.0 MiB | Time: 48.1s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4919 | Test Acc: 0.4948 | VRAM (Alloc/Reserved): 254.2/712.0 MiB | Time: 48.1s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4879 | Test Acc: 0.4930 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 49.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4919 | Test Acc: 0.4948 | VRAM (Alloc/Reserved): 254.2/712.0 MiB | Time: 48.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8013 | Test Acc: 0.8045 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 88.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8003 | Test Acc: 0.8030 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 93.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8013 | Test Acc: 0.8045 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 88.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8037 | Test Acc: 0.8047 | VRAM (Alloc/Reserved): 253.4/724.0 MiB | Time: 88.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8003 | Test Acc: 0.8030 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 90.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8037 | Test Acc: 0.8047 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 89.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8013 | Test Acc: 0.8045 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 89.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8042 | Test Acc: 0.8064 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 89.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8037 | Test Acc: 0.8047 | VRAM (Alloc/Reserved): 252.0/742.0 MiB | Time: 92.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8042 | Test Acc: 0.8064 | VRAM (Alloc/Reserved): 254.0/744.0 MiB | Time: 89.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8003 | Test Acc: 0.8030 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 90.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8042 | Test Acc: 0.8064 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 90.3s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8349 | Test Acc: 0.8450 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 128.5s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8338 | Test Acc: 0.8416 | VRAM (Alloc/Reserved): 257.6/742.0 MiB | Time: 129.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8352 | Test Acc: 0.8443 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 135.0s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8352 | Test Acc: 0.8443 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 131.5s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8349 | Test Acc: 0.8450 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 129.8s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8351 | Test Acc: 0.8444 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 130.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8338 | Test Acc: 0.8416 | VRAM (Alloc/Reserved): 254.6/744.0 MiB | Time: 131.4s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8351 | Test Acc: 0.8444 | VRAM (Alloc/Reserved): 251.7/724.0 MiB | Time: 131.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8351 | Test Acc: 0.8444 | VRAM (Alloc/Reserved): 252.1/742.0 MiB | Time: 134.6s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8349 | Test Acc: 0.8450 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 132.4s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8338 | Test Acc: 0.8416 | VRAM (Alloc/Reserved): 257.6/742.0 MiB | Time: 132.5s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8352 | Test Acc: 0.8443 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 133.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8700 | Test Acc: 0.8803 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 169.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8692 | Test Acc: 0.8798 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 171.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8683 | Test Acc: 0.8785 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 173.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8683 | Test Acc: 0.8785 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 176.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8700 | Test Acc: 0.8803 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 171.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8678 | Test Acc: 0.8805 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 171.9s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8692 | Test Acc: 0.8798 | VRAM (Alloc/Reserved): 252.7/744.0 MiB | Time: 172.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8678 | Test Acc: 0.8805 | VRAM (Alloc/Reserved): 253.5/742.0 MiB | Time: 175.9s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8678 | Test Acc: 0.8805 | VRAM (Alloc/Reserved): 248.9/742.0 MiB | Time: 173.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8692 | Test Acc: 0.8798 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 174.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8700 | Test Acc: 0.8803 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 175.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8683 | Test Acc: 0.8785 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 176.9s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8842 | Test Acc: 0.8971 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 210.9s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8849 | Test Acc: 0.8960 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 218.0s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8849 | Test Acc: 0.8960 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 214.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8842 | Test Acc: 0.8971 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 212.9s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8887 | Test Acc: 0.8973 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 212.9s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8887 | Test Acc: 0.8973 | VRAM (Alloc/Reserved): 254.2/744.0 MiB | Time: 213.3s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8864 | Test Acc: 0.8967 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 213.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8864 | Test Acc: 0.8967 | VRAM (Alloc/Reserved): 252.3/742.0 MiB | Time: 215.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8864 | Test Acc: 0.8967 | VRAM (Alloc/Reserved): 254.7/742.0 MiB | Time: 218.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8887 | Test Acc: 0.8973 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 216.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8849 | Test Acc: 0.8960 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 219.8s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8842 | Test Acc: 0.8971 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 219.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8968 | Test Acc: 0.9086 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 252.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8976 | Test Acc: 0.9076 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 256.0s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8968 | Test Acc: 0.9086 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 254.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8985 | Test Acc: 0.9088 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 254.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8976 | Test Acc: 0.9076 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 259.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8985 | Test Acc: 0.9088 | VRAM (Alloc/Reserved): 256.3/744.0 MiB | Time: 255.0s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8978 | Test Acc: 0.9064 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 255.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8978 | Test Acc: 0.9064 | VRAM (Alloc/Reserved): 253.4/742.0 MiB | Time: 260.0s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8978 | Test Acc: 0.9064 | VRAM (Alloc/Reserved): 251.9/742.0 MiB | Time: 258.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8985 | Test Acc: 0.9088 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 259.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8976 | Test Acc: 0.9076 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 263.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8968 | Test Acc: 0.9086 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 263.7s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9097 | Test Acc: 0.9171 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 293.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9081 | Test Acc: 0.9158 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 295.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9091 | Test Acc: 0.9159 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 296.8s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9097 | Test Acc: 0.9171 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 296.1s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9081 | Test Acc: 0.9158 | VRAM (Alloc/Reserved): 254.0/744.0 MiB | Time: 296.3s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9091 | Test Acc: 0.9159 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 301.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9084 | Test Acc: 0.9150 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 296.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9084 | Test Acc: 0.9150 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 302.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9084 | Test Acc: 0.9150 | VRAM (Alloc/Reserved): 249.6/742.0 MiB | Time: 301.5s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9081 | Test Acc: 0.9158 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 302.2s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9091 | Test Acc: 0.9159 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 306.1s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9097 | Test Acc: 0.9171 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 307.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9171 | Test Acc: 0.9248 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 334.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9175 | Test Acc: 0.9245 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 336.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9174 | Test Acc: 0.9249 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 337.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9171 | Test Acc: 0.9248 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 337.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9174 | Test Acc: 0.9249 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 342.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9175 | Test Acc: 0.9245 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 338.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9179 | Test Acc: 0.9253 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 339.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9179 | Test Acc: 0.9253 | VRAM (Alloc/Reserved): 254.8/744.0 MiB | Time: 343.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9179 | Test Acc: 0.9253 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 344.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9175 | Test Acc: 0.9245 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 344.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9174 | Test Acc: 0.9249 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 348.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9171 | Test Acc: 0.9248 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 351.0s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9223 | Test Acc: 0.9308 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 377.2s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9233 | Test Acc: 0.9302 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 378.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9220 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 380.6s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9223 | Test Acc: 0.9308 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 379.0s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9220 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 385.0s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9233 | Test Acc: 0.9302 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 380.5s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9226 | Test Acc: 0.9300 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 380.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9226 | Test Acc: 0.9300 | VRAM (Alloc/Reserved): 251.0/744.0 MiB | Time: 386.5s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9226 | Test Acc: 0.9300 | VRAM (Alloc/Reserved): 255.9/742.0 MiB | Time: 386.8s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9233 | Test Acc: 0.9302 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 386.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9220 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 391.0s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9223 | Test Acc: 0.9308 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 394.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9273 | Test Acc: 0.9326 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 420.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9269 | Test Acc: 0.9328 | VRAM (Alloc/Reserved): 253.3/744.0 MiB | Time: 420.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9273 | Test Acc: 0.9326 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 420.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9272 | Test Acc: 0.9325 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 422.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9272 | Test Acc: 0.9325 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 425.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9269 | Test Acc: 0.9328 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 421.7s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9282 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 422.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9282 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 428.7s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9269 | Test Acc: 0.9328 | VRAM (Alloc/Reserved): 253.3/744.0 MiB | Time: 429.0s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9282 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 430.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9272 | Test Acc: 0.9325 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 433.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9273 | Test Acc: 0.9326 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 437.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9320 | Test Acc: 0.9369 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 462.0s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9317 | Test Acc: 0.9374 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 461.1s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9365 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 462.9s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9320 | Test Acc: 0.9369 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 461.3s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9365 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 467.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9317 | Test Acc: 0.9374 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 463.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9315 | Test Acc: 0.9367 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 463.8s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9315 | Test Acc: 0.9367 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 470.3s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9317 | Test Acc: 0.9374 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 470.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9315 | Test Acc: 0.9367 | VRAM (Alloc/Reserved): 254.6/744.0 MiB | Time: 473.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9365 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 476.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9320 | Test Acc: 0.9369 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 481.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9360 | Test Acc: 0.9401 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 504.2s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9349 | Test Acc: 0.9400 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 502.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9407 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 503.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9349 | Test Acc: 0.9400 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 504.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9360 | Test Acc: 0.9401 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 509.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9407 | VRAM (Alloc/Reserved): 257.1/744.0 MiB | Time: 505.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9406 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 506.5s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9406 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 513.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9407 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 511.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9406 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 516.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9360 | Test Acc: 0.9401 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 520.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9349 | Test Acc: 0.9400 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 525.2s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9360 | Test Acc: 0.9437 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 545.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9368 | Test Acc: 0.9427 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 544.6s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9373 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 544.6s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9368 | Test Acc: 0.9427 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 545.8s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9360 | Test Acc: 0.9437 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 550.8s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9373 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 256.6/744.0 MiB | Time: 547.7s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9374 | Test Acc: 0.9426 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 548.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9373 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 550.8s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9374 | Test Acc: 0.9426 | VRAM (Alloc/Reserved): 257.9/744.0 MiB | Time: 556.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9374 | Test Acc: 0.9426 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 559.5s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9360 | Test Acc: 0.9437 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 563.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9368 | Test Acc: 0.9427 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 569.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9390 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 587.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9403 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 257.2/744.0 MiB | Time: 585.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9395 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 585.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9390 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 592.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9395 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 587.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9390 | Test Acc: 0.9454 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 589.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9403 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 590.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9403 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 257.2/744.0 MiB | Time: 590.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9390 | Test Acc: 0.9454 | VRAM (Alloc/Reserved): 255.4/744.0 MiB | Time: 598.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9390 | Test Acc: 0.9454 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 602.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9390 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 606.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9395 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 611.9s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9413 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 629.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9461 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 627.6s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9412 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 251.8/744.0 MiB | Time: 627.6s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9413 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 633.7s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9461 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 631.1s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9412 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 251.8/744.0 MiB | Time: 631.0s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9412 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 631.3s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9414 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 632.4s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9414 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 254.0/744.0 MiB | Time: 640.7s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9414 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 251.1/744.0 MiB | Time: 645.7s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9413 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 650.8s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9461 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 654.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9488 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 668.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9446 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 674.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9446 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 670.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9431 | Test Acc: 0.9490 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 669.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9431 | Test Acc: 0.9490 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 670.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9488 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 673.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9431 | Test Acc: 0.9490 | VRAM (Alloc/Reserved): 258.4/744.0 MiB | Time: 673.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9440 | Test Acc: 0.9491 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 673.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9440 | Test Acc: 0.9491 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 683.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9440 | Test Acc: 0.9491 | VRAM (Alloc/Reserved): 254.1/746.0 MiB | Time: 689.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9446 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 693.1s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9488 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 698.1s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9465 | Test Acc: 0.9497 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 714.1s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9467 | Test Acc: 0.9502 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 710.6s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9465 | Test Acc: 0.9497 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 712.4s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9451 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 257.3/744.0 MiB | Time: 710.7s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9451 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 257.3/744.0 MiB | Time: 711.9s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9467 | Test Acc: 0.9502 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 714.8s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9451 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 715.5s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9456 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 715.6s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9456 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 252.7/744.0 MiB | Time: 726.7s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9456 | Test Acc: 0.9496 | VRAM (Alloc/Reserved): 251.1/746.0 MiB | Time: 732.5s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9465 | Test Acc: 0.9497 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 735.8s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9467 | Test Acc: 0.9502 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 742.3s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9469 | Test Acc: 0.9527 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 754.1s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9469 | Test Acc: 0.9527 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 754.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9465 | Test Acc: 0.9530 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 752.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9523 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 753.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9523 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 753.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9465 | Test Acc: 0.9530 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 756.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9479 | Test Acc: 0.9535 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 757.3s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9523 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 757.5s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9479 | Test Acc: 0.9535 | VRAM (Alloc/Reserved): 252.9/744.0 MiB | Time: 770.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9479 | Test Acc: 0.9535 | VRAM (Alloc/Reserved): 249.3/746.0 MiB | Time: 775.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9469 | Test Acc: 0.9527 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 778.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9465 | Test Acc: 0.9530 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 784.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9488 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 794.3s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9488 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 796.2s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9490 | Test Acc: 0.9544 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 794.6s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9491 | Test Acc: 0.9544 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 795.1s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9491 | Test Acc: 0.9544 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 795.7s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9490 | Test Acc: 0.9544 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 797.4s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9494 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 798.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9491 | Test Acc: 0.9544 | VRAM (Alloc/Reserved): 250.2/744.0 MiB | Time: 799.1s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9494 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 255.6/744.0 MiB | Time: 813.3s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9494 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 255.5/746.0 MiB | Time: 817.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9488 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 822.0s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9490 | Test Acc: 0.9544 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 827.7s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 829.4s
+
+Training 0 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 830.4s
+
+Training 1 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 832.1s
+
+Training 2 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 487.9/744.0 MiB | Total time: 831.3s
+
+Training 3 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 487.9/744.0 MiB | Total time: 831.9s
+
+Training 4 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 833.5s
+
+Training 5 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 834.9s
+
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.4s
+Training 6 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 485.4/744.0 MiB | Total time: 835.4s
+
+Training 7 done
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.3s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 486.6/744.0 MiB | Total time: 846.1s
+
+Training 8 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.1s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.0s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.9s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.9s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.5/746.0 MiB | Total time: 849.6s
+
+Training 9 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 854.2s
+
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+Training 10 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.4s
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 859.5s
+
+Training 11 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.4s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.66)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.7s
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5070 | Test Acc: 0.5149 | VRAM (Alloc/Reserved): 250.0/710.0 MiB | Time: 46.5s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5070 | Test Acc: 0.5149 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 43.4s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5107 | Test Acc: 0.5174 | VRAM (Alloc/Reserved): 251.2/712.0 MiB | Time: 44.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5107 | Test Acc: 0.5174 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 44.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5070 | Test Acc: 0.5149 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 48.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5060 | Test Acc: 0.5169 | VRAM (Alloc/Reserved): 256.4/694.0 MiB | Time: 45.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5107 | Test Acc: 0.5174 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 49.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5060 | Test Acc: 0.5169 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 48.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5060 | Test Acc: 0.5169 | VRAM (Alloc/Reserved): 256.4/694.0 MiB | Time: 49.2s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5064 | Test Acc: 0.5103 | VRAM (Alloc/Reserved): 254.3/712.0 MiB | Time: 47.2s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5064 | Test Acc: 0.5103 | VRAM (Alloc/Reserved): 254.2/712.0 MiB | Time: 48.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5064 | Test Acc: 0.5103 | VRAM (Alloc/Reserved): 257.9/694.0 MiB | Time: 48.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8019 | Test Acc: 0.8075 | VRAM (Alloc/Reserved): 251.7/742.0 MiB | Time: 88.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8019 | Test Acc: 0.8075 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 85.2s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8031 | Test Acc: 0.8069 | VRAM (Alloc/Reserved): 253.5/742.0 MiB | Time: 85.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8031 | Test Acc: 0.8069 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 85.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8019 | Test Acc: 0.8075 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 90.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8031 | Test Acc: 0.8086 | VRAM (Alloc/Reserved): 254.5/724.0 MiB | Time: 86.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8031 | Test Acc: 0.8069 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 90.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8031 | Test Acc: 0.8086 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 90.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8031 | Test Acc: 0.8086 | VRAM (Alloc/Reserved): 254.5/724.0 MiB | Time: 91.7s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8030 | Test Acc: 0.8072 | VRAM (Alloc/Reserved): 255.9/742.0 MiB | Time: 90.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8030 | Test Acc: 0.8072 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 90.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8030 | Test Acc: 0.8072 | VRAM (Alloc/Reserved): 253.9/724.0 MiB | Time: 90.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8407 | Test Acc: 0.8460 | VRAM (Alloc/Reserved): 253.3/742.0 MiB | Time: 131.5s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8407 | Test Acc: 0.8460 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 127.2s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8393 | Test Acc: 0.8434 | VRAM (Alloc/Reserved): 254.3/742.0 MiB | Time: 127.6s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8393 | Test Acc: 0.8434 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 127.4s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8407 | Test Acc: 0.8460 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 133.1s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8393 | Test Acc: 0.8434 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 132.8s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8396 | Test Acc: 0.8460 | VRAM (Alloc/Reserved): 252.5/724.0 MiB | Time: 129.6s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8396 | Test Acc: 0.8460 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 131.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8396 | Test Acc: 0.8460 | VRAM (Alloc/Reserved): 252.5/724.0 MiB | Time: 134.1s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8417 | Test Acc: 0.8465 | VRAM (Alloc/Reserved): 253.7/742.0 MiB | Time: 132.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8417 | Test Acc: 0.8465 | VRAM (Alloc/Reserved): 257.6/742.0 MiB | Time: 132.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8417 | Test Acc: 0.8465 | VRAM (Alloc/Reserved): 254.6/742.0 MiB | Time: 133.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8615 | Test Acc: 0.8731 | VRAM (Alloc/Reserved): 252.6/742.0 MiB | Time: 172.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8615 | Test Acc: 0.8731 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 168.8s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8608 | Test Acc: 0.8731 | VRAM (Alloc/Reserved): 253.7/742.0 MiB | Time: 169.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8608 | Test Acc: 0.8731 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 168.8s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8615 | Test Acc: 0.8731 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 175.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8608 | Test Acc: 0.8731 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 174.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8627 | Test Acc: 0.8733 | VRAM (Alloc/Reserved): 249.4/742.0 MiB | Time: 171.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8627 | Test Acc: 0.8733 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 174.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8627 | Test Acc: 0.8733 | VRAM (Alloc/Reserved): 249.4/742.0 MiB | Time: 176.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8606 | Test Acc: 0.8723 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 175.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8606 | Test Acc: 0.8723 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 175.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8606 | Test Acc: 0.8723 | VRAM (Alloc/Reserved): 255.4/744.0 MiB | Time: 176.7s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8889 | Test Acc: 0.8996 | VRAM (Alloc/Reserved): 252.8/742.0 MiB | Time: 214.3s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8889 | Test Acc: 0.8996 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 210.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8889 | Test Acc: 0.8990 | VRAM (Alloc/Reserved): 252.8/742.0 MiB | Time: 211.1s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8889 | Test Acc: 0.8990 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 210.2s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8889 | Test Acc: 0.8996 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 217.1s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8889 | Test Acc: 0.8990 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 215.7s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8892 | Test Acc: 0.8996 | VRAM (Alloc/Reserved): 250.5/742.0 MiB | Time: 213.7s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8892 | Test Acc: 0.8996 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 216.9s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8892 | Test Acc: 0.8996 | VRAM (Alloc/Reserved): 250.5/742.0 MiB | Time: 218.1s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8898 | Test Acc: 0.8987 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 218.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8898 | Test Acc: 0.8987 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 217.3s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8898 | Test Acc: 0.8987 | VRAM (Alloc/Reserved): 252.1/744.0 MiB | Time: 219.0s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9033 | Test Acc: 0.9119 | VRAM (Alloc/Reserved): 255.8/742.0 MiB | Time: 257.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9033 | Test Acc: 0.9119 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 252.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9018 | Test Acc: 0.9107 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 251.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9018 | Test Acc: 0.9107 | VRAM (Alloc/Reserved): 253.1/742.0 MiB | Time: 253.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9033 | Test Acc: 0.9119 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 258.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9018 | Test Acc: 0.9107 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 257.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9019 | Test Acc: 0.9120 | VRAM (Alloc/Reserved): 254.0/742.0 MiB | Time: 256.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9019 | Test Acc: 0.9120 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 259.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9019 | Test Acc: 0.9120 | VRAM (Alloc/Reserved): 254.0/742.0 MiB | Time: 260.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9028 | Test Acc: 0.9112 | VRAM (Alloc/Reserved): 254.2/744.0 MiB | Time: 260.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9028 | Test Acc: 0.9112 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 258.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9028 | Test Acc: 0.9112 | VRAM (Alloc/Reserved): 254.2/744.0 MiB | Time: 261.7s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9088 | Test Acc: 0.9151 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 300.2s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9088 | Test Acc: 0.9151 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 295.1s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9074 | Test Acc: 0.9156 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 292.7s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9074 | Test Acc: 0.9156 | VRAM (Alloc/Reserved): 250.3/744.0 MiB | Time: 295.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9088 | Test Acc: 0.9151 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 300.8s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9074 | Test Acc: 0.9156 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 298.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9091 | Test Acc: 0.9151 | VRAM (Alloc/Reserved): 251.8/742.0 MiB | Time: 299.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9091 | Test Acc: 0.9151 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 301.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9091 | Test Acc: 0.9151 | VRAM (Alloc/Reserved): 251.8/742.0 MiB | Time: 302.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9095 | Test Acc: 0.9152 | VRAM (Alloc/Reserved): 252.9/744.0 MiB | Time: 303.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9095 | Test Acc: 0.9152 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 301.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9095 | Test Acc: 0.9152 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 304.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9170 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 336.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9170 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 251.0/742.0 MiB | Time: 343.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9165 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 334.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9165 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 253.3/744.0 MiB | Time: 336.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9170 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 341.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9165 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 340.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9229 | VRAM (Alloc/Reserved): 250.3/742.0 MiB | Time: 341.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9229 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 344.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9229 | VRAM (Alloc/Reserved): 250.3/742.0 MiB | Time: 344.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9173 | Test Acc: 0.9235 | VRAM (Alloc/Reserved): 258.1/744.0 MiB | Time: 346.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9173 | Test Acc: 0.9235 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 344.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9173 | Test Acc: 0.9235 | VRAM (Alloc/Reserved): 254.2/744.0 MiB | Time: 346.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 377.9s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9288 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 375.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 253.0/742.0 MiB | Time: 385.9s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9288 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 379.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9293 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 383.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9288 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 381.6s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9207 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 249.6/742.0 MiB | Time: 384.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9207 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 386.6s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9207 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 249.6/742.0 MiB | Time: 386.6s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9216 | Test Acc: 0.9297 | VRAM (Alloc/Reserved): 255.8/744.0 MiB | Time: 389.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9216 | Test Acc: 0.9297 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 386.1s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9216 | Test Acc: 0.9297 | VRAM (Alloc/Reserved): 256.0/744.0 MiB | Time: 388.7s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9283 | Test Acc: 0.9320 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 419.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9263 | Test Acc: 0.9323 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 416.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9263 | Test Acc: 0.9323 | VRAM (Alloc/Reserved): 252.7/744.0 MiB | Time: 419.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9283 | Test Acc: 0.9320 | VRAM (Alloc/Reserved): 251.8/742.0 MiB | Time: 428.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9283 | Test Acc: 0.9320 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 424.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9263 | Test Acc: 0.9323 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 422.7s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9263 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 250.4/744.0 MiB | Time: 427.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9263 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 429.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9263 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 250.4/744.0 MiB | Time: 429.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9276 | Test Acc: 0.9331 | VRAM (Alloc/Reserved): 253.3/744.0 MiB | Time: 428.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9276 | Test Acc: 0.9331 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 432.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9276 | Test Acc: 0.9331 | VRAM (Alloc/Reserved): 256.2/744.0 MiB | Time: 429.0s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9296 | Test Acc: 0.9364 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 460.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9296 | Test Acc: 0.9360 | VRAM (Alloc/Reserved): 251.5/744.0 MiB | Time: 460.1s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9296 | Test Acc: 0.9360 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 459.2s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9296 | Test Acc: 0.9364 | VRAM (Alloc/Reserved): 251.6/742.0 MiB | Time: 470.5s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9296 | Test Acc: 0.9360 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 463.9s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9296 | Test Acc: 0.9364 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 466.4s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9301 | Test Acc: 0.9362 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 470.5s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9301 | Test Acc: 0.9362 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 471.5s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9301 | Test Acc: 0.9362 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 471.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9302 | Test Acc: 0.9356 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 471.4s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9302 | Test Acc: 0.9356 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 476.4s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9302 | Test Acc: 0.9356 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 470.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9342 | Test Acc: 0.9410 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 502.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9348 | Test Acc: 0.9408 | VRAM (Alloc/Reserved): 252.5/744.0 MiB | Time: 501.5s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9348 | Test Acc: 0.9408 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 501.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9342 | Test Acc: 0.9410 | VRAM (Alloc/Reserved): 252.4/742.0 MiB | Time: 513.2s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9348 | Test Acc: 0.9408 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 505.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9342 | Test Acc: 0.9410 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 508.2s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9352 | Test Acc: 0.9401 | VRAM (Alloc/Reserved): 247.9/744.0 MiB | Time: 512.5s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9352 | Test Acc: 0.9401 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 513.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9352 | Test Acc: 0.9401 | VRAM (Alloc/Reserved): 247.9/744.0 MiB | Time: 514.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9348 | Test Acc: 0.9412 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 513.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9348 | Test Acc: 0.9412 | VRAM (Alloc/Reserved): 252.0/744.0 MiB | Time: 519.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9348 | Test Acc: 0.9412 | VRAM (Alloc/Reserved): 254.8/744.0 MiB | Time: 512.2s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9424 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 544.3s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9373 | Test Acc: 0.9430 | VRAM (Alloc/Reserved): 250.3/744.0 MiB | Time: 542.9s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9373 | Test Acc: 0.9430 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 543.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9424 | VRAM (Alloc/Reserved): 254.3/742.0 MiB | Time: 554.7s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9373 | Test Acc: 0.9430 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 547.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9424 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 549.7s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9438 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 556.3s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9438 | VRAM (Alloc/Reserved): 250.2/744.0 MiB | Time: 555.6s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9438 | VRAM (Alloc/Reserved): 250.2/744.0 MiB | Time: 556.2s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9367 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 556.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9367 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 562.0s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9367 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 553.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9382 | Test Acc: 0.9444 | VRAM (Alloc/Reserved): 249.0/744.0 MiB | Time: 584.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9439 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 586.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9382 | Test Acc: 0.9444 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 585.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9439 | VRAM (Alloc/Reserved): 252.6/742.0 MiB | Time: 597.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9382 | Test Acc: 0.9444 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 589.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9439 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 591.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9394 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 598.4s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9394 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 598.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9394 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 598.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 257.2/744.0 MiB | Time: 598.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 250.8/744.0 MiB | Time: 594.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 604.8s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9413 | Test Acc: 0.9473 | VRAM (Alloc/Reserved): 251.9/744.0 MiB | Time: 625.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9471 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 629.3s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9413 | Test Acc: 0.9473 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 627.5s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9471 | VRAM (Alloc/Reserved): 255.4/742.0 MiB | Time: 639.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9413 | Test Acc: 0.9473 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 630.7s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9471 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 633.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9477 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 641.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9477 | VRAM (Alloc/Reserved): 251.9/744.0 MiB | Time: 641.8s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9477 | VRAM (Alloc/Reserved): 251.9/744.0 MiB | Time: 640.6s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9423 | Test Acc: 0.9474 | VRAM (Alloc/Reserved): 256.7/744.0 MiB | Time: 634.8s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9423 | Test Acc: 0.9474 | VRAM (Alloc/Reserved): 251.8/744.0 MiB | Time: 641.3s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9423 | Test Acc: 0.9474 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 647.6s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9427 | Test Acc: 0.9484 | VRAM (Alloc/Reserved): 253.9/744.0 MiB | Time: 666.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9444 | Test Acc: 0.9485 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 670.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9427 | Test Acc: 0.9484 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 669.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9427 | Test Acc: 0.9484 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 671.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9444 | Test Acc: 0.9485 | VRAM (Alloc/Reserved): 249.7/742.0 MiB | Time: 680.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9444 | Test Acc: 0.9485 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 674.5s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9442 | Test Acc: 0.9484 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 683.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9442 | Test Acc: 0.9484 | VRAM (Alloc/Reserved): 255.3/746.0 MiB | Time: 684.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9442 | Test Acc: 0.9484 | VRAM (Alloc/Reserved): 255.3/746.0 MiB | Time: 683.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9489 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 675.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9489 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 683.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9489 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 690.1s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9445 | Test Acc: 0.9514 | VRAM (Alloc/Reserved): 254.2/746.0 MiB | Time: 708.4s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9515 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 712.9s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9445 | Test Acc: 0.9514 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 711.7s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9445 | Test Acc: 0.9514 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 713.5s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9515 | VRAM (Alloc/Reserved): 252.4/742.0 MiB | Time: 722.4s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9515 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 716.2s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9508 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 725.6s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9508 | VRAM (Alloc/Reserved): 249.9/746.0 MiB | Time: 726.9s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9508 | VRAM (Alloc/Reserved): 249.9/746.0 MiB | Time: 725.4s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9450 | Test Acc: 0.9517 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 715.9s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9450 | Test Acc: 0.9517 | VRAM (Alloc/Reserved): 257.3/744.0 MiB | Time: 726.1s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9450 | Test Acc: 0.9517 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 732.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9446 | Test Acc: 0.9525 | VRAM (Alloc/Reserved): 251.3/746.0 MiB | Time: 751.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9454 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 754.5s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9446 | Test Acc: 0.9525 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 753.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9446 | Test Acc: 0.9525 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 755.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9454 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 250.9/742.0 MiB | Time: 764.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9454 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 758.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9446 | Test Acc: 0.9525 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 767.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9446 | Test Acc: 0.9525 | VRAM (Alloc/Reserved): 251.7/746.0 MiB | Time: 770.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9446 | Test Acc: 0.9525 | VRAM (Alloc/Reserved): 251.7/746.0 MiB | Time: 768.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9456 | Test Acc: 0.9530 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 757.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9456 | Test Acc: 0.9530 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 768.3s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9456 | Test Acc: 0.9530 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 775.2s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9486 | Test Acc: 0.9551 | VRAM (Alloc/Reserved): 251.5/746.0 MiB | Time: 793.0s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9483 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 795.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9486 | Test Acc: 0.9551 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 794.9s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9486 | Test Acc: 0.9551 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 797.1s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9483 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 251.4/742.0 MiB | Time: 806.0s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9483 | Test Acc: 0.9542 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 800.0s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9481 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 810.1s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9481 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 254.4/746.0 MiB | Time: 813.0s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9481 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 254.4/746.0 MiB | Time: 810.3s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9491 | Test Acc: 0.9550 | VRAM (Alloc/Reserved): 254.8/744.0 MiB | Time: 798.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9491 | Test Acc: 0.9550 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 810.5s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9491 | Test Acc: 0.9550 | VRAM (Alloc/Reserved): 254.6/744.0 MiB | Time: 817.3s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/746.0 MiB | Total time: 829.2s
+
+Training 12 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 831.8s
+
+Training 13 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 831.3s
+
+Training 14 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 833.4s
+
+Training 15 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.7/742.0 MiB | Total time: 842.2s
+
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 835.9s
+
+Training 16 done
+Training 17 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.8s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 844.5s
+
+Training 18 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.7/746.0 MiB | Total time: 844.5s
+
+Training 19 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.8/744.0 MiB | Total time: 828.7s
+
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.7/746.0 MiB | Total time: 844.8s
+
+Training 20 done
+Training 21 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.7s
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 485.2/744.0 MiB | Total time: 846.6s
+
+Training 22 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 487.9/744.0 MiB | Total time: 844.2s
+
+Training 23 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.4s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.33)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.0s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5302 | Test Acc: 0.5358 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 44.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5302 | Test Acc: 0.5358 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 45.8s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5302 | Test Acc: 0.5358 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 45.2s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5288 | Test Acc: 0.5348 | VRAM (Alloc/Reserved): 250.2/712.0 MiB | Time: 43.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5288 | Test Acc: 0.5348 | VRAM (Alloc/Reserved): 253.1/694.0 MiB | Time: 44.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5288 | Test Acc: 0.5348 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 47.1s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5305 | Test Acc: 0.5377 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 46.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5305 | Test Acc: 0.5377 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 47.8s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5277 | Test Acc: 0.5353 | VRAM (Alloc/Reserved): 254.3/712.0 MiB | Time: 46.8s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5305 | Test Acc: 0.5377 | VRAM (Alloc/Reserved): 250.2/712.0 MiB | Time: 47.3s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5277 | Test Acc: 0.5353 | VRAM (Alloc/Reserved): 254.2/712.0 MiB | Time: 48.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5277 | Test Acc: 0.5353 | VRAM (Alloc/Reserved): 254.2/712.0 MiB | Time: 47.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8029 | Test Acc: 0.8066 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 86.2s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8029 | Test Acc: 0.8066 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 87.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8029 | Test Acc: 0.8066 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 86.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8027 | Test Acc: 0.8065 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 85.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8027 | Test Acc: 0.8065 | VRAM (Alloc/Reserved): 251.7/726.0 MiB | Time: 86.1s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8027 | Test Acc: 0.8065 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 89.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8017 | Test Acc: 0.8039 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 89.1s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8017 | Test Acc: 0.8039 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 90.1s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8010 | Test Acc: 0.8039 | VRAM (Alloc/Reserved): 255.9/742.0 MiB | Time: 88.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8017 | Test Acc: 0.8039 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 89.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8010 | Test Acc: 0.8039 | VRAM (Alloc/Reserved): 256.9/742.0 MiB | Time: 91.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8010 | Test Acc: 0.8039 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 90.3s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8346 | Test Acc: 0.8421 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 127.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8346 | Test Acc: 0.8421 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 129.2s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8346 | Test Acc: 0.8421 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 127.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8353 | Test Acc: 0.8410 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 127.3s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8353 | Test Acc: 0.8410 | VRAM (Alloc/Reserved): 251.5/726.0 MiB | Time: 128.2s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8353 | Test Acc: 0.8410 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 131.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8343 | Test Acc: 0.8404 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 132.4s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8343 | Test Acc: 0.8404 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 132.3s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8333 | Test Acc: 0.8420 | VRAM (Alloc/Reserved): 253.7/742.0 MiB | Time: 130.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8343 | Test Acc: 0.8404 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 132.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8333 | Test Acc: 0.8420 | VRAM (Alloc/Reserved): 255.5/742.0 MiB | Time: 133.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8333 | Test Acc: 0.8420 | VRAM (Alloc/Reserved): 257.6/742.0 MiB | Time: 132.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8649 | Test Acc: 0.8762 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 169.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8649 | Test Acc: 0.8762 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 167.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8649 | Test Acc: 0.8762 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 170.9s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8659 | Test Acc: 0.8758 | VRAM (Alloc/Reserved): 255.7/744.0 MiB | Time: 169.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8659 | Test Acc: 0.8758 | VRAM (Alloc/Reserved): 252.9/726.0 MiB | Time: 170.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8659 | Test Acc: 0.8758 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 174.3s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8656 | Test Acc: 0.8773 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 174.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8656 | Test Acc: 0.8773 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 175.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8648 | Test Acc: 0.8765 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 172.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8656 | Test Acc: 0.8773 | VRAM (Alloc/Reserved): 255.7/744.0 MiB | Time: 175.1s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8648 | Test Acc: 0.8765 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 173.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8648 | Test Acc: 0.8765 | VRAM (Alloc/Reserved): 256.0/742.0 MiB | Time: 176.3s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8872 | Test Acc: 0.8984 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 207.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8872 | Test Acc: 0.8984 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 210.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8872 | Test Acc: 0.8984 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 213.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8870 | Test Acc: 0.8978 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 211.7s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8870 | Test Acc: 0.8978 | VRAM (Alloc/Reserved): 249.8/744.0 MiB | Time: 212.7s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8870 | Test Acc: 0.8978 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 217.0s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8859 | Test Acc: 0.8976 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 216.9s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8859 | Test Acc: 0.8976 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 217.7s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8872 | Test Acc: 0.8977 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 214.8s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8859 | Test Acc: 0.8976 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 217.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9012 | Test Acc: 0.9116 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 247.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8872 | Test Acc: 0.8977 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 215.2s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8872 | Test Acc: 0.8977 | VRAM (Alloc/Reserved): 254.2/742.0 MiB | Time: 218.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9012 | Test Acc: 0.9116 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 252.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9012 | Test Acc: 0.9116 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 255.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9006 | Test Acc: 0.9111 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 254.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9006 | Test Acc: 0.9111 | VRAM (Alloc/Reserved): 255.7/744.0 MiB | Time: 254.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9006 | Test Acc: 0.9111 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 260.1s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9011 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 260.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9011 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 260.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8998 | Test Acc: 0.9100 | VRAM (Alloc/Reserved): 254.2/744.0 MiB | Time: 256.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9011 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 261.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9099 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 287.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8998 | Test Acc: 0.9100 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 256.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8998 | Test Acc: 0.9100 | VRAM (Alloc/Reserved): 253.8/742.0 MiB | Time: 259.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9099 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 293.7s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9099 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 297.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9107 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 296.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9107 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 252.3/744.0 MiB | Time: 296.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9107 | Test Acc: 0.9174 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 303.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9104 | Test Acc: 0.9187 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 302.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9104 | Test Acc: 0.9187 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 302.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9097 | Test Acc: 0.9176 | VRAM (Alloc/Reserved): 252.9/744.0 MiB | Time: 298.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9104 | Test Acc: 0.9187 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 304.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9160 | Test Acc: 0.9229 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 327.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9097 | Test Acc: 0.9176 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 298.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9160 | Test Acc: 0.9229 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 335.1s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9097 | Test Acc: 0.9176 | VRAM (Alloc/Reserved): 254.8/744.0 MiB | Time: 302.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9160 | Test Acc: 0.9229 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 339.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9165 | Test Acc: 0.9224 | VRAM (Alloc/Reserved): 251.9/744.0 MiB | Time: 338.8s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9165 | Test Acc: 0.9224 | VRAM (Alloc/Reserved): 256.4/744.0 MiB | Time: 339.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9165 | Test Acc: 0.9224 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 346.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9164 | Test Acc: 0.9233 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 344.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9164 | Test Acc: 0.9233 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 344.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9230 | VRAM (Alloc/Reserved): 258.1/744.0 MiB | Time: 340.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9164 | Test Acc: 0.9233 | VRAM (Alloc/Reserved): 256.4/744.0 MiB | Time: 346.3s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9235 | Test Acc: 0.9290 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 370.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9230 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 340.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9235 | Test Acc: 0.9290 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 376.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9230 | VRAM (Alloc/Reserved): 257.9/744.0 MiB | Time: 344.1s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9235 | Test Acc: 0.9290 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 381.5s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9223 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 380.2s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9223 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 381.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9223 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 388.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9222 | Test Acc: 0.9290 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 386.9s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9222 | Test Acc: 0.9290 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 387.2s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 255.8/744.0 MiB | Time: 382.8s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9222 | Test Acc: 0.9290 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 387.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9281 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 412.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 381.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9281 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 417.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9217 | Test Acc: 0.9285 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 386.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9281 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 423.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9340 | VRAM (Alloc/Reserved): 255.7/744.0 MiB | Time: 421.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9340 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 424.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9340 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 430.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 428.8s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 430.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9328 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 424.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 430.3s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9308 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 454.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9328 | VRAM (Alloc/Reserved): 253.3/744.0 MiB | Time: 423.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9308 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 459.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9277 | Test Acc: 0.9328 | VRAM (Alloc/Reserved): 255.7/744.0 MiB | Time: 429.0s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9308 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 466.3s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9305 | Test Acc: 0.9361 | VRAM (Alloc/Reserved): 254.1/744.0 MiB | Time: 461.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9305 | Test Acc: 0.9361 | VRAM (Alloc/Reserved): 249.8/744.0 MiB | Time: 466.4s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9305 | Test Acc: 0.9361 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 473.1s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9361 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 471.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9361 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 473.0s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9315 | Test Acc: 0.9373 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 466.5s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9361 | VRAM (Alloc/Reserved): 249.8/744.0 MiB | Time: 472.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9400 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 497.3s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9315 | Test Acc: 0.9373 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 464.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9400 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 501.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9315 | Test Acc: 0.9373 | VRAM (Alloc/Reserved): 254.8/744.0 MiB | Time: 471.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9395 | VRAM (Alloc/Reserved): 252.0/744.0 MiB | Time: 501.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9400 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 509.2s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9395 | VRAM (Alloc/Reserved): 251.5/744.0 MiB | Time: 509.5s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9395 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 515.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9337 | Test Acc: 0.9390 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 514.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9337 | Test Acc: 0.9390 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 515.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9393 | VRAM (Alloc/Reserved): 252.0/744.0 MiB | Time: 508.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9337 | Test Acc: 0.9390 | VRAM (Alloc/Reserved): 251.5/744.0 MiB | Time: 514.7s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9371 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 538.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9393 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 506.8s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9371 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 542.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9347 | Test Acc: 0.9393 | VRAM (Alloc/Reserved): 252.9/744.0 MiB | Time: 512.9s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9368 | Test Acc: 0.9427 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 543.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9371 | Test Acc: 0.9432 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 551.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9368 | Test Acc: 0.9427 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 551.3s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9368 | Test Acc: 0.9427 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 558.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9430 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 556.6s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9430 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 557.7s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9436 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 550.2s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9430 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 557.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 580.9s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9436 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 548.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 584.6s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9377 | Test Acc: 0.9436 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 555.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9393 | Test Acc: 0.9442 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 584.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9396 | Test Acc: 0.9452 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 592.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9393 | Test Acc: 0.9442 | VRAM (Alloc/Reserved): 253.1/744.0 MiB | Time: 593.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9393 | Test Acc: 0.9442 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 600.9s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9399 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 598.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9399 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 600.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9386 | Test Acc: 0.9446 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 592.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9386 | Test Acc: 0.9446 | VRAM (Alloc/Reserved): 257.2/744.0 MiB | Time: 589.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9399 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 253.1/744.0 MiB | Time: 599.9s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9424 | Test Acc: 0.9471 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 623.7s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9424 | Test Acc: 0.9471 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 626.6s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 624.1s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9386 | Test Acc: 0.9446 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 597.0s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9424 | Test Acc: 0.9471 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 636.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 250.3/744.0 MiB | Time: 636.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9420 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 644.3s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9424 | Test Acc: 0.9466 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 641.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9424 | Test Acc: 0.9466 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 642.0s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9461 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 635.0s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9461 | VRAM (Alloc/Reserved): 251.8/744.0 MiB | Time: 630.1s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9424 | Test Acc: 0.9466 | VRAM (Alloc/Reserved): 250.3/744.0 MiB | Time: 642.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9482 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 666.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9482 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 668.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9439 | Test Acc: 0.9477 | VRAM (Alloc/Reserved): 253.1/744.0 MiB | Time: 665.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9461 | VRAM (Alloc/Reserved): 252.9/744.0 MiB | Time: 638.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9447 | Test Acc: 0.9482 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 678.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9439 | Test Acc: 0.9477 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 678.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9439 | Test Acc: 0.9477 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 686.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9437 | Test Acc: 0.9485 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 684.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9437 | Test Acc: 0.9490 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 676.8s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9437 | Test Acc: 0.9485 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 685.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9437 | Test Acc: 0.9490 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 672.1s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9443 | Test Acc: 0.9495 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 707.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9437 | Test Acc: 0.9485 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 684.9s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9443 | Test Acc: 0.9495 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 710.2s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9439 | Test Acc: 0.9495 | VRAM (Alloc/Reserved): 253.1/744.0 MiB | Time: 706.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9437 | Test Acc: 0.9490 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 679.8s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9443 | Test Acc: 0.9495 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 721.3s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9439 | Test Acc: 0.9495 | VRAM (Alloc/Reserved): 256.3/744.0 MiB | Time: 721.5s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9439 | Test Acc: 0.9495 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 728.4s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9445 | Test Acc: 0.9501 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 726.0s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9445 | Test Acc: 0.9501 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 726.6s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9437 | Test Acc: 0.9500 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 718.5s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9437 | Test Acc: 0.9500 | VRAM (Alloc/Reserved): 257.3/744.0 MiB | Time: 713.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9524 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 749.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9524 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 751.9s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9445 | Test Acc: 0.9501 | VRAM (Alloc/Reserved): 256.3/744.0 MiB | Time: 726.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9476 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 252.7/744.0 MiB | Time: 748.5s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9437 | Test Acc: 0.9500 | VRAM (Alloc/Reserved): 257.3/746.0 MiB | Time: 721.5s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9524 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 763.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9476 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 764.3s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9476 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 771.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9476 | Test Acc: 0.9526 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 768.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9470 | Test Acc: 0.9514 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 760.1s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9476 | Test Acc: 0.9526 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 768.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9470 | Test Acc: 0.9514 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 755.3s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9480 | Test Acc: 0.9540 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 790.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9476 | Test Acc: 0.9526 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 768.4s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9477 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 789.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9480 | Test Acc: 0.9540 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 793.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9470 | Test Acc: 0.9514 | VRAM (Alloc/Reserved): 253.9/746.0 MiB | Time: 764.0s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9480 | Test Acc: 0.9540 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 806.4s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9477 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 251.0/744.0 MiB | Time: 807.0s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9477 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 814.6s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9477 | Test Acc: 0.9531 | VRAM (Alloc/Reserved): 254.6/744.0 MiB | Time: 801.6s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9488 | Test Acc: 0.9537 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 810.2s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9488 | Test Acc: 0.9537 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 811.4s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9477 | Test Acc: 0.9531 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 796.9s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 826.8s
+
+Training 24 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.8/744.0 MiB | Total time: 825.6s
+
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9488 | Test Acc: 0.9537 | VRAM (Alloc/Reserved): 251.0/744.0 MiB | Time: 809.9s
+Training 25 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 830.5s
+
+Training 26 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9477 | Test Acc: 0.9531 | VRAM (Alloc/Reserved): 256.1/746.0 MiB | Time: 806.2s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 841.1s
+
+Training 27 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.4s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.7s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.1/744.0 MiB | Total time: 843.2s
+
+Training 28 done
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 850.5s
+
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+Training 29 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 842.4s
+
+Training 30 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.6s
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 485.2/744.0 MiB | Total time: 837.0s
+
+Training 31 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 845.9s
+
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+Training 32 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.1/744.0 MiB | Total time: 840.6s
+
+Training 33 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 487.9/744.0 MiB | Total time: 831.2s
+
+Training 34 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.4s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 485.0/746.0 MiB | Total time: 837.6s
+
+Training 35 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.9s
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=0.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5278 | Test Acc: 0.5349 | VRAM (Alloc/Reserved): 251.2/694.0 MiB | Time: 41.9s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.6s
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5278 | Test Acc: 0.5349 | VRAM (Alloc/Reserved): 256.4/694.0 MiB | Time: 43.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5278 | Test Acc: 0.5349 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 42.7s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.8s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5261 | Test Acc: 0.5291 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 40.3s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5261 | Test Acc: 0.5291 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 46.4s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5261 | Test Acc: 0.5291 | VRAM (Alloc/Reserved): 252.9/694.0 MiB | Time: 43.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5317 | Test Acc: 0.5338 | VRAM (Alloc/Reserved): 256.4/694.0 MiB | Time: 48.5s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5317 | Test Acc: 0.5338 | VRAM (Alloc/Reserved): 253.9/712.0 MiB | Time: 47.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5317 | Test Acc: 0.5338 | VRAM (Alloc/Reserved): 253.7/712.0 MiB | Time: 48.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7990 | Test Acc: 0.8026 | VRAM (Alloc/Reserved): 253.3/724.0 MiB | Time: 83.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5260 | Test Acc: 0.5275 | VRAM (Alloc/Reserved): 254.2/712.0 MiB | Time: 47.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7990 | Test Acc: 0.8026 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 83.4s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5260 | Test Acc: 0.5275 | VRAM (Alloc/Reserved): 254.2/712.0 MiB | Time: 47.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7990 | Test Acc: 0.8026 | VRAM (Alloc/Reserved): 253.4/724.0 MiB | Time: 86.3s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.5260 | Test Acc: 0.5275 | VRAM (Alloc/Reserved): 254.3/712.0 MiB | Time: 49.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8007 | Test Acc: 0.8049 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 81.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8007 | Test Acc: 0.8049 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 88.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8007 | Test Acc: 0.8049 | VRAM (Alloc/Reserved): 252.0/742.0 MiB | Time: 86.2s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7987 | Test Acc: 0.8032 | VRAM (Alloc/Reserved): 254.5/724.0 MiB | Time: 90.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7987 | Test Acc: 0.8032 | VRAM (Alloc/Reserved): 249.7/742.0 MiB | Time: 89.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7987 | Test Acc: 0.8032 | VRAM (Alloc/Reserved): 252.7/742.0 MiB | Time: 90.0s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8401 | Test Acc: 0.8470 | VRAM (Alloc/Reserved): 256.4/724.0 MiB | Time: 124.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7998 | Test Acc: 0.8043 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 89.4s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8401 | Test Acc: 0.8470 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 124.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7998 | Test Acc: 0.8043 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 89.2s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8401 | Test Acc: 0.8470 | VRAM (Alloc/Reserved): 251.7/724.0 MiB | Time: 128.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7998 | Test Acc: 0.8043 | VRAM (Alloc/Reserved): 255.9/742.0 MiB | Time: 91.8s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8397 | Test Acc: 0.8491 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 124.0s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8397 | Test Acc: 0.8491 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 132.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8397 | Test Acc: 0.8491 | VRAM (Alloc/Reserved): 252.1/742.0 MiB | Time: 128.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8387 | Test Acc: 0.8476 | VRAM (Alloc/Reserved): 252.5/724.0 MiB | Time: 133.5s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8387 | Test Acc: 0.8476 | VRAM (Alloc/Reserved): 252.0/742.0 MiB | Time: 131.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8658 | Test Acc: 0.8780 | VRAM (Alloc/Reserved): 252.2/724.0 MiB | Time: 166.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8658 | Test Acc: 0.8780 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 164.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8387 | Test Acc: 0.8476 | VRAM (Alloc/Reserved): 255.2/742.0 MiB | Time: 131.9s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8390 | Test Acc: 0.8466 | VRAM (Alloc/Reserved): 257.6/742.0 MiB | Time: 130.6s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8390 | Test Acc: 0.8466 | VRAM (Alloc/Reserved): 257.6/742.0 MiB | Time: 132.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8658 | Test Acc: 0.8780 | VRAM (Alloc/Reserved): 248.9/742.0 MiB | Time: 171.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8673 | Test Acc: 0.8774 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 165.8s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8390 | Test Acc: 0.8466 | VRAM (Alloc/Reserved): 253.7/742.0 MiB | Time: 134.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8673 | Test Acc: 0.8774 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 175.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8673 | Test Acc: 0.8774 | VRAM (Alloc/Reserved): 253.5/742.0 MiB | Time: 170.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8662 | Test Acc: 0.8783 | VRAM (Alloc/Reserved): 249.4/742.0 MiB | Time: 175.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8662 | Test Acc: 0.8783 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 173.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8869 | Test Acc: 0.8955 | VRAM (Alloc/Reserved): 252.7/724.0 MiB | Time: 207.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8869 | Test Acc: 0.8955 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 206.3s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8662 | Test Acc: 0.8783 | VRAM (Alloc/Reserved): 249.9/742.0 MiB | Time: 173.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8659 | Test Acc: 0.8779 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 172.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8659 | Test Acc: 0.8779 | VRAM (Alloc/Reserved): 252.9/742.0 MiB | Time: 174.3s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8869 | Test Acc: 0.8955 | VRAM (Alloc/Reserved): 252.3/742.0 MiB | Time: 213.8s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8852 | Test Acc: 0.8955 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 207.3s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8659 | Test Acc: 0.8779 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 177.6s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8852 | Test Acc: 0.8955 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 217.6s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8852 | Test Acc: 0.8955 | VRAM (Alloc/Reserved): 254.7/742.0 MiB | Time: 213.0s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8864 | Test Acc: 0.8975 | VRAM (Alloc/Reserved): 250.5/742.0 MiB | Time: 217.1s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8864 | Test Acc: 0.8975 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 214.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9025 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 253.1/742.0 MiB | Time: 248.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9025 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 247.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8864 | Test Acc: 0.8975 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 215.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8860 | Test Acc: 0.8961 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 214.6s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8860 | Test Acc: 0.8961 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 216.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9025 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 251.9/742.0 MiB | Time: 256.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9031 | Test Acc: 0.9114 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 249.8s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8860 | Test Acc: 0.8961 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 219.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9031 | Test Acc: 0.9114 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 260.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9031 | Test Acc: 0.9114 | VRAM (Alloc/Reserved): 253.4/742.0 MiB | Time: 255.2s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9102 | Test Acc: 0.9172 | VRAM (Alloc/Reserved): 252.8/742.0 MiB | Time: 290.2s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9102 | Test Acc: 0.9172 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 288.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9036 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 254.0/742.0 MiB | Time: 259.9s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9036 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 249.2/744.0 MiB | Time: 257.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9036 | Test Acc: 0.9122 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 257.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9032 | Test Acc: 0.9120 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 256.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9032 | Test Acc: 0.9120 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 258.8s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9102 | Test Acc: 0.9172 | VRAM (Alloc/Reserved): 249.6/742.0 MiB | Time: 298.8s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9103 | Test Acc: 0.9196 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 291.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.9032 | Test Acc: 0.9120 | VRAM (Alloc/Reserved): 254.2/744.0 MiB | Time: 261.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9103 | Test Acc: 0.9196 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 303.5s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9103 | Test Acc: 0.9196 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 297.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9186 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 330.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9186 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 332.1s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9089 | Test Acc: 0.9189 | VRAM (Alloc/Reserved): 251.8/742.0 MiB | Time: 302.1s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9089 | Test Acc: 0.9189 | VRAM (Alloc/Reserved): 253.0/744.0 MiB | Time: 298.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9089 | Test Acc: 0.9189 | VRAM (Alloc/Reserved): 246.8/744.0 MiB | Time: 299.8s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9106 | Test Acc: 0.9175 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 297.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9106 | Test Acc: 0.9175 | VRAM (Alloc/Reserved): 254.3/744.0 MiB | Time: 301.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9186 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 250.6/742.0 MiB | Time: 339.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9241 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 332.9s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9106 | Test Acc: 0.9175 | VRAM (Alloc/Reserved): 252.9/744.0 MiB | Time: 303.8s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9241 | VRAM (Alloc/Reserved): 254.8/744.0 MiB | Time: 339.4s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9241 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 347.5s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9224 | Test Acc: 0.9303 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 371.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9224 | Test Acc: 0.9303 | VRAM (Alloc/Reserved): 252.3/744.0 MiB | Time: 373.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9163 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 250.3/742.0 MiB | Time: 344.2s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9163 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 252.8/744.0 MiB | Time: 340.3s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9163 | Test Acc: 0.9242 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 341.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9170 | Test Acc: 0.9243 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 340.0s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9170 | Test Acc: 0.9243 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 344.9s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9224 | Test Acc: 0.9303 | VRAM (Alloc/Reserved): 255.9/742.0 MiB | Time: 381.8s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9214 | Test Acc: 0.9292 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 374.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9170 | Test Acc: 0.9243 | VRAM (Alloc/Reserved): 258.1/744.0 MiB | Time: 346.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9214 | Test Acc: 0.9292 | VRAM (Alloc/Reserved): 251.0/744.0 MiB | Time: 381.5s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9214 | Test Acc: 0.9292 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 390.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9278 | Test Acc: 0.9317 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 412.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9278 | Test Acc: 0.9317 | VRAM (Alloc/Reserved): 254.9/744.0 MiB | Time: 415.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9209 | Test Acc: 0.9294 | VRAM (Alloc/Reserved): 249.6/742.0 MiB | Time: 385.6s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9209 | Test Acc: 0.9294 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 381.8s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9209 | Test Acc: 0.9294 | VRAM (Alloc/Reserved): 252.7/744.0 MiB | Time: 383.0s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9222 | Test Acc: 0.9291 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 382.1s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9222 | Test Acc: 0.9291 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 387.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9278 | Test Acc: 0.9317 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 425.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9270 | Test Acc: 0.9330 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 416.3s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9222 | Test Acc: 0.9291 | VRAM (Alloc/Reserved): 255.8/744.0 MiB | Time: 389.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9270 | Test Acc: 0.9330 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 423.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9270 | Test Acc: 0.9330 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 434.0s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9371 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 454.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9267 | Test Acc: 0.9332 | VRAM (Alloc/Reserved): 250.4/744.0 MiB | Time: 426.4s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9371 | VRAM (Alloc/Reserved): 255.7/744.0 MiB | Time: 457.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9267 | Test Acc: 0.9332 | VRAM (Alloc/Reserved): 256.1/744.0 MiB | Time: 422.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9267 | Test Acc: 0.9332 | VRAM (Alloc/Reserved): 250.8/744.0 MiB | Time: 424.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9273 | Test Acc: 0.9327 | VRAM (Alloc/Reserved): 253.3/744.0 MiB | Time: 425.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9273 | Test Acc: 0.9327 | VRAM (Alloc/Reserved): 253.3/744.0 MiB | Time: 429.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9313 | Test Acc: 0.9371 | VRAM (Alloc/Reserved): 254.6/744.0 MiB | Time: 467.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9304 | Test Acc: 0.9378 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 457.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9273 | Test Acc: 0.9327 | VRAM (Alloc/Reserved): 253.6/744.0 MiB | Time: 431.8s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9304 | Test Acc: 0.9378 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 465.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9304 | Test Acc: 0.9378 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 476.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9341 | Test Acc: 0.9405 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 496.2s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9310 | Test Acc: 0.9366 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 467.5s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9310 | Test Acc: 0.9366 | VRAM (Alloc/Reserved): 249.4/744.0 MiB | Time: 463.8s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9341 | Test Acc: 0.9405 | VRAM (Alloc/Reserved): 249.5/744.0 MiB | Time: 498.8s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9310 | Test Acc: 0.9366 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 466.2s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9306 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 468.3s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9306 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 472.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9341 | Test Acc: 0.9405 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 510.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9331 | Test Acc: 0.9389 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 499.5s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9306 | Test Acc: 0.9372 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 474.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9331 | Test Acc: 0.9389 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 507.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9331 | Test Acc: 0.9389 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 519.1s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9333 | Test Acc: 0.9399 | VRAM (Alloc/Reserved): 247.9/744.0 MiB | Time: 509.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9362 | Test Acc: 0.9422 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 538.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9333 | Test Acc: 0.9399 | VRAM (Alloc/Reserved): 253.2/744.0 MiB | Time: 505.5s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9362 | Test Acc: 0.9422 | VRAM (Alloc/Reserved): 249.1/744.0 MiB | Time: 540.6s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9333 | Test Acc: 0.9399 | VRAM (Alloc/Reserved): 251.0/744.0 MiB | Time: 508.2s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9333 | Test Acc: 0.9399 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 510.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9333 | Test Acc: 0.9399 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 515.0s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9367 | Test Acc: 0.9419 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 541.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9362 | Test Acc: 0.9422 | VRAM (Alloc/Reserved): 251.4/744.0 MiB | Time: 552.7s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9333 | Test Acc: 0.9399 | VRAM (Alloc/Reserved): 252.0/744.0 MiB | Time: 516.8s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9367 | Test Acc: 0.9419 | VRAM (Alloc/Reserved): 257.9/744.0 MiB | Time: 550.2s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9367 | Test Acc: 0.9419 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 561.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9357 | Test Acc: 0.9416 | VRAM (Alloc/Reserved): 250.2/744.0 MiB | Time: 550.5s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9357 | Test Acc: 0.9416 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 546.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9392 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 579.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9392 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.1/744.0 MiB | Time: 581.8s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9357 | Test Acc: 0.9416 | VRAM (Alloc/Reserved): 250.7/744.0 MiB | Time: 549.6s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9362 | Test Acc: 0.9434 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 553.4s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9362 | Test Acc: 0.9434 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 557.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9383 | Test Acc: 0.9448 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 583.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9392 | Test Acc: 0.9453 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 596.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9362 | Test Acc: 0.9434 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 559.6s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9383 | Test Acc: 0.9448 | VRAM (Alloc/Reserved): 255.4/744.0 MiB | Time: 592.2s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9383 | Test Acc: 0.9448 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 603.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9393 | Test Acc: 0.9451 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 587.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9393 | Test Acc: 0.9451 | VRAM (Alloc/Reserved): 252.2/744.0 MiB | Time: 592.1s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9416 | Test Acc: 0.9467 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 621.3s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9416 | Test Acc: 0.9467 | VRAM (Alloc/Reserved): 251.0/744.0 MiB | Time: 623.5s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9393 | Test Acc: 0.9451 | VRAM (Alloc/Reserved): 253.4/744.0 MiB | Time: 591.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9389 | Test Acc: 0.9449 | VRAM (Alloc/Reserved): 257.2/744.0 MiB | Time: 596.5s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9465 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 624.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9389 | Test Acc: 0.9449 | VRAM (Alloc/Reserved): 257.2/744.0 MiB | Time: 600.0s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9416 | Test Acc: 0.9467 | VRAM (Alloc/Reserved): 251.1/744.0 MiB | Time: 638.7s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9389 | Test Acc: 0.9449 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 602.0s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9465 | VRAM (Alloc/Reserved): 254.0/744.0 MiB | Time: 633.9s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9417 | Test Acc: 0.9465 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 645.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9416 | Test Acc: 0.9474 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 662.3s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9430 | Test Acc: 0.9459 | VRAM (Alloc/Reserved): 251.9/744.0 MiB | Time: 633.4s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9430 | Test Acc: 0.9459 | VRAM (Alloc/Reserved): 247.6/744.0 MiB | Time: 629.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9416 | Test Acc: 0.9474 | VRAM (Alloc/Reserved): 250.1/744.0 MiB | Time: 666.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9430 | Test Acc: 0.9459 | VRAM (Alloc/Reserved): 251.6/744.0 MiB | Time: 633.5s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9414 | Test Acc: 0.9482 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 665.4s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9421 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 251.8/744.0 MiB | Time: 639.6s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9421 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 251.8/744.0 MiB | Time: 643.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9416 | Test Acc: 0.9474 | VRAM (Alloc/Reserved): 254.1/746.0 MiB | Time: 682.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9421 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 253.5/744.0 MiB | Time: 644.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9414 | Test Acc: 0.9482 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 675.5s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9421 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 255.3/746.0 MiB | Time: 672.3s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9441 | Test Acc: 0.9509 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 704.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9421 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 671.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9414 | Test Acc: 0.9482 | VRAM (Alloc/Reserved): 249.7/744.0 MiB | Time: 687.8s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9441 | Test Acc: 0.9509 | VRAM (Alloc/Reserved): 251.7/744.0 MiB | Time: 708.2s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9421 | Test Acc: 0.9472 | VRAM (Alloc/Reserved): 255.8/744.0 MiB | Time: 675.6s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9449 | Test Acc: 0.9506 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 706.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9423 | Test Acc: 0.9476 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 682.9s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9423 | Test Acc: 0.9476 | VRAM (Alloc/Reserved): 254.4/744.0 MiB | Time: 685.1s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9441 | Test Acc: 0.9509 | VRAM (Alloc/Reserved): 251.1/746.0 MiB | Time: 725.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9423 | Test Acc: 0.9476 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 687.5s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9443 | Test Acc: 0.9509 | VRAM (Alloc/Reserved): 249.9/746.0 MiB | Time: 711.9s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9449 | Test Acc: 0.9506 | VRAM (Alloc/Reserved): 252.7/744.0 MiB | Time: 718.0s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9466 | Test Acc: 0.9521 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 746.3s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9449 | Test Acc: 0.9506 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 729.7s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9443 | Test Acc: 0.9509 | VRAM (Alloc/Reserved): 255.3/744.0 MiB | Time: 713.4s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9466 | Test Acc: 0.9521 | VRAM (Alloc/Reserved): 254.5/744.0 MiB | Time: 749.4s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9443 | Test Acc: 0.9509 | VRAM (Alloc/Reserved): 252.4/744.0 MiB | Time: 716.9s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9526 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 748.7s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9504 | VRAM (Alloc/Reserved): 257.3/744.0 MiB | Time: 725.7s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9504 | VRAM (Alloc/Reserved): 257.3/744.0 MiB | Time: 727.8s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9466 | Test Acc: 0.9521 | VRAM (Alloc/Reserved): 249.3/746.0 MiB | Time: 767.6s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9447 | Test Acc: 0.9504 | VRAM (Alloc/Reserved): 255.0/744.0 MiB | Time: 729.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9533 | VRAM (Alloc/Reserved): 251.7/746.0 MiB | Time: 752.7s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9526 | VRAM (Alloc/Reserved): 252.9/744.0 MiB | Time: 760.7s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9533 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 755.1s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9487 | Test Acc: 0.9549 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 788.5s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9526 | VRAM (Alloc/Reserved): 251.2/744.0 MiB | Time: 772.1s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9487 | Test Acc: 0.9549 | VRAM (Alloc/Reserved): 257.4/744.0 MiB | Time: 791.2s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9533 | VRAM (Alloc/Reserved): 251.1/744.0 MiB | Time: 758.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9487 | Test Acc: 0.9543 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 790.3s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 768.1s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 253.8/744.0 MiB | Time: 770.2s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9487 | Test Acc: 0.9549 | VRAM (Alloc/Reserved): 255.5/746.0 MiB | Time: 810.6s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9467 | Test Acc: 0.9528 | VRAM (Alloc/Reserved): 255.1/744.0 MiB | Time: 772.7s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9479 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 254.4/746.0 MiB | Time: 794.9s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9487 | Test Acc: 0.9543 | VRAM (Alloc/Reserved): 255.6/744.0 MiB | Time: 802.8s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9479 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 796.3s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 824.5s
+
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9487 | Test Acc: 0.9543 | VRAM (Alloc/Reserved): 253.7/744.0 MiB | Time: 813.5s
+Training 36 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.4/744.0 MiB | Total time: 826.8s
+
+Training 37 done
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9479 | Test Acc: 0.9547 | VRAM (Alloc/Reserved): 256.4/744.0 MiB | Time: 799.9s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 825.9s
+
+Training 38 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.2s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: TrMean | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9479 | Test Acc: 0.9551 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 810.5s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9479 | Test Acc: 0.9551 | VRAM (Alloc/Reserved): 255.5/744.0 MiB | Time: 812.1s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.5/746.0 MiB | Total time: 846.5s
+
+Training 39 done
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN]   [Step 475/500] (95.0%) | Val Acc: 0.9479 | Test Acc: 0.9551 | VRAM (Alloc/Reserved): 254.6/744.0 MiB | Time: 812.8s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.2s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.7/746.0 MiB | Total time: 831.7s
+
+Training 40 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 486.6/744.0 MiB | Total time: 836.5s
+
+Training 41 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: MultiKrum | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 484.3/744.0 MiB | Total time: 833.8s
+
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 833.0s
+
+Training 42 done
+Training 43 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 483.9/744.0 MiB | Total time: 849.9s
+
+Training 44 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.7s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.2s
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.0s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.2s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4901 | Test Acc: 0.4912 | VRAM (Alloc/Reserved): 253.7/752.0 MiB | Time: 48.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.6s
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 487.9/744.0 MiB | Total time: 845.2s
+
+Training 45 done
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 487.9/744.0 MiB | Total time: 845.5s
+
+Training 46 done
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_ALittleIsEnough
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] [Training Complete] Peak VRAM (Alloc/Reserved): 485.2/744.0 MiB | Total time: 846.7s
+
+Training 47 done
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4673 | Test Acc: 0.4711 | VRAM (Alloc/Reserved): 253.8/732.0 MiB | Time: 60.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 6.0s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.8s
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 1 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.05 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4906 | Test Acc: 0.4929 | VRAM (Alloc/Reserved): 253.7/752.0 MiB | Time: 46.1s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 5.5s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4879 | Test Acc: 0.4921 | VRAM (Alloc/Reserved): 252.6/734.0 MiB | Time: 58.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4767 | Test Acc: 0.4801 | VRAM (Alloc/Reserved): 253.7/752.0 MiB | Time: 47.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8010 | Test Acc: 0.8061 | VRAM (Alloc/Reserved): 250.3/782.0 MiB | Time: 89.5s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4860 | Test Acc: 0.4909 | VRAM (Alloc/Reserved): 256.1/732.0 MiB | Time: 62.3s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4726 | Test Acc: 0.4763 | VRAM (Alloc/Reserved): 253.2/732.0 MiB | Time: 46.8s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4670 | Test Acc: 0.4735 | VRAM (Alloc/Reserved): 254.8/734.0 MiB | Time: 68.0s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4630 | Test Acc: 0.4704 | VRAM (Alloc/Reserved): 253.8/732.0 MiB | Time: 62.7s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4679 | Test Acc: 0.4712 | VRAM (Alloc/Reserved): 257.0/732.0 MiB | Time: 63.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8017 | Test Acc: 0.8061 | VRAM (Alloc/Reserved): 250.3/782.0 MiB | Time: 87.1s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4131 | Test Acc: 0.4142 | VRAM (Alloc/Reserved): 255.7/754.0 MiB | Time: 60.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7973 | Test Acc: 0.8036 | VRAM (Alloc/Reserved): 255.1/762.0 MiB | Time: 119.6s
+[ByzFL-SNN]   [Step 25/500] (5.0%) | Val Acc: 0.4023 | Test Acc: 0.4049 | VRAM (Alloc/Reserved): 259.5/752.0 MiB | Time: 60.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8014 | Test Acc: 0.8042 | VRAM (Alloc/Reserved): 251.6/764.0 MiB | Time: 115.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8000 | Test Acc: 0.8034 | VRAM (Alloc/Reserved): 250.3/782.0 MiB | Time: 89.0s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8348 | Test Acc: 0.8441 | VRAM (Alloc/Reserved): 250.8/782.0 MiB | Time: 131.2s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7986 | Test Acc: 0.8066 | VRAM (Alloc/Reserved): 256.4/762.0 MiB | Time: 89.1s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8354 | Test Acc: 0.8451 | VRAM (Alloc/Reserved): 250.8/782.0 MiB | Time: 128.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8001 | Test Acc: 0.8046 | VRAM (Alloc/Reserved): 252.1/780.0 MiB | Time: 119.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7972 | Test Acc: 0.8016 | VRAM (Alloc/Reserved): 254.2/764.0 MiB | Time: 126.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7993 | Test Acc: 0.8051 | VRAM (Alloc/Reserved): 252.4/762.0 MiB | Time: 120.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7985 | Test Acc: 0.8033 | VRAM (Alloc/Reserved): 254.7/762.0 MiB | Time: 121.4s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8333 | Test Acc: 0.8417 | VRAM (Alloc/Reserved): 250.8/782.0 MiB | Time: 130.1s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7841 | Test Acc: 0.7896 | VRAM (Alloc/Reserved): 257.3/786.0 MiB | Time: 115.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8665 | Test Acc: 0.8803 | VRAM (Alloc/Reserved): 254.4/782.0 MiB | Time: 173.6s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.7774 | Test Acc: 0.7818 | VRAM (Alloc/Reserved): 256.7/782.0 MiB | Time: 114.6s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8350 | Test Acc: 0.8434 | VRAM (Alloc/Reserved): 254.6/762.0 MiB | Time: 178.8s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8321 | Test Acc: 0.8400 | VRAM (Alloc/Reserved): 258.4/784.0 MiB | Time: 174.0s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8322 | Test Acc: 0.8426 | VRAM (Alloc/Reserved): 253.6/782.0 MiB | Time: 131.3s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8682 | Test Acc: 0.8805 | VRAM (Alloc/Reserved): 254.4/782.0 MiB | Time: 170.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8666 | Test Acc: 0.8772 | VRAM (Alloc/Reserved): 251.9/782.0 MiB | Time: 170.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8855 | Test Acc: 0.8968 | VRAM (Alloc/Reserved): 249.8/782.0 MiB | Time: 214.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8311 | Test Acc: 0.8407 | VRAM (Alloc/Reserved): 253.2/780.0 MiB | Time: 178.7s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8345 | Test Acc: 0.8426 | VRAM (Alloc/Reserved): 251.3/762.0 MiB | Time: 179.0s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8358 | Test Acc: 0.8434 | VRAM (Alloc/Reserved): 259.1/764.0 MiB | Time: 186.0s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8327 | Test Acc: 0.8422 | VRAM (Alloc/Reserved): 254.7/762.0 MiB | Time: 180.5s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8263 | Test Acc: 0.8319 | VRAM (Alloc/Reserved): 257.3/786.0 MiB | Time: 170.0s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8670 | Test Acc: 0.8773 | VRAM (Alloc/Reserved): 254.6/782.0 MiB | Time: 172.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8862 | Test Acc: 0.8975 | VRAM (Alloc/Reserved): 249.8/782.0 MiB | Time: 211.4s
+[ByzFL-SNN]   [Step 75/500] (15.0%) | Val Acc: 0.8235 | Test Acc: 0.8279 | VRAM (Alloc/Reserved): 259.0/782.0 MiB | Time: 169.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8673 | Test Acc: 0.8777 | VRAM (Alloc/Reserved): 254.9/762.0 MiB | Time: 237.4s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8648 | Test Acc: 0.8739 | VRAM (Alloc/Reserved): 252.5/784.0 MiB | Time: 233.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8842 | Test Acc: 0.8977 | VRAM (Alloc/Reserved): 253.1/782.0 MiB | Time: 212.1s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8964 | Test Acc: 0.9074 | VRAM (Alloc/Reserved): 255.5/782.0 MiB | Time: 256.0s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8839 | Test Acc: 0.8967 | VRAM (Alloc/Reserved): 257.7/784.0 MiB | Time: 214.4s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8965 | Test Acc: 0.9073 | VRAM (Alloc/Reserved): 255.5/782.0 MiB | Time: 252.5s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8656 | Test Acc: 0.8747 | VRAM (Alloc/Reserved): 251.4/784.0 MiB | Time: 238.7s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8679 | Test Acc: 0.8782 | VRAM (Alloc/Reserved): 250.5/782.0 MiB | Time: 237.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8677 | Test Acc: 0.8784 | VRAM (Alloc/Reserved): 249.6/764.0 MiB | Time: 243.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8598 | Test Acc: 0.8718 | VRAM (Alloc/Reserved): 258.1/786.0 MiB | Time: 225.8s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8632 | Test Acc: 0.8749 | VRAM (Alloc/Reserved): 253.8/762.0 MiB | Time: 240.6s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.8548 | Test Acc: 0.8661 | VRAM (Alloc/Reserved): 255.0/782.0 MiB | Time: 228.4s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8862 | Test Acc: 0.8974 | VRAM (Alloc/Reserved): 254.4/764.0 MiB | Time: 292.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8936 | Test Acc: 0.9066 | VRAM (Alloc/Reserved): 253.8/782.0 MiB | Time: 254.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9076 | Test Acc: 0.9144 | VRAM (Alloc/Reserved): 252.9/784.0 MiB | Time: 298.0s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8808 | Test Acc: 0.8923 | VRAM (Alloc/Reserved): 252.2/784.0 MiB | Time: 293.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8963 | Test Acc: 0.9058 | VRAM (Alloc/Reserved): 255.8/784.0 MiB | Time: 257.1s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9062 | Test Acc: 0.9136 | VRAM (Alloc/Reserved): 252.9/784.0 MiB | Time: 294.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8772 | Test Acc: 0.8904 | VRAM (Alloc/Reserved): 259.5/786.0 MiB | Time: 278.1s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8791 | Test Acc: 0.8909 | VRAM (Alloc/Reserved): 255.7/784.0 MiB | Time: 298.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8841 | Test Acc: 0.8970 | VRAM (Alloc/Reserved): 258.8/784.0 MiB | Time: 293.7s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8842 | Test Acc: 0.8978 | VRAM (Alloc/Reserved): 256.0/764.0 MiB | Time: 300.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9063 | Test Acc: 0.9136 | VRAM (Alloc/Reserved): 256.9/784.0 MiB | Time: 294.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9137 | Test Acc: 0.9222 | VRAM (Alloc/Reserved): 256.1/784.0 MiB | Time: 340.0s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8798 | Test Acc: 0.8923 | VRAM (Alloc/Reserved): 253.2/784.0 MiB | Time: 301.8s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8972 | Test Acc: 0.9072 | VRAM (Alloc/Reserved): 251.2/784.0 MiB | Time: 347.5s
+[ByzFL-SNN]   [Step 125/500] (25.0%) | Val Acc: 0.8732 | Test Acc: 0.8848 | VRAM (Alloc/Reserved): 258.9/782.0 MiB | Time: 287.5s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9059 | Test Acc: 0.9126 | VRAM (Alloc/Reserved): 255.8/784.0 MiB | Time: 299.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9139 | Test Acc: 0.9220 | VRAM (Alloc/Reserved): 256.1/784.0 MiB | Time: 336.5s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8941 | Test Acc: 0.9034 | VRAM (Alloc/Reserved): 253.0/784.0 MiB | Time: 353.6s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9140 | Test Acc: 0.9220 | VRAM (Alloc/Reserved): 253.3/784.0 MiB | Time: 335.8s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9186 | Test Acc: 0.9256 | VRAM (Alloc/Reserved): 253.5/784.0 MiB | Time: 381.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8916 | Test Acc: 0.9036 | VRAM (Alloc/Reserved): 256.4/786.0 MiB | Time: 333.1s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8952 | Test Acc: 0.9074 | VRAM (Alloc/Reserved): 254.7/784.0 MiB | Time: 350.3s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8959 | Test Acc: 0.9072 | VRAM (Alloc/Reserved): 252.5/764.0 MiB | Time: 357.7s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8925 | Test Acc: 0.9029 | VRAM (Alloc/Reserved): 255.6/784.0 MiB | Time: 358.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9138 | Test Acc: 0.9212 | VRAM (Alloc/Reserved): 256.4/784.0 MiB | Time: 340.3s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9186 | Test Acc: 0.9258 | VRAM (Alloc/Reserved): 253.5/784.0 MiB | Time: 377.2s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8922 | Test Acc: 0.9020 | VRAM (Alloc/Reserved): 254.5/784.0 MiB | Time: 361.0s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9087 | Test Acc: 0.9159 | VRAM (Alloc/Reserved): 256.2/784.0 MiB | Time: 405.6s
+[ByzFL-SNN]   [Step 150/500] (30.0%) | Val Acc: 0.8858 | Test Acc: 0.8980 | VRAM (Alloc/Reserved): 259.0/782.0 MiB | Time: 347.3s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9181 | Test Acc: 0.9271 | VRAM (Alloc/Reserved): 253.4/784.0 MiB | Time: 377.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9239 | Test Acc: 0.9303 | VRAM (Alloc/Reserved): 254.9/784.0 MiB | Time: 423.2s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9042 | Test Acc: 0.9134 | VRAM (Alloc/Reserved): 257.4/784.0 MiB | Time: 413.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9189 | Test Acc: 0.9270 | VRAM (Alloc/Reserved): 255.5/784.0 MiB | Time: 381.0s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9252 | Test Acc: 0.9295 | VRAM (Alloc/Reserved): 254.9/784.0 MiB | Time: 417.6s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9061 | Test Acc: 0.9116 | VRAM (Alloc/Reserved): 258.9/786.0 MiB | Time: 387.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9103 | Test Acc: 0.9164 | VRAM (Alloc/Reserved): 255.1/784.0 MiB | Time: 408.3s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9097 | Test Acc: 0.9161 | VRAM (Alloc/Reserved): 250.1/764.0 MiB | Time: 415.5s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9044 | Test Acc: 0.9123 | VRAM (Alloc/Reserved): 253.7/784.0 MiB | Time: 418.5s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9243 | Test Acc: 0.9299 | VRAM (Alloc/Reserved): 257.0/784.0 MiB | Time: 418.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9181 | Test Acc: 0.9256 | VRAM (Alloc/Reserved): 256.6/784.0 MiB | Time: 462.4s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9033 | Test Acc: 0.9123 | VRAM (Alloc/Reserved): 250.6/784.0 MiB | Time: 422.1s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9268 | Test Acc: 0.9324 | VRAM (Alloc/Reserved): 253.2/784.0 MiB | Time: 464.8s
+[ByzFL-SNN]   [Step 175/500] (35.0%) | Val Acc: 0.9006 | Test Acc: 0.9115 | VRAM (Alloc/Reserved): 256.0/784.0 MiB | Time: 407.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9237 | Test Acc: 0.9303 | VRAM (Alloc/Reserved): 254.9/784.0 MiB | Time: 420.9s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9265 | Test Acc: 0.9343 | VRAM (Alloc/Reserved): 253.2/784.0 MiB | Time: 458.7s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9114 | Test Acc: 0.9204 | VRAM (Alloc/Reserved): 255.6/786.0 MiB | Time: 473.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9145 | Test Acc: 0.9230 | VRAM (Alloc/Reserved): 260.0/786.0 MiB | Time: 442.1s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9270 | Test Acc: 0.9330 | VRAM (Alloc/Reserved): 253.2/784.0 MiB | Time: 458.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9303 | Test Acc: 0.9346 | VRAM (Alloc/Reserved): 251.3/784.0 MiB | Time: 505.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9177 | Test Acc: 0.9236 | VRAM (Alloc/Reserved): 254.4/784.0 MiB | Time: 465.9s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9187 | Test Acc: 0.9245 | VRAM (Alloc/Reserved): 254.4/766.0 MiB | Time: 474.1s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9113 | Test Acc: 0.9202 | VRAM (Alloc/Reserved): 252.0/784.0 MiB | Time: 478.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9280 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 254.9/784.0 MiB | Time: 459.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9304 | Test Acc: 0.9361 | VRAM (Alloc/Reserved): 251.3/784.0 MiB | Time: 499.2s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9243 | Test Acc: 0.9294 | VRAM (Alloc/Reserved): 253.9/784.0 MiB | Time: 520.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9117 | Test Acc: 0.9202 | VRAM (Alloc/Reserved): 255.6/784.0 MiB | Time: 482.5s
+[ByzFL-SNN]   [Step 200/500] (40.0%) | Val Acc: 0.9105 | Test Acc: 0.9187 | VRAM (Alloc/Reserved): 259.6/784.0 MiB | Time: 469.0s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9291 | Test Acc: 0.9350 | VRAM (Alloc/Reserved): 253.3/784.0 MiB | Time: 499.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9190 | Test Acc: 0.9251 | VRAM (Alloc/Reserved): 252.8/786.0 MiB | Time: 533.2s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9310 | Test Acc: 0.9395 | VRAM (Alloc/Reserved): 258.7/784.0 MiB | Time: 547.7s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9203 | Test Acc: 0.9281 | VRAM (Alloc/Reserved): 256.3/786.0 MiB | Time: 498.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9313 | Test Acc: 0.9364 | VRAM (Alloc/Reserved): 257.5/784.0 MiB | Time: 501.1s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9330 | Test Acc: 0.9385 | VRAM (Alloc/Reserved): 258.7/784.0 MiB | Time: 539.9s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9232 | Test Acc: 0.9302 | VRAM (Alloc/Reserved): 256.3/784.0 MiB | Time: 525.1s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9232 | Test Acc: 0.9295 | VRAM (Alloc/Reserved): 256.2/766.0 MiB | Time: 532.6s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9287 | Test Acc: 0.9329 | VRAM (Alloc/Reserved): 252.0/784.0 MiB | Time: 575.1s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9187 | Test Acc: 0.9258 | VRAM (Alloc/Reserved): 255.1/784.0 MiB | Time: 539.3s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9323 | Test Acc: 0.9385 | VRAM (Alloc/Reserved): 256.5/784.0 MiB | Time: 540.4s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9184 | Test Acc: 0.9255 | VRAM (Alloc/Reserved): 255.3/784.0 MiB | Time: 543.0s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9347 | Test Acc: 0.9407 | VRAM (Alloc/Reserved): 253.7/784.0 MiB | Time: 589.3s
+[ByzFL-SNN]   [Step 225/500] (45.0%) | Val Acc: 0.9170 | Test Acc: 0.9246 | VRAM (Alloc/Reserved): 258.9/784.0 MiB | Time: 527.9s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9322 | Test Acc: 0.9384 | VRAM (Alloc/Reserved): 253.3/784.0 MiB | Time: 543.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9348 | Test Acc: 0.9407 | VRAM (Alloc/Reserved): 253.7/784.0 MiB | Time: 581.4s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9237 | Test Acc: 0.9292 | VRAM (Alloc/Reserved): 253.7/786.0 MiB | Time: 593.1s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9253 | Test Acc: 0.9328 | VRAM (Alloc/Reserved): 261.1/786.0 MiB | Time: 554.3s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9344 | Test Acc: 0.9409 | VRAM (Alloc/Reserved): 253.1/784.0 MiB | Time: 581.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9280 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 255.1/784.0 MiB | Time: 581.3s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9281 | Test Acc: 0.9335 | VRAM (Alloc/Reserved): 255.6/766.0 MiB | Time: 589.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9364 | Test Acc: 0.9419 | VRAM (Alloc/Reserved): 256.8/784.0 MiB | Time: 630.7s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9308 | Test Acc: 0.9383 | VRAM (Alloc/Reserved): 251.6/784.0 MiB | Time: 632.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9242 | Test Acc: 0.9296 | VRAM (Alloc/Reserved): 254.9/784.0 MiB | Time: 598.8s
+[ByzFL-SNN]   [Step 350/500] (70.0%) | Val Acc: 0.9347 | Test Acc: 0.9405 | VRAM (Alloc/Reserved): 257.6/784.0 MiB | Time: 585.8s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9377 | Test Acc: 0.9424 | VRAM (Alloc/Reserved): 256.8/784.0 MiB | Time: 623.2s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9243 | Test Acc: 0.9304 | VRAM (Alloc/Reserved): 255.3/784.0 MiB | Time: 602.9s
+[ByzFL-SNN]   [Step 250/500] (50.0%) | Val Acc: 0.9222 | Test Acc: 0.9284 | VRAM (Alloc/Reserved): 256.8/784.0 MiB | Time: 587.2s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9361 | Test Acc: 0.9430 | VRAM (Alloc/Reserved): 255.2/784.0 MiB | Time: 622.1s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9257 | Test Acc: 0.9321 | VRAM (Alloc/Reserved): 253.2/786.0 MiB | Time: 653.6s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9290 | Test Acc: 0.9360 | VRAM (Alloc/Reserved): 254.9/786.0 MiB | Time: 608.7s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9397 | Test Acc: 0.9443 | VRAM (Alloc/Reserved): 255.2/784.0 MiB | Time: 672.2s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9312 | Test Acc: 0.9367 | VRAM (Alloc/Reserved): 257.7/784.0 MiB | Time: 638.1s
+[ByzFL-SNN]   [Step 375/500] (75.0%) | Val Acc: 0.9371 | Test Acc: 0.9425 | VRAM (Alloc/Reserved): 255.1/784.0 MiB | Time: 626.9s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9314 | Test Acc: 0.9366 | VRAM (Alloc/Reserved): 252.5/766.0 MiB | Time: 647.4s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9396 | Test Acc: 0.9439 | VRAM (Alloc/Reserved): 255.2/784.0 MiB | Time: 663.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9350 | Test Acc: 0.9401 | VRAM (Alloc/Reserved): 254.4/784.0 MiB | Time: 689.9s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9258 | Test Acc: 0.9336 | VRAM (Alloc/Reserved): 255.1/784.0 MiB | Time: 660.0s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9396 | Test Acc: 0.9439 | VRAM (Alloc/Reserved): 250.8/784.0 MiB | Time: 662.8s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9264 | Test Acc: 0.9334 | VRAM (Alloc/Reserved): 256.0/784.0 MiB | Time: 663.4s
+[ByzFL-SNN]   [Step 275/500] (55.0%) | Val Acc: 0.9255 | Test Acc: 0.9319 | VRAM (Alloc/Reserved): 259.8/784.0 MiB | Time: 646.2s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9414 | Test Acc: 0.9464 | VRAM (Alloc/Reserved): 254.0/784.0 MiB | Time: 713.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9332 | Test Acc: 0.9384 | VRAM (Alloc/Reserved): 254.8/786.0 MiB | Time: 665.3s
+[ByzFL-SNN]   [Step 400/500] (80.0%) | Val Acc: 0.9393 | Test Acc: 0.9444 | VRAM (Alloc/Reserved): 254.9/784.0 MiB | Time: 668.4s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9284 | Test Acc: 0.9354 | VRAM (Alloc/Reserved): 251.2/786.0 MiB | Time: 713.2s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9412 | Test Acc: 0.9454 | VRAM (Alloc/Reserved): 254.0/784.0 MiB | Time: 704.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9342 | Test Acc: 0.9397 | VRAM (Alloc/Reserved): 256.0/784.0 MiB | Time: 695.3s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9342 | Test Acc: 0.9392 | VRAM (Alloc/Reserved): 257.0/766.0 MiB | Time: 706.1s
+[ByzFL-SNN]   [Step 425/500] (85.0%) | Val Acc: 0.9415 | Test Acc: 0.9468 | VRAM (Alloc/Reserved): 250.1/784.0 MiB | Time: 703.5s
+[ByzFL-SNN]   [Step 325/500] (65.0%) | Val Acc: 0.9378 | Test Acc: 0.9443 | VRAM (Alloc/Reserved): 253.0/784.0 MiB | Time: 747.1s
+[ByzFL-SNN]   [Step 450/500] (90.0%) | Val Acc: 0.9425 | Test Acc: 0.9473 | VRAM (Alloc/Reserved): 258.6/784.0 MiB | Time: 755.9s
+[ByzFL-SNN]   [Step 300/500] (60.0%) | Val Acc: 0.9290 | Test Acc: 0.9357 | VRAM (Alloc/Reserved): 252.8/784.0 MiB | Time: 719.7s
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 7 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

@@ -20,10 +20,10 @@ NB_JOBS="${1:-8}"
 mkdir -p results/logs
 
 CONFIGS=(
-  "configs/threshold_sweep/config_thr10.json"
   "configs/threshold_sweep/config_thr08.json"
   "configs/threshold_sweep/config_thr06.json"
   "configs/threshold_sweep/config_thr04.json"
+  "configs/threshold_sweep/config_thr10.json"
 )
 
 echo "========================================="
@@ -37,7 +37,7 @@ for config in "${CONFIGS[@]}"; do
   echo "[$(date)] Starting ${config} -> ${log_file}"
   python run_snn_robust_sweeps.py \
     --config "${config}" \
-    --distribute_gpus --nb_jobs "${NB_JOBS}" \
+    --gpu 0 --nb_jobs "${NB_JOBS}" \
     > "${log_file}" 2>&1 || echo "  ${config} encountered errors, see ${log_file}"
   echo "[$(date)] Finished ${config}"
 done

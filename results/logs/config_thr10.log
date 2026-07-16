@@ -1,0 +1,65 @@
+=======================================================
+Starting Robust Sweep using configs/threshold_sweep/config_thr10.json on GPU 0 with 10 jobs
+Pre-downloading MNIST dataset sequentially to avoid parallel race conditions...
+MNIST dataset is ready!
+Total trainings to do: 360
+Running 10 trainings in parallel...
+Traceback (most recent call last):
+  File "/localhome/bendouro/ByzFL_snn/byzfl/venv/lib/python3.12/site-packages/numpy/lib/npyio.py", line 546, in save
+    format.write_array(fid, arr, allow_pickle=allow_pickle,
+  File "/localhome/bendouro/ByzFL_snn/byzfl/venv/lib/python3.12/site-packages/numpy/lib/format.py", line 730, in write_array
+    array.tofile(fp)
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/benchmark.py", line 224, in run_training
+    start_training(params)
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/train.py", line 403, in start_training
+    np.save(os.path.join(client_vector_snapshot_dir, f"step_{training_step}.npy"), stacked)
+  File "/localhome/bendouro/ByzFL_snn/byzfl/venv/lib/python3.12/site-packages/numpy/lib/npyio.py", line 544, in save
+    with file_ctx as fid:
+OSError: [Errno 28] No space left on device
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough_neg1
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 9.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8341 | Test Acc: 0.8443 | VRAM (Alloc/Reserved): 254.5/724.0 MiB | Time: 138.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9057 | Test Acc: 0.9139 | VRAM (Alloc/Reserved): 249.4/742.0 MiB | Time: 264.0s
+
+[ERROR] Training failed for config: attack=Optimal_ALittleIsEnough_neg1, aggregator=GeometricMedian, f=0. Error: [Errno 28] No space left on device
+Training 0 done
+Traceback (most recent call last):
+  File "/localhome/bendouro/ByzFL_snn/byzfl/venv/lib/python3.12/site-packages/numpy/lib/npyio.py", line 546, in save
+    format.write_array(fid, arr, allow_pickle=allow_pickle,
+  File "/localhome/bendouro/ByzFL_snn/byzfl/venv/lib/python3.12/site-packages/numpy/lib/format.py", line 730, in write_array
+    array.tofile(fp)
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/benchmark.py", line 224, in run_training
+    start_training(params)
+  File "/localhome/bendouro/ByzFL_snn/byzfl/byzfl/benchmark/train.py", line 403, in start_training
+    np.save(os.path.join(client_vector_snapshot_dir, f"step_{training_step}.npy"), stacked)
+  File "/localhome/bendouro/ByzFL_snn/byzfl/venv/lib/python3.12/site-packages/numpy/lib/npyio.py", line 544, in save
+    with file_ctx as fid:
+OSError: [Errno 28] No space left on device
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1278 | Test Acc: 0.1263 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 10.5s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8403 | Test Acc: 0.8477 | VRAM (Alloc/Reserved): 252.6/740.0 MiB | Time: 135.2s
+[ByzFL-SNN]   [Step 100/500] (20.0%) | Val Acc: 0.9067 | Te
