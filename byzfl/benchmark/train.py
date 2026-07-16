@@ -11,6 +11,7 @@ from byzfl import Client, Server, ByzantineClient, DataDistributor
 from byzfl.utils.misc import set_random_seed
 from byzfl.benchmark.managers import ParamsManager, FileManager, get_snn_suffix, retry_on_error
 from byzfl.benchmark.data import load_and_split_data
+from byzfl.utils.gradient_geometry import compute_layer_boundaries, compute_geometry_metrics
 
 
 # ===================== Sparsity Metric Functions =====================
@@ -279,6 +280,12 @@ def start_training(params):
     client_vector_snapshot_steps = []
     client_vector_snapshot_dir = None
 
+    # Gradient-geometry baseline (f=0 correlation study): online per-step
+    # consensus/dispersion/sign-agreement metrics on the honest post-momentum
+    # vectors, no raw vectors ever logged.
+    geometry_layer_boundaries = compute_layer_boundaries(honest_clients[0].model)
+    geometry_rows = []
+
     # Sparsity metric arrays
     sparsity_metric_names = [
         'hoyer', 'gini', 'l1_l2_ratio', 'near_zero_1e5', 'near_zero_1e3',
@@ -370,6 +377,18 @@ def start_training(params):
             
             # Aggregate Honest Gradients
             honest_gradients = [client.get_flat_gradients_with_momentum() for client in honest_clients]
+
+            # Gradient-geometry baseline: online consensus/dispersion/sign-agreement
+            # metrics on the honest post-momentum vectors, every step, no vectors logged.
+            geometry_row = compute_geometry_metrics(honest_gradients, geometry_layer_boundaries)
+            geometry_row["step"] = training_step
+            layer_firing_rates = defaultdict(list)
+            for c in honest_clients:
+                for layer_name, rate in c.get_last_layer_firing_rates().items():
+                    layer_firing_rates[layer_name].append(rate)
+            for layer_name, rates in layer_firing_rates.items():
+                geometry_row[f"fr_{layer_name}"] = np.mean(rates)
+            geometry_rows.append(geometry_row)
 
             # EXP2: mean firing rate across honest clients (SNN only; NaN for non-spiking models)
             client_firing_rates = [c.get_last_firing_rate() for c in honest_clients]
@@ -558,6 +577,20 @@ def start_training(params):
                 for row in per_layer_firing_rate_rows:
                     writer.writerow(row)
         retry_on_error(do_write_layer_firing_rate)
+
+    if geometry_rows:
+        geometry_fieldnames = sorted({key for row in geometry_rows for key in row.keys() if key != "step"})
+        geometry_filename = (
+            f"metrics_geometry_tr_seed_{training_seed}_dd_seed_{dd_seed}.csv" if not clean else "metrics_geometry.csv"
+        )
+        geometry_path = os.path.join(file_manager.get_experiment_path(), geometry_filename)
+        def do_write_geometry():
+            with open(geometry_path, "w", newline="") as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=["step"] + geometry_fieldnames)
+                writer.writeheader()
+                for row in geometry_rows:
+                    writer.writerow(row)
+        retry_on_error(do_write_geometry)
 
     # Save sparsity metrics
     for metric_name in sparsity_metric_names:
