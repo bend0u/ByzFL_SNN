@@ -110,7 +110,8 @@
         "evaluation_delta": 50,
         "batch_size_evaluation": 128,
         "evaluate_on_test": true,
-        "store_per_client_metrics": false,
+        "store_per_client_metrics": true,
+        "store_client_vectors": false,
         "store_models": false,
         "data_folder": "./data",
         "results_directory": "./results/snn/threshold_sweep/thr_10"

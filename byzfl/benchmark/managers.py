@@ -268,6 +268,7 @@ class ParamsManager(object):
                 "batch_size_evaluation": self.get_batch_size_evaluation(),
                 "evaluate_on_test": self.get_evaluate_on_test(),
                 "store_per_client_metrics": self.get_store_per_client_metrics(),
+                "store_client_vectors": self.get_store_client_vectors(),
                 "store_models": self.get_store_models(),
                 "data_folder": self.get_data_folder(),
                 "results_directory": self.get_results_directory()
@@ -562,6 +563,19 @@ class ParamsManager(object):
     def get_store_per_client_metrics(self):
         default = True
         path = ["evaluation_and_results", "store_per_client_metrics"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
+    def get_store_client_vectors(self):
+        """Whether to dump the raw per-client gradient vectors sent to
+        aggregation (post-momentum, pre-pre-aggregation) every 100 steps.
+        Defaults to False: these are ~nb_honest_clients x d floats per
+        snapshot (tens of MB per run for this project's SNN model), so
+        opting in is required explicitly instead of piggy-backing on
+        store_per_client_metrics (which also gates cheap per-client loss/
+        accuracy scalars and should stay on by default)."""
+        default = False
+        path = ["evaluation_and_results", "store_client_vectors"]
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
 

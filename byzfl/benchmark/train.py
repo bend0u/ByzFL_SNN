@@ -247,6 +247,7 @@ def start_training(params):
 
     store_models = params_manager.get_store_models()
     store_per_client_metrics = params_manager.get_store_per_client_metrics()
+    store_client_vectors = params_manager.get_store_client_vectors()
 
     val_accuracy_list = np.array([])
     test_accuracy_list = np.array([])
@@ -390,8 +391,11 @@ def start_training(params):
 
             # Threshold sweep: dump the per-client vectors actually sent to
             # aggregation (post-momentum, pre-pre-aggregation), honest clients
-            # only, every 100 steps.
-            if store_per_client_metrics and training_step % 100 == 0:
+            # only, every 100 steps. Opt-in only (store_client_vectors,
+            # default False) -- these snapshots are ~nb_honest_clients x d
+            # floats each (tens of MB per run for this model), so leaving
+            # this on by default across a full sweep exhausts disk fast.
+            if store_client_vectors and training_step % 100 == 0:
                 if client_vector_snapshot_dir is None:
                     vec_subdir = (
                         f"client_vectors_tr_seed_{training_seed}_dd_seed_{dd_seed}"
