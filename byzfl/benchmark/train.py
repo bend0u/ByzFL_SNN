@@ -1,4 +1,7 @@
 import time
+import os
+import csv
+from collections import defaultdict
 
 import numpy as np
 import torch
@@ -6,7 +9,7 @@ from torch import Tensor
 
 from byzfl import Client, Server, ByzantineClient, DataDistributor
 from byzfl.utils.misc import set_random_seed
-from byzfl.benchmark.managers import ParamsManager, FileManager, get_snn_suffix
+from byzfl.benchmark.managers import ParamsManager, FileManager, get_snn_suffix, retry_on_error
 from byzfl.benchmark.data import load_and_split_data
 
 
@@ -267,6 +270,14 @@ def start_training(params):
     firing_rate_list = np.full((nb_training_steps), np.nan)
     effective_grad_norm_list = np.zeros((nb_training_steps))
 
+    # Threshold sweep: per-layer mean firing rate (honest clients), snapshotted
+    # every evaluation_delta steps, and the raw per-client vectors actually
+    # sent to aggregation (post-momentum, pre-pre-aggregation), snapshotted
+    # every 100 steps so sign agreement can be computed post-hoc.
+    per_layer_firing_rate_rows = []
+    client_vector_snapshot_steps = []
+    client_vector_snapshot_dir = None
+
     # Sparsity metric arrays
     sparsity_metric_names = [
         'hoyer', 'gini', 'l1_l2_ratio', 'near_zero_1e5', 'near_zero_1e3',
@@ -364,6 +375,33 @@ def start_training(params):
             client_firing_rates = [r for r in client_firing_rates if r is not None]
             if client_firing_rates:
                 firing_rate_list[training_step] = np.mean(client_firing_rates)
+
+            # Threshold sweep: per-layer mean firing rate across honest clients,
+            # snapshotted every evaluation_delta steps.
+            if training_step % evaluation_delta == 0:
+                layer_rates = defaultdict(list)
+                for c in honest_clients:
+                    for layer_name, rate in c.get_last_layer_firing_rates().items():
+                        layer_rates[layer_name].append(rate)
+                if layer_rates:
+                    row = {"step": training_step}
+                    row.update({name: np.mean(vals) for name, vals in layer_rates.items()})
+                    per_layer_firing_rate_rows.append(row)
+
+            # Threshold sweep: dump the per-client vectors actually sent to
+            # aggregation (post-momentum, pre-pre-aggregation), honest clients
+            # only, every 100 steps.
+            if store_per_client_metrics and training_step % 100 == 0:
+                if client_vector_snapshot_dir is None:
+                    vec_subdir = (
+                        f"client_vectors_tr_seed_{training_seed}_dd_seed_{dd_seed}"
+                        if not clean else "client_vectors"
+                    )
+                    client_vector_snapshot_dir = os.path.join(file_manager.get_experiment_path(), vec_subdir)
+                    os.makedirs(client_vector_snapshot_dir, exist_ok=True)
+                stacked = torch.stack(honest_gradients, dim=0).detach().cpu().numpy()
+                np.save(os.path.join(client_vector_snapshot_dir, f"step_{training_step}.npy"), stacked)
+                client_vector_snapshot_steps.append(training_step)
 
             # Compute Variance Metrics
             if len(honest_gradients) > 0:
@@ -500,6 +538,22 @@ def start_training(params):
 
     effective_grad_norm_filename = f"effective_grad_norm_tr_seed_{training_seed}_dd_seed_{dd_seed}.txt" if not clean else "effective_grad_norm.txt"
     file_manager.write_array_in_file(effective_grad_norm_list, effective_grad_norm_filename)
+
+    if per_layer_firing_rate_rows:
+        layer_names_sorted = sorted({
+            key for row in per_layer_firing_rate_rows for key in row.keys() if key != "step"
+        })
+        layer_firing_rate_filename = (
+            f"layer_firing_rate_tr_seed_{training_seed}_dd_seed_{dd_seed}.csv" if not clean else "layer_firing_rate.csv"
+        )
+        layer_firing_rate_path = os.path.join(file_manager.get_experiment_path(), layer_firing_rate_filename)
+        def do_write_layer_firing_rate():
+            with open(layer_firing_rate_path, "w", newline="") as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=["step"] + layer_names_sorted)
+                writer.writeheader()
+                for row in per_layer_firing_rate_rows:
+                    writer.writerow(row)
+        retry_on_error(do_write_layer_firing_rate)
 
     # Save sparsity metrics
     for metric_name in sparsity_metric_names:

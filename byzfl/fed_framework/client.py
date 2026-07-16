@@ -81,18 +81,33 @@ class Client(ModelBaseInterface):
         # No-op (get_last_firing_rate() returns None) for non-spiking models.
         self._spike_batch_means = []
         self._last_firing_rate = None
+        # Per-layer breakdown (threshold sweep): same spikes, bucketed by layer
+        # name instead of pooled into one flat list.
+        self._layer_spike_means = {}
+        self._last_layer_firing_rates = {}
         spike_layers = [m for m in self.model.modules() if isinstance(m, snn.Leaky)]
-        for layer in spike_layers:
-            layer.register_forward_hook(self._spike_hook)
+        self._layer_names = [f"lif{i + 1}" for i in range(len(spike_layers))]
+        for layer_name, layer in zip(self._layer_names, spike_layers):
+            layer.register_forward_hook(self._make_spike_hook(layer_name))
 
-    def _spike_hook(self, module, layer_input, layer_output):
-        spikes = layer_output[0]
-        self._spike_batch_means.append(spikes.mean().item())
+    def _make_spike_hook(self, layer_name):
+        def hook(module, layer_input, layer_output):
+            spikes = layer_output[0]
+            mean = spikes.mean().item()
+            self._spike_batch_means.append(mean)
+            self._layer_spike_means.setdefault(layer_name, []).append(mean)
+        return hook
 
     def get_last_firing_rate(self):
         """Mean fraction of neurons spiking, averaged over all LIF layers and
         timesteps of the most recent forward pass. None for non-spiking models."""
         return self._last_firing_rate
+
+    def get_last_layer_firing_rates(self):
+        """Dict {layer_name: mean firing rate} for the most recent forward
+        pass, one entry per LIF layer (averaged over timesteps). Empty dict
+        for non-spiking models."""
+        return self._last_layer_firing_rates
 
     def _sample_train_batch(self):
         """
@@ -165,10 +180,15 @@ class Client(ModelBaseInterface):
         """
         self.model.zero_grad()
         self._spike_batch_means = []
+        self._layer_spike_means = {}
         outputs = self.model(inputs)
         self._last_firing_rate = (
             float(np.mean(self._spike_batch_means)) if self._spike_batch_means else None
         )
+        self._last_layer_firing_rates = {
+            layer_name: float(np.mean(vals))
+            for layer_name, vals in self._layer_spike_means.items()
+        }
         loss = self.criterion(outputs, targets)
         loss_value = loss.item()
         loss.backward()
