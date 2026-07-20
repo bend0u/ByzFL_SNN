@@ -3,7 +3,7 @@ import argparse
 import sys
 import json
 from byzfl import run_benchmark
-from plot_cnn_lr_robust_heatmaps import generate_lr_heatmaps
+
 
 def main():
     parser = argparse.ArgumentParser(description="Run CNN Robust Sweep over Learning Rates")
@@ -37,7 +37,10 @@ def main():
     try:
         with open(config_file, "r") as f:
             cfg = json.load(f)
-        dataset_name = cfg.get("model", {}).get("dataset_name", "mnist").lower()
+        model_cfg = cfg.get("model", {})
+        if isinstance(model_cfg, list):
+            model_cfg = model_cfg[0] if len(model_cfg) > 0 else {}
+        dataset_name = model_cfg.get("dataset_name", "mnist").lower()
         data_folder = cfg.get("evaluation_and_results", {}).get("data_folder", "./data")
         if dataset_name == "mnist":
             print("Pre-downloading MNIST dataset sequentially to avoid parallel race conditions...")
@@ -50,19 +53,7 @@ def main():
 
     # Run the benchmark
     run_benchmark(config_file, nb_jobs=nb_jobs, distribute_gpus=distribute)
-    
-    # Read the results and plots folders from config to generate heatmaps
-    try:
-        with open(config_file, "r") as f:
-            config_data = json.load(f)
-        results_dir = config_data["evaluation_and_results"]["results_directory"]
-        plots_dir = results_dir + "/plots"
-        
-        print("\nSweep complete. Generating robust heatmaps...")
-        generate_lr_heatmaps(results_dir, plots_dir)
-        print("Done!")
-    except Exception as e:
-        print(f"Error resolving results/plots directory or generating heatmaps: {e}")
+    print("Done!")
 
 if __name__ == "__main__":
     main()

@@ -307,6 +307,9 @@ def eliminate_experiments_done(dict_list):
                 f"wd_{setting['honest_clients']['weight_decay']}"
             )
             folder_name += get_snn_suffix(pm)
+            clip_val = pm.get_honest_clients_gradient_clip_val()
+            if clip_val > 0:
+                folder_name += f"_clip_{clip_val}"
             target_folder_path = os.path.join(directory, folder_name)
 
         if os.path.isdir(target_folder_path):

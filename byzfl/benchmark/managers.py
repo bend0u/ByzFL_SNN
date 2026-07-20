@@ -81,6 +81,8 @@ class FileManager:
             self.files_path = f"{params['result_path']}/{parent_dir}/{folder_name}/"
         else:
             snn_suffix = params.get("snn_suffix", "")
+            clip_val = params.get('gradient_clip_val', 0)
+            clip_suffix = f"_clip_{clip_val}" if clip_val and clip_val > 0 else ""
             self.files_path = (
                 f"{params['result_path']}/"
                 f"{params['dataset_name']}_{params['model_name']}_"
@@ -95,7 +97,7 @@ class FileManager:
                 f"lr_{params['learning_rate']}_"
                 f"mom_{params['momentum']}_"
                 f"wd_{params['weight_decay']}"
-                f"{snn_suffix}/"
+                f"{snn_suffix}{clip_suffix}/"
             )
         
         def init_dirs():

@@ -1,0 +1,215 @@
+nohup: ignoring input
+Building docker image if needed...
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.30kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/pytorch/pytorch:2.2.0-cuda12.1-cudnn8-runtime
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 372B done
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/pytorch/pytorch:2.2.0-cuda12.1-cudnn8-runtime@sha256:e5c32997194edfc6fb0235223d1cd0433056045a468e7dfeaac390a3fcf8ae6d
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 83.40kB 0.1s done
+#5 DONE 0.1s
+
+#6 [2/8] RUN apt-get update && apt-get install -y --no-install-recommends     git     build-essential     libgl1-mesa-glx     libglib2.0-0     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/8] RUN groupadd DCL-StaffU --gid 11260 &&     useradd -m -s /bin/bash -g DCL-StaffU -u 274455 bendouro
+#7 CACHED
+
+#8 [4/8] WORKDIR /home/bendouro
+#8 CACHED
+
+#9 [5/8] COPY requirements.txt /home/bendouro/
+#9 CACHED
+
+#10 [6/8] RUN pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [7/8] COPY . /home/bendouro
+#11 DONE 1.2s
+
+#12 [8/8] RUN chown -R bendouro:DCL-StaffU /home/bendouro
+#12 DONE 1.4s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 1.5s done
+#13 writing image sha256:713462aade0f24fbc6441ce5d89d0864fb7670eb7d1a1920129aa23668acaf66 done
+#13 naming to docker.io/library/byzfl_snn done
+#13 DONE 1.5s
+Running full sweep in docker with 4 V100 GPUs...
+Matplotlib created a temporary cache directory at /tmp/matplotlib-ggkabj6m because the default path (/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Running benchmark for: configs/full_sweep_thr04.json
+Distributing tasks across 2 GPUs...
+Total trainings to do: 1440
+Running 16 trainings in parallel...
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough_neg1
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough_neg1
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough_neg1
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough_neg1
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_ALittleIsEnough_neg1
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: SignFlipping
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: CenteredClipping | Attack: Optimal_ALittleIsEnough_neg1
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:1
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+
+[ByzFL-SNN] [Training Start] Model: cnn_mnist_snn | Dataset: mnist
+[ByzFL-SNN]   Aggregator: GeometricMedian | Attack: Optimal_InnerProductManipulation
+[ByzFL-SNN]   Distribution: gamma_similarity_niid (gamma=1.0)
+[ByzFL-SNN]   Clients: 10 honest, 0 byzantine | Algorithm: DSGD
+[ByzFL-SNN]   Learning Rate: 0.1 | Steps: 500 | Device: cuda:0
+[ByzFL-SNN]   Validation samples: 12000 | Test samples: 10000
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN] Initial VRAM (Alloc/Reserved): 36.2/42.0 MiB
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 10.1s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 10.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 10.9s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 10.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 10.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 11.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 10.3s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.5s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.8s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.6s
+[ByzFL-SNN]   [Step 0/500] (0.0%) | Val Acc: 0.1638 | Test Acc: 0.1653 | VRAM (Alloc/Reserved): 46.2/132.0 MiB | Time: 8.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8950 | Test Acc: 0.8998 | VRAM (Alloc/Reserved): 250.4/928.0 MiB | Time: 115.2s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8906 | Test Acc: 0.8983 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 115.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8926 | Test Acc: 0.8997 | VRAM (Alloc/Reserved): 250.3/926.0 MiB | Time: 119.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8950 | Test Acc: 0.8998 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 121.1s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.9030 | Test Acc: 0.9108 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 120.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.9030 | Test Acc: 0.9108 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 119.8s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8971 | Test Acc: 0.9053 | VRAM (Alloc/Reserved): 252.9/924.0 MiB | Time: 116.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8950 | Test Acc: 0.8998 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 119.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8906 | Test Acc: 0.8983 | VRAM (Alloc/Reserved): 253.1/924.0 MiB | Time: 122.4s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8951 | Test Acc: 0.8997 | VRAM (Alloc/Reserved): 253.2/956.0 MiB | Time: 116.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8906 | Test Acc: 0.8983 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 117.0s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8971 | Test Acc: 0.9053 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 121.7s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.9030 | Test Acc: 0.9108 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 118.9s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8971 | Test Acc: 0.9053 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 119.3s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8926 | Test Acc: 0.8997 | VRAM (Alloc/Reserved): 253.1/926.0 MiB | Time: 118.7s
+[ByzFL-SNN]   [Step 50/500] (10.0%) | Val Acc: 0.8926 | Test Acc: 0.8997 | VRAM (Alloc/Reserved): 253.1/924.0 MiB | Time: 120.7s

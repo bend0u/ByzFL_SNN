@@ -1,6 +1,6 @@
 {
     "benchmark_config": {
-        "device": "cuda",
+        "device": "cuda:1",
         "training_seed": 42,
         "nb_training_seeds": 1,
         "nb_workers": 10,
@@ -19,7 +19,7 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 4000
+        "nb_steps": 10000
     },
     "model": {
         "name": "cnn_cifar_tanh",
@@ -69,6 +69,7 @@
         "batch_size_evaluation": 128,
         "evaluate_on_test": true,
         "store_per_client_metrics": true,
+        "store_client_vectors": false,
         "store_models": false,
         "data_folder": "./data",
         "results_directory": "./results/cnn_cifar_tuning"

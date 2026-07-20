@@ -48,9 +48,7 @@
             "beta": 0.95,
             "surrogate_gradient": "atan",
             "surrogate_params": {
-                "alpha": [
-                    1.2
-                ]
+                "alpha": 1.2
             },
             "threshold": 0.8,
             "learn_threshold": false

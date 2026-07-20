@@ -24,7 +24,7 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 4000,
+        "nb_steps": 10000,
         "set_honest_clients_as_clients": false
     },
     "model": [

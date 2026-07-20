@@ -12,6 +12,7 @@ from byzfl.utils.misc import set_random_seed
 from byzfl.benchmark.managers import ParamsManager, FileManager, get_snn_suffix, retry_on_error
 from byzfl.benchmark.data import load_and_split_data
 from byzfl.utils.gradient_geometry import compute_layer_boundaries, compute_geometry_metrics
+from byzfl.utils.interarch_metrics import compute_interarch_metrics
 
 
 # ===================== Sparsity Metric Functions =====================
@@ -70,6 +71,8 @@ def compute_topk_concentration(x, fraction):
 
 def compute_entropy(x, num_bins=100):
     """Normalized Shannon entropy of |x| distribution (binned). 1 = uniform, 0 = concentrated."""
+    if not torch.isfinite(x).all():
+        return float('nan')
     abs_x = x.abs().flatten()
     if abs_x.max() < 1e-12:
         return 0.0
@@ -286,6 +289,10 @@ def start_training(params):
     geometry_layer_boundaries = compute_layer_boundaries(honest_clients[0].model)
     geometry_rows = []
 
+    # Inter-architecture metrics (N, CV_eff, cos, participation, per-layer)
+    # computed on both pre-momentum (raw) and post-momentum vectors every step.
+    interarch_rows = []
+
     # Sparsity metric arrays
     sparsity_metric_names = [
         'hoyer', 'gini', 'l1_l2_ratio', 'near_zero_1e5', 'near_zero_1e3',
@@ -375,7 +382,10 @@ def start_training(params):
             
             train_loss_list[training_step] = train_loss_per_client.mean()
             
-            # Aggregate Honest Gradients
+            # Capture raw gradients BEFORE momentum (for pre-momentum metrics)
+            raw_gradients = [client.get_flat_gradients() for client in honest_clients]
+
+            # Aggregate Honest Gradients (applies momentum in-place)
             honest_gradients = [client.get_flat_gradients_with_momentum() for client in honest_clients]
 
             # Gradient-geometry baseline: online consensus/dispersion/sign-agreement
@@ -389,6 +399,18 @@ def start_training(params):
             for layer_name, rates in layer_firing_rates.items():
                 geometry_row[f"fr_{layer_name}"] = np.mean(rates)
             geometry_rows.append(geometry_row)
+
+            # Inter-architecture metrics: post-momentum + pre-momentum
+            firing_rates_dict = {ln: np.mean(rs) for ln, rs in layer_firing_rates.items()}
+            interarch_row = compute_interarch_metrics(
+                honest_gradients, geometry_layer_boundaries, firing_rates_dict, prefix=""
+            )
+            interarch_row.update(compute_interarch_metrics(
+                raw_gradients, geometry_layer_boundaries, {}, prefix="g_"
+            ))
+            interarch_row["step"] = training_step
+            interarch_rows.append(interarch_row)
+            del raw_gradients  # free memory immediately
 
             # EXP2: mean firing rate across honest clients (SNN only; NaN for non-spiking models)
             client_firing_rates = [c.get_last_firing_rate() for c in honest_clients]
@@ -460,12 +482,12 @@ def start_training(params):
 
                 max_abs_grad_list[training_step] = stacked_grads.abs().max().item()
 
-                # Compute sparsity metrics per client
-                all_client_metrics = [compute_all_sparsity_metrics(g) for g in honest_gradients]
-                for metric_name in sparsity_metric_names:
-                    vals = np.array([m[metric_name] for m in all_client_metrics])
-                    sparsity_mean[metric_name][training_step] = vals.mean()
-                    sparsity_std[metric_name][training_step] = vals.std()
+                # Compute sparsity metrics per client (COMMENTED OUT TO SPEED UP TRAINING)
+                # all_client_metrics = [compute_all_sparsity_metrics(g) for g in honest_gradients]
+                # for metric_name in sparsity_metric_names:
+                #     vals = np.array([m[metric_name] for m in all_client_metrics])
+                #     sparsity_mean[metric_name][training_step] = vals.mean()
+                #     sparsity_std[metric_name][training_step] = vals.std()
 
             # Deal with Label Flipping Attack
             attack_input = (
@@ -591,6 +613,20 @@ def start_training(params):
                 for row in geometry_rows:
                     writer.writerow(row)
         retry_on_error(do_write_geometry)
+
+    if interarch_rows:
+        interarch_fieldnames = sorted({key for row in interarch_rows for key in row.keys() if key != "step"})
+        interarch_filename = (
+            f"metrics_interarch_tr_seed_{training_seed}_dd_seed_{dd_seed}.csv" if not clean else "metrics_interarch.csv"
+        )
+        interarch_path = os.path.join(file_manager.get_experiment_path(), interarch_filename)
+        def do_write_interarch():
+            with open(interarch_path, "w", newline="") as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=["step"] + interarch_fieldnames)
+                writer.writeheader()
+                for row in interarch_rows:
+                    writer.writerow(row)
+        retry_on_error(do_write_interarch)
 
     # Save sparsity metrics
     for metric_name in sparsity_metric_names:
