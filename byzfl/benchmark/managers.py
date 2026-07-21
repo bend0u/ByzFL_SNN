@@ -584,7 +584,8 @@ class ParamsManager(object):
     def get_store_gradient_structure_metrics(self):
         """Whether to compute the online gradient-structure metrics (PCA
         effective rank, active-coordinate magnitude, support overlap, subset
-        coordinate histograms) every 100 steps. Unlike store_client_vectors,
+        coordinate histograms), sampled at evaluation_delta cadence (same
+        steps as the accuracy evaluations). Unlike store_client_vectors,
         no raw vectors are ever written to disk -- only the small scalar
         summary in byzfl/utils/gradient_structure_metrics.py -- so this is
         safe to leave on without the disk-usage caveat that flag carries.

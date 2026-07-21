@@ -459,9 +459,12 @@ def start_training(params):
                 client_vector_snapshot_steps.append(training_step)
 
             # Gradient-structure study: online PCA/active-coordinate/support-
-            # overlap metrics, same 100-step cadence as the raw dump above but
-            # no vectors ever written to disk (see gradient_structure_metrics.py).
-            if store_gradient_structure_metrics and training_step % 100 == 0:
+            # overlap metrics, no vectors ever written to disk (see
+            # gradient_structure_metrics.py). Sampled at evaluation_delta
+            # cadence (cheap either way -- rows are tiny scalars, not the
+            # raw-vector-dump's (10, d) arrays) so it lines up with the
+            # existing accuracy-evaluation steps for easy overlay.
+            if store_gradient_structure_metrics and training_step % evaluation_delta == 0:
                 gs_row = compute_gradient_structure_metrics(honest_gradients, gradient_structure_subset_idx)
                 gs_row["step"] = training_step
                 gradient_structure_rows.append(gs_row)
