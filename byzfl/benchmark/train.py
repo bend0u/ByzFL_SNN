@@ -13,6 +13,7 @@ from byzfl.benchmark.managers import ParamsManager, FileManager, get_snn_suffix,
 from byzfl.benchmark.data import load_and_split_data
 from byzfl.utils.gradient_geometry import compute_layer_boundaries, compute_geometry_metrics
 from byzfl.utils.interarch_metrics import compute_interarch_metrics
+from byzfl.utils.gradient_structure_metrics import compute_gradient_structure_metrics, pick_fixed_subset
 
 
 # ===================== Sparsity Metric Functions =====================
@@ -252,6 +253,7 @@ def start_training(params):
     store_models = params_manager.get_store_models()
     store_per_client_metrics = params_manager.get_store_per_client_metrics()
     store_client_vectors = params_manager.get_store_client_vectors()
+    store_gradient_structure_metrics = params_manager.get_store_gradient_structure_metrics()
 
     val_accuracy_list = np.array([])
     test_accuracy_list = np.array([])
@@ -288,6 +290,14 @@ def start_training(params):
     # vectors, no raw vectors ever logged.
     geometry_layer_boundaries = compute_layer_boundaries(honest_clients[0].model)
     geometry_rows = []
+
+    # Gradient-structure study (SNN-vs-CNN aggregator design, f=0 baseline):
+    # online per-step PCA/active-coordinate/support-overlap metrics, same
+    # no-raw-vectors-on-disk discipline as the geometry metrics above.
+    gradient_structure_rows = []
+    gradient_structure_subset_idx = (
+        pick_fixed_subset(nb_honest_clients) if store_gradient_structure_metrics else None
+    )
 
     # Inter-architecture metrics (N, CV_eff, cos, participation, per-layer)
     # computed on both pre-momentum (raw) and post-momentum vectors every step.
@@ -447,6 +457,14 @@ def start_training(params):
                 stacked = torch.stack(honest_gradients, dim=0).detach().cpu().numpy()
                 np.save(os.path.join(client_vector_snapshot_dir, f"step_{training_step}.npy"), stacked)
                 client_vector_snapshot_steps.append(training_step)
+
+            # Gradient-structure study: online PCA/active-coordinate/support-
+            # overlap metrics, same 100-step cadence as the raw dump above but
+            # no vectors ever written to disk (see gradient_structure_metrics.py).
+            if store_gradient_structure_metrics and training_step % 100 == 0:
+                gs_row = compute_gradient_structure_metrics(honest_gradients, gradient_structure_subset_idx)
+                gs_row["step"] = training_step
+                gradient_structure_rows.append(gs_row)
 
             # Compute Variance Metrics
             if len(honest_gradients) > 0:
@@ -627,6 +645,21 @@ def start_training(params):
                 for row in interarch_rows:
                     writer.writerow(row)
         retry_on_error(do_write_interarch)
+
+    if gradient_structure_rows:
+        gs_fieldnames = sorted({key for row in gradient_structure_rows for key in row.keys() if key != "step"})
+        gs_filename = (
+            f"metrics_gradient_structure_tr_seed_{training_seed}_dd_seed_{dd_seed}.csv"
+            if not clean else "metrics_gradient_structure.csv"
+        )
+        gs_path = os.path.join(file_manager.get_experiment_path(), gs_filename)
+        def do_write_gradient_structure():
+            with open(gs_path, "w", newline="") as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=["step"] + gs_fieldnames)
+                writer.writeheader()
+                for row in gradient_structure_rows:
+                    writer.writerow(row)
+        retry_on_error(do_write_gradient_structure)
 
     # Save sparsity metrics
     for metric_name in sparsity_metric_names:

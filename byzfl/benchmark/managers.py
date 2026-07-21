@@ -581,6 +581,20 @@ class ParamsManager(object):
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
 
+    def get_store_gradient_structure_metrics(self):
+        """Whether to compute the online gradient-structure metrics (PCA
+        effective rank, active-coordinate magnitude, support overlap, subset
+        coordinate histograms) every 100 steps. Unlike store_client_vectors,
+        no raw vectors are ever written to disk -- only the small scalar
+        summary in byzfl/utils/gradient_structure_metrics.py -- so this is
+        safe to leave on without the disk-usage caveat that flag carries.
+        Defaults to False since it's specific to the f=0 gradient-structure
+        study and irrelevant to normal robustness sweeps."""
+        default = False
+        path = ["evaluation_and_results", "store_gradient_structure_metrics"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
     def get_store_models(self):
         default = False
         path = ["evaluation_and_results", "store_models"]
