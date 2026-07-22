@@ -148,6 +148,62 @@ class cnn_mnist(nn.Module):
         x = F.log_softmax(self._f2(x), dim=1)
         return x
 
+class cnn_mnist_clipping(nn.Module):
+    """
+    Convolutional Neural Network for MNIST.
+
+    Description:
+    ------------
+    A simple convolutional neural network designed for the MNIST dataset. It 
+    consists of two convolutional layers, ReLU activation, max pooling, and 
+    fully connected layers.
+
+    Examples:
+    ---------
+    >>> model = cnn_mnist()
+    >>> x = torch.randn(16, 1, 28, 28)  # Batch of 16 grayscale MNIST images
+    >>> output = model(x)
+    >>> print(output.shape)
+    torch.Size([16, 10])
+    """
+    def __init__(self, max_val=1.0):
+        """Initialize the model parameters."""
+        super().__init__()
+        self.max_val = max_val
+        self._c1 = nn.Conv2d(1, 20, 5, 1)
+        self._c2 = nn.Conv2d(20, 50, 5, 1)
+        self._f1 = nn.Linear(800, 500)
+        self._f2 = nn.Linear(500, 10)
+
+    def forward(self, x):
+        """Perform a forward pass through the model."""
+        x = F.hardtanh(self._c1(x), min_val=0.0, max_val=self.max_val)
+        x = F.max_pool2d(x, 2, 2)
+        x = F.hardtanh(self._c2(x), min_val=0.0, max_val=self.max_val)
+        x = F.max_pool2d(x, 2, 2)
+        x = F.hardtanh(self._f1(x.view(-1, 800)), min_val=0.0, max_val=self.max_val)
+        x = F.log_softmax(self._f2(x), dim=1)
+        return x
+
+class cnn_mnist_clipping_01(cnn_mnist_clipping):
+    def __init__(self):
+        super().__init__(max_val=0.1)
+
+class cnn_mnist_clipping_05(cnn_mnist_clipping):
+    def __init__(self):
+        super().__init__(max_val=0.5)
+
+class cnn_mnist_clipping_1(cnn_mnist_clipping):
+    def __init__(self):
+        super().__init__(max_val=1.0)
+
+class cnn_mnist_clipping_2(cnn_mnist_clipping):
+    def __init__(self):
+        super().__init__(max_val=2.0)
+
+class cnn_mnist_clipping_4(cnn_mnist_clipping):
+    def __init__(self):
+        super().__init__(max_val=4.0)
 
 class cnn_mnist_sigmoid(nn.Module):
     """Convolutional Neural Network for MNIST with Sigmoid activation."""
