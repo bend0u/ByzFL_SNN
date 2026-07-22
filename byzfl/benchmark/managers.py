@@ -519,6 +519,18 @@ class ParamsManager(object):
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
 
+    def get_honest_clients_grad_clip_quantile(self):
+        default = 0.0
+        path = ["honest_clients", "grad_clip_quantile"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
+    def get_honest_clients_grad_clip_window(self):
+        default = 100
+        path = ["honest_clients", "grad_clip_window"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
     # ----------------------------------------------------------------------
     #  Attack
     # ----------------------------------------------------------------------

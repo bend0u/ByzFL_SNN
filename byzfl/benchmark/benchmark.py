@@ -310,6 +310,9 @@ def eliminate_experiments_done(dict_list):
             clip_val = pm.get_honest_clients_gradient_clip_val()
             if clip_val > 0:
                 folder_name += f"_clip_{clip_val}"
+            grad_clip_quantile = pm.get_honest_clients_grad_clip_quantile()
+            if grad_clip_quantile > 0:
+                folder_name += f"_qclip_{grad_clip_quantile}"
             target_folder_path = os.path.join(directory, folder_name)
 
         if os.path.isdir(target_folder_path):

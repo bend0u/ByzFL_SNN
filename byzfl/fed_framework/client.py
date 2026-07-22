@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+from collections import deque
 
 from byzfl.fed_framework import ModelBaseInterface
 from byzfl.utils.conversion import flatten_dict
@@ -73,6 +74,17 @@ class Client(ModelBaseInterface):
         self.train_iterator = iter(self.training_dataloader)
         self.store_per_client_metrics = params["store_per_client_metrics"]
         self.gradient_clip_val = params.get("gradient_clip_val", 0.0)
+
+        # Adaptive client-side gradient-norm clip: each client clips the L2 norm
+        # of the (post-momentum) vector it sends to the server to the
+        # grad_clip_quantile-quantile of its OWN last grad_clip_window gradient
+        # norms. Windowed (not a global/all-time quantile) because gradient norms
+        # are non-stationary -- they shrink as training converges, so a global
+        # quantile would stop clipping anything late in training.
+        self.grad_clip_quantile = params.get("grad_clip_quantile", 0.0)
+        self.grad_clip_window = params.get("grad_clip_window", 100)
+        self._grad_norm_history = deque(maxlen=self.grad_clip_window)
+
         self.loss_list = list()
         self.train_acc_list = list()
 
@@ -267,8 +279,12 @@ class Client(ModelBaseInterface):
         """
         Description
         -----------
-        Computes the gradients with momentum applied and returns them as a 
-        flat array.
+        Computes the gradients with momentum applied and returns them as a
+        flat array. If `grad_clip_quantile` > 0, the returned vector is
+        additionally clipped (as a copy -- the internal momentum buffer itself is
+        never rescaled) to the `grad_clip_quantile`-quantile of this client's own
+        last `grad_clip_window` gradient norms, so only what is actually sent to
+        the server is bounded.
 
         Returns
         -------
@@ -280,6 +296,23 @@ class Client(ModelBaseInterface):
             self.get_flat_gradients(),
             alpha=1 - self.momentum
         )
+
+        if self.grad_clip_quantile <= 0:
+            return self.momentum_gradient
+
+        current_norm = torch.linalg.norm(self.momentum_gradient).item()
+        # Record the pre-clip norm so the quantile reflects the true (unclipped)
+        # distribution of this client's recent gradient norms.
+        self._grad_norm_history.append(current_norm)
+
+        min_history = max(2, self.grad_clip_window // 2)
+        if len(self._grad_norm_history) < min_history:
+            # Not enough history yet to estimate a stable quantile -- skip clipping.
+            return self.momentum_gradient
+
+        threshold = np.quantile(self._grad_norm_history, self.grad_clip_quantile)
+        if current_norm > threshold and current_norm > 0:
+            return self.momentum_gradient * (threshold / current_norm)
         return self.momentum_gradient
 
     def get_loss_list(self):

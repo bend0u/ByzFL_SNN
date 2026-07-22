@@ -5,6 +5,7 @@ import snntorch as snn
 from snntorch import surrogate
 
 from .surrogates import get_spike_grad
+from .clipped_activations import clipped_relu_ste, clipped_relu_ramp, adaptive_qclip
 
 
 """
@@ -204,6 +205,137 @@ class cnn_mnist_clipping_2(cnn_mnist_clipping):
 class cnn_mnist_clipping_4(cnn_mnist_clipping):
     def __init__(self):
         super().__init__(max_val=4.0)
+
+class cnn_mnist_clip_ste(nn.Module):
+    """
+    Convolutional Neural Network for MNIST with a clipped-ReLU activation whose
+    gradient does not vanish above the clip value.
+
+    Description:
+    ------------
+    Same architecture as `cnn_mnist_clipping`: forward pass clamps activations to
+    [0, clip_val]. Unlike the plain hardtanh-based clipping, the backward pass uses
+    a straight-through estimator (STE): the gradient stays 1 for all x > 0, so a
+    saturated (clipped) neuron still receives gradient signal instead of the true
+    hardtanh derivative going to exactly 0 above clip_val.
+    """
+    def __init__(self, clip_val=1.0):
+        super().__init__()
+        self.clip_val = clip_val
+        self.act = clipped_relu_ste(clip_val)
+        self._c1 = nn.Conv2d(1, 20, 5, 1)
+        self._c2 = nn.Conv2d(20, 50, 5, 1)
+        self._f1 = nn.Linear(800, 500)
+        self._f2 = nn.Linear(500, 10)
+
+    def forward(self, x):
+        """Perform a forward pass through the model."""
+        x = self.act(self._c1(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.act(self._c2(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.act(self._f1(x.view(-1, 800)))
+        x = F.log_softmax(self._f2(x), dim=1)
+        return x
+
+class cnn_mnist_clip_ste_1(cnn_mnist_clip_ste):
+    def __init__(self):
+        super().__init__(clip_val=1.0)
+
+class cnn_mnist_clip_ste_2(cnn_mnist_clip_ste):
+    def __init__(self):
+        super().__init__(clip_val=2.0)
+
+class cnn_mnist_clip_ramp(nn.Module):
+    """
+    Convolutional Neural Network for MNIST with a clipped-ReLU activation whose
+    gradient ramps down linearly instead of hard-cutting to 0.
+
+    Description:
+    ------------
+    Same architecture as `cnn_mnist_clipping`: forward pass clamps activations to
+    [0, clip_val]. The backward pass gradient is 1 on (0, clip_val], then decreases
+    linearly to 0 between clip_val and ramp_ratio*clip_val, then is 0 beyond that.
+    This keeps the distinction between a coordinate that is "slightly over" the clip
+    and one that is "way over" the clip, instead of treating both identically (as a
+    hard STE cutoff, or the vanilla hardtanh's hard zero, would).
+    """
+    def __init__(self, clip_val=1.0, ramp_ratio=2.0):
+        super().__init__()
+        self.clip_val = clip_val
+        self.ramp_ratio = ramp_ratio
+        self.act = clipped_relu_ramp(clip_val, ramp_ratio)
+        self._c1 = nn.Conv2d(1, 20, 5, 1)
+        self._c2 = nn.Conv2d(20, 50, 5, 1)
+        self._f1 = nn.Linear(800, 500)
+        self._f2 = nn.Linear(500, 10)
+
+    def forward(self, x):
+        """Perform a forward pass through the model."""
+        x = self.act(self._c1(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.act(self._c2(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.act(self._f1(x.view(-1, 800)))
+        x = F.log_softmax(self._f2(x), dim=1)
+        return x
+
+class cnn_mnist_clip_ramp_1(cnn_mnist_clip_ramp):
+    def __init__(self):
+        super().__init__(clip_val=1.0, ramp_ratio=2.0)
+
+class cnn_mnist_clip_ramp_2(cnn_mnist_clip_ramp):
+    def __init__(self):
+        super().__init__(clip_val=2.0, ramp_ratio=2.0)
+
+class cnn_mnist_clip_qcoord(nn.Module):
+    """
+    Convolutional Neural Network for MNIST with an adaptive per-coordinate clip.
+
+    Description:
+    ------------
+    Instead of a fixed hand-picked clip value, each layer's clamp threshold C is
+    computed per forward pass as the tau-quantile of that layer's own activation
+    coordinates (detached, so it acts as a constant for backpropagation purposes).
+    The forward pass clamps to [0, C]. The backward pass is either the plain clamp
+    derivative (0 above C, same failure mode as hardtanh) or a straight-through
+    estimator (gradient stays 1 above C), selected via `ste`.
+    """
+    def __init__(self, tau=0.8, ste=False):
+        super().__init__()
+        self.tau = tau
+        self.ste = ste
+        self.act = adaptive_qclip(tau, ste)
+        self._c1 = nn.Conv2d(1, 20, 5, 1)
+        self._c2 = nn.Conv2d(20, 50, 5, 1)
+        self._f1 = nn.Linear(800, 500)
+        self._f2 = nn.Linear(500, 10)
+
+    def forward(self, x):
+        """Perform a forward pass through the model."""
+        x = self.act(self._c1(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.act(self._c2(x))
+        x = F.max_pool2d(x, 2, 2)
+        x = self.act(self._f1(x.view(-1, 800)))
+        x = F.log_softmax(self._f2(x), dim=1)
+        return x
+
+class cnn_mnist_clip_qcoord_plain_080(cnn_mnist_clip_qcoord):
+    def __init__(self):
+        super().__init__(tau=0.8, ste=False)
+
+class cnn_mnist_clip_qcoord_plain_090(cnn_mnist_clip_qcoord):
+    def __init__(self):
+        super().__init__(tau=0.9, ste=False)
+
+class cnn_mnist_clip_qcoord_ste_080(cnn_mnist_clip_qcoord):
+    def __init__(self):
+        super().__init__(tau=0.8, ste=True)
+
+class cnn_mnist_clip_qcoord_ste_090(cnn_mnist_clip_qcoord):
+    def __init__(self):
+        super().__init__(tau=0.9, ste=True)
 
 class cnn_mnist_sigmoid(nn.Module):
     """Convolutional Neural Network for MNIST with Sigmoid activation."""

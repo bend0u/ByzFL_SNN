@@ -203,6 +203,8 @@ def start_training(params):
             "nb_labels": params_manager.get_nb_labels(),
             "store_per_client_metrics": params_manager.get_store_per_client_metrics(),
             "gradient_clip_val": params_manager.get_honest_clients_gradient_clip_val(),
+            "grad_clip_quantile": params_manager.get_honest_clients_grad_clip_quantile(),
+            "grad_clip_window": params_manager.get_honest_clients_grad_clip_window(),
         }) for i in range(nb_honest_clients)
     ]
 
