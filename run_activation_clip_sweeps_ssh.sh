@@ -21,7 +21,9 @@ CONFIGS=(
   "configs/activation_clip/cnn_mnist_clip_qcoord_plain_080.json"
   "configs/activation_clip/cnn_mnist_clip_qcoord_plain_090.json"
   "configs/activation_clip/cnn_mnist_qclip_070.json"
-  "configs/activation_clip/cnn_mnist_qclip_080.json"
+  # cnn_mnist_qclip_080 intentionally NOT here -- run separately/early via
+  # run_qclip080_rcp.sh / run_qclip080_ssh.sh (its own job) to avoid duplicate
+  # work / a write race on the same result folders.
 )
 
 echo "========================================="
