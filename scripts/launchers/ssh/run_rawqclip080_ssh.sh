@@ -15,9 +15,10 @@
 # the full 5-seed run. Bumping nb_training_seeds to 5 in the config later reuses
 # these cached seeds and only trains 44/45/46 -- this pilot costs nothing extra.
 #
-# Meant to run on a GPU box over SSH, inside tmux. Default nb_jobs is sized for
-# 2x A10: cnn_mnist is tiny (~0.55 GiB reserved per job), so the limit in practice
-# is CPU/dataloader contention rather than VRAM.
+# Meant to run on a GPU box over SSH, inside tmux. Default nb_jobs=40 across
+# 2x A10: cnn_mnist is tiny (~0.55 GiB reserved per job), so 40 jobs is ~22 GiB
+# of the 48 GiB available -- the practical limit is CPU/dataloader contention
+# rather than VRAM.
 #
 # Plots go to results/activation_clip_plots/cnn_mnist_rawqclip_080/ (persistent
 # local disk here -- no PVC/ephemeral-pod concern as on RCP).
@@ -27,7 +28,7 @@
 
 set -e
 
-NB_JOBS="${1:-8}"
+NB_JOBS="${1:-40}"
 
 mkdir -p results/logs
 
