@@ -1,7 +1,6 @@
 """
-Generates the 8 sweep configs for the gradient-preserving activation-clipping /
-adaptive client-norm-clipping study (see plan:
-now-i-want-to-peaceful-babbage.md), one JSON per model/mechanism variant, matching
+Generates the 9 sweep configs for the gradient-preserving activation-clipping /
+adaptive client-norm-clipping study, one JSON per model/mechanism variant, matching
 the structure of configs/archive/cnn_clipped_heatmap_sweep.json but with the full
 4-aggregator sweep (GM, CenteredClipping, TrMean, MultiKrum) used by the existing
 cnn_mnist_clipping_1/2/4 family, so results are directly comparable.
@@ -9,7 +8,10 @@ cnn_mnist_clipping_1/2/4 family, so results are directly comparable.
 import json
 import os
 
-WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# This file lives at <repo>/scripts/utils/, so the repo root is three levels up.
+WORKSPACE_DIR = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+)
 OUT_DIR = os.path.join(WORKSPACE_DIR, "configs", "activation_clip")
 
 BASE_BENCHMARK_CONFIG = {
@@ -106,7 +108,8 @@ CONFIGS = {
     "cnn_mnist_clip_qcoord_plain_090": make_config(
         "cnn_mnist_clip_qcoord_plain_090", "cnn_mnist_clip_qcoord_plain_090"
     ),
-    # Adaptive client-side gradient-norm clip (plain ReLU cnn_mnist + windowed quantile clip)
+    # Adaptive client-side gradient-norm clip, applied to the POST-momentum vector
+    # sent to the server (plain ReLU cnn_mnist + windowed quantile clip).
     "cnn_mnist_qclip_070": make_config(
         "cnn_mnist", "cnn_mnist_qclip_070",
         honest_clients_extra={"grad_clip_quantile": 0.70, "grad_clip_window": 100},
@@ -114,6 +117,14 @@ CONFIGS = {
     "cnn_mnist_qclip_080": make_config(
         "cnn_mnist", "cnn_mnist_qclip_080",
         honest_clients_extra={"grad_clip_quantile": 0.80, "grad_clip_window": 100},
+    ),
+    # Same adaptive windowed-quantile mechanism, but applied to the RAW gradient
+    # BEFORE the momentum accumulator -- the adaptive counterpart of the fixed
+    # gradient_clip_val (which also clips the raw gradient), and the direct
+    # comparison point against the post-momentum qclip variants above.
+    "cnn_mnist_rawqclip_080": make_config(
+        "cnn_mnist", "cnn_mnist_rawqclip_080",
+        honest_clients_extra={"raw_grad_clip_quantile": 0.80, "raw_grad_clip_window": 100},
     ),
 }
 

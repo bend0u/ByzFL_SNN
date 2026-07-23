@@ -35,7 +35,7 @@ echo "  Plots ->  results/activation_clip_plots/${tag}/"
 echo "========================================="
 
 echo "[$(date)] Starting ${CONFIG}"
-python run_activation_clip_sweep.py \
+python scripts/experiments/run_activation_clip_sweep.py \
   --config "${CONFIG}" \
   --distribute_gpus --nb_jobs "${NB_JOBS}" \
   > "${log_file}" 2>&1 || { echo "  Run failed, see ${log_file}"; exit 1; }

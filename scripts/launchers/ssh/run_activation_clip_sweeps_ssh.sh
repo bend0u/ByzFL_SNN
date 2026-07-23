@@ -35,7 +35,7 @@ for config in "${CONFIGS[@]}"; do
   tag=$(basename "${config}" .json)
   log_file="results/logs/actclip_${tag}.log"
   echo "[$(date)] Starting ${config} -> ${log_file}"
-  ./venv/bin/python3 run_activation_clip_sweep.py \
+  ./venv/bin/python3 scripts/experiments/run_activation_clip_sweep.py \
     --config "${config}" \
     --distribute_gpus --nb_jobs "${NB_JOBS}" \
     > "${log_file}" 2>&1 || echo "  ${config} encountered errors, see ${log_file}"

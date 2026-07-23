@@ -310,9 +310,12 @@ def eliminate_experiments_done(dict_list):
             clip_val = pm.get_honest_clients_gradient_clip_val()
             if clip_val > 0:
                 folder_name += f"_clip_{clip_val}"
-            grad_clip_quantile = pm.get_honest_clients_grad_clip_quantile()
-            if grad_clip_quantile > 0:
-                folder_name += f"_qclip_{grad_clip_quantile}"
+            # NOTE: no suffix is appended for grad_clip_quantile / raw_grad_clip_quantile.
+            # The write side (FileManager in managers.py) does not add one either, and
+            # each clipping variant already has its own results_directory, so the folder
+            # name is unambiguous. Appending a suffix here would make this check look for
+            # a folder the run never creates, so completed work would never be detected
+            # and every resume would retrain from scratch.
             target_folder_path = os.path.join(directory, folder_name)
 
         if os.path.isdir(target_folder_path):
