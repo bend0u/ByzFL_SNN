@@ -30,10 +30,15 @@ CONFIGS = [
     dict(key="ramp_2", caption="Ramp $C{=}2$ ($r{=}2$)",
          dir="../activation_clip_plots/cnn_mnist_clip_ramp_2",
          model="mnist_cnn_mnist_clip_ramp_2"),
-    # Gradient-norm clip (NOT an activation): plain ReLU cnn_mnist, so its files
+    # Gradient-norm clips (NOT activations): plain ReLU cnn_mnist, so their files
     # carry the same "mnist_cnn_mnist" token as No-Clip -- the folder disambiguates.
     dict(key="qclip_080", caption="Norm Clip $\\tau{=}0.80$ (momentum)",
          dir="../activation_clip_plots/cnn_mnist_qclip_080",
+         model="mnist_cnn_mnist"),
+    # rawqclip: same adaptive quantile clip but on the RAW gradient (2-seed pilot).
+    # Plots live under results/ (the persistent path from run_activation_clip_sweep).
+    dict(key="rawqclip_080", caption="Norm Clip $\\tau{=}0.80$ (raw, 2 seeds)",
+         dir="../results/activation_clip_plots/cnn_mnist_rawqclip_080",
          model="mnist_cnn_mnist"),
 ]
 
