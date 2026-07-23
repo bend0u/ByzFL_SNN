@@ -52,7 +52,8 @@ BASE_ATTACKS = [
 ]
 
 
-def make_config(model_name, results_subdir, honest_clients_extra=None):
+def make_config(model_name, results_subdir, honest_clients_extra=None,
+                benchmark_extra=None):
     honest_clients = {
         "momentum": 0.9,
         "weight_decay": 0.0001,
@@ -61,8 +62,12 @@ def make_config(model_name, results_subdir, honest_clients_extra=None):
     if honest_clients_extra:
         honest_clients.update(honest_clients_extra)
 
+    benchmark_config = dict(BASE_BENCHMARK_CONFIG)
+    if benchmark_extra:
+        benchmark_config.update(benchmark_extra)
+
     return {
-        "benchmark_config": dict(BASE_BENCHMARK_CONFIG),
+        "benchmark_config": benchmark_config,
         "model": {
             "name": model_name,
             "is_snn": False,
@@ -122,9 +127,18 @@ CONFIGS = {
     # BEFORE the momentum accumulator -- the adaptive counterpart of the fixed
     # gradient_clip_val (which also clips the raw gradient), and the direct
     # comparison point against the post-momentum qclip variants above.
+    # Pilot run at 2 seeds instead of 5, to get an early read on raw-gradient vs
+    # momentum clipping. This is FREE relative to the full run: seeds are
+    # generated as training_seed + i (42, 43, ...), so a 2-seed run is a strict
+    # prefix of the 5-seed one. Bumping nb_training_seeds back to 5 later reuses
+    # the cached seeds 42/43 (same results_directory) and only trains 44/45/46.
+    # NOTE: 2 seeds is coarse in the collapse regions, where outcomes are close to
+    # bimodal (learns vs. floors at ~0.16) -- fine for spotting a gross difference,
+    # not for final numbers.
     "cnn_mnist_rawqclip_080": make_config(
         "cnn_mnist", "cnn_mnist_rawqclip_080",
         honest_clients_extra={"raw_grad_clip_quantile": 0.80, "raw_grad_clip_window": 100},
+        benchmark_extra={"nb_training_seeds": 2},
     ),
 }
 

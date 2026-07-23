@@ -2,7 +2,7 @@
     "benchmark_config": {
         "device": "cuda",
         "training_seed": 42,
-        "nb_training_seeds": 5,
+        "nb_training_seeds": 2,
         "nb_honest_clients": 10,
         "f": [
             0,
