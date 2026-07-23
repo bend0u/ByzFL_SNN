@@ -1,0 +1,24 @@
+=== Prediction checks (median over steps [100,400]) ===
+
+-- Prediction: S_SNN < S_ReLU and S_SNN < S_Tanh at every gamma --
+  gamma=1.0: S_SNN=0.5467, S_ReLU=0.3306, S_Tanh=0.5913 -> VIOLATED
+  gamma=0.66: S_SNN=0.1322, S_ReLU=0.1374, S_Tanh=0.1553 -> HOLDS
+  gamma=0.33: S_SNN=0.1077, S_ReLU=0.1504, S_Tanh=0.0720 -> VIOLATED
+  gamma=0.0: S_SNN=0.1241, S_ReLU=0.1981, S_Tanh=0.0682 -> VIOLATED
+
+-- Prediction: N_ReLU >> N_SNN ~ N_Tanh (ReLU alone is high-N) --
+  gamma=1.0: N_SNN=0.1434, N_ReLU=0.1581, N_Tanh=0.1059 -> HOLDS (ReLU highest)
+  gamma=0.66: N_SNN=0.3877, N_ReLU=0.3618, N_Tanh=0.3523 -> VIOLATED (ReLU highest)
+  gamma=0.33: N_SNN=0.3911, N_ReLU=0.3406, N_Tanh=0.3650 -> VIOLATED (ReLU highest)
+  gamma=0.0: N_SNN=0.3948, N_ReLU=0.3538, N_Tanh=0.3741 -> VIOLATED (ReLU highest)
+
+-- Prediction: S decreases as gamma decreases (1.0 -> 0.0), for all models --
+  snn_atan12: S(gamma) = [0.5467, 0.1322, 0.1077, 0.1241] -> NOT MONOTONE
+  cnn_relu: S(gamma) = [0.3306, 0.1374, 0.1504, 0.1981] -> NOT MONOTONE
+  cnn_tanh: S(gamma) = [0.5913, 0.1553, 0.072, 0.0682] -> MONOTONE NON-INCREASING
+
+-- Prediction: S_layer0(SNN) >> S_deep_mean(SNN) --
+  gamma=1.0: S_layer0=0.6239, S_deep_mean=0.5785 -> HOLDS
+  gamma=0.66: S_layer0=0.1609, S_deep_mean=0.2449 -> VIOLATED
+  gamma=0.33: S_layer0=0.0551, S_deep_mean=0.2841 -> VIOLATED
+  gamma=0.0: S_layer0=0.0475, S_deep_mean=0.3387 -> VIOLATED

@@ -1,3 +1,4 @@
+import math
 import torch
 import numpy as np
 from collections import deque
@@ -84,6 +85,16 @@ class Client(ModelBaseInterface):
         self.grad_clip_quantile = params.get("grad_clip_quantile", 0.0)
         self.grad_clip_window = params.get("grad_clip_window", 100)
         self._grad_norm_history = deque(maxlen=self.grad_clip_window)
+
+        # Same adaptive windowed-quantile mechanism, but applied to the RAW
+        # gradient BEFORE it enters the momentum accumulator (rather than to the
+        # post-momentum vector on its way out). This is the adaptive counterpart
+        # of the fixed `gradient_clip_val`, which also clips the raw gradient --
+        # so the two are directly comparable, and bounding what feeds the
+        # accumulator prevents unbounded growth (and the resulting overflow/NaN).
+        self.raw_grad_clip_quantile = params.get("raw_grad_clip_quantile", 0.0)
+        self.raw_grad_clip_window = params.get("raw_grad_clip_window", 100)
+        self._raw_grad_norm_history = deque(maxlen=self.raw_grad_clip_window)
 
         self.loss_list = list()
         self.train_acc_list = list()
@@ -291,29 +302,69 @@ class Client(ModelBaseInterface):
         torch.Tensor
             A flat array containing the gradients with momentum applied.
         """
+        raw_gradient = self.get_flat_gradients()
+
+        # Optionally clip the RAW gradient before it enters the momentum
+        # accumulator (see raw_grad_clip_quantile in __init__).
+        if self.raw_grad_clip_quantile > 0:
+            raw_gradient = self._clip_to_windowed_quantile(
+                raw_gradient,
+                self._raw_grad_norm_history,
+                self.raw_grad_clip_quantile,
+                self.raw_grad_clip_window,
+            )
+
         self.momentum_gradient.mul_(self.momentum)
-        self.momentum_gradient.add_(
-            self.get_flat_gradients(),
-            alpha=1 - self.momentum
-        )
+        self.momentum_gradient.add_(raw_gradient, alpha=1 - self.momentum)
 
         if self.grad_clip_quantile <= 0:
             return self.momentum_gradient
 
-        current_norm = torch.linalg.norm(self.momentum_gradient).item()
-        # Record the pre-clip norm so the quantile reflects the true (unclipped)
-        # distribution of this client's recent gradient norms.
-        self._grad_norm_history.append(current_norm)
+        # Clip the POST-momentum vector on its way to the server.
+        return self._clip_to_windowed_quantile(
+            self.momentum_gradient,
+            self._grad_norm_history,
+            self.grad_clip_quantile,
+            self.grad_clip_window,
+        )
 
-        min_history = max(2, self.grad_clip_window // 2)
-        if len(self._grad_norm_history) < min_history:
+    def _clip_to_windowed_quantile(self, vector, norm_history, quantile, window):
+        """
+        Description
+        -----------
+        Rescales `vector` so its L2 norm does not exceed the `quantile`-quantile
+        of the last `window` norms recorded in `norm_history` (a sliding window,
+        since gradient norms are non-stationary and shrink as training converges).
+
+        The pre-clip norm is what gets recorded, so the quantile reflects the true
+        (unclipped) distribution. Returns a rescaled copy; `vector` is never
+        modified in place. During warmup (insufficient history) the vector is
+        returned unchanged.
+
+        Non-finite norms are skipped rather than recorded: a single NaN/Inf would
+        otherwise poison every subsequent quantile (making the threshold NaN, which
+        silently disables clipping since all NaN comparisons are False).
+
+        Returns
+        -------
+        torch.Tensor
+            The (possibly rescaled) vector.
+        """
+        current_norm = torch.linalg.norm(vector).item()
+        if not math.isfinite(current_norm):
+            return vector
+
+        norm_history.append(current_norm)
+
+        min_history = max(2, window // 2)
+        if len(norm_history) < min_history:
             # Not enough history yet to estimate a stable quantile -- skip clipping.
-            return self.momentum_gradient
+            return vector
 
-        threshold = np.quantile(self._grad_norm_history, self.grad_clip_quantile)
+        threshold = np.quantile(norm_history, quantile)
         if current_norm > threshold and current_norm > 0:
-            return self.momentum_gradient * (threshold / current_norm)
-        return self.momentum_gradient
+            return vector * (threshold / current_norm)
+        return vector
 
     def get_loss_list(self):
         """

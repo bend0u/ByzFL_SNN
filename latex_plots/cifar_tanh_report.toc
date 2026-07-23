@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Best Overall Performance (Worst-Case Across Attacks)}{3}{section.1}%
+\contentsline {section}{\numberline {2}Best Aggregator under Specific Attacks}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Optimal ALIE Attack}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Sign Flipping Attack}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Optimal IPM Attack}{6}{subsection.2.3}%

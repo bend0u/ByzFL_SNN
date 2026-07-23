@@ -1,0 +1,447 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{amsmath}
+
+\geometry{a4paper, margin=0.65in}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\title{CIFAR-10 CNN Report: ReLU vs.\ Tanh}
+\author{ByzFL SNN Benchmark}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+This report compares two CIFAR-10 CNN configurations side by side:
+\begin{enumerate}
+    \item \textbf{CNN ReLU}: Standard CNN with ReLU activations, no clipping.
+    \item \textbf{CNN Tanh}: CNN with Tanh activation (implicit saturation).
+\end{enumerate}
+Both share the same DSGD training setup, NNM+ARC pre-aggregation, and $f=0..5$ / $\gamma=0..1$ sweep grid.
+
+\clearpage
+
+\section{Best Overall Performance (Worst-Case Across Attacks)}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/best_test_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:best_overall_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/best_test_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_overall_tanh}
+    \end{subfigure}
+    \caption{Best overall test accuracy (worst-case across attacks).}
+    \label{fig:best_overall_grid}
+\end{figure}
+\clearpage
+\section{Best Aggregator under Specific Attacks}
+
+\subsection{Optimal ALIE Attack}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/best_test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:best_alie_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/best_test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_alie_tanh}
+    \end{subfigure}
+    \caption{Best test accuracy under ALIE.}
+    \label{fig:best_alie_grid}
+\end{figure}
+\clearpage
+\subsection{Sign Flipping Attack}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/best_test_SignFlipping_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:best_sf_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/best_test_SignFlipping_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_sf_tanh}
+    \end{subfigure}
+    \caption{Best test accuracy under SF.}
+    \label{fig:best_sf_grid}
+\end{figure}
+\clearpage
+\subsection{Optimal IPM Attack}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/best_test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:best_ipm_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/best_test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:best_ipm_tanh}
+    \end{subfigure}
+    \caption{Best test accuracy under IPM.}
+    \label{fig:best_ipm_grid}
+\end{figure}
+\clearpage
+\subsection{Centered Clipping (CC)}
+\subsubsection{CC under Worst-Case across all Attacks}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:cc_worst_case_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_worst_case_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping (CC) under Worst-Case across all Attacks.}
+    \label{fig:cc_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{CC under ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:cc_alie_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_alie_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping (CC) under Optimal ALIE Attack.}
+    \label{fig:cc_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{CC under SF}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:cc_sf_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_sf_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping (CC) under Sign Flipping Attack.}
+    \label{fig:cc_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{CC under IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:cc_ipm_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:cc_ipm_tanh}
+    \end{subfigure}
+    \caption{Centered Clipping (CC) under Optimal IPM Attack.}
+    \label{fig:cc_ipm_grid}
+\end{figure}
+\clearpage
+\subsection{Geometric Median (GM)}
+\subsubsection{GM under Worst-Case across all Attacks}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:gm_worst_case_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_worst_case_tanh}
+    \end{subfigure}
+    \caption{Geometric Median (GM) under Worst-Case across all Attacks.}
+    \label{fig:gm_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{GM under ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:gm_alie_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_alie_tanh}
+    \end{subfigure}
+    \caption{Geometric Median (GM) under Optimal ALIE Attack.}
+    \label{fig:gm_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{GM under SF}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:gm_sf_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_sf_tanh}
+    \end{subfigure}
+    \caption{Geometric Median (GM) under Sign Flipping Attack.}
+    \label{fig:gm_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{GM under IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:gm_ipm_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:gm_ipm_tanh}
+    \end{subfigure}
+    \caption{Geometric Median (GM) under Optimal IPM Attack.}
+    \label{fig:gm_ipm_grid}
+\end{figure}
+\clearpage
+\subsection{Multi-Krum (MK)}
+\subsubsection{MK under Worst-Case across all Attacks}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:mk_worst_case_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_worst_case_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum (MK) under Worst-Case across all Attacks.}
+    \label{fig:mk_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{MK under ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:mk_alie_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_alie_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum (MK) under Optimal ALIE Attack.}
+    \label{fig:mk_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{MK under SF}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:mk_sf_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_sf_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum (MK) under Sign Flipping Attack.}
+    \label{fig:mk_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{MK under IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:mk_ipm_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:mk_ipm_tanh}
+    \end{subfigure}
+    \caption{Multi-Krum (MK) under Optimal IPM Attack.}
+    \label{fig:mk_ipm_grid}
+\end{figure}
+\clearpage
+\subsection{Trimmed Mean (TM)}
+\subsubsection{TM under Worst-Case across all Attacks}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:tm_worst_case_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_worst_case_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean (TM) under Worst-Case across all Attacks.}
+    \label{fig:tm_worst_case_grid}
+\end{figure}
+\clearpage
+\subsubsection{TM under ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:tm_alie_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_alie_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean (TM) under Optimal ALIE Attack.}
+    \label{fig:tm_alie_grid}
+\end{figure}
+\clearpage
+\subsubsection{TM under SF}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:tm_sf_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_SignFlipping_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_sf_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean (TM) under Sign Flipping Attack.}
+    \label{fig:tm_sf_grid}
+\end{figure}
+\clearpage
+\subsubsection{TM under IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-relu-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN ReLU}
+        \label{fig:tm_ipm_relu}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cifar-tanh-heatmap-22-07/test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{CNN Tanh}
+        \label{fig:tm_ipm_tanh}
+    \end{subfigure}
+    \caption{Trimmed Mean (TM) under Optimal IPM Attack.}
+    \label{fig:tm_ipm_grid}
+\end{figure}
+\clearpage
+
+\end{document}

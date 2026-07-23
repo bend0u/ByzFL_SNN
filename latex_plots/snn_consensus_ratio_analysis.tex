@@ -1,0 +1,407 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{prediction}{Prediction}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\agg}{\mathrm{Agg}}
+\newcommand{\hetero}{\zeta}
+
+\title{Why Bounded Gradients Win under Heterogeneity,\\
+and Why SNNs Collapse under Many Byzantines:\\
+\large A Consensus-Ratio Analysis of the ByzFL SNN Benchmark}
+\author{Working notes --- theory companion to the mixed robustness report}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We formalize two empirical observations from the MNIST benchmark comparing CNN
+(ReLU / gradient-clipped / Tanh) against spiking networks (Atan, Triangular,
+Box surrogates) under Byzantine attacks with robust aggregation
+(pre-aggregation $\mathrm{ARC}\circ\mathrm{NNM}$, aggregators CC, GM, MK, TM).
+(i) At low Byzantine count $f$ and high data heterogeneity, unbounded-gradient
+CNNs (ReLU) collapse while every bounded-gradient architecture (SNN, Tanh,
+explicitly clipped ReLU) survives. (ii) At high $f$ and moderate heterogeneity,
+SNNs collapse under Sign Flipping for \emph{every} aggregator, while all CNN
+variants survive; the collapse is non-destructive (training resumes immediately
+once the attack stops). We show both facts follow from a single quantity, the
+\emph{honest consensus ratio} $\rho = \norm{\mu}/\sigma$: bounded architectures
+uniformly control the denominator across heterogeneity levels (explaining (i)),
+while the exact sign-flipping attack shrinks the effective numerator by the
+factor $(1-2f/n)$, raising the consensus threshold that surrogate-gradient
+training --- biased and coordinate-sparse --- fails to meet (explaining (ii),
+including the recovery experiment and the failure of NNM to help).
+\end{abstract}
+
+\section{Setting and notation}
+
+There are $n = h + f$ clients: $h=10$ honest, $f \in \{0,\dots,5\}$ Byzantine.
+Training is distributed SGD with client momentum: at round $t$, honest client
+$i$ computes a mini-batch gradient $g_i^t = \nabla \ell(\theta^t; B_i^t)$ on its
+local shard $\mathcal D_i$ and sends the momentum vector
+\begin{equation}
+m_i^t = \beta\, m_i^{t-1} + g_i^t, \qquad m_i^0 = g_i^0 .
+\end{equation}
+Data heterogeneity is controlled by a Dirichlet/label-skew parameter (report
+axis ``heterogeneity level'' $\lambda \in \{0.0, 0.33, 0.66, 1.0\}$, where
+$1.0$ is IID and $0.0$ is extreme skew).
+
+Let $\mu^t = \tfrac1h \sum_{i\in H} m_i^t$ denote the honest mean and
+\begin{equation}
+\sigma_t^2 \;=\; \frac1h \sum_{i \in H} \norm{m_i^t - \mu^t}^2
+\end{equation}
+the \emph{honest dispersion} (this absorbs heterogeneity, mini-batch noise, and
+--- for SNNs --- surrogate-gradient noise).
+
+\paragraph{Attacks.} Sign Flipping (SF) is implemented as: every Byzantine
+sends the \emph{same} vector
+\begin{equation}
+a^t \;=\; -\,\mu^t ,
+\label{eq:sf}
+\end{equation}
+i.e.\ the negated honest mean (omniscient attacker). Optimal ALIE and Optimal
+IPM send $\mu^t + \gamma^\star z^t$ with $z^t$ a unit direction (coordinate-wise
+std.\ direction for ALIE, $-\mu^t/\norm{\mu^t}$ for IPM) and $\gamma^\star$
+tuned to maximally bias the aggregate while remaining inside the honest cloud;
+their attack magnitude therefore \emph{scales with} $\sigma_t$.
+
+\paragraph{Aggregation.} The server applies the pre-aggregation pipeline
+$\mathrm{ARC}\circ\mathrm{NNM}$ and then a robust aggregator
+$\agg \in \{\text{CC, GM, MK, TM}\}$, producing $R^t$, and updates
+$\theta^{t+1} = \theta^t - \eta R^t$.
+
+\begin{definition}[$(f,\kappa)$-robustness \textnormal{(Allouah et al., 2023)}]
+$\agg$ is $(f,\kappa)$-robust if for any input vectors $x_1,\dots,x_n$ of which
+a set $H$, $|H| = n - f$, is honest with mean $\bar x_H$ and dispersion
+$\sigma_H^2$,
+\begin{equation}
+\norm{\agg(x_1,\dots,x_n) - \bar x_H}^2 \;\le\; \kappa\, \sigma_H^2 .
+\label{eq:kappa}
+\end{equation}
+For the aggregators used here (composed with NNM), $\kappa = \Theta\!\big(\tfrac{f}{n-2f}\big)$,
+which is order-optimal.
+\end{definition}
+
+With $h = 10$ fixed: $\kappa \approx c\cdot\tfrac19$ at $f{=}1$, but
+$\kappa \approx c\cdot 1$ at $f{=}5$ ($n{=}15$, $n-2f{=}5$) --- the tolerable
+error inflates by an order of magnitude across the benchmark's $f$-axis.
+
+\section{The consensus ratio and the success threshold}
+
+\begin{definition}[Consensus ratio]
+$\displaystyle \rho_t \;=\; \frac{\norm{\mu^t}}{\sigma_t}$.
+\end{definition}
+
+$\rho_t$ is \emph{scale-invariant}: rescaling all honest vectors leaves it
+unchanged. It measures \emph{geometric agreement}, not gradient magnitude.
+Large per-client gradients are neither good nor bad per se; what matters is
+dispersion \emph{relative to} the common signal.
+
+\begin{proposition}[Descent condition]
+\label{prop:descent}
+If $\agg$ is $(f,\kappa)$-robust then
+$\inner{R^t}{\mu^t} \ge \norm{\mu^t}^2 - \norm{\mu^t}\,\sqrt{\kappa}\,\sigma_t$,
+so the aggregate is positively correlated with the honest direction whenever
+\begin{equation}
+\boxed{\;\rho_t \;>\; \sqrt{\kappa}\;}
+\label{eq:threshold}
+\end{equation}
+and standard analyses then give a stationarity gap of order
+$\kappa\sigma^2$ for the trained model. Conversely, when
+$\rho_t \le \sqrt{\kappa}$ the bound~\eqref{eq:kappa} permits $R^t = 0$ or even
+$\inner{R^t}{\mu^t} < 0$: robustness guarantees become vacuous and an adaptive
+attack can stall training.
+\end{proposition}
+
+Condition~\eqref{eq:threshold} is the organizing principle of this note:
+\emph{low $f$ sets a low bar for $\rho$; high $f$ sets a high bar.} This is a
+statement about the \emph{threshold}, not about desirability of large
+gradients. All results below are statements about how each architecture and
+each attack moves $\rho_t$ relative to $\sqrt{\kappa}$.
+
+\section{Result A: bounded architectures control $\sigma$ uniformly in heterogeneity}
+
+\begin{lemma}[Distribution-free gradient bound for bounded activations]
+\label{lem:bounded}
+Consider an $L$-layer feedforward network
+$z_\ell = W_\ell\, h_{\ell-1}$, $h_\ell = \varphi(z_\ell)$, $h_0 = x$, with
+cross-entropy loss on $K$ classes, inputs $\norm{x}\le B$ (MNIST: $B \le 28$
+after normalization), and activation satisfying
+\begin{equation}
+|\varphi(u)| \le a, \qquad |\varphi'(u)| \le b \qquad \forall u
+\qquad (\text{tanh: } a=b=1).
+\end{equation}
+Then for every data point $(x,y)$,
+\begin{equation}
+\norm{\nabla_{W_\ell}\, \ell(\theta; x, y)}
+\;\le\; \sqrt2\, \Big(\prod_{j=\ell+1}^{L} \norm{W_j}_{\mathrm{op}}\Big)\, b^{\,L-\ell}\,
+\underbrace{\min\big(a\sqrt{d_{\ell-1}},\, B\,\mathbf 1_{\{\ell=1\}} + a\sqrt{d_{\ell-1}}\,\mathbf 1_{\{\ell>1\}}\big)}_{\text{bounded independently of the data distribution}}
+\;=:\; C_\ell(a,b,\{\norm{W_j}\}) .
+\label{eq:gradbound}
+\end{equation}
+Consequently $\norm{g_i^t} \le C := \big(\sum_\ell C_\ell^2\big)^{1/2}$ for
+\emph{every} client regardless of its local distribution, and with momentum
+$\norm{m_i^t} \le C/(1-\beta)$, hence
+\begin{equation}
+\sigma_t \;\le\; \frac{2C}{1-\beta}
+\qquad \text{uniformly over heterogeneity levels } \lambda .
+\label{eq:sigmabound}
+\end{equation}
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+The logit-layer error is $\delta_L = p - e_y$ with $\norm{\delta_L} \le \sqrt2$.
+Backpropagation gives $\delta_\ell = \mathrm{diag}(\varphi'(z_\ell))\,
+W_{\ell+1}^\top \delta_{\ell+1}$, so
+$\norm{\delta_\ell} \le b^{\,L-\ell} \prod_{j>\ell}\norm{W_j}_{\mathrm{op}}\sqrt2$,
+and $\nabla_{W_\ell} = \delta_\ell\, h_{\ell-1}^\top$ with
+$\norm{h_{\ell-1}} \le a\sqrt{d_{\ell-1}}$ for $\ell > 1$ by boundedness of
+$\varphi$, or $\le B$ for $\ell = 1$. Convolutional layers obey the same bound
+with $\norm{\cdot}_{\mathrm{op}}$ of the induced linear map. Momentum: geometric
+series.
+\end{proof}
+
+\begin{remark}[Why ReLU has no analogue]
+For ReLU, $|\varphi'| \le 1$ but $\varphi$ is unbounded, so
+$\norm{h_{\ell-1}}$ is controlled only by $\prod_j \norm{W_j}\cdot B$ ---
+and, decisively, it is \emph{data-dependent}: under label skew a client whose
+shard concentrates on the classes that most excite a feature pathway produces
+activations, hence gradients, far above the population median. The honest norm
+distribution becomes heavy-tailed across clients; since $\sigma^2$ is a second
+moment it is tail-dominated, while $\mu$ is a first moment and tail directions
+partially cancel. Thus increasing skew inflates $\sigma$ faster than
+$\norm{\mu}$: $\rho$ falls with heterogeneity for ReLU, but is bounded below
+for tanh/clipped/SNN by \eqref{eq:sigmabound}. Explicit norm clipping at $C$
+imposes \eqref{eq:sigmabound} directly; bounded surrogate derivatives on
+$\{0,1\}$ spike activations give SNNs the same property (spikes are bounded
+activations; the surrogate plays the role of $\varphi'$ with
+$b = \sup|\tilde\varphi'| < \infty$).
+\end{remark}
+
+\begin{corollary}[Uniform robustness floor for bounded architectures]
+\label{cor:A}
+For any $(f,\kappa)$-robust aggregator, a bounded-gradient architecture
+satisfies, at every heterogeneity level,
+$\norm{R^t - \mu^t}^2 \le \kappa\, (2C/(1-\beta))^2$,
+and every $\sigma$-scaled attack (ALIE, IPM) has magnitude at most
+$\gamma^\star \cdot 2C/(1-\beta)$. Neither statement holds for ReLU, whose
+attack surface $\sigma_t(\lambda)$ grows with skew. Hence for every fixed $f$
+below the consensus threshold of Section~5, bounded architectures dominate
+ReLU on sufficiently heterogeneous data.
+\end{corollary}
+
+\begin{remark}[Server-side clipping is not a substitute]
+The benchmark already applies ARC (adaptive robust clipping) at the server, yet
+ReLU still collapses at $(f{=}1,\lambda{=}0)$. ARC caps the largest transmitted
+norms \emph{after} the honest cloud has been generated: it protects against
+large \emph{Byzantine} vectors, but the quantity that ALIE/IPM weaponize --- the
+honest dispersion $\sigma$ that sets $\gamma^\star\sigma$ --- and the
+$\kappa\sigma^2$ error floor are determined client-side. Boundedness must be
+imposed where the dispersion is created (architecture or client-side clipping),
+not where it is observed. This is an independently interesting finding of the
+benchmark.
+\end{remark}
+
+\section{Result B: sign flipping shrinks the effective consensus by $(1-2f/n)$}
+
+\begin{proposition}[Signal shrinkage under exact sign flipping]
+\label{prop:shrink}
+Under attack \eqref{eq:sf}, the mean of the full input cloud is
+\begin{equation}
+\bar x \;=\; \frac{(n-f)\,\mu - f\,\mu}{n} \;=\; \Big(1 - \frac{2f}{n}\Big)\mu ,
+\end{equation}
+while the honest dispersion is unchanged. Any aggregator that is
+(i) permutation-invariant, (ii) quasi-mean-like in the sense that its output
+lies in the convex hull of averaged input subsets (true of TM, MK, CC, GM, and
+preserved by NNM/ARC), can therefore recover at best a signal of magnitude
+$\approx (1 - 2f/n)\norm{\mu}$ against unchanged noise: the \emph{effective}
+consensus ratio is
+\begin{equation}
+\rho^{\mathrm{eff}}_t \;=\; \Big(1-\frac{2f}{n}\Big)\,\rho_t ,
+\qquad\text{and the descent condition becomes}\qquad
+\rho_t \;>\; \frac{\sqrt{\kappa(f)}}{\,1 - 2f/n\,} .
+\label{eq:effthreshold}
+\end{equation}
+\end{proposition}
+
+With $h = 10$: the right-hand side of \eqref{eq:effthreshold} grows from
+$\approx 1.1\sqrt{c/9}$ at $f{=}1$ to $\approx 3\sqrt{c}$ at $f{=}5$ ---
+roughly a \textbf{tenfold} increase in the required consensus across the
+benchmark's $x$-axis. This is the quantitative content of ``high $f$ demands
+high consensus'': nothing about the architecture degrades as $f$ grows; the
+bar moves.
+
+\begin{remark}[Why NNM cannot help here --- and can hurt]
+NNM replaces each vector by the average of its $n-f$ nearest neighbors. Under
+\eqref{eq:sf} the $f$ Byzantine vectors are \emph{identical}, mutual distance
+$0$: each Byzantine's neighborhood automatically contains all Byzantines, and
+--- whenever honest dispersion is large relative to $\norm{\mu}$ (the low-$\rho$
+regime) --- the compact cluster at $-\mu$ is closer to many honest vectors than
+other honest vectors are, so honest neighborhoods absorb Byzantine copies too.
+Mixing then contracts the whole cloud toward $\bar x = (1-2f/n)\mu$: NNM
+faithfully realizes the shrinkage of Proposition~\ref{prop:shrink} but cannot
+exceed it, because the honest identity of vectors is information-theoretically
+hidden inside the cloud. This explains the observed fact that the collapse
+occurs \emph{despite} NNM being in the pipeline, for every downstream
+aggregator simultaneously --- a signature of an information limit, not an
+aggregator defect.
+\end{remark}
+
+\begin{remark}[Coordinate-wise picture: from shrinkage to cancellation]
+For coordinate-wise TM (trim $f$ each side, keep $n-2f = 5$ values), consider a
+coordinate with honest values $\{v_i\}$, mean $v$, spread $s$:
+\begin{itemize}[leftmargin=2em, itemsep=0pt]
+\item \emph{Strong consensus} ($|v| \gg s$): the $f$ Byzantine copies of $-v$
+are the extreme minority side; trimming removes exactly them; the kept median
+block is honest. TM $\approx v$. (CNNs at all $\lambda \ge 0.33$; SNNs at IID.)
+\item \emph{Weak consensus} ($|v| \lesssim s$): honest values straddle $0$; the
+Byzantine block at $-v$ sits \emph{inside} the honest range; trimming removes
+honest extremes and the kept block contains the $f$ identical copies of $-v$
+plus few honest values. TM $\approx$ a value in $[-v, v]$ of unpredictable
+sign, magnitude $O(|v|)$: per-coordinate near-cancellation.
+\end{itemize}
+The aggregate is then a small, weakly-aligned update every round: the model
+random-walks at chance level ($0.13$), and --- because no state is corrupted ---
+training resumes at full speed the moment the attack stops. This reproduces the
+150-round stall / immediate-recovery experiment exactly and rules in
+aggregation-level cancellation as the mechanism (irreversible silencing was
+independently falsified).
+\end{remark}
+
+\section{Why SNNs sit below the raised bar: surrogate bias and coordinate sparsity}
+
+Two structural properties depress $\rho$ for surrogate-gradient training:
+
+\paragraph{(a) Client-dependent bias.} The surrogate direction is not the
+gradient of the training loss; write
+$m_i = \nabla F_i(\theta) + \beta_i(\theta)$ where $\beta_i$ is the surrogate
+bias evaluated on client $i$'s data. Bias terms are shard-dependent (they
+depend on which membrane-potential regions the local data visits), so they add
+client-to-client dispersion \emph{and} rotate individual directions away from
+consensus: $\sigma \uparrow$, $\norm{\mu} \downarrow$, both hurting $\rho$.
+
+\paragraph{(b) Compact-support sparsity.} For Triangular and Box surrogates,
+$\tilde\varphi'(u) = 0$ outside a window around threshold. A coordinate of
+$m_i$ is nonzero only if client $i$'s data drives the corresponding
+pre-activations into the window. Let $k_j \le h$ be the number of honest
+clients with non-negligible mass on coordinate $j$. The \emph{per-coordinate
+effective Byzantine fraction} is
+\begin{equation}
+\frac{f}{k_j + f} \;\ge\; \frac{f}{h+f},
+\end{equation}
+strictly worse than nominal wherever $k_j < h$, and coordinate-wise aggregators
+(TM; MK/GM partially, through distances) break down coordinate-by-coordinate
+once $f \gtrsim k_j$. Under label skew, $k_j$ is small precisely for the
+class-discriminative coordinates. Atan has full support but polynomially
+decaying tails, so it exhibits a soft version of the same effect --- consistent
+with Atan dying at $f{=}5$ alongside Box/Tri rather than being rescued.
+
+\medskip
+Combining: SNNs enter the benchmark with structurally lower $\rho$ (bias +
+sparsity), which is \emph{harmless} where the threshold is low --- at
+$f \le 2$ they match or beat ReLU under heterogeneity thanks to
+Corollary~\ref{cor:A}, since their $\sigma$ is bounded --- but fatal once
+\eqref{eq:effthreshold} demands $\rho = \Omega(1)$: at
+$(f{=}5, \lambda{=}0.66)$, SNNs fail under SF for every aggregator (all
+$0.13$) while surviving the $\sigma$-scaled attacks ALIE ($0.96$) and IPM
+($0.91$) in the same cell. This selectivity is the fingerprint of the
+mechanism: ALIE/IPM \emph{bias} the aggregate but cannot cancel it (their
+perturbation must hide inside the honest cloud); exact sign flipping is the
+unique attack in the suite whose fixed point is a zero net update, and
+cancellation activates exactly when per-coordinate consensus is weak. Against
+low-$\rho$ clients, the ``crude'' attack is the optimal one.
+
+\begin{proposition}[Summary dominance statement]
+Fix an $(f,\kappa)$-robust pipeline. Then:
+(i) for every $f$ with $\sqrt{\kappa(f)}/(1-2f/n) < \rho^{\mathrm{SNN}}$,
+bounded architectures (SNN, tanh, clipped) succeed at all heterogeneity levels
+while ReLU fails once $\sigma^{\mathrm{ReLU}}(\lambda) >
+\norm{\mu(\lambda)}/\sqrt{\kappa}$;
+(ii) for $f$ with
+$\rho^{\mathrm{SNN}} < \sqrt{\kappa(f)}/(1-2f/n) < \rho^{\mathrm{CNN}}_{\mathrm{bounded}}$,
+only dense bounded architectures (tanh, clipped ReLU) satisfy both
+requirements --- bounded $\sigma$ \emph{and} high consensus --- and they
+Pareto-dominate the grid, as observed.
+\end{proposition}
+
+\section{Testable predictions and measurement protocol}
+
+\begin{prediction}[$\rho$ ordering and threshold crossing]
+Log $\rho_t = \norm{\mu^t}/\sigma_t$ per round. (i) $\rho^{\mathrm{ReLU}}$
+decreases in skew and is smallest at $\lambda = 0$; (ii)
+$\rho^{\mathrm{tanh}} \approx \rho^{\mathrm{clip}} >
+\rho^{\mathrm{Atan}} > \rho^{\mathrm{Tri/Box}}$ at matched $\lambda$;
+(iii) the SF-collapse cells are exactly those with
+$(1-2f/n)\rho_t \lesssim \sqrt{\kappa}$ during the stall.
+\end{prediction}
+
+\begin{prediction}[Tail ratio explains the ReLU region]
+The per-round ratio $\max_i \norm{g_i}/\mathrm{median}_i\norm{g_i}$ for ReLU
+grows with skew and localizes the collapse region; clipping/tanh flatten it to
+$O(1)$. At IID it is already $O(1)$, predicting clipping $\approx$ no-op there
+(observed: $0.97$--$0.99$ for all configs at $\lambda = 1.0$).
+\end{prediction}
+
+\begin{prediction}[Coordinate support predicts the SNN cliff]
+Measure $k_j/h$ (fraction of honest clients with $|m_{i,j}|$ above a noise
+floor). SNNs, especially Box/Tri, show substantially smaller support than CNNs
+at matched $\lambda$; the cells where median $k_j \lesssim f$ coincide with
+the SF-collapse cells. Widening the surrogate window (or lowering Atan
+sharpness) increases $k_j$ and moves the cliff to higher $f$, at some clean
+accuracy cost --- a monotone dose-response that would nail causality.
+\end{prediction}
+
+\begin{prediction}[Aggregate telemetry during stall]
+During the 150-round stall: $\norm{R^t}/\norm{\mu^t} \ll 1$ and/or
+$\cos(R^t, \mu^t)$ oscillating around $0$; both jump immediately when the
+attack lifts. Momentum implies a recovery time constant $\approx (1-\beta)^{-1}$
+rounds, visible in the first steps after release.
+\end{prediction}
+
+\begin{prediction}[Attack substitution]
+Replacing exact SF by ``flip own local gradient'' (non-omniscient) weakens the
+cancellation: partial-training outcomes should appear at $f{=}4$--$5$
+(cf.\ the intermediate values $0.42$--$0.55$ already visible at $f{=}4$,
+$\lambda{=}0.33$).
+\end{prediction}
+
+\section{Confounds to close before claiming the theorem empirically}
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Learning-rate confound (critical).} ReLU runs at $LR = 0.15$;
+clipping at the SNN max-norm partially mimics a smaller effective step for
+outlier clients. A reviewer will ask whether ReLU collapse is simply ``LR too
+large under skew.'' Control: LR sweep for ReLU per cell (report best), showing
+the collapse region persists (or quantifying how much of it is LR). The theory
+predicts a residual gap: lowering LR shrinks all updates but does not fix the
+\emph{ratio} $\rho$, whereas clipping is nonlinear in the tail.
+\item \textbf{Clip-threshold sweep.} $C \in$ grid around the SNN max value;
+theory predicts a plateau (any $C$ taming the tail works), not a knife-edge.
+\item \textbf{Seeds and uncertainty.} $\ge 3$--$5$ seeds per cell with
+mean $\pm$ std; the cliff cells ($0.13$ vs $0.9$) will separate cleanly, the
+frontier cells ($0.4$--$0.7$) need the error bars.
+\item \textbf{Momentum ablation.} $\beta \in \{0, 0.9\}$: momentum lowers
+effective dispersion (averaging over rounds) and should shift both frontiers;
+the $(1-2f/n)$ shrinkage is momentum-independent.
+\item \textbf{Order of pre-aggregation.} Verify the exact composition
+($\mathrm{ARC}(\mathrm{NNM}(\cdot))$ vs $\mathrm{NNM}(\mathrm{ARC}(\cdot))$)
+and report it; the shrinkage argument is order-independent, but ARC's clipping
+level interacts with which vectors NNM mixes.
+\end{enumerate}
+
+\end{document}

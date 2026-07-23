@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{amsmath}
+
+\geometry{a4paper, margin=0.65in}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\title{Comparison Report:\\Standard SNN Atan ($\theta=1.0$) vs SNN Atan ($\theta=0.4$)}
+\author{ByzFL SNN Benchmark}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+This report compares the robustness of the standard SNN Atan configuration (spiking threshold $\theta=1.0$, surrogate gradient sharpness $\alpha=1.2$) against the same architecture with a lowered spiking threshold ($\theta=0.4$).
+We compare the worst-case test accuracy across four robust aggregators (Centered Clipping, Geometric Median, Multi-Krum, and Trimmed Mean) under three different attacks:
+\begin{enumerate}
+    \item Optimal A Little Is Enough (OptALIE)
+    \item Optimal Inner Product Manipulation (OptIPM)
+    \item Sign Flipping
+\end{enumerate}
+
+\clearpage
+\section{Worst-Case Robustness (Across All Attacks)}
+The following figures show the worst-case test accuracy across all three attacks.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_new_atan_sweep/alpha_1.2/best_test_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=1.0$)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/full-sweep-threshold04/best_test_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=0.4$)}
+    \end{subfigure}
+    \caption{Worst-case test accuracy across all attacks.}
+    \label{fig:worst_case_grid}
+\end{figure}\clearpage
+\section{Robustness under Optimal ALIE}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_new_atan_sweep/alpha_1.2/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=1.0$)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/full-sweep-threshold04/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=0.4$)}
+    \end{subfigure}
+    \caption{Test accuracy under Optimal A Little Is Enough (OptALIE) attack.}
+    \label{fig:opt_alie_grid}
+\end{figure}\clearpage
+\section{Robustness under Optimal IPM}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_new_atan_sweep/alpha_1.2/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=1.0$)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/full-sweep-threshold04/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=0.4$)}
+    \end{subfigure}
+    \caption{Test accuracy under Optimal Inner Product Manipulation (OptIPM) attack.}
+    \label{fig:opt_ipm_grid}
+\end{figure}\clearpage
+\section{Robustness under Sign Flipping}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/robust_new_atan_sweep/alpha_1.2/best_test_SignFlipping_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=1.0$)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/full-sweep-threshold04/best_test_SignFlipping_mnist_cnn_mnist_snn_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{SNN Atan ($\alpha=1.2, \theta=0.4$)}
+    \end{subfigure}
+    \caption{Test accuracy under Sign Flipping attack.}
+    \label{fig:sign_flipping_grid}
+\end{figure}\clearpage
+
+\end{document}

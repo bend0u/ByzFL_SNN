@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{a4paper, margin=0.65in}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\title{CIFAR-10 CNN Tanh Sweep 20 Report}
+\author{ByzFL Benchmark}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Best Overall Performance (Worst-Case Across Attacks)}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../plots/cifar-tanh-sweep20/best_test_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+    \caption{Best overall test accuracy (worst-case across attacks).}
+    \label{fig:best_overall}
+\end{figure}
+\clearpage
+\section{Best Aggregator under Specific Attacks}
+
+\subsection{Optimal ALIE Attack}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../plots/cifar-tanh-sweep20/best_test_Optimal_ALittleIsEnough_neg1_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+    \caption{Best test accuracy under OptALIE.}
+    \label{fig:best_alie}
+\end{figure}
+\clearpage
+\subsection{Sign Flipping Attack}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../plots/cifar-tanh-sweep20/best_test_SignFlipping_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+    \caption{Best test accuracy under Sign Flipping.}
+    \label{fig:best_sf}
+\end{figure}
+\clearpage
+\subsection{Optimal IPM Attack}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../plots/cifar-tanh-sweep20/best_test_Optimal_InnerProductManipulation_cifar10_cnn_cifar_tanh_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+    \caption{Best test accuracy under OptIPM.}
+    \label{fig:best_ipm}
+\end{figure}
+\end{document}

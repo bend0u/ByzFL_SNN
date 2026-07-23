@@ -1,0 +1,26 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Best Overall Performance (Worst-Case Across Attacks)}{4}{section.2}%
+\contentsline {section}{\numberline {3}Best Aggregator under Specific Attacks}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Optimal ALIE Attack}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sign Flipping Attack}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Optimal IPM Attack}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Centered Clipping (CC)}{8}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}CC under Worst-Case across all Attacks}{8}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}CC under ALIE}{9}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}CC under SF}{10}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}CC under IPM}{11}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Geometric Median (GM)}{12}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}GM under Worst-Case across all Attacks}{12}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}GM under ALIE}{13}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}GM under SF}{14}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}GM under IPM}{15}{subsubsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.6}Multi-Krum (MK)}{16}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}MK under Worst-Case across all Attacks}{16}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}MK under ALIE}{17}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}MK under SF}{18}{subsubsection.3.6.3}%
+\contentsline {subsubsection}{\numberline {3.6.4}MK under IPM}{19}{subsubsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.7}Trimmed Mean (TM)}{20}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}TM under Worst-Case across all Attacks}{20}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}TM under ALIE}{21}{subsubsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.3}TM under SF}{22}{subsubsection.3.7.3}%
+\contentsline {subsubsection}{\numberline {3.7.4}TM under IPM}{23}{subsubsection.3.7.4}%
