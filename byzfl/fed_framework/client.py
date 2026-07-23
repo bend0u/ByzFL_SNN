@@ -290,12 +290,29 @@ class Client(ModelBaseInterface):
         """
         Description
         -----------
-        Computes the gradients with momentum applied and returns them as a
-        flat array. If `grad_clip_quantile` > 0, the returned vector is
-        additionally clipped (as a copy -- the internal momentum buffer itself is
-        never rescaled) to the `grad_clip_quantile`-quantile of this client's own
-        last `grad_clip_window` gradient norms, so only what is actually sent to
-        the server is bounded.
+        Computes the gradients with momentum applied and returns them as a flat
+        array.
+
+        Two OPTIONAL and INDEPENDENT adaptive clips can be applied, differing only
+        in WHERE they sit relative to the momentum accumulator. Both use the same
+        mechanism (`_clip_to_windowed_quantile`): clip the L2 norm to the
+        q-quantile of this client's own last W norms. Both are purely client-side.
+
+          raw_grad_clip_quantile  -- clips the RAW gradient BEFORE it enters the
+            accumulator. Because it bounds what feeds the recursion
+            (v <- beta*v + (1-beta)*g), it also prevents v from growing without
+            bound. This is the same position as the fixed `gradient_clip_val`
+            (applied in `_backward_pass`), so it is that clip's adaptive
+            counterpart.
+
+          grad_clip_quantile      -- clips the POST-momentum vector on its way to
+            the server. The internal momentum buffer is never rescaled: only the
+            returned copy is bounded, so what the aggregator sees is bounded while
+            the client's own momentum dynamics stay untouched. Note this canNOT
+            prevent the accumulator itself from diverging.
+
+        Enabling both is allowed; they are applied in pipeline order (raw first,
+        then post-momentum) and track separate norm histories.
 
         Returns
         -------
