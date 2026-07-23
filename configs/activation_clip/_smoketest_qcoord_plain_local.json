@@ -1,16 +1,12 @@
 {
     "benchmark_config": {
-        "device": "cuda",
+        "device": "cpu",
         "training_seed": 42,
-        "nb_training_seeds": 5,
+        "nb_training_seeds": 1,
         "nb_honest_clients": 10,
         "f": [
             0,
-            1,
-            2,
-            3,
-            4,
-            5
+            4
         ],
         "size_train_set": 0.8,
         "data_distribution_seed": 42,
@@ -20,8 +16,6 @@
                 "name": "gamma_similarity_niid",
                 "distribution_parameter": [
                     1.0,
-                    0.66,
-                    0.33,
                     0.0
                 ]
             }
@@ -30,10 +24,10 @@
             "name": "DSGD",
             "parameters": {}
         },
-        "nb_steps": 500
+        "nb_steps": 20
     },
     "model": {
-        "name": "cnn_mnist_clip_qcoord_ste_080",
+        "name": "cnn_mnist_clip_qcoord_plain_080",
         "is_snn": false,
         "dataset_name": "mnist",
         "nb_labels": 10,
@@ -46,22 +40,7 @@
     },
     "aggregator": [
         {
-            "name": "GeometricMedian",
-            "parameters": {
-                "nu": 0.1,
-                "T": 3
-            }
-        },
-        {
-            "name": "CenteredClipping",
-            "parameters": {}
-        },
-        {
             "name": "TrMean",
-            "parameters": {}
-        },
-        {
-            "name": "MultiKrum",
             "parameters": {}
         }
     ],
@@ -82,26 +61,17 @@
     },
     "attack": [
         {
-            "name": "Optimal_ALittleIsEnough_neg1",
-            "parameters": {}
-        },
-        {
             "name": "SignFlipping",
-            "parameters": {}
-        },
-        {
-            "name": "Optimal_InnerProductManipulation",
             "parameters": {}
         }
     ],
     "evaluation_and_results": {
-        "evaluation_delta": 50,
+        "evaluation_delta": 5,
         "batch_size_evaluation": 128,
         "evaluate_on_test": true,
-        "clean_directory_structure": false,
-        "store_models": false,
         "store_per_client_metrics": false,
+        "store_models": false,
         "data_folder": "./data",
-        "results_directory": "results/activation_clip/cnn_mnist_clip_qcoord_ste_080"
+        "results_directory": "./results/activation_clip/_smoketest_qcoord_plain_local"
     }
 }

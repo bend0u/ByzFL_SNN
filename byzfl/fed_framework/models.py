@@ -329,14 +329,6 @@ class cnn_mnist_clip_qcoord_plain_090(cnn_mnist_clip_qcoord):
     def __init__(self):
         super().__init__(tau=0.9, ste=False)
 
-class cnn_mnist_clip_qcoord_ste_080(cnn_mnist_clip_qcoord):
-    def __init__(self):
-        super().__init__(tau=0.8, ste=True)
-
-class cnn_mnist_clip_qcoord_ste_090(cnn_mnist_clip_qcoord):
-    def __init__(self):
-        super().__init__(tau=0.9, ste=True)
-
 class cnn_mnist_sigmoid(nn.Module):
     """Convolutional Neural Network for MNIST with Sigmoid activation."""
     def __init__(self):

@@ -1,5 +1,5 @@
 """
-Generates the 10 sweep configs for the gradient-preserving activation-clipping /
+Generates the 8 sweep configs for the gradient-preserving activation-clipping /
 adaptive client-norm-clipping study (see plan:
 now-i-want-to-peaceful-babbage.md), one JSON per model/mechanism variant, matching
 the structure of configs/archive/cnn_clipped_heatmap_sweep.json but with the full
@@ -97,19 +97,14 @@ CONFIGS = {
     # Fixed-clip linear-ramp variants
     "cnn_mnist_clip_ramp_1": make_config("cnn_mnist_clip_ramp_1", "cnn_mnist_clip_ramp_1"),
     "cnn_mnist_clip_ramp_2": make_config("cnn_mnist_clip_ramp_2", "cnn_mnist_clip_ramp_2"),
-    # Adaptive per-coordinate quantile clip: plain (true clamp derivative)
+    # Adaptive per-coordinate quantile clip: plain (true clamp derivative).
+    # The STE-backward variants were dropped: STE consistently underperformed on
+    # MNIST (it hurts even clean f=0 accuracy), so it is not worth sweeping.
     "cnn_mnist_clip_qcoord_plain_080": make_config(
         "cnn_mnist_clip_qcoord_plain_080", "cnn_mnist_clip_qcoord_plain_080"
     ),
     "cnn_mnist_clip_qcoord_plain_090": make_config(
         "cnn_mnist_clip_qcoord_plain_090", "cnn_mnist_clip_qcoord_plain_090"
-    ),
-    # Adaptive per-coordinate quantile clip: STE backward
-    "cnn_mnist_clip_qcoord_ste_080": make_config(
-        "cnn_mnist_clip_qcoord_ste_080", "cnn_mnist_clip_qcoord_ste_080"
-    ),
-    "cnn_mnist_clip_qcoord_ste_090": make_config(
-        "cnn_mnist_clip_qcoord_ste_090", "cnn_mnist_clip_qcoord_ste_090"
     ),
     # Adaptive client-side gradient-norm clip (plain ReLU cnn_mnist + windowed quantile clip)
     "cnn_mnist_qclip_070": make_config(

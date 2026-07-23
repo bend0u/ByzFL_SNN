@@ -62,11 +62,11 @@ def main():
     run_benchmark(args.config, nb_jobs=args.nb_jobs, distribute_gpus=args.distribute_gpus)
 
     results_dir = cfg["evaluation_and_results"]["results_directory"]
-    # results/activation_clip/<variant> -> plots/activation_clip/<variant>
-    if results_dir.startswith("results/") or results_dir.startswith("./results/"):
-        plots_dir = results_dir.replace("results/", "plots/", 1)
-    else:
-        plots_dir = os.path.join("plots", os.path.basename(results_dir))
+    # Write plots under results/ (the only PVC-mounted tree on RunAI) so they
+    # persist after the pod terminates, into results/activation_clip_plots/<variant>
+    # -- the same location manual copies + the LaTeX report already expect.
+    variant = os.path.basename(results_dir.rstrip("/\\"))
+    plots_dir = os.path.join("results", "activation_clip_plots", variant)
     os.makedirs(plots_dir, exist_ok=True)
 
     print("\n" + "=" * 60)

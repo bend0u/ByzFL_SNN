@@ -22,8 +22,6 @@ CONFIGS=(
   "configs/activation_clip/cnn_mnist_clip_ramp_2.json"
   "configs/activation_clip/cnn_mnist_clip_qcoord_plain_080.json"
   "configs/activation_clip/cnn_mnist_clip_qcoord_plain_090.json"
-  "configs/activation_clip/cnn_mnist_clip_qcoord_ste_080.json"
-  "configs/activation_clip/cnn_mnist_clip_qcoord_ste_090.json"
   "configs/activation_clip/cnn_mnist_qclip_070.json"
   "configs/activation_clip/cnn_mnist_qclip_080.json"
 )

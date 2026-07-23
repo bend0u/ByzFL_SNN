@@ -48,7 +48,8 @@ def process_one(config_path):
     if not os.path.isdir(results_dir):
         return name, "skipped (no results directory yet)"
 
-    plots_dir = os.path.join(results_dir, "plots")
+    variant = os.path.basename(results_dir.rstrip("/\\"))
+    plots_dir = os.path.join("results", "activation_clip_plots", variant)
     try:
         plot_all(results_dir, plots_dir)
         return name, f"ok -> {plots_dir}"
