@@ -1,8 +1,8 @@
 {
     "benchmark_config": {
         "device": "cuda",
-        "training_seed": 42,
-        "nb_training_seeds": 2,
+        "training_seed": 44,
+        "nb_training_seeds": 3,
         "nb_honest_clients": [
             10
         ],
@@ -34,7 +34,7 @@
         "loss": "CrossEntropyLoss",
         "accuracy_name": null,
         "optimizer_name": "SGD",
-        "learning_rate": 0.05,
+        "learning_rate": 0.1,
         "learning_rate_decay": 1.0,
         "milestones": []
     },
@@ -87,6 +87,6 @@
         "store_per_client_metrics": true,
         "store_models": false,
         "data_folder": "./data",
-        "results_directory": "./results/cifar_sweep_cnn_tanh_gamma1"
+        "results_directory": "./results/cifar_sweep_cnn_tanh_gamma1_lr01"
     }
 }

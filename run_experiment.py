@@ -1,0 +1,62 @@
+import os
+import argparse
+import sys
+import json
+from byzfl import run_benchmark
+
+def main():
+    parser = argparse.ArgumentParser(description="Run ByzFL Experiment")
+    parser.add_argument("--config", type=str, required=True, help="Path to JSON configuration file")
+    parser.add_argument("--gpu", type=str, default="0", help="GPU index to use (e.g. 0 or 1)")
+    parser.add_argument("--nb_jobs", type=int, default=8, help="Number of parallel jobs to run")
+    parser.add_argument("--distribute_gpus", action="store_true", help="Distribute jobs across both GPUs on this server")
+    
+    args = parser.parse_args()
+    
+    config_file = args.config
+    gpu_idx = args.gpu
+    nb_jobs = args.nb_jobs
+    distribute = args.distribute_gpus
+    
+    if not os.path.exists(config_file):
+        print(f"Error: configuration file '{config_file}' does not exist.")
+        sys.exit(1)
+        
+    print(f"=======================================================")
+    if distribute:
+        print(f"Starting experiment using {config_file} distributed across all available GPUs with {nb_jobs} jobs")
+        # Do not overwrite CUDA_VISIBLE_DEVICES if already set by environment
+        if "CUDA_VISIBLE_DEVICES" not in os.environ:
+            pass
+    else:
+        print(f"Starting experiment using {config_file} on GPU {gpu_idx} with {nb_jobs} jobs")
+        os.environ["CUDA_VISIBLE_DEVICES"] = gpu_idx
+
+    # Pre-download dataset sequentially to avoid race conditions in parallel jobs
+    try:
+        with open(config_file, "r") as f:
+            cfg = json.load(f)
+        model_cfg = cfg.get("model", {})
+        if isinstance(model_cfg, list):
+            model_cfg = model_cfg[0] if len(model_cfg) > 0 else {}
+        dataset_name = model_cfg.get("dataset_name", "mnist").lower()
+        data_folder = cfg.get("evaluation_and_results", {}).get("data_folder", "./data")
+        
+        print(f"Pre-downloading {dataset_name.upper()} dataset sequentially to avoid parallel race conditions...")
+        from torchvision import datasets
+        if dataset_name == "mnist":
+            datasets.MNIST(root=data_folder, train=True, download=True)
+            datasets.MNIST(root=data_folder, train=False, download=True)
+        elif dataset_name == "cifar10":
+            datasets.CIFAR10(root=data_folder, train=True, download=True)
+            datasets.CIFAR10(root=data_folder, train=False, download=True)
+        print(f"{dataset_name.upper()} dataset is ready!")
+    except Exception as e:
+        print(f"Warning: could not pre-download dataset: {e}")
+
+    # Run the benchmark
+    run_benchmark(config_file, nb_jobs=nb_jobs, distribute_gpus=distribute)
+    print("Done!")
+
+if __name__ == "__main__":
+    main()
