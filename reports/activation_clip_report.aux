@@ -10,365 +10,485 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Adaptive Per-Coordinate Quantile Clip (\texttt  {AdaptiveQuantileClip})}{3}{subsection.1.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Adaptive Client-Side Gradient-Norm Clip}{4}{subsection.1.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Best Overall Performance (Worst-Case Across Attacks)}{5}{section.2}\protected@file@percent }
-\newlabel{fig:best_overall_noclip}{{1a}{5}{No Clip (ReLU)}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_noclip}{{a}{5}{No Clip (ReLU)}{figure.caption.2}{}}
-\newlabel{fig:best_overall_tanh}{{1b}{5}{Tanh}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_tanh}{{b}{5}{Tanh}{figure.caption.2}{}}
-\newlabel{fig:best_overall_gradnorm21}{{1c}{5}{Grad-Norm Clip $=21$}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_gradnorm21}{{c}{5}{Grad-Norm Clip $=21$}{figure.caption.2}{}}
-\newlabel{fig:best_overall_hardtanh_1}{{1d}{5}{Hardtanh $C{=}1$}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_hardtanh_1}{{d}{5}{Hardtanh $C{=}1$}{figure.caption.2}{}}
-\newlabel{fig:best_overall_hardtanh_2}{{1e}{5}{Hardtanh $C{=}2$}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_hardtanh_2}{{e}{5}{Hardtanh $C{=}2$}{figure.caption.2}{}}
-\newlabel{fig:best_overall_ste_1}{{1f}{5}{STE $C{=}1$}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_ste_1}{{f}{5}{STE $C{=}1$}{figure.caption.2}{}}
-\newlabel{fig:best_overall_ste_2}{{1g}{5}{STE $C{=}2$}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_ste_2}{{g}{5}{STE $C{=}2$}{figure.caption.2}{}}
-\newlabel{fig:best_overall_ramp_1}{{1h}{5}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.2}{}}
-\newlabel{sub@fig:best_overall_ramp_1}{{h}{5}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Best overall test accuracy (worst-case across attacks).}}{5}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:best_overall_noclip}{{1a}{6}{No Clip (ReLU)}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_noclip}{{a}{6}{No Clip (ReLU)}{figure.caption.2}{}}
+\newlabel{fig:best_overall_tanh}{{1b}{6}{Tanh}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_tanh}{{b}{6}{Tanh}{figure.caption.2}{}}
+\newlabel{fig:best_overall_gradnorm21}{{1c}{6}{Grad-Norm Clip $=21$}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_gradnorm21}{{c}{6}{Grad-Norm Clip $=21$}{figure.caption.2}{}}
+\newlabel{fig:best_overall_hardtanh_1}{{1d}{6}{Hardtanh $C{=}1$}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_hardtanh_1}{{d}{6}{Hardtanh $C{=}1$}{figure.caption.2}{}}
+\newlabel{fig:best_overall_hardtanh_2}{{1e}{6}{Hardtanh $C{=}2$}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_hardtanh_2}{{e}{6}{Hardtanh $C{=}2$}{figure.caption.2}{}}
+\newlabel{fig:best_overall_ste_1}{{1f}{6}{STE $C{=}1$}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_ste_1}{{f}{6}{STE $C{=}1$}{figure.caption.2}{}}
+\newlabel{fig:best_overall_ste_2}{{1g}{6}{STE $C{=}2$}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_ste_2}{{g}{6}{STE $C{=}2$}{figure.caption.2}{}}
+\newlabel{fig:best_overall_ramp_1}{{1h}{6}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_ramp_1}{{h}{6}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.2}{}}
+\newlabel{fig:best_overall_ramp_2}{{1i}{6}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_ramp_2}{{i}{6}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.2}{}}
+\newlabel{fig:best_overall_qclip_080}{{1j}{6}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_qclip_080}{{j}{6}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.2}{}}
+\newlabel{fig:best_overall_rawqclip_080}{{1k}{6}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.2}{}}
+\newlabel{sub@fig:best_overall_rawqclip_080}{{k}{6}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Best overall test accuracy (worst-case across attacks).}}{6}{figure.caption.2}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:best_overall_grid}{{1}{5}{Best overall test accuracy (worst-case across attacks)}{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Best Aggregator under Specific Attacks}{6}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Optimal ALIE Attack}{6}{subsection.3.1}\protected@file@percent }
-\newlabel{fig:best_alie_noclip}{{2a}{6}{No Clip (ReLU)}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_noclip}{{a}{6}{No Clip (ReLU)}{figure.caption.3}{}}
-\newlabel{fig:best_alie_tanh}{{2b}{6}{Tanh}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_tanh}{{b}{6}{Tanh}{figure.caption.3}{}}
-\newlabel{fig:best_alie_gradnorm21}{{2c}{6}{Grad-Norm Clip $=21$}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_gradnorm21}{{c}{6}{Grad-Norm Clip $=21$}{figure.caption.3}{}}
-\newlabel{fig:best_alie_hardtanh_1}{{2d}{6}{Hardtanh $C{=}1$}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_hardtanh_1}{{d}{6}{Hardtanh $C{=}1$}{figure.caption.3}{}}
-\newlabel{fig:best_alie_hardtanh_2}{{2e}{6}{Hardtanh $C{=}2$}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_hardtanh_2}{{e}{6}{Hardtanh $C{=}2$}{figure.caption.3}{}}
-\newlabel{fig:best_alie_ste_1}{{2f}{6}{STE $C{=}1$}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_ste_1}{{f}{6}{STE $C{=}1$}{figure.caption.3}{}}
-\newlabel{fig:best_alie_ste_2}{{2g}{6}{STE $C{=}2$}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_ste_2}{{g}{6}{STE $C{=}2$}{figure.caption.3}{}}
-\newlabel{fig:best_alie_ramp_1}{{2h}{6}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.3}{}}
-\newlabel{sub@fig:best_alie_ramp_1}{{h}{6}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Best test accuracy under ALIE.}}{6}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:best_alie_grid}{{2}{6}{Best test accuracy under ALIE}{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Sign Flipping Attack}{7}{subsection.3.2}\protected@file@percent }
-\newlabel{fig:best_sf_noclip}{{3a}{7}{No Clip (ReLU)}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_noclip}{{a}{7}{No Clip (ReLU)}{figure.caption.4}{}}
-\newlabel{fig:best_sf_tanh}{{3b}{7}{Tanh}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_tanh}{{b}{7}{Tanh}{figure.caption.4}{}}
-\newlabel{fig:best_sf_gradnorm21}{{3c}{7}{Grad-Norm Clip $=21$}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_gradnorm21}{{c}{7}{Grad-Norm Clip $=21$}{figure.caption.4}{}}
-\newlabel{fig:best_sf_hardtanh_1}{{3d}{7}{Hardtanh $C{=}1$}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_hardtanh_1}{{d}{7}{Hardtanh $C{=}1$}{figure.caption.4}{}}
-\newlabel{fig:best_sf_hardtanh_2}{{3e}{7}{Hardtanh $C{=}2$}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_hardtanh_2}{{e}{7}{Hardtanh $C{=}2$}{figure.caption.4}{}}
-\newlabel{fig:best_sf_ste_1}{{3f}{7}{STE $C{=}1$}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_ste_1}{{f}{7}{STE $C{=}1$}{figure.caption.4}{}}
-\newlabel{fig:best_sf_ste_2}{{3g}{7}{STE $C{=}2$}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_ste_2}{{g}{7}{STE $C{=}2$}{figure.caption.4}{}}
-\newlabel{fig:best_sf_ramp_1}{{3h}{7}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.4}{}}
-\newlabel{sub@fig:best_sf_ramp_1}{{h}{7}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Best test accuracy under SF.}}{7}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:best_sf_grid}{{3}{7}{Best test accuracy under SF}{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Optimal IPM Attack}{8}{subsection.3.3}\protected@file@percent }
-\newlabel{fig:best_ipm_noclip}{{4a}{8}{No Clip (ReLU)}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_noclip}{{a}{8}{No Clip (ReLU)}{figure.caption.5}{}}
-\newlabel{fig:best_ipm_tanh}{{4b}{8}{Tanh}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_tanh}{{b}{8}{Tanh}{figure.caption.5}{}}
-\newlabel{fig:best_ipm_gradnorm21}{{4c}{8}{Grad-Norm Clip $=21$}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_gradnorm21}{{c}{8}{Grad-Norm Clip $=21$}{figure.caption.5}{}}
-\newlabel{fig:best_ipm_hardtanh_1}{{4d}{8}{Hardtanh $C{=}1$}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_hardtanh_1}{{d}{8}{Hardtanh $C{=}1$}{figure.caption.5}{}}
-\newlabel{fig:best_ipm_hardtanh_2}{{4e}{8}{Hardtanh $C{=}2$}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_hardtanh_2}{{e}{8}{Hardtanh $C{=}2$}{figure.caption.5}{}}
-\newlabel{fig:best_ipm_ste_1}{{4f}{8}{STE $C{=}1$}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_ste_1}{{f}{8}{STE $C{=}1$}{figure.caption.5}{}}
-\newlabel{fig:best_ipm_ste_2}{{4g}{8}{STE $C{=}2$}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_ste_2}{{g}{8}{STE $C{=}2$}{figure.caption.5}{}}
-\newlabel{fig:best_ipm_ramp_1}{{4h}{8}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.5}{}}
-\newlabel{sub@fig:best_ipm_ramp_1}{{h}{8}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Best test accuracy under IPM.}}{8}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:best_ipm_grid}{{4}{8}{Best test accuracy under IPM}{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Centered Clipping (CC)}{9}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}CC under Worst-Case across all Attacks}{9}{subsection.4.1}\protected@file@percent }
-\newlabel{fig:cc_worst_case_noclip}{{5a}{9}{No Clip (ReLU)}{figure.caption.6}{}}
-\newlabel{sub@fig:cc_worst_case_noclip}{{a}{9}{No Clip (ReLU)}{figure.caption.6}{}}
-\newlabel{fig:cc_worst_case_tanh}{{5b}{9}{Tanh}{figure.caption.6}{}}
-\newlabel{sub@fig:cc_worst_case_tanh}{{b}{9}{Tanh}{figure.caption.6}{}}
-\newlabel{fig:cc_worst_case_hardtanh_1}{{5c}{9}{Hardtanh $C{=}1$}{figure.caption.6}{}}
-\newlabel{sub@fig:cc_worst_case_hardtanh_1}{{c}{9}{Hardtanh $C{=}1$}{figure.caption.6}{}}
-\newlabel{fig:cc_worst_case_hardtanh_2}{{5d}{9}{Hardtanh $C{=}2$}{figure.caption.6}{}}
-\newlabel{sub@fig:cc_worst_case_hardtanh_2}{{d}{9}{Hardtanh $C{=}2$}{figure.caption.6}{}}
-\newlabel{fig:cc_worst_case_ste_1}{{5e}{9}{STE $C{=}1$}{figure.caption.6}{}}
-\newlabel{sub@fig:cc_worst_case_ste_1}{{e}{9}{STE $C{=}1$}{figure.caption.6}{}}
-\newlabel{fig:cc_worst_case_ste_2}{{5f}{9}{STE $C{=}2$}{figure.caption.6}{}}
-\newlabel{sub@fig:cc_worst_case_ste_2}{{f}{9}{STE $C{=}2$}{figure.caption.6}{}}
-\newlabel{fig:cc_worst_case_ramp_1}{{5g}{9}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.6}{}}
-\newlabel{sub@fig:cc_worst_case_ramp_1}{{g}{9}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Centered Clipping (CC) under Worst-Case across all Attacks.}}{9}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:cc_worst_case_grid}{{5}{9}{Centered Clipping (CC) under Worst-Case across all Attacks}{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}CC under ALIE}{10}{subsection.4.2}\protected@file@percent }
-\newlabel{fig:cc_alie_noclip}{{6a}{10}{No Clip (ReLU)}{figure.caption.7}{}}
-\newlabel{sub@fig:cc_alie_noclip}{{a}{10}{No Clip (ReLU)}{figure.caption.7}{}}
-\newlabel{fig:cc_alie_tanh}{{6b}{10}{Tanh}{figure.caption.7}{}}
-\newlabel{sub@fig:cc_alie_tanh}{{b}{10}{Tanh}{figure.caption.7}{}}
-\newlabel{fig:cc_alie_hardtanh_1}{{6c}{10}{Hardtanh $C{=}1$}{figure.caption.7}{}}
-\newlabel{sub@fig:cc_alie_hardtanh_1}{{c}{10}{Hardtanh $C{=}1$}{figure.caption.7}{}}
-\newlabel{fig:cc_alie_hardtanh_2}{{6d}{10}{Hardtanh $C{=}2$}{figure.caption.7}{}}
-\newlabel{sub@fig:cc_alie_hardtanh_2}{{d}{10}{Hardtanh $C{=}2$}{figure.caption.7}{}}
-\newlabel{fig:cc_alie_ste_1}{{6e}{10}{STE $C{=}1$}{figure.caption.7}{}}
-\newlabel{sub@fig:cc_alie_ste_1}{{e}{10}{STE $C{=}1$}{figure.caption.7}{}}
-\newlabel{fig:cc_alie_ste_2}{{6f}{10}{STE $C{=}2$}{figure.caption.7}{}}
-\newlabel{sub@fig:cc_alie_ste_2}{{f}{10}{STE $C{=}2$}{figure.caption.7}{}}
-\newlabel{fig:cc_alie_ramp_1}{{6g}{10}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.7}{}}
-\newlabel{sub@fig:cc_alie_ramp_1}{{g}{10}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Centered Clipping (CC) under Optimal ALIE Attack.}}{10}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:cc_alie_grid}{{6}{10}{Centered Clipping (CC) under Optimal ALIE Attack}{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}CC under SF}{11}{subsection.4.3}\protected@file@percent }
-\newlabel{fig:cc_sf_noclip}{{7a}{11}{No Clip (ReLU)}{figure.caption.8}{}}
-\newlabel{sub@fig:cc_sf_noclip}{{a}{11}{No Clip (ReLU)}{figure.caption.8}{}}
-\newlabel{fig:cc_sf_tanh}{{7b}{11}{Tanh}{figure.caption.8}{}}
-\newlabel{sub@fig:cc_sf_tanh}{{b}{11}{Tanh}{figure.caption.8}{}}
-\newlabel{fig:cc_sf_hardtanh_1}{{7c}{11}{Hardtanh $C{=}1$}{figure.caption.8}{}}
-\newlabel{sub@fig:cc_sf_hardtanh_1}{{c}{11}{Hardtanh $C{=}1$}{figure.caption.8}{}}
-\newlabel{fig:cc_sf_hardtanh_2}{{7d}{11}{Hardtanh $C{=}2$}{figure.caption.8}{}}
-\newlabel{sub@fig:cc_sf_hardtanh_2}{{d}{11}{Hardtanh $C{=}2$}{figure.caption.8}{}}
-\newlabel{fig:cc_sf_ste_1}{{7e}{11}{STE $C{=}1$}{figure.caption.8}{}}
-\newlabel{sub@fig:cc_sf_ste_1}{{e}{11}{STE $C{=}1$}{figure.caption.8}{}}
-\newlabel{fig:cc_sf_ste_2}{{7f}{11}{STE $C{=}2$}{figure.caption.8}{}}
-\newlabel{sub@fig:cc_sf_ste_2}{{f}{11}{STE $C{=}2$}{figure.caption.8}{}}
-\newlabel{fig:cc_sf_ramp_1}{{7g}{11}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.8}{}}
-\newlabel{sub@fig:cc_sf_ramp_1}{{g}{11}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Centered Clipping (CC) under Sign Flipping Attack.}}{11}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:cc_sf_grid}{{7}{11}{Centered Clipping (CC) under Sign Flipping Attack}{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}CC under IPM}{12}{subsection.4.4}\protected@file@percent }
-\newlabel{fig:cc_ipm_noclip}{{8a}{12}{No Clip (ReLU)}{figure.caption.9}{}}
-\newlabel{sub@fig:cc_ipm_noclip}{{a}{12}{No Clip (ReLU)}{figure.caption.9}{}}
-\newlabel{fig:cc_ipm_tanh}{{8b}{12}{Tanh}{figure.caption.9}{}}
-\newlabel{sub@fig:cc_ipm_tanh}{{b}{12}{Tanh}{figure.caption.9}{}}
-\newlabel{fig:cc_ipm_hardtanh_1}{{8c}{12}{Hardtanh $C{=}1$}{figure.caption.9}{}}
-\newlabel{sub@fig:cc_ipm_hardtanh_1}{{c}{12}{Hardtanh $C{=}1$}{figure.caption.9}{}}
-\newlabel{fig:cc_ipm_hardtanh_2}{{8d}{12}{Hardtanh $C{=}2$}{figure.caption.9}{}}
-\newlabel{sub@fig:cc_ipm_hardtanh_2}{{d}{12}{Hardtanh $C{=}2$}{figure.caption.9}{}}
-\newlabel{fig:cc_ipm_ste_1}{{8e}{12}{STE $C{=}1$}{figure.caption.9}{}}
-\newlabel{sub@fig:cc_ipm_ste_1}{{e}{12}{STE $C{=}1$}{figure.caption.9}{}}
-\newlabel{fig:cc_ipm_ste_2}{{8f}{12}{STE $C{=}2$}{figure.caption.9}{}}
-\newlabel{sub@fig:cc_ipm_ste_2}{{f}{12}{STE $C{=}2$}{figure.caption.9}{}}
-\newlabel{fig:cc_ipm_ramp_1}{{8g}{12}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.9}{}}
-\newlabel{sub@fig:cc_ipm_ramp_1}{{g}{12}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Centered Clipping (CC) under Optimal IPM Attack.}}{12}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:cc_ipm_grid}{{8}{12}{Centered Clipping (CC) under Optimal IPM Attack}{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Geometric Median (GM)}{13}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}GM under Worst-Case across all Attacks}{13}{subsection.5.1}\protected@file@percent }
-\newlabel{fig:gm_worst_case_noclip}{{9a}{13}{No Clip (ReLU)}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_noclip}{{a}{13}{No Clip (ReLU)}{figure.caption.10}{}}
-\newlabel{fig:gm_worst_case_tanh}{{9b}{13}{Tanh}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_tanh}{{b}{13}{Tanh}{figure.caption.10}{}}
-\newlabel{fig:gm_worst_case_gradnorm21}{{9c}{13}{Grad-Norm Clip $=21$}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_gradnorm21}{{c}{13}{Grad-Norm Clip $=21$}{figure.caption.10}{}}
-\newlabel{fig:gm_worst_case_hardtanh_1}{{9d}{13}{Hardtanh $C{=}1$}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_hardtanh_1}{{d}{13}{Hardtanh $C{=}1$}{figure.caption.10}{}}
-\newlabel{fig:gm_worst_case_hardtanh_2}{{9e}{13}{Hardtanh $C{=}2$}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_hardtanh_2}{{e}{13}{Hardtanh $C{=}2$}{figure.caption.10}{}}
-\newlabel{fig:gm_worst_case_ste_1}{{9f}{13}{STE $C{=}1$}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_ste_1}{{f}{13}{STE $C{=}1$}{figure.caption.10}{}}
-\newlabel{fig:gm_worst_case_ste_2}{{9g}{13}{STE $C{=}2$}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_ste_2}{{g}{13}{STE $C{=}2$}{figure.caption.10}{}}
-\newlabel{fig:gm_worst_case_ramp_1}{{9h}{13}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.10}{}}
-\newlabel{sub@fig:gm_worst_case_ramp_1}{{h}{13}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Geometric Median (GM) under Worst-Case across all Attacks.}}{13}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:gm_worst_case_grid}{{9}{13}{Geometric Median (GM) under Worst-Case across all Attacks}{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}GM under ALIE}{14}{subsection.5.2}\protected@file@percent }
-\newlabel{fig:gm_alie_noclip}{{10a}{14}{No Clip (ReLU)}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_noclip}{{a}{14}{No Clip (ReLU)}{figure.caption.11}{}}
-\newlabel{fig:gm_alie_tanh}{{10b}{14}{Tanh}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_tanh}{{b}{14}{Tanh}{figure.caption.11}{}}
-\newlabel{fig:gm_alie_gradnorm21}{{10c}{14}{Grad-Norm Clip $=21$}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_gradnorm21}{{c}{14}{Grad-Norm Clip $=21$}{figure.caption.11}{}}
-\newlabel{fig:gm_alie_hardtanh_1}{{10d}{14}{Hardtanh $C{=}1$}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_hardtanh_1}{{d}{14}{Hardtanh $C{=}1$}{figure.caption.11}{}}
-\newlabel{fig:gm_alie_hardtanh_2}{{10e}{14}{Hardtanh $C{=}2$}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_hardtanh_2}{{e}{14}{Hardtanh $C{=}2$}{figure.caption.11}{}}
-\newlabel{fig:gm_alie_ste_1}{{10f}{14}{STE $C{=}1$}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_ste_1}{{f}{14}{STE $C{=}1$}{figure.caption.11}{}}
-\newlabel{fig:gm_alie_ste_2}{{10g}{14}{STE $C{=}2$}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_ste_2}{{g}{14}{STE $C{=}2$}{figure.caption.11}{}}
-\newlabel{fig:gm_alie_ramp_1}{{10h}{14}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.11}{}}
-\newlabel{sub@fig:gm_alie_ramp_1}{{h}{14}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Geometric Median (GM) under Optimal ALIE Attack.}}{14}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:gm_alie_grid}{{10}{14}{Geometric Median (GM) under Optimal ALIE Attack}{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}GM under SF}{15}{subsection.5.3}\protected@file@percent }
-\newlabel{fig:gm_sf_noclip}{{11a}{15}{No Clip (ReLU)}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_noclip}{{a}{15}{No Clip (ReLU)}{figure.caption.12}{}}
-\newlabel{fig:gm_sf_tanh}{{11b}{15}{Tanh}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_tanh}{{b}{15}{Tanh}{figure.caption.12}{}}
-\newlabel{fig:gm_sf_gradnorm21}{{11c}{15}{Grad-Norm Clip $=21$}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_gradnorm21}{{c}{15}{Grad-Norm Clip $=21$}{figure.caption.12}{}}
-\newlabel{fig:gm_sf_hardtanh_1}{{11d}{15}{Hardtanh $C{=}1$}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_hardtanh_1}{{d}{15}{Hardtanh $C{=}1$}{figure.caption.12}{}}
-\newlabel{fig:gm_sf_hardtanh_2}{{11e}{15}{Hardtanh $C{=}2$}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_hardtanh_2}{{e}{15}{Hardtanh $C{=}2$}{figure.caption.12}{}}
-\newlabel{fig:gm_sf_ste_1}{{11f}{15}{STE $C{=}1$}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_ste_1}{{f}{15}{STE $C{=}1$}{figure.caption.12}{}}
-\newlabel{fig:gm_sf_ste_2}{{11g}{15}{STE $C{=}2$}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_ste_2}{{g}{15}{STE $C{=}2$}{figure.caption.12}{}}
-\newlabel{fig:gm_sf_ramp_1}{{11h}{15}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.12}{}}
-\newlabel{sub@fig:gm_sf_ramp_1}{{h}{15}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Geometric Median (GM) under Sign Flipping Attack.}}{15}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:gm_sf_grid}{{11}{15}{Geometric Median (GM) under Sign Flipping Attack}{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}GM under IPM}{16}{subsection.5.4}\protected@file@percent }
-\newlabel{fig:gm_ipm_noclip}{{12a}{16}{No Clip (ReLU)}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_noclip}{{a}{16}{No Clip (ReLU)}{figure.caption.13}{}}
-\newlabel{fig:gm_ipm_tanh}{{12b}{16}{Tanh}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_tanh}{{b}{16}{Tanh}{figure.caption.13}{}}
-\newlabel{fig:gm_ipm_gradnorm21}{{12c}{16}{Grad-Norm Clip $=21$}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_gradnorm21}{{c}{16}{Grad-Norm Clip $=21$}{figure.caption.13}{}}
-\newlabel{fig:gm_ipm_hardtanh_1}{{12d}{16}{Hardtanh $C{=}1$}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_hardtanh_1}{{d}{16}{Hardtanh $C{=}1$}{figure.caption.13}{}}
-\newlabel{fig:gm_ipm_hardtanh_2}{{12e}{16}{Hardtanh $C{=}2$}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_hardtanh_2}{{e}{16}{Hardtanh $C{=}2$}{figure.caption.13}{}}
-\newlabel{fig:gm_ipm_ste_1}{{12f}{16}{STE $C{=}1$}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_ste_1}{{f}{16}{STE $C{=}1$}{figure.caption.13}{}}
-\newlabel{fig:gm_ipm_ste_2}{{12g}{16}{STE $C{=}2$}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_ste_2}{{g}{16}{STE $C{=}2$}{figure.caption.13}{}}
-\newlabel{fig:gm_ipm_ramp_1}{{12h}{16}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.13}{}}
-\newlabel{sub@fig:gm_ipm_ramp_1}{{h}{16}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Geometric Median (GM) under Optimal IPM Attack.}}{16}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:gm_ipm_grid}{{12}{16}{Geometric Median (GM) under Optimal IPM Attack}{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Multi-Krum (MK)}{17}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}MK under Worst-Case across all Attacks}{17}{subsection.6.1}\protected@file@percent }
-\newlabel{fig:mk_worst_case_noclip}{{13a}{17}{No Clip (ReLU)}{figure.caption.14}{}}
-\newlabel{sub@fig:mk_worst_case_noclip}{{a}{17}{No Clip (ReLU)}{figure.caption.14}{}}
-\newlabel{fig:mk_worst_case_tanh}{{13b}{17}{Tanh}{figure.caption.14}{}}
-\newlabel{sub@fig:mk_worst_case_tanh}{{b}{17}{Tanh}{figure.caption.14}{}}
-\newlabel{fig:mk_worst_case_hardtanh_1}{{13c}{17}{Hardtanh $C{=}1$}{figure.caption.14}{}}
-\newlabel{sub@fig:mk_worst_case_hardtanh_1}{{c}{17}{Hardtanh $C{=}1$}{figure.caption.14}{}}
-\newlabel{fig:mk_worst_case_hardtanh_2}{{13d}{17}{Hardtanh $C{=}2$}{figure.caption.14}{}}
-\newlabel{sub@fig:mk_worst_case_hardtanh_2}{{d}{17}{Hardtanh $C{=}2$}{figure.caption.14}{}}
-\newlabel{fig:mk_worst_case_ste_1}{{13e}{17}{STE $C{=}1$}{figure.caption.14}{}}
-\newlabel{sub@fig:mk_worst_case_ste_1}{{e}{17}{STE $C{=}1$}{figure.caption.14}{}}
-\newlabel{fig:mk_worst_case_ste_2}{{13f}{17}{STE $C{=}2$}{figure.caption.14}{}}
-\newlabel{sub@fig:mk_worst_case_ste_2}{{f}{17}{STE $C{=}2$}{figure.caption.14}{}}
-\newlabel{fig:mk_worst_case_ramp_1}{{13g}{17}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.14}{}}
-\newlabel{sub@fig:mk_worst_case_ramp_1}{{g}{17}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Multi-Krum (MK) under Worst-Case across all Attacks.}}{17}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:mk_worst_case_grid}{{13}{17}{Multi-Krum (MK) under Worst-Case across all Attacks}{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}MK under ALIE}{18}{subsection.6.2}\protected@file@percent }
-\newlabel{fig:mk_alie_noclip}{{14a}{18}{No Clip (ReLU)}{figure.caption.15}{}}
-\newlabel{sub@fig:mk_alie_noclip}{{a}{18}{No Clip (ReLU)}{figure.caption.15}{}}
-\newlabel{fig:mk_alie_tanh}{{14b}{18}{Tanh}{figure.caption.15}{}}
-\newlabel{sub@fig:mk_alie_tanh}{{b}{18}{Tanh}{figure.caption.15}{}}
-\newlabel{fig:mk_alie_hardtanh_1}{{14c}{18}{Hardtanh $C{=}1$}{figure.caption.15}{}}
-\newlabel{sub@fig:mk_alie_hardtanh_1}{{c}{18}{Hardtanh $C{=}1$}{figure.caption.15}{}}
-\newlabel{fig:mk_alie_hardtanh_2}{{14d}{18}{Hardtanh $C{=}2$}{figure.caption.15}{}}
-\newlabel{sub@fig:mk_alie_hardtanh_2}{{d}{18}{Hardtanh $C{=}2$}{figure.caption.15}{}}
-\newlabel{fig:mk_alie_ste_1}{{14e}{18}{STE $C{=}1$}{figure.caption.15}{}}
-\newlabel{sub@fig:mk_alie_ste_1}{{e}{18}{STE $C{=}1$}{figure.caption.15}{}}
-\newlabel{fig:mk_alie_ste_2}{{14f}{18}{STE $C{=}2$}{figure.caption.15}{}}
-\newlabel{sub@fig:mk_alie_ste_2}{{f}{18}{STE $C{=}2$}{figure.caption.15}{}}
-\newlabel{fig:mk_alie_ramp_1}{{14g}{18}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.15}{}}
-\newlabel{sub@fig:mk_alie_ramp_1}{{g}{18}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Multi-Krum (MK) under Optimal ALIE Attack.}}{18}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:mk_alie_grid}{{14}{18}{Multi-Krum (MK) under Optimal ALIE Attack}{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}MK under SF}{19}{subsection.6.3}\protected@file@percent }
-\newlabel{fig:mk_sf_noclip}{{15a}{19}{No Clip (ReLU)}{figure.caption.16}{}}
-\newlabel{sub@fig:mk_sf_noclip}{{a}{19}{No Clip (ReLU)}{figure.caption.16}{}}
-\newlabel{fig:mk_sf_tanh}{{15b}{19}{Tanh}{figure.caption.16}{}}
-\newlabel{sub@fig:mk_sf_tanh}{{b}{19}{Tanh}{figure.caption.16}{}}
-\newlabel{fig:mk_sf_hardtanh_1}{{15c}{19}{Hardtanh $C{=}1$}{figure.caption.16}{}}
-\newlabel{sub@fig:mk_sf_hardtanh_1}{{c}{19}{Hardtanh $C{=}1$}{figure.caption.16}{}}
-\newlabel{fig:mk_sf_hardtanh_2}{{15d}{19}{Hardtanh $C{=}2$}{figure.caption.16}{}}
-\newlabel{sub@fig:mk_sf_hardtanh_2}{{d}{19}{Hardtanh $C{=}2$}{figure.caption.16}{}}
-\newlabel{fig:mk_sf_ste_1}{{15e}{19}{STE $C{=}1$}{figure.caption.16}{}}
-\newlabel{sub@fig:mk_sf_ste_1}{{e}{19}{STE $C{=}1$}{figure.caption.16}{}}
-\newlabel{fig:mk_sf_ste_2}{{15f}{19}{STE $C{=}2$}{figure.caption.16}{}}
-\newlabel{sub@fig:mk_sf_ste_2}{{f}{19}{STE $C{=}2$}{figure.caption.16}{}}
-\newlabel{fig:mk_sf_ramp_1}{{15g}{19}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.16}{}}
-\newlabel{sub@fig:mk_sf_ramp_1}{{g}{19}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Multi-Krum (MK) under Sign Flipping Attack.}}{19}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:mk_sf_grid}{{15}{19}{Multi-Krum (MK) under Sign Flipping Attack}{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}MK under IPM}{20}{subsection.6.4}\protected@file@percent }
-\newlabel{fig:mk_ipm_noclip}{{16a}{20}{No Clip (ReLU)}{figure.caption.17}{}}
-\newlabel{sub@fig:mk_ipm_noclip}{{a}{20}{No Clip (ReLU)}{figure.caption.17}{}}
-\newlabel{fig:mk_ipm_tanh}{{16b}{20}{Tanh}{figure.caption.17}{}}
-\newlabel{sub@fig:mk_ipm_tanh}{{b}{20}{Tanh}{figure.caption.17}{}}
-\newlabel{fig:mk_ipm_hardtanh_1}{{16c}{20}{Hardtanh $C{=}1$}{figure.caption.17}{}}
-\newlabel{sub@fig:mk_ipm_hardtanh_1}{{c}{20}{Hardtanh $C{=}1$}{figure.caption.17}{}}
-\newlabel{fig:mk_ipm_hardtanh_2}{{16d}{20}{Hardtanh $C{=}2$}{figure.caption.17}{}}
-\newlabel{sub@fig:mk_ipm_hardtanh_2}{{d}{20}{Hardtanh $C{=}2$}{figure.caption.17}{}}
-\newlabel{fig:mk_ipm_ste_1}{{16e}{20}{STE $C{=}1$}{figure.caption.17}{}}
-\newlabel{sub@fig:mk_ipm_ste_1}{{e}{20}{STE $C{=}1$}{figure.caption.17}{}}
-\newlabel{fig:mk_ipm_ste_2}{{16f}{20}{STE $C{=}2$}{figure.caption.17}{}}
-\newlabel{sub@fig:mk_ipm_ste_2}{{f}{20}{STE $C{=}2$}{figure.caption.17}{}}
-\newlabel{fig:mk_ipm_ramp_1}{{16g}{20}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.17}{}}
-\newlabel{sub@fig:mk_ipm_ramp_1}{{g}{20}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Multi-Krum (MK) under Optimal IPM Attack.}}{20}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:mk_ipm_grid}{{16}{20}{Multi-Krum (MK) under Optimal IPM Attack}{figure.caption.17}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Trimmed Mean (TM)}{21}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}TM under Worst-Case across all Attacks}{21}{subsection.7.1}\protected@file@percent }
-\newlabel{fig:tm_worst_case_noclip}{{17a}{21}{No Clip (ReLU)}{figure.caption.18}{}}
-\newlabel{sub@fig:tm_worst_case_noclip}{{a}{21}{No Clip (ReLU)}{figure.caption.18}{}}
-\newlabel{fig:tm_worst_case_tanh}{{17b}{21}{Tanh}{figure.caption.18}{}}
-\newlabel{sub@fig:tm_worst_case_tanh}{{b}{21}{Tanh}{figure.caption.18}{}}
-\newlabel{fig:tm_worst_case_hardtanh_1}{{17c}{21}{Hardtanh $C{=}1$}{figure.caption.18}{}}
-\newlabel{sub@fig:tm_worst_case_hardtanh_1}{{c}{21}{Hardtanh $C{=}1$}{figure.caption.18}{}}
-\newlabel{fig:tm_worst_case_hardtanh_2}{{17d}{21}{Hardtanh $C{=}2$}{figure.caption.18}{}}
-\newlabel{sub@fig:tm_worst_case_hardtanh_2}{{d}{21}{Hardtanh $C{=}2$}{figure.caption.18}{}}
-\newlabel{fig:tm_worst_case_ste_1}{{17e}{21}{STE $C{=}1$}{figure.caption.18}{}}
-\newlabel{sub@fig:tm_worst_case_ste_1}{{e}{21}{STE $C{=}1$}{figure.caption.18}{}}
-\newlabel{fig:tm_worst_case_ste_2}{{17f}{21}{STE $C{=}2$}{figure.caption.18}{}}
-\newlabel{sub@fig:tm_worst_case_ste_2}{{f}{21}{STE $C{=}2$}{figure.caption.18}{}}
-\newlabel{fig:tm_worst_case_ramp_1}{{17g}{21}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.18}{}}
-\newlabel{sub@fig:tm_worst_case_ramp_1}{{g}{21}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Trimmed Mean (TM) under Worst-Case across all Attacks.}}{21}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:tm_worst_case_grid}{{17}{21}{Trimmed Mean (TM) under Worst-Case across all Attacks}{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}TM under ALIE}{22}{subsection.7.2}\protected@file@percent }
-\newlabel{fig:tm_alie_noclip}{{18a}{22}{No Clip (ReLU)}{figure.caption.19}{}}
-\newlabel{sub@fig:tm_alie_noclip}{{a}{22}{No Clip (ReLU)}{figure.caption.19}{}}
-\newlabel{fig:tm_alie_tanh}{{18b}{22}{Tanh}{figure.caption.19}{}}
-\newlabel{sub@fig:tm_alie_tanh}{{b}{22}{Tanh}{figure.caption.19}{}}
-\newlabel{fig:tm_alie_hardtanh_1}{{18c}{22}{Hardtanh $C{=}1$}{figure.caption.19}{}}
-\newlabel{sub@fig:tm_alie_hardtanh_1}{{c}{22}{Hardtanh $C{=}1$}{figure.caption.19}{}}
-\newlabel{fig:tm_alie_hardtanh_2}{{18d}{22}{Hardtanh $C{=}2$}{figure.caption.19}{}}
-\newlabel{sub@fig:tm_alie_hardtanh_2}{{d}{22}{Hardtanh $C{=}2$}{figure.caption.19}{}}
-\newlabel{fig:tm_alie_ste_1}{{18e}{22}{STE $C{=}1$}{figure.caption.19}{}}
-\newlabel{sub@fig:tm_alie_ste_1}{{e}{22}{STE $C{=}1$}{figure.caption.19}{}}
-\newlabel{fig:tm_alie_ste_2}{{18f}{22}{STE $C{=}2$}{figure.caption.19}{}}
-\newlabel{sub@fig:tm_alie_ste_2}{{f}{22}{STE $C{=}2$}{figure.caption.19}{}}
-\newlabel{fig:tm_alie_ramp_1}{{18g}{22}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.19}{}}
-\newlabel{sub@fig:tm_alie_ramp_1}{{g}{22}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Trimmed Mean (TM) under Optimal ALIE Attack.}}{22}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:tm_alie_grid}{{18}{22}{Trimmed Mean (TM) under Optimal ALIE Attack}{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}TM under SF}{23}{subsection.7.3}\protected@file@percent }
-\newlabel{fig:tm_sf_noclip}{{19a}{23}{No Clip (ReLU)}{figure.caption.20}{}}
-\newlabel{sub@fig:tm_sf_noclip}{{a}{23}{No Clip (ReLU)}{figure.caption.20}{}}
-\newlabel{fig:tm_sf_tanh}{{19b}{23}{Tanh}{figure.caption.20}{}}
-\newlabel{sub@fig:tm_sf_tanh}{{b}{23}{Tanh}{figure.caption.20}{}}
-\newlabel{fig:tm_sf_hardtanh_1}{{19c}{23}{Hardtanh $C{=}1$}{figure.caption.20}{}}
-\newlabel{sub@fig:tm_sf_hardtanh_1}{{c}{23}{Hardtanh $C{=}1$}{figure.caption.20}{}}
-\newlabel{fig:tm_sf_hardtanh_2}{{19d}{23}{Hardtanh $C{=}2$}{figure.caption.20}{}}
-\newlabel{sub@fig:tm_sf_hardtanh_2}{{d}{23}{Hardtanh $C{=}2$}{figure.caption.20}{}}
-\newlabel{fig:tm_sf_ste_1}{{19e}{23}{STE $C{=}1$}{figure.caption.20}{}}
-\newlabel{sub@fig:tm_sf_ste_1}{{e}{23}{STE $C{=}1$}{figure.caption.20}{}}
-\newlabel{fig:tm_sf_ste_2}{{19f}{23}{STE $C{=}2$}{figure.caption.20}{}}
-\newlabel{sub@fig:tm_sf_ste_2}{{f}{23}{STE $C{=}2$}{figure.caption.20}{}}
-\newlabel{fig:tm_sf_ramp_1}{{19g}{23}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.20}{}}
-\newlabel{sub@fig:tm_sf_ramp_1}{{g}{23}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Trimmed Mean (TM) under Sign Flipping Attack.}}{23}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:tm_sf_grid}{{19}{23}{Trimmed Mean (TM) under Sign Flipping Attack}{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}TM under IPM}{24}{subsection.7.4}\protected@file@percent }
-\newlabel{fig:tm_ipm_noclip}{{20a}{24}{No Clip (ReLU)}{figure.caption.21}{}}
-\newlabel{sub@fig:tm_ipm_noclip}{{a}{24}{No Clip (ReLU)}{figure.caption.21}{}}
-\newlabel{fig:tm_ipm_tanh}{{20b}{24}{Tanh}{figure.caption.21}{}}
-\newlabel{sub@fig:tm_ipm_tanh}{{b}{24}{Tanh}{figure.caption.21}{}}
-\newlabel{fig:tm_ipm_hardtanh_1}{{20c}{24}{Hardtanh $C{=}1$}{figure.caption.21}{}}
-\newlabel{sub@fig:tm_ipm_hardtanh_1}{{c}{24}{Hardtanh $C{=}1$}{figure.caption.21}{}}
-\newlabel{fig:tm_ipm_hardtanh_2}{{20d}{24}{Hardtanh $C{=}2$}{figure.caption.21}{}}
-\newlabel{sub@fig:tm_ipm_hardtanh_2}{{d}{24}{Hardtanh $C{=}2$}{figure.caption.21}{}}
-\newlabel{fig:tm_ipm_ste_1}{{20e}{24}{STE $C{=}1$}{figure.caption.21}{}}
-\newlabel{sub@fig:tm_ipm_ste_1}{{e}{24}{STE $C{=}1$}{figure.caption.21}{}}
-\newlabel{fig:tm_ipm_ste_2}{{20f}{24}{STE $C{=}2$}{figure.caption.21}{}}
-\newlabel{sub@fig:tm_ipm_ste_2}{{f}{24}{STE $C{=}2$}{figure.caption.21}{}}
-\newlabel{fig:tm_ipm_ramp_1}{{20g}{24}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.21}{}}
-\newlabel{sub@fig:tm_ipm_ramp_1}{{g}{24}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Trimmed Mean (TM) under Optimal IPM Attack.}}{24}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:tm_ipm_grid}{{20}{24}{Trimmed Mean (TM) under Optimal IPM Attack}{figure.caption.21}{}}
-\gdef \@abspage@last{24}
+\newlabel{fig:best_overall_grid}{{1}{6}{Best overall test accuracy (worst-case across attacks)}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Best Aggregator under Specific Attacks}{7}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Optimal ALIE Attack}{7}{subsection.3.1}\protected@file@percent }
+\newlabel{fig:best_alie_noclip}{{2a}{8}{No Clip (ReLU)}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_noclip}{{a}{8}{No Clip (ReLU)}{figure.caption.3}{}}
+\newlabel{fig:best_alie_tanh}{{2b}{8}{Tanh}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_tanh}{{b}{8}{Tanh}{figure.caption.3}{}}
+\newlabel{fig:best_alie_gradnorm21}{{2c}{8}{Grad-Norm Clip $=21$}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_gradnorm21}{{c}{8}{Grad-Norm Clip $=21$}{figure.caption.3}{}}
+\newlabel{fig:best_alie_hardtanh_1}{{2d}{8}{Hardtanh $C{=}1$}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_hardtanh_1}{{d}{8}{Hardtanh $C{=}1$}{figure.caption.3}{}}
+\newlabel{fig:best_alie_hardtanh_2}{{2e}{8}{Hardtanh $C{=}2$}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_hardtanh_2}{{e}{8}{Hardtanh $C{=}2$}{figure.caption.3}{}}
+\newlabel{fig:best_alie_ste_1}{{2f}{8}{STE $C{=}1$}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_ste_1}{{f}{8}{STE $C{=}1$}{figure.caption.3}{}}
+\newlabel{fig:best_alie_ste_2}{{2g}{8}{STE $C{=}2$}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_ste_2}{{g}{8}{STE $C{=}2$}{figure.caption.3}{}}
+\newlabel{fig:best_alie_ramp_1}{{2h}{8}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_ramp_1}{{h}{8}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.3}{}}
+\newlabel{fig:best_alie_ramp_2}{{2i}{8}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_ramp_2}{{i}{8}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.3}{}}
+\newlabel{fig:best_alie_qclip_080}{{2j}{8}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_qclip_080}{{j}{8}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.3}{}}
+\newlabel{fig:best_alie_rawqclip_080}{{2k}{8}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.3}{}}
+\newlabel{sub@fig:best_alie_rawqclip_080}{{k}{8}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Best test accuracy under ALIE.}}{8}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:best_alie_grid}{{2}{8}{Best test accuracy under ALIE}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Sign Flipping Attack}{9}{subsection.3.2}\protected@file@percent }
+\newlabel{fig:best_sf_noclip}{{3a}{10}{No Clip (ReLU)}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_noclip}{{a}{10}{No Clip (ReLU)}{figure.caption.4}{}}
+\newlabel{fig:best_sf_tanh}{{3b}{10}{Tanh}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_tanh}{{b}{10}{Tanh}{figure.caption.4}{}}
+\newlabel{fig:best_sf_gradnorm21}{{3c}{10}{Grad-Norm Clip $=21$}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_gradnorm21}{{c}{10}{Grad-Norm Clip $=21$}{figure.caption.4}{}}
+\newlabel{fig:best_sf_hardtanh_1}{{3d}{10}{Hardtanh $C{=}1$}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_hardtanh_1}{{d}{10}{Hardtanh $C{=}1$}{figure.caption.4}{}}
+\newlabel{fig:best_sf_hardtanh_2}{{3e}{10}{Hardtanh $C{=}2$}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_hardtanh_2}{{e}{10}{Hardtanh $C{=}2$}{figure.caption.4}{}}
+\newlabel{fig:best_sf_ste_1}{{3f}{10}{STE $C{=}1$}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_ste_1}{{f}{10}{STE $C{=}1$}{figure.caption.4}{}}
+\newlabel{fig:best_sf_ste_2}{{3g}{10}{STE $C{=}2$}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_ste_2}{{g}{10}{STE $C{=}2$}{figure.caption.4}{}}
+\newlabel{fig:best_sf_ramp_1}{{3h}{10}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_ramp_1}{{h}{10}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.4}{}}
+\newlabel{fig:best_sf_ramp_2}{{3i}{10}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_ramp_2}{{i}{10}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.4}{}}
+\newlabel{fig:best_sf_qclip_080}{{3j}{10}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_qclip_080}{{j}{10}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.4}{}}
+\newlabel{fig:best_sf_rawqclip_080}{{3k}{10}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.4}{}}
+\newlabel{sub@fig:best_sf_rawqclip_080}{{k}{10}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Best test accuracy under SF.}}{10}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:best_sf_grid}{{3}{10}{Best test accuracy under SF}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Optimal IPM Attack}{11}{subsection.3.3}\protected@file@percent }
+\newlabel{fig:best_ipm_noclip}{{4a}{12}{No Clip (ReLU)}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_noclip}{{a}{12}{No Clip (ReLU)}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_tanh}{{4b}{12}{Tanh}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_tanh}{{b}{12}{Tanh}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_gradnorm21}{{4c}{12}{Grad-Norm Clip $=21$}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_gradnorm21}{{c}{12}{Grad-Norm Clip $=21$}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_hardtanh_1}{{4d}{12}{Hardtanh $C{=}1$}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_hardtanh_1}{{d}{12}{Hardtanh $C{=}1$}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_hardtanh_2}{{4e}{12}{Hardtanh $C{=}2$}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_hardtanh_2}{{e}{12}{Hardtanh $C{=}2$}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_ste_1}{{4f}{12}{STE $C{=}1$}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_ste_1}{{f}{12}{STE $C{=}1$}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_ste_2}{{4g}{12}{STE $C{=}2$}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_ste_2}{{g}{12}{STE $C{=}2$}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_ramp_1}{{4h}{12}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_ramp_1}{{h}{12}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_ramp_2}{{4i}{12}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_ramp_2}{{i}{12}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_qclip_080}{{4j}{12}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_qclip_080}{{j}{12}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.5}{}}
+\newlabel{fig:best_ipm_rawqclip_080}{{4k}{12}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.5}{}}
+\newlabel{sub@fig:best_ipm_rawqclip_080}{{k}{12}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Best test accuracy under IPM.}}{12}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:best_ipm_grid}{{4}{12}{Best test accuracy under IPM}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Centered Clipping (CC)}{13}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}CC under Worst-Case across all Attacks}{13}{subsection.4.1}\protected@file@percent }
+\newlabel{fig:cc_worst_case_noclip}{{5a}{14}{No Clip (ReLU)}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_noclip}{{a}{14}{No Clip (ReLU)}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_tanh}{{5b}{14}{Tanh}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_tanh}{{b}{14}{Tanh}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_hardtanh_1}{{5c}{14}{Hardtanh $C{=}1$}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_hardtanh_1}{{c}{14}{Hardtanh $C{=}1$}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_hardtanh_2}{{5d}{14}{Hardtanh $C{=}2$}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_hardtanh_2}{{d}{14}{Hardtanh $C{=}2$}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_ste_1}{{5e}{14}{STE $C{=}1$}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_ste_1}{{e}{14}{STE $C{=}1$}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_ste_2}{{5f}{14}{STE $C{=}2$}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_ste_2}{{f}{14}{STE $C{=}2$}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_ramp_1}{{5g}{14}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_ramp_1}{{g}{14}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_ramp_2}{{5h}{14}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_ramp_2}{{h}{14}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_qclip_080}{{5i}{14}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_qclip_080}{{i}{14}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.6}{}}
+\newlabel{fig:cc_worst_case_rawqclip_080}{{5j}{14}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.6}{}}
+\newlabel{sub@fig:cc_worst_case_rawqclip_080}{{j}{14}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Centered Clipping (CC) under Worst-Case across all Attacks.}}{14}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:cc_worst_case_grid}{{5}{14}{Centered Clipping (CC) under Worst-Case across all Attacks}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}CC under ALIE}{15}{subsection.4.2}\protected@file@percent }
+\newlabel{fig:cc_alie_noclip}{{6a}{16}{No Clip (ReLU)}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_noclip}{{a}{16}{No Clip (ReLU)}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_tanh}{{6b}{16}{Tanh}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_tanh}{{b}{16}{Tanh}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_hardtanh_1}{{6c}{16}{Hardtanh $C{=}1$}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_hardtanh_1}{{c}{16}{Hardtanh $C{=}1$}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_hardtanh_2}{{6d}{16}{Hardtanh $C{=}2$}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_hardtanh_2}{{d}{16}{Hardtanh $C{=}2$}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_ste_1}{{6e}{16}{STE $C{=}1$}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_ste_1}{{e}{16}{STE $C{=}1$}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_ste_2}{{6f}{16}{STE $C{=}2$}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_ste_2}{{f}{16}{STE $C{=}2$}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_ramp_1}{{6g}{16}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_ramp_1}{{g}{16}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_ramp_2}{{6h}{16}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_ramp_2}{{h}{16}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_qclip_080}{{6i}{16}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_qclip_080}{{i}{16}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.7}{}}
+\newlabel{fig:cc_alie_rawqclip_080}{{6j}{16}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.7}{}}
+\newlabel{sub@fig:cc_alie_rawqclip_080}{{j}{16}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Centered Clipping (CC) under Optimal ALIE Attack.}}{16}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:cc_alie_grid}{{6}{16}{Centered Clipping (CC) under Optimal ALIE Attack}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}CC under SF}{17}{subsection.4.3}\protected@file@percent }
+\newlabel{fig:cc_sf_noclip}{{7a}{18}{No Clip (ReLU)}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_noclip}{{a}{18}{No Clip (ReLU)}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_tanh}{{7b}{18}{Tanh}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_tanh}{{b}{18}{Tanh}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_hardtanh_1}{{7c}{18}{Hardtanh $C{=}1$}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_hardtanh_1}{{c}{18}{Hardtanh $C{=}1$}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_hardtanh_2}{{7d}{18}{Hardtanh $C{=}2$}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_hardtanh_2}{{d}{18}{Hardtanh $C{=}2$}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_ste_1}{{7e}{18}{STE $C{=}1$}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_ste_1}{{e}{18}{STE $C{=}1$}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_ste_2}{{7f}{18}{STE $C{=}2$}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_ste_2}{{f}{18}{STE $C{=}2$}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_ramp_1}{{7g}{18}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_ramp_1}{{g}{18}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_ramp_2}{{7h}{18}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_ramp_2}{{h}{18}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_qclip_080}{{7i}{18}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_qclip_080}{{i}{18}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.8}{}}
+\newlabel{fig:cc_sf_rawqclip_080}{{7j}{18}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.8}{}}
+\newlabel{sub@fig:cc_sf_rawqclip_080}{{j}{18}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Centered Clipping (CC) under Sign Flipping Attack.}}{18}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:cc_sf_grid}{{7}{18}{Centered Clipping (CC) under Sign Flipping Attack}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}CC under IPM}{19}{subsection.4.4}\protected@file@percent }
+\newlabel{fig:cc_ipm_noclip}{{8a}{20}{No Clip (ReLU)}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_noclip}{{a}{20}{No Clip (ReLU)}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_tanh}{{8b}{20}{Tanh}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_tanh}{{b}{20}{Tanh}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_hardtanh_1}{{8c}{20}{Hardtanh $C{=}1$}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_hardtanh_1}{{c}{20}{Hardtanh $C{=}1$}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_hardtanh_2}{{8d}{20}{Hardtanh $C{=}2$}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_hardtanh_2}{{d}{20}{Hardtanh $C{=}2$}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_ste_1}{{8e}{20}{STE $C{=}1$}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_ste_1}{{e}{20}{STE $C{=}1$}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_ste_2}{{8f}{20}{STE $C{=}2$}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_ste_2}{{f}{20}{STE $C{=}2$}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_ramp_1}{{8g}{20}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_ramp_1}{{g}{20}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_ramp_2}{{8h}{20}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_ramp_2}{{h}{20}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_qclip_080}{{8i}{20}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_qclip_080}{{i}{20}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.9}{}}
+\newlabel{fig:cc_ipm_rawqclip_080}{{8j}{20}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.9}{}}
+\newlabel{sub@fig:cc_ipm_rawqclip_080}{{j}{20}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Centered Clipping (CC) under Optimal IPM Attack.}}{20}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:cc_ipm_grid}{{8}{20}{Centered Clipping (CC) under Optimal IPM Attack}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Geometric Median (GM)}{21}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}GM under Worst-Case across all Attacks}{21}{subsection.5.1}\protected@file@percent }
+\newlabel{fig:gm_worst_case_noclip}{{9a}{22}{No Clip (ReLU)}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_noclip}{{a}{22}{No Clip (ReLU)}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_tanh}{{9b}{22}{Tanh}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_tanh}{{b}{22}{Tanh}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_gradnorm21}{{9c}{22}{Grad-Norm Clip $=21$}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_gradnorm21}{{c}{22}{Grad-Norm Clip $=21$}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_hardtanh_1}{{9d}{22}{Hardtanh $C{=}1$}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_hardtanh_1}{{d}{22}{Hardtanh $C{=}1$}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_hardtanh_2}{{9e}{22}{Hardtanh $C{=}2$}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_hardtanh_2}{{e}{22}{Hardtanh $C{=}2$}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_ste_1}{{9f}{22}{STE $C{=}1$}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_ste_1}{{f}{22}{STE $C{=}1$}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_ste_2}{{9g}{22}{STE $C{=}2$}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_ste_2}{{g}{22}{STE $C{=}2$}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_ramp_1}{{9h}{22}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_ramp_1}{{h}{22}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_ramp_2}{{9i}{22}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_ramp_2}{{i}{22}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_qclip_080}{{9j}{22}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_qclip_080}{{j}{22}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.10}{}}
+\newlabel{fig:gm_worst_case_rawqclip_080}{{9k}{22}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.10}{}}
+\newlabel{sub@fig:gm_worst_case_rawqclip_080}{{k}{22}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Geometric Median (GM) under Worst-Case across all Attacks.}}{22}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:gm_worst_case_grid}{{9}{22}{Geometric Median (GM) under Worst-Case across all Attacks}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}GM under ALIE}{23}{subsection.5.2}\protected@file@percent }
+\newlabel{fig:gm_alie_noclip}{{10a}{24}{No Clip (ReLU)}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_noclip}{{a}{24}{No Clip (ReLU)}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_tanh}{{10b}{24}{Tanh}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_tanh}{{b}{24}{Tanh}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_gradnorm21}{{10c}{24}{Grad-Norm Clip $=21$}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_gradnorm21}{{c}{24}{Grad-Norm Clip $=21$}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_hardtanh_1}{{10d}{24}{Hardtanh $C{=}1$}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_hardtanh_1}{{d}{24}{Hardtanh $C{=}1$}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_hardtanh_2}{{10e}{24}{Hardtanh $C{=}2$}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_hardtanh_2}{{e}{24}{Hardtanh $C{=}2$}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_ste_1}{{10f}{24}{STE $C{=}1$}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_ste_1}{{f}{24}{STE $C{=}1$}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_ste_2}{{10g}{24}{STE $C{=}2$}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_ste_2}{{g}{24}{STE $C{=}2$}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_ramp_1}{{10h}{24}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_ramp_1}{{h}{24}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_ramp_2}{{10i}{24}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_ramp_2}{{i}{24}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_qclip_080}{{10j}{24}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_qclip_080}{{j}{24}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.11}{}}
+\newlabel{fig:gm_alie_rawqclip_080}{{10k}{24}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.11}{}}
+\newlabel{sub@fig:gm_alie_rawqclip_080}{{k}{24}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Geometric Median (GM) under Optimal ALIE Attack.}}{24}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:gm_alie_grid}{{10}{24}{Geometric Median (GM) under Optimal ALIE Attack}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}GM under SF}{25}{subsection.5.3}\protected@file@percent }
+\newlabel{fig:gm_sf_noclip}{{11a}{26}{No Clip (ReLU)}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_noclip}{{a}{26}{No Clip (ReLU)}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_tanh}{{11b}{26}{Tanh}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_tanh}{{b}{26}{Tanh}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_gradnorm21}{{11c}{26}{Grad-Norm Clip $=21$}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_gradnorm21}{{c}{26}{Grad-Norm Clip $=21$}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_hardtanh_1}{{11d}{26}{Hardtanh $C{=}1$}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_hardtanh_1}{{d}{26}{Hardtanh $C{=}1$}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_hardtanh_2}{{11e}{26}{Hardtanh $C{=}2$}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_hardtanh_2}{{e}{26}{Hardtanh $C{=}2$}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_ste_1}{{11f}{26}{STE $C{=}1$}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_ste_1}{{f}{26}{STE $C{=}1$}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_ste_2}{{11g}{26}{STE $C{=}2$}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_ste_2}{{g}{26}{STE $C{=}2$}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_ramp_1}{{11h}{26}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_ramp_1}{{h}{26}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_ramp_2}{{11i}{26}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_ramp_2}{{i}{26}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_qclip_080}{{11j}{26}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_qclip_080}{{j}{26}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.12}{}}
+\newlabel{fig:gm_sf_rawqclip_080}{{11k}{26}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.12}{}}
+\newlabel{sub@fig:gm_sf_rawqclip_080}{{k}{26}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Geometric Median (GM) under Sign Flipping Attack.}}{26}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:gm_sf_grid}{{11}{26}{Geometric Median (GM) under Sign Flipping Attack}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}GM under IPM}{27}{subsection.5.4}\protected@file@percent }
+\newlabel{fig:gm_ipm_noclip}{{12a}{28}{No Clip (ReLU)}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_noclip}{{a}{28}{No Clip (ReLU)}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_tanh}{{12b}{28}{Tanh}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_tanh}{{b}{28}{Tanh}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_gradnorm21}{{12c}{28}{Grad-Norm Clip $=21$}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_gradnorm21}{{c}{28}{Grad-Norm Clip $=21$}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_hardtanh_1}{{12d}{28}{Hardtanh $C{=}1$}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_hardtanh_1}{{d}{28}{Hardtanh $C{=}1$}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_hardtanh_2}{{12e}{28}{Hardtanh $C{=}2$}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_hardtanh_2}{{e}{28}{Hardtanh $C{=}2$}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_ste_1}{{12f}{28}{STE $C{=}1$}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_ste_1}{{f}{28}{STE $C{=}1$}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_ste_2}{{12g}{28}{STE $C{=}2$}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_ste_2}{{g}{28}{STE $C{=}2$}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_ramp_1}{{12h}{28}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_ramp_1}{{h}{28}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_ramp_2}{{12i}{28}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_ramp_2}{{i}{28}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_qclip_080}{{12j}{28}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_qclip_080}{{j}{28}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.13}{}}
+\newlabel{fig:gm_ipm_rawqclip_080}{{12k}{28}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.13}{}}
+\newlabel{sub@fig:gm_ipm_rawqclip_080}{{k}{28}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Geometric Median (GM) under Optimal IPM Attack.}}{28}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:gm_ipm_grid}{{12}{28}{Geometric Median (GM) under Optimal IPM Attack}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Multi-Krum (MK)}{29}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}MK under Worst-Case across all Attacks}{29}{subsection.6.1}\protected@file@percent }
+\newlabel{fig:mk_worst_case_noclip}{{13a}{30}{No Clip (ReLU)}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_noclip}{{a}{30}{No Clip (ReLU)}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_tanh}{{13b}{30}{Tanh}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_tanh}{{b}{30}{Tanh}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_hardtanh_1}{{13c}{30}{Hardtanh $C{=}1$}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_hardtanh_1}{{c}{30}{Hardtanh $C{=}1$}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_hardtanh_2}{{13d}{30}{Hardtanh $C{=}2$}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_hardtanh_2}{{d}{30}{Hardtanh $C{=}2$}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_ste_1}{{13e}{30}{STE $C{=}1$}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_ste_1}{{e}{30}{STE $C{=}1$}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_ste_2}{{13f}{30}{STE $C{=}2$}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_ste_2}{{f}{30}{STE $C{=}2$}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_ramp_1}{{13g}{30}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_ramp_1}{{g}{30}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_ramp_2}{{13h}{30}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_ramp_2}{{h}{30}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_qclip_080}{{13i}{30}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_qclip_080}{{i}{30}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.14}{}}
+\newlabel{fig:mk_worst_case_rawqclip_080}{{13j}{30}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.14}{}}
+\newlabel{sub@fig:mk_worst_case_rawqclip_080}{{j}{30}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Multi-Krum (MK) under Worst-Case across all Attacks.}}{30}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:mk_worst_case_grid}{{13}{30}{Multi-Krum (MK) under Worst-Case across all Attacks}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}MK under ALIE}{31}{subsection.6.2}\protected@file@percent }
+\newlabel{fig:mk_alie_noclip}{{14a}{32}{No Clip (ReLU)}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_noclip}{{a}{32}{No Clip (ReLU)}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_tanh}{{14b}{32}{Tanh}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_tanh}{{b}{32}{Tanh}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_hardtanh_1}{{14c}{32}{Hardtanh $C{=}1$}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_hardtanh_1}{{c}{32}{Hardtanh $C{=}1$}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_hardtanh_2}{{14d}{32}{Hardtanh $C{=}2$}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_hardtanh_2}{{d}{32}{Hardtanh $C{=}2$}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_ste_1}{{14e}{32}{STE $C{=}1$}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_ste_1}{{e}{32}{STE $C{=}1$}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_ste_2}{{14f}{32}{STE $C{=}2$}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_ste_2}{{f}{32}{STE $C{=}2$}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_ramp_1}{{14g}{32}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_ramp_1}{{g}{32}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_ramp_2}{{14h}{32}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_ramp_2}{{h}{32}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_qclip_080}{{14i}{32}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_qclip_080}{{i}{32}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.15}{}}
+\newlabel{fig:mk_alie_rawqclip_080}{{14j}{32}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.15}{}}
+\newlabel{sub@fig:mk_alie_rawqclip_080}{{j}{32}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Multi-Krum (MK) under Optimal ALIE Attack.}}{32}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:mk_alie_grid}{{14}{32}{Multi-Krum (MK) under Optimal ALIE Attack}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}MK under SF}{33}{subsection.6.3}\protected@file@percent }
+\newlabel{fig:mk_sf_noclip}{{15a}{34}{No Clip (ReLU)}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_noclip}{{a}{34}{No Clip (ReLU)}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_tanh}{{15b}{34}{Tanh}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_tanh}{{b}{34}{Tanh}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_hardtanh_1}{{15c}{34}{Hardtanh $C{=}1$}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_hardtanh_1}{{c}{34}{Hardtanh $C{=}1$}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_hardtanh_2}{{15d}{34}{Hardtanh $C{=}2$}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_hardtanh_2}{{d}{34}{Hardtanh $C{=}2$}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_ste_1}{{15e}{34}{STE $C{=}1$}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_ste_1}{{e}{34}{STE $C{=}1$}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_ste_2}{{15f}{34}{STE $C{=}2$}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_ste_2}{{f}{34}{STE $C{=}2$}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_ramp_1}{{15g}{34}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_ramp_1}{{g}{34}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_ramp_2}{{15h}{34}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_ramp_2}{{h}{34}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_qclip_080}{{15i}{34}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_qclip_080}{{i}{34}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.16}{}}
+\newlabel{fig:mk_sf_rawqclip_080}{{15j}{34}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.16}{}}
+\newlabel{sub@fig:mk_sf_rawqclip_080}{{j}{34}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Multi-Krum (MK) under Sign Flipping Attack.}}{34}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:mk_sf_grid}{{15}{34}{Multi-Krum (MK) under Sign Flipping Attack}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}MK under IPM}{35}{subsection.6.4}\protected@file@percent }
+\newlabel{fig:mk_ipm_noclip}{{16a}{36}{No Clip (ReLU)}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_noclip}{{a}{36}{No Clip (ReLU)}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_tanh}{{16b}{36}{Tanh}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_tanh}{{b}{36}{Tanh}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_hardtanh_1}{{16c}{36}{Hardtanh $C{=}1$}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_hardtanh_1}{{c}{36}{Hardtanh $C{=}1$}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_hardtanh_2}{{16d}{36}{Hardtanh $C{=}2$}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_hardtanh_2}{{d}{36}{Hardtanh $C{=}2$}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_ste_1}{{16e}{36}{STE $C{=}1$}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_ste_1}{{e}{36}{STE $C{=}1$}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_ste_2}{{16f}{36}{STE $C{=}2$}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_ste_2}{{f}{36}{STE $C{=}2$}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_ramp_1}{{16g}{36}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_ramp_1}{{g}{36}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_ramp_2}{{16h}{36}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_ramp_2}{{h}{36}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_qclip_080}{{16i}{36}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_qclip_080}{{i}{36}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.17}{}}
+\newlabel{fig:mk_ipm_rawqclip_080}{{16j}{36}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.17}{}}
+\newlabel{sub@fig:mk_ipm_rawqclip_080}{{j}{36}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Multi-Krum (MK) under Optimal IPM Attack.}}{36}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:mk_ipm_grid}{{16}{36}{Multi-Krum (MK) under Optimal IPM Attack}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Trimmed Mean (TM)}{37}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}TM under Worst-Case across all Attacks}{37}{subsection.7.1}\protected@file@percent }
+\newlabel{fig:tm_worst_case_noclip}{{17a}{38}{No Clip (ReLU)}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_noclip}{{a}{38}{No Clip (ReLU)}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_tanh}{{17b}{38}{Tanh}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_tanh}{{b}{38}{Tanh}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_hardtanh_1}{{17c}{38}{Hardtanh $C{=}1$}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_hardtanh_1}{{c}{38}{Hardtanh $C{=}1$}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_hardtanh_2}{{17d}{38}{Hardtanh $C{=}2$}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_hardtanh_2}{{d}{38}{Hardtanh $C{=}2$}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_ste_1}{{17e}{38}{STE $C{=}1$}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_ste_1}{{e}{38}{STE $C{=}1$}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_ste_2}{{17f}{38}{STE $C{=}2$}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_ste_2}{{f}{38}{STE $C{=}2$}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_ramp_1}{{17g}{38}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_ramp_1}{{g}{38}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_ramp_2}{{17h}{38}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_ramp_2}{{h}{38}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_qclip_080}{{17i}{38}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_qclip_080}{{i}{38}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.18}{}}
+\newlabel{fig:tm_worst_case_rawqclip_080}{{17j}{38}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.18}{}}
+\newlabel{sub@fig:tm_worst_case_rawqclip_080}{{j}{38}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Trimmed Mean (TM) under Worst-Case across all Attacks.}}{38}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:tm_worst_case_grid}{{17}{38}{Trimmed Mean (TM) under Worst-Case across all Attacks}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}TM under ALIE}{39}{subsection.7.2}\protected@file@percent }
+\newlabel{fig:tm_alie_noclip}{{18a}{40}{No Clip (ReLU)}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_noclip}{{a}{40}{No Clip (ReLU)}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_tanh}{{18b}{40}{Tanh}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_tanh}{{b}{40}{Tanh}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_hardtanh_1}{{18c}{40}{Hardtanh $C{=}1$}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_hardtanh_1}{{c}{40}{Hardtanh $C{=}1$}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_hardtanh_2}{{18d}{40}{Hardtanh $C{=}2$}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_hardtanh_2}{{d}{40}{Hardtanh $C{=}2$}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_ste_1}{{18e}{40}{STE $C{=}1$}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_ste_1}{{e}{40}{STE $C{=}1$}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_ste_2}{{18f}{40}{STE $C{=}2$}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_ste_2}{{f}{40}{STE $C{=}2$}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_ramp_1}{{18g}{40}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_ramp_1}{{g}{40}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_ramp_2}{{18h}{40}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_ramp_2}{{h}{40}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_qclip_080}{{18i}{40}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_qclip_080}{{i}{40}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.19}{}}
+\newlabel{fig:tm_alie_rawqclip_080}{{18j}{40}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.19}{}}
+\newlabel{sub@fig:tm_alie_rawqclip_080}{{j}{40}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Trimmed Mean (TM) under Optimal ALIE Attack.}}{40}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:tm_alie_grid}{{18}{40}{Trimmed Mean (TM) under Optimal ALIE Attack}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}TM under SF}{41}{subsection.7.3}\protected@file@percent }
+\newlabel{fig:tm_sf_noclip}{{19a}{42}{No Clip (ReLU)}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_noclip}{{a}{42}{No Clip (ReLU)}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_tanh}{{19b}{42}{Tanh}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_tanh}{{b}{42}{Tanh}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_hardtanh_1}{{19c}{42}{Hardtanh $C{=}1$}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_hardtanh_1}{{c}{42}{Hardtanh $C{=}1$}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_hardtanh_2}{{19d}{42}{Hardtanh $C{=}2$}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_hardtanh_2}{{d}{42}{Hardtanh $C{=}2$}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_ste_1}{{19e}{42}{STE $C{=}1$}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_ste_1}{{e}{42}{STE $C{=}1$}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_ste_2}{{19f}{42}{STE $C{=}2$}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_ste_2}{{f}{42}{STE $C{=}2$}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_ramp_1}{{19g}{42}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_ramp_1}{{g}{42}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_ramp_2}{{19h}{42}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_ramp_2}{{h}{42}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_qclip_080}{{19i}{42}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_qclip_080}{{i}{42}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.20}{}}
+\newlabel{fig:tm_sf_rawqclip_080}{{19j}{42}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.20}{}}
+\newlabel{sub@fig:tm_sf_rawqclip_080}{{j}{42}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Trimmed Mean (TM) under Sign Flipping Attack.}}{42}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:tm_sf_grid}{{19}{42}{Trimmed Mean (TM) under Sign Flipping Attack}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}TM under IPM}{43}{subsection.7.4}\protected@file@percent }
+\newlabel{fig:tm_ipm_noclip}{{20a}{44}{No Clip (ReLU)}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_noclip}{{a}{44}{No Clip (ReLU)}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_tanh}{{20b}{44}{Tanh}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_tanh}{{b}{44}{Tanh}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_hardtanh_1}{{20c}{44}{Hardtanh $C{=}1$}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_hardtanh_1}{{c}{44}{Hardtanh $C{=}1$}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_hardtanh_2}{{20d}{44}{Hardtanh $C{=}2$}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_hardtanh_2}{{d}{44}{Hardtanh $C{=}2$}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_ste_1}{{20e}{44}{STE $C{=}1$}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_ste_1}{{e}{44}{STE $C{=}1$}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_ste_2}{{20f}{44}{STE $C{=}2$}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_ste_2}{{f}{44}{STE $C{=}2$}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_ramp_1}{{20g}{44}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_ramp_1}{{g}{44}{Ramp $C{=}1$ ($r{=}2$)}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_ramp_2}{{20h}{44}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_ramp_2}{{h}{44}{Ramp $C{=}2$ ($r{=}2$)}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_qclip_080}{{20i}{44}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_qclip_080}{{i}{44}{Norm Clip $\tau {=}0.80$ (momentum)}{figure.caption.21}{}}
+\newlabel{fig:tm_ipm_rawqclip_080}{{20j}{44}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.21}{}}
+\newlabel{sub@fig:tm_ipm_rawqclip_080}{{j}{44}{Norm Clip $\tau {=}0.80$ (raw, 2 seeds)}{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Trimmed Mean (TM) under Optimal IPM Attack.}}{44}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:tm_ipm_grid}{{20}{44}{Trimmed Mean (TM) under Optimal IPM Attack}{figure.caption.21}{}}
+\gdef \@abspage@last{44}

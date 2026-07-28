@@ -100,20 +100,17 @@ data-adaptive) and is not a quantile of anything.
 Instead of a fixed constant $C$, the clip threshold is recomputed every forward pass as
 the $\tau$-quantile of that layer's own activation coordinates (detached, i.e. treated
 as a constant for backpropagation), so the threshold adapts to the current activation
-distribution instead of being hand-picked. Two backward variants were implemented --
-\emph{plain} (same failure mode as hardtanh: hard zero above $C$) and \emph{STE}
-(gradient survives above $C$):
+distribution instead of being hand-picked. The backward pass uses the \emph{plain} clamp
+derivative (hard zero above $C$):
 \begin{align*}
     C &= \mathrm{quantile}_\tau\big(\mathrm{flatten}(x)\big) \quad \text{(detached)} \\
     y &= \mathrm{clamp}(x, 0, C) \\
-    \frac{\partial y}{\partial x} &=
-    \begin{cases}
-        \mathbb{1}[0 < x \leq C] & \text{plain} \\
-        \mathbb{1}[x > 0] & \text{STE}
-    \end{cases}
+    \frac{\partial y}{\partial x} &= \mathbb{1}[0 < x \leq C]
 \end{align*}
-Swept at $\tau \in \{0.80, 0.90\}$, both backward variants
-(\emph{results pending -- not yet available at time of writing}).
+Swept at $\tau \in \{0.80, 0.90\}$
+(\emph{results pending -- not yet available at time of writing}). An STE-backward variant
+was also implemented but dropped: the fixed-clip STE runs showed STE degrades even clean
+(no-attack) accuracy on MNIST, so it was not worth sweeping.
 
 \subsection{Adaptive Client-Side Gradient-Norm Clip}
 Not an activation function -- a plain-ReLU CNN where each honest client clips the L2
@@ -194,6 +191,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:best_overall_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/best_test_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:best_overall_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/best_test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:best_overall_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/best_test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:best_overall_rawqclip_080}
+    \end{subfigure}
     \caption{Best overall test accuracy (worst-case across attacks).}
     \label{fig:best_overall_grid}
 \end{figure}
@@ -258,6 +276,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:best_alie_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:best_alie_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:best_alie_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/best_test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:best_alie_rawqclip_080}
+    \end{subfigure}
     \caption{Best test accuracy under ALIE.}
     \label{fig:best_alie_grid}
 \end{figure}
@@ -319,6 +358,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/best_test_SignFlipping_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:best_sf_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/best_test_SignFlipping_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:best_sf_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/best_test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:best_sf_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/best_test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:best_sf_rawqclip_080}
     \end{subfigure}
     \caption{Best test accuracy under SF.}
     \label{fig:best_sf_grid}
@@ -382,6 +442,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:best_ipm_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:best_ipm_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:best_ipm_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/best_test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:best_ipm_rawqclip_080}
+    \end{subfigure}
     \caption{Best test accuracy under IPM.}
     \label{fig:best_ipm_grid}
 \end{figure}
@@ -438,6 +519,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:cc_worst_case_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:cc_worst_case_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:cc_worst_case_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:cc_worst_case_rawqclip_080}
+    \end{subfigure}
     \caption{Centered Clipping (CC) under Worst-Case across all Attacks.}
     \label{fig:cc_worst_case_grid}
 \end{figure}
@@ -492,6 +594,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:cc_alie_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:cc_alie_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:cc_alie_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:cc_alie_rawqclip_080}
     \end{subfigure}
     \caption{Centered Clipping (CC) under Optimal ALIE Attack.}
     \label{fig:cc_alie_grid}
@@ -548,6 +671,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:cc_sf_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_SignFlipping_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:cc_sf_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:cc_sf_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:cc_sf_rawqclip_080}
+    \end{subfigure}
     \caption{Centered Clipping (CC) under Sign Flipping Attack.}
     \label{fig:cc_sf_grid}
 \end{figure}
@@ -602,6 +746,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:cc_ipm_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:cc_ipm_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:cc_ipm_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_CenteredClipping_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:cc_ipm_rawqclip_080}
     \end{subfigure}
     \caption{Centered Clipping (CC) under Optimal IPM Attack.}
     \label{fig:cc_ipm_grid}
@@ -666,6 +831,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:gm_worst_case_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:gm_worst_case_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:gm_worst_case_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:gm_worst_case_rawqclip_080}
+    \end{subfigure}
     \caption{Geometric Median (GM) under Worst-Case across all Attacks.}
     \label{fig:gm_worst_case_grid}
 \end{figure}
@@ -727,6 +913,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:gm_alie_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:gm_alie_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:gm_alie_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:gm_alie_rawqclip_080}
     \end{subfigure}
     \caption{Geometric Median (GM) under Optimal ALIE Attack.}
     \label{fig:gm_alie_grid}
@@ -790,6 +997,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:gm_sf_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_SignFlipping_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:gm_sf_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:gm_sf_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:gm_sf_rawqclip_080}
+    \end{subfigure}
     \caption{Geometric Median (GM) under Sign Flipping Attack.}
     \label{fig:gm_sf_grid}
 \end{figure}
@@ -852,6 +1080,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:gm_ipm_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:gm_ipm_ramp_2}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:gm_ipm_qclip_080}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_GeometricMedian_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:gm_ipm_rawqclip_080}
+    \end{subfigure}
     \caption{Geometric Median (GM) under Optimal IPM Attack.}
     \label{fig:gm_ipm_grid}
 \end{figure}
@@ -908,6 +1157,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:mk_worst_case_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:mk_worst_case_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:mk_worst_case_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:mk_worst_case_rawqclip_080}
+    \end{subfigure}
     \caption{Multi-Krum (MK) under Worst-Case across all Attacks.}
     \label{fig:mk_worst_case_grid}
 \end{figure}
@@ -962,6 +1232,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:mk_alie_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:mk_alie_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:mk_alie_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:mk_alie_rawqclip_080}
     \end{subfigure}
     \caption{Multi-Krum (MK) under Optimal ALIE Attack.}
     \label{fig:mk_alie_grid}
@@ -1018,6 +1309,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:mk_sf_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_SignFlipping_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:mk_sf_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:mk_sf_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:mk_sf_rawqclip_080}
+    \end{subfigure}
     \caption{Multi-Krum (MK) under Sign Flipping Attack.}
     \label{fig:mk_sf_grid}
 \end{figure}
@@ -1072,6 +1384,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:mk_ipm_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:mk_ipm_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:mk_ipm_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_MultiKrum_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:mk_ipm_rawqclip_080}
     \end{subfigure}
     \caption{Multi-Krum (MK) under Optimal IPM Attack.}
     \label{fig:mk_ipm_grid}
@@ -1129,6 +1462,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:tm_worst_case_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:tm_worst_case_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:tm_worst_case_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:tm_worst_case_rawqclip_080}
+    \end{subfigure}
     \caption{Trimmed Mean (TM) under Worst-Case across all Attacks.}
     \label{fig:tm_worst_case_grid}
 \end{figure}
@@ -1183,6 +1537,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:tm_alie_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:tm_alie_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:tm_alie_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_ALittleIsEnough_neg1_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:tm_alie_rawqclip_080}
     \end{subfigure}
     \caption{Trimmed Mean (TM) under Optimal ALIE Attack.}
     \label{fig:tm_alie_grid}
@@ -1239,6 +1614,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:tm_sf_ramp_1}
     \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_SignFlipping_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:tm_sf_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:tm_sf_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_SignFlipping_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:tm_sf_rawqclip_080}
+    \end{subfigure}
     \caption{Trimmed Mean (TM) under Sign Flipping Attack.}
     \label{fig:tm_sf_grid}
 \end{figure}
@@ -1293,6 +1689,27 @@ the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
         \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_1/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_1_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
         \caption{Ramp $C{=}1$ ($r{=}2$)}
         \label{fig:tm_ipm_ramp_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_clip_ramp_2/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_clip_ramp_2_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Ramp $C{=}2$ ($r{=}2$)}
+        \label{fig:tm_ipm_ramp_2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../activation_clip_plots/cnn_mnist_qclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (momentum)}
+        \label{fig:tm_ipm_qclip_080}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../results/activation_clip_plots/cnn_mnist_rawqclip_080/test_Optimal_InnerProductManipulation_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_TrMean_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+        \caption{Norm Clip $\tau{=}0.80$ (raw, 2 seeds)}
+        \label{fig:tm_ipm_rawqclip_080}
     \end{subfigure}
     \caption{Trimmed Mean (TM) under Optimal IPM Attack.}
     \label{fig:tm_ipm_grid}
