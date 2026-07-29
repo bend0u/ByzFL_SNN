@@ -933,4 +933,53 @@ This report compares six configurations:
 \end{figure}
 \clearpage
 
+\section{CNN ReLU with Gradient Clip $=21$: Per-Aggregator Heatmaps (New Run)}
+Unlike the earlier clipped-CNN heatmaps (which used Geometric Median only), this run
+evaluates the fixed raw-gradient clip $C=21$ across \emph{all four} robust aggregators
+(5 seeds), so it is directly comparable to the SNN sweeps above. Each panel is
+\texttt{best\_test} = worst case across the three attacks (Opt-ALIE, SignFlipping,
+Opt-IPM) for that aggregator; the last panel is the best-over-aggregators envelope.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_gradclip21_heatmaps/GeometricMedian.pdf}
+        \caption{Geometric Median}
+        \label{fig:gc21_gm}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_gradclip21_heatmaps/CenteredClipping.pdf}
+        \caption{Centered Clipping}
+        \label{fig:gc21_cc}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_gradclip21_heatmaps/TrMean.pdf}
+        \caption{Trimmed Mean}
+        \label{fig:gc21_tm}
+    \end{subfigure}
+    \vspace{0.3cm}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_gradclip21_heatmaps/MultiKrum.pdf}
+        \caption{Multi-Krum}
+        \label{fig:gc21_mk}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../plots/cnn_gradclip21_heatmaps/best_of_4.pdf}
+        \caption{Best over aggregators}
+        \label{fig:gc21_best}
+    \end{subfigure}
+    \caption{CNN ReLU with fixed raw-gradient clip $C=21$, per aggregator
+    (worst-case across attacks, 5 seeds). Last panel: best-over-aggregators envelope.}
+    \label{fig:gc21_grid}
+\end{figure}
+\clearpage
+
 \end{document}
