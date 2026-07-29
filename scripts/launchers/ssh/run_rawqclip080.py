@@ -39,7 +39,6 @@ REPO_ROOT = os.path.dirname(
 # against the CWD, so run from the repo root regardless of where this was invoked.
 os.chdir(REPO_ROOT)
 sys.path.insert(0, REPO_ROOT)
-sys.path.insert(0, os.path.join(REPO_ROOT, "scripts", "experiments"))
 
 from run_activation_clip_sweep import run_sweep  # noqa: E402
 
@@ -50,8 +49,8 @@ def main():
     parser = argparse.ArgumentParser(
         description="Pilot run: raw-gradient adaptive norm clip (tau=0.80, 2 seeds)"
     )
-    parser.add_argument("--nb_jobs", type=int, default=40,
-                        help="Number of parallel jobs (default: 40, sized for 2x A10)")
+    parser.add_argument("--nb_jobs", type=int, default=30,
+                        help="Number of parallel jobs (default: 30, sized for 2x A10)")
     parser.add_argument("--gpu", type=str, default=None,
                         help="Pin to a single GPU index instead of distributing across all")
     args = parser.parse_args()

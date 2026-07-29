@@ -38,6 +38,10 @@ COPY . /home/${LDAP_USERNAME}
 # Set owner of the files to the LDAP user
 RUN chown -R ${LDAP_USERNAME}:${LDAP_GROUPNAME} /home/${LDAP_USERNAME}
 
+# Make the repo (which is the working dir) importable, so `import byzfl` works
+# without pip-installing the package. Propagates to joblib/loky worker processes.
+ENV PYTHONPATH=/home/${LDAP_USERNAME}
+
 # Switch to the non-root user
 USER ${LDAP_USERNAME}
 

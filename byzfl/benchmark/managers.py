@@ -519,6 +519,12 @@ class ParamsManager(object):
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
 
+    def get_honest_clients_layer_grad_clip_val(self):
+        default = None
+        path = ["honest_clients", "layer_grad_clip_val"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
     def get_honest_clients_grad_clip_quantile(self):
         default = 0.0
         path = ["honest_clients", "grad_clip_quantile"]
@@ -528,6 +534,18 @@ class ParamsManager(object):
     def get_honest_clients_grad_clip_window(self):
         default = 100
         path = ["honest_clients", "grad_clip_window"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
+    def get_honest_clients_self_grad_clip_warmup(self):
+        default = 0
+        path = ["honest_clients", "self_grad_clip_warmup"]
+        read = self._read_object(path)
+        return self._parameter_to_use(default, read)
+
+    def get_honest_clients_self_grad_clip_margin(self):
+        default = 1.0
+        path = ["honest_clients", "self_grad_clip_margin"]
         read = self._read_object(path)
         return self._parameter_to_use(default, read)
 

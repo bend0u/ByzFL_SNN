@@ -14,6 +14,29 @@ WORKSPACE_DIR = os.path.dirname(
 )
 OUT_DIR = os.path.join(WORKSPACE_DIR, "configs", "activation_clip")
 
+# Calibrated clip thresholds emitted by scripts/experiments/calibrate_clip.py
+# (the "smallest absolute cap leaving >=q of honest updates untouched at every
+# gamma" rule). If absent, fall back to hand values documented from the probe.
+_CALIB_PATH = os.path.join(WORKSPACE_DIR, "results", "activation_clip",
+                           "gradnorm_probe", "clip_calibration.json")
+if os.path.exists(_CALIB_PATH):
+    with open(_CALIB_PATH) as _f:
+        _CALIB = json.load(_f)
+    CALIB_GLOBAL = _CALIB["global_clip"]              # headline q (0.99)
+    CALIB_LAYERS = _CALIB["layer_clip"]               # per-layer q0.99 vector
+    CALIB_BY_Q = _CALIB["global_clip_by_q"]           # {"0.9":.., "0.99":.., "1":..}
+else:
+    # Fallbacks (used only if calibrate_clip.py has not been run yet); the real
+    # numbers all come from clip_calibration.json.
+    CALIB_GLOBAL = 17.6
+    CALIB_LAYERS = {"_c1": 1.3, "_c2": 4.4, "_f1": 12.3, "_f2": 12.1}
+    CALIB_BY_Q = {"0.9": 9.0, "0.99": 17.6, "1": 27.0}
+
+# The two value-sweep brackets = the tightest and loosest algorithm quantiles.
+_qs = sorted(CALIB_BY_Q, key=float)
+CALIB_BRACKET_LOW = CALIB_BY_Q[_qs[0]]                 # e.g. q0.90
+CALIB_BRACKET_HIGH = CALIB_BY_Q[_qs[-1]]              # e.g. q1.0 (max)
+
 BASE_BENCHMARK_CONFIG = {
     "device": "cuda",
     "training_seed": 42,
@@ -53,7 +76,7 @@ BASE_ATTACKS = [
 
 
 def make_config(model_name, results_subdir, honest_clients_extra=None,
-                benchmark_extra=None):
+                benchmark_extra=None, aggregators=None):
     honest_clients = {
         "momentum": 0.9,
         "weight_decay": 0.0001,
@@ -80,7 +103,7 @@ def make_config(model_name, results_subdir, honest_clients_extra=None,
             "learning_rate_decay": 1.0,
             "milestones": [],
         },
-        "aggregator": BASE_AGGREGATORS,
+        "aggregator": aggregators if aggregators is not None else BASE_AGGREGATORS,
         "pre_aggregators": BASE_PRE_AGGREGATORS,
         "honest_clients": honest_clients,
         "attack": BASE_ATTACKS,
@@ -139,6 +162,65 @@ CONFIGS = {
         "cnn_mnist", "cnn_mnist_rawqclip_080",
         honest_clients_extra={"raw_grad_clip_quantile": 0.80, "raw_grad_clip_window": 100},
         benchmark_extra={"nb_training_seeds": 2},
+    ),
+    # ------------------------------------------------------------------
+    # FIXED absolute raw-gradient-norm caps (no SNN, no online recalibration).
+    # The offline probe (scripts/experiments/gradnorm_probe.py) shows the honest
+    # cnn_mnist raw grad-norm ceiling is ~21 at gamma=0.33 (max) / ~p99 at
+    # gamma=0.0, i.e. the SNN-derived 21 IS the CNN's own honest ceiling. These
+    # sweeps (a) REPRODUCE fixed-21 across ALL 4 aggregators/5 seeds (the previous
+    # fixed-21 run had only GeometricMedian), and (b) validate the "cap = honest
+    # ceiling" rule by bracketing it tighter (10) and looser (35).
+    # Reproduce the SNN-derived value 21 (kept hardcoded as the known-good
+    # baseline) across all 4 aggregators / 5 seeds.
+    "cnn_mnist_gradclip21": make_config(
+        "cnn_mnist", "cnn_mnist_gradclip21",
+        honest_clients_extra={"gradient_clip_val": 21},
+    ),
+    # Same, but the cap comes from the calibration ALGORITHM (calibrate_clip.py),
+    # not from the SNN -- the point is that the algorithm's number ~= 21.
+    "cnn_mnist_gradclip_calib": make_config(
+        "cnn_mnist", "cnn_mnist_gradclip_calib",
+        honest_clients_extra={"gradient_clip_val": CALIB_GLOBAL},
+    ),
+    # Value-sweep brackets = the tightest/loosest algorithm quantiles (q0.90 and
+    # q1.0/max, worst-case over gamma), read from clip_calibration.json -- NOT
+    # hand-typed. With gradclip_calib (q0.99) and the SNN's 21, this traces the
+    # accuracy-vs-cap curve using only algorithm-derived points. Full 4-aggregator
+    # sweep like the rest of the family so best_test is comparable.
+    "cnn_mnist_gradclip_qlow": make_config(
+        "cnn_mnist", "cnn_mnist_gradclip_qlow",
+        honest_clients_extra={"gradient_clip_val": CALIB_BRACKET_LOW},
+    ),
+    "cnn_mnist_gradclip_qhigh": make_config(
+        "cnn_mnist", "cnn_mnist_gradclip_qhigh",
+        honest_clients_extra={"gradient_clip_val": CALIB_BRACKET_HIGH},
+    ),
+    # Per-layer fixed absolute caps at each layer's own offline honest ceiling
+    # (~1.5x per-layer p99 from gradnorm_probe): quadrature ~= 26, comparable to
+    # the global-21 anchor but distributed so no single layer can consume the
+    # whole budget. Same "neuron/layer-level" idea, calibrated once offline.
+    "cnn_mnist_layerclip": make_config(
+        "cnn_mnist", "cnn_mnist_layerclip",
+        honest_clients_extra={"layer_grad_clip_val": CALIB_LAYERS},
+    ),
+    # Self-calibrated warmup clip: each client freezes its OWN absolute cap from
+    # its own first self_grad_clip_warmup raw grad-norms (max seen * margin), no
+    # offline probe/SNN needed. w75 is the data-justified default (see gradnorm_probe
+    # analysis: honest raw grad-norm peaks ~step 25-60 during the heterogeneity
+    # transient, and a 75-step warmup converges to ~0% honest clipping afterward,
+    # matching the offline-calibrated ceiling). w1 (literally "clip to the first
+    # gradient") is a deliberate ablation: a single-sample cap sits 4.5x-8x below the
+    # true honest peak and is expected to clip 34-95% of honest steps -- the same
+    # over-clipping failure mode as the adaptive quantile/STE, kept to empirically
+    # confirm the warmup is necessary.
+    "cnn_mnist_selfclip_w75": make_config(
+        "cnn_mnist", "cnn_mnist_selfclip_w75",
+        honest_clients_extra={"self_grad_clip_warmup": 75, "self_grad_clip_margin": 1.1},
+    ),
+    "cnn_mnist_selfclip_w1": make_config(
+        "cnn_mnist", "cnn_mnist_selfclip_w1",
+        honest_clients_extra={"self_grad_clip_warmup": 1, "self_grad_clip_margin": 1.0},
     ),
 }
 

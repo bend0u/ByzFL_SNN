@@ -1,0 +1,14 @@
+
+=== clip calibration (q=0.99, seeds=[42, 43], steps=500) ===
+    key | g= 1.0 g=0.33 g= 0.0 | worst-case cap
+ global |   3.54  11.44  17.63 |  17.63
+    _c1 |   0.53   0.96   1.34 |   1.34
+    _c2 |   1.33   2.98   4.39 |   4.39
+    _f1 |   2.58   8.17  12.26 |  12.26
+    _f2 |   2.15   7.77  12.16 |  12.16
+
+GLOBAL calibrated clip (q=0.99) = 17.63  (SNN value was 21)
+PER-LAYER calibrated caps = {'_c1': 1.3, '_c2': 4.4, '_f1': 12.3, '_f2': 12.2}  (quadrature = 17.92)
+GLOBAL caps by quantile (bracket set) = {'0.9': 7.7, '0.99': 17.6, '1': 26.7}
+
+saved /localhome/bendouro/ByzFL_snn/byzfl/results/activation_clip/gradnorm_probe/clip_calibration.json

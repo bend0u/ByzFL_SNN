@@ -76,6 +76,19 @@ class Client(ModelBaseInterface):
         self.store_per_client_metrics = params["store_per_client_metrics"]
         self.gradient_clip_val = params.get("gradient_clip_val", 0.0)
 
+        # Per-layer FIXED absolute grad-norm cap (raw gradient, same position as
+        # gradient_clip_val). A dict {module_name: cap}, e.g.
+        # {"_c1": 2.0, "_c2": 7.0, "_f1": 18.0, "_f2": 17.0}. Each named module's
+        # own .grad L2 norm is capped independently to its own absolute ceiling,
+        # instead of one global cap on the whole flat gradient. The ceilings are
+        # calibrated ONCE offline from an honest cnn_mnist run (per-layer honest
+        # grad-norm p99..max) -- no SNN and no online recalibration. Motivation:
+        # honest per-layer grad-norm scales differ ~5x (see gradnorm_probe), so a
+        # single global cap lets one layer consume the whole budget; a per-layer
+        # cap holds every layer at its own honest ceiling.
+        self.layer_grad_clip_val = params.get("layer_grad_clip_val", None)
+        self._named_modules = dict(self.model.named_modules()) if self.layer_grad_clip_val else {}
+
         # Adaptive client-side gradient-norm clip: each client clips the L2 norm
         # of the (post-momentum) vector it sends to the server to the
         # grad_clip_quantile-quantile of its OWN last grad_clip_window gradient
@@ -85,6 +98,35 @@ class Client(ModelBaseInterface):
         self.grad_clip_quantile = params.get("grad_clip_quantile", 0.0)
         self.grad_clip_window = params.get("grad_clip_window", 100)
         self._grad_norm_history = deque(maxlen=self.grad_clip_window)
+
+        # Self-calibrated warmup clip: instead of an externally-calibrated fixed
+        # cap (gradient_clip_val) or a continuously-adaptive quantile, each client
+        # bootstraps its OWN absolute cap from its own training. For the first
+        # self_grad_clip_warmup steps it only OBSERVES its raw grad-norm (no
+        # clipping); once warmup completes, it freezes
+        # cap = (max raw grad-norm seen during warmup) * self_grad_clip_margin,
+        # and clips every subsequent raw gradient to that fixed value. Same raw
+        # position as gradient_clip_val, so directly comparable.
+        #
+        # A warmup of exactly 1 step (clip to literally the first gradient) is a
+        # known-bad special case: honest raw grad-norm ramps up ~4.5x-8x over the
+        # first ~25-60 steps (heterogeneity transient) before decaying, so a
+        # single-sample cap clips 34-95% of ALL later honest steps -- the same
+        # over-clipping failure as the adaptive quantile/STE. A ~75-step warmup
+        # (with a small margin for safety) empirically converges to the true
+        # honest ceiling with ~0% honest clipping afterward (see gradnorm_probe
+        # analysis) -- self-calibrated version of the same "cap = honest ceiling"
+        # principle as gradient_clip_val, but online and per-client, no probe or
+        # SNN needed. NOTE: unlike the offline calibrator, this warmup runs while
+        # attacks are already present (f fixed from step 1) -- an adversary could
+        # in principle try to inflate a client's early gradients to loosen its cap
+        # before switching tactics. None of ALIE/SignFlipping/IPM specifically
+        # target this, so it isn't blocking, but it is a real limitation.
+        self.self_grad_clip_warmup = params.get("self_grad_clip_warmup", 0)
+        self.self_grad_clip_margin = params.get("self_grad_clip_margin", 1.0)
+        self._self_grad_clip_step = 0
+        self._self_grad_clip_max_seen = 0.0
+        self._self_grad_clip_val = None
 
         # Same adaptive windowed-quantile mechanism, but applied to the RAW
         # gradient BEFORE it enters the momentum accumulator (rather than to the
@@ -220,6 +262,15 @@ class Client(ModelBaseInterface):
         if self.gradient_clip_val > 0:
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.gradient_clip_val)
 
+        # Per-layer fixed absolute cap (independent of the global gradient_clip_val
+        # above; both may be set). Each named module's grad-norm capped to its own
+        # ceiling. See layer_grad_clip_val in __init__.
+        if self.layer_grad_clip_val:
+            for lname, cap in self.layer_grad_clip_val.items():
+                mod = self._named_modules.get(lname)
+                if mod is not None:
+                    torch.nn.utils.clip_grad_norm_(mod.parameters(), cap)
+
         if train_acc:
             # Compute and store train accuracy
             is_snn = isinstance(outputs, tuple)
@@ -321,6 +372,11 @@ class Client(ModelBaseInterface):
         """
         raw_gradient = self.get_flat_gradients()
 
+        # Optionally apply the self-calibrated warmup clip (see
+        # self_grad_clip_warmup in __init__). Same raw position, applied first.
+        if self.self_grad_clip_warmup > 0:
+            raw_gradient = self._apply_self_calibrated_clip(raw_gradient)
+
         # Optionally clip the RAW gradient before it enters the momentum
         # accumulator (see raw_grad_clip_quantile in __init__).
         if self.raw_grad_clip_quantile > 0:
@@ -381,6 +437,44 @@ class Client(ModelBaseInterface):
         threshold = np.quantile(norm_history, quantile)
         if current_norm > threshold and current_norm > 0:
             return vector * (threshold / current_norm)
+        return vector
+
+    def _apply_self_calibrated_clip(self, vector):
+        """
+        Description
+        -----------
+        Self-calibrated warmup clip (see self_grad_clip_warmup in __init__). For
+        the first `self_grad_clip_warmup` calls, only observes `vector`'s L2 norm
+        (tracking the running max) and returns it unchanged. Once warmup completes,
+        freezes `self._self_grad_clip_val = max_seen * self_grad_clip_margin` and,
+        on every subsequent call, rescales `vector` down to that fixed cap if it is
+        exceeded. Unlike `_clip_to_windowed_quantile`, the cap is set ONCE and never
+        recomputed -- an absolute anchor calibrated from this client's own early
+        training, not a continuously-adaptive statistic.
+
+        Non-finite norms are skipped (during warmup, not counted towards the
+        running max; once frozen, treated as already exceeding the cap so the
+        vector is zeroed rather than propagating NaN/Inf).
+
+        Returns
+        -------
+        torch.Tensor
+            The (possibly rescaled) vector.
+        """
+        current_norm = torch.linalg.norm(vector).item()
+
+        if self._self_grad_clip_val is None:
+            if math.isfinite(current_norm):
+                self._self_grad_clip_max_seen = max(self._self_grad_clip_max_seen, current_norm)
+            self._self_grad_clip_step += 1
+            if self._self_grad_clip_step >= self.self_grad_clip_warmup:
+                self._self_grad_clip_val = self._self_grad_clip_max_seen * self.self_grad_clip_margin
+            return vector
+
+        if not math.isfinite(current_norm):
+            return torch.zeros_like(vector)
+        if current_norm > self._self_grad_clip_val and current_norm > 0:
+            return vector * (self._self_grad_clip_val / current_norm)
         return vector
 
     def get_loss_list(self):

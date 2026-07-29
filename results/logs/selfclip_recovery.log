@@ -1,0 +1,5 @@
+[Fri Jul 24 12:12:26 PM UTC 2026] RECOVERY start: w1 (resume) then w50, nb_jobs=12
+[Fri Jul 24 12:12:26 PM UTC 2026] --- w1 resume ---
+[Fri Jul 24 01:05:41 PM UTC 2026] w1 done
+[Fri Jul 24 01:05:41 PM UTC 2026] --- w50 ---
+[Fri Jul 24 02:55:06 PM UTC 2026] w50 done -- RECOVERY complete

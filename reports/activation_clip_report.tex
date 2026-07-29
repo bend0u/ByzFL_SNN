@@ -132,6 +132,76 @@ The internal momentum buffer itself is never rescaled -- only the copy actually 
 the server is clipped. Swept at $\tau \in \{0.70, 0.80\}$
 (\emph{results pending -- not yet available at time of writing}).
 
+\subsection{Self-Calibrated Warmup Clip (\texttt{self\_grad\_clip\_warmup})}
+Not an activation function -- a plain-ReLU CNN where each honest client bootstraps its
+own \emph{absolute} raw-gradient-norm cap from its own early training, with no offline
+probe, no SNN, and no continuously-adaptive statistic. For the first $W$ steps the
+client only observes its raw gradient norm $n_t = \lVert g_t \rVert_2$ (no clipping);
+once warmup ends the cap is frozen and applied unchanged thereafter:
+\begin{align*}
+    C_{\text{self}} &= \Big(\max_{t \le W} n_t\Big)\cdot m
+    \qquad\text{(frozen at step $W$; $m$ = safety margin)} \\
+    g_t^{\text{clipped}} &=
+    \begin{cases}
+        g_t \cdot \dfrac{C_{\text{self}}}{n_t} & t > W \ \text{and}\ n_t > C_{\text{self}} \\
+        g_t & \text{otherwise}
+    \end{cases}
+\end{align*}
+Applied to the raw gradient (same position as \texttt{gradient\_clip\_val}$=21$). A
+short offline probe of the honest \texttt{cnn\_mnist} shows the raw grad-norm ramps up
+$4.5\times$--$8\times$ over the first $\sim$25--60 steps (heterogeneity transient)
+before decaying, so $W$ matters: $W=1$ (``clip to the literal first gradient'') freezes
+a cap well below the true honest peak, whereas $W\approx 50$--$75$ captures the peak and
+converges to the offline-calibrated honest ceiling.
+
+\paragraph{Pilot results (GeometricMedian only, 3 seeds).} \texttt{best\_test} (worst
+case across attacks) for $W=1$, $m=1.0$:
+\begin{center}
+\begin{tabular}{c|cccccc}
+$\gamma \backslash f$ & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
+$1.0$  & 0.97 & 0.97 & 0.96 & 0.95 & 0.95 & 0.94 \\
+$0.66$ & 0.98 & 0.95 & 0.92 & 0.89 & 0.87 & 0.88 \\
+$0.33$ & 0.99 & 0.96 & 0.93 & 0.90 & 0.83 & 0.55 \\
+$0.0$  & 0.98 & 0.81 & 0.24 & 0.21 & 0.16 & 0.16 \\
+\end{tabular}
+\end{center}
+Same pilot for $W=50$, $m=1.0$ (cap $\approx$ the honest ceiling, essentially
+zero honest clipping -- see the offline probe analysis above):
+\begin{center}
+\begin{tabular}{c|cccccc}
+$\gamma \backslash f$ & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
+$1.0$  & 0.99 & 0.99 & 0.98 & 0.98 & 0.98 & 0.97 \\
+$0.66$ & 0.99 & 0.98 & 0.97 & 0.94 & 0.85 & 0.90 \\
+$0.33$ & 0.99 & 0.78 & 0.50 & 0.54 & 0.43 & 0.18 \\
+$0.0$  & 0.99 & 0.16 & 0.19 & 0.16 & 0.16 & 0.16 \\
+\end{tabular}
+\end{center}
+
+\paragraph{Finding -- the prediction above was wrong, in the opposite direction.} $W=1$
+was expected to collapse at high heterogeneity from an under-sized cap; instead it
+\emph{dramatically outperforms} $W=50$ at $\gamma=0.33$ (+18 to +43 accuracy points
+across every $f$) and clearly ahead at $\gamma=0$, $f=1$ ($0.81$ vs $0.16$). $W=50$ is
+only slightly ahead at low heterogeneity ($\gamma \in \{1.0, 0.66\}$, +2 to +5 points),
+where the extra clipping was never needed. Both are tied at the pre-existing
+$\gamma=0$, $f\ge 2$ wall ($\approx 0.16$--$0.24$ for every mechanism tried so far).
+Interpretation: aggressive absolute clipping -- not calibration to the honest ceiling
+-- appears to be the dominant robustness lever here, and the earlier "cap $=$ honest
+ceiling, barely touch honest gradients" framing (fixed-21, \texttt{gradclip\_calib},
+\texttt{layerclip}) and this "clip hard, absolute anchor" framing may be doing
+genuinely different things. \textbf{Caveat}: GeometricMedian only, 3 seeds -- the
+$\gamma=0.33$ cells are a strong, consistent signal but not yet confirmed on
+CenteredClipping/TrimmedMean/MultiKrum or at 5 seeds. Figure paths assume the plot
+tree is reachable as below; adjust to your compile working directory if needed.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.48\textwidth]{../results/activation_clip_plots/cnn_mnist_selfclip_w1_gm3/best_test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+    \includegraphics[width=0.48\textwidth]{../results/activation_clip_plots/cnn_mnist_selfclip_w50_gm3/best_test_mnist_cnn_mnist_gamma_similarity_niid_NNM_ARC_nb_honest_clients_10_tolerated_f_equal_real.pdf}
+    \caption{Self-calibrated warmup clip, GM only, 3 seeds. Left: $W=1$ (clip to the
+    first gradient). Right: $W=50$ (cap $\approx$ honest ceiling). \texttt{best\_test}
+    test accuracy over heterogeneity $\gamma$ (rows) and Byzantine count $f$
+    (columns).}
+\end{figure}
+
 \clearpage
 \section{Best Overall Performance (Worst-Case Across Attacks)}
 \begin{figure}[htbp]
