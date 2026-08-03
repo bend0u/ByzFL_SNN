@@ -1,0 +1,389 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.6cm]{geometry}
+\usepackage{graphicx}\usepackage{subcaption}\usepackage{amsmath}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\graphicspath{{mixed3_assets/}}
+\title{\textbf{Byzantine-Robust FL: CNN Grad-Clip 21 vs CNN Self-Clip w1 vs SNN Atan 1.2}\\
+\large Per-aggregator and per-attack heatmap comparison}
+\author{ByzFL\_SNN}\date{\today}
+\begin{document}\maketitle
+
+\noindent Three honest-side configurations on \texttt{cnn\_mnist}/\texttt{cnn\_mnist\_snn}:
+(i) CNN ReLU with a fixed raw-gradient clip $C{=}21$, (ii) CNN ReLU with the self-calibrated
+``clip to the first gradient'' rule (\texttt{w1}), (iii) SNN with the ArcTangent surrogate
+($\alpha{=}1.2$). Shared grid: $n{=}10$ honest, $f\in\{0,\dots,5\}$, heterogeneity
+$\gamma\in\{1,0.66,0.33,0\}$, pre-agg NNM$\to$ARC, 5 seeds. Test accuracy; rows $=\gamma$,
+columns $=f$.
+\clearpage
+
+\section{Best Over Aggregators}
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_best_merged.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_best_merged.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_best_merged.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{Best test accuracy, worst-case across attacks (best over aggregators).}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_best_ALIE.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_best_ALIE.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_best_ALIE.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{Best test accuracy under Optimal ALIE (best over aggregators).}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_best_SF.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_best_SF.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_best_SF.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{Best test accuracy under Sign Flipping (best over aggregators).}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_best_IPM.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_best_IPM.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_best_IPM.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{Best test accuracy under Optimal IPM (best over aggregators).}
+\end{figure}
+
+\clearpage
+\section{Aggregator: GeometricMedian}
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_GeometricMedian_merged.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_GeometricMedian_merged.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_GeometricMedian_merged.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{GeometricMedian: worst-case across attacks.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_GeometricMedian_ALIE.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_GeometricMedian_ALIE.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_GeometricMedian_ALIE.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{GeometricMedian under Optimal ALIE.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_GeometricMedian_SF.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_GeometricMedian_SF.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_GeometricMedian_SF.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{GeometricMedian under Sign Flipping.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_GeometricMedian_IPM.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_GeometricMedian_IPM.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_GeometricMedian_IPM.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{GeometricMedian under Optimal IPM.}
+\end{figure}
+
+\clearpage
+\section{Aggregator: CenteredClipping}
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_CenteredClipping_merged.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_CenteredClipping_merged.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_CenteredClipping_merged.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{CenteredClipping: worst-case across attacks.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_CenteredClipping_ALIE.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_CenteredClipping_ALIE.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_CenteredClipping_ALIE.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{CenteredClipping under Optimal ALIE.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_CenteredClipping_SF.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_CenteredClipping_SF.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_CenteredClipping_SF.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{CenteredClipping under Sign Flipping.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_CenteredClipping_IPM.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_CenteredClipping_IPM.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_CenteredClipping_IPM.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{CenteredClipping under Optimal IPM.}
+\end{figure}
+
+\clearpage
+\section{Aggregator: TrMean}
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_TrMean_merged.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_TrMean_merged.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_TrMean_merged.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{TrMean: worst-case across attacks.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_TrMean_ALIE.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_TrMean_ALIE.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_TrMean_ALIE.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{TrMean under Optimal ALIE.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_TrMean_SF.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_TrMean_SF.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_TrMean_SF.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{TrMean under Sign Flipping.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_TrMean_IPM.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_TrMean_IPM.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_TrMean_IPM.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{TrMean under Optimal IPM.}
+\end{figure}
+
+\clearpage
+\section{Aggregator: MultiKrum}
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_MultiKrum_merged.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_MultiKrum_merged.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_MultiKrum_merged.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{MultiKrum: worst-case across attacks.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_MultiKrum_ALIE.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_MultiKrum_ALIE.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_MultiKrum_ALIE.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{MultiKrum under Optimal ALIE.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_MultiKrum_SF.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_MultiKrum_SF.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_MultiKrum_SF.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{MultiKrum under Sign Flipping.}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{g21_MultiKrum_IPM.pdf}
+        \caption{CNN ReLU, Grad-Clip $C{=}21$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{w1_MultiKrum_IPM.pdf}
+        \caption{CNN ReLU, Self-Clip \texttt{w1}}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}\centering
+        \includegraphics[width=\textwidth]{snn_MultiKrum_IPM.pdf}
+        \caption{SNN Atan ($\alpha{=}1.2$)}
+    \end{subfigure}
+    \caption{MultiKrum under Optimal IPM.}
+\end{figure}
+
+\clearpage
+\end{document}
